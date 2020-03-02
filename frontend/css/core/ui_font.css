@@ -1,0 +1,38 @@
+.h1 {
+    font-size: 3.5rem;
+    color: #d32323;
+}
+
+.h2 {
+    font-size: 3rem;
+    color: #d32323;
+}
+
+.h3 {
+    font-size: 2.5rem;
+    color: #d32323;
+}
+
+.h4 {
+    font-size: 2rem;
+    color: #d32323;
+}
+
+.h5 {
+    font-size: 1.5rem;
+    color: #d32323;
+}
+
+.p {
+    font-size: 1rem;
+}
+
+.medium {
+    font-size: 0.85rem
+}
+.small-medium{
+    font-size: 0.8rem
+}
+.small{
+    font-size: 0.75rem
+}

@@ -1,0 +1,11 @@
+.yocal-main{
+    min-width: 1020px;
+    display: flex;
+    flex-direction: column;
+    background-image: url('/assets/main_background.jpg');
+    background-size: cover;                      
+    background-repeat: no-repeat;
+    background-position: 50%;
+    padding-top: 30px;
+}
+

@@ -1,0 +1,24 @@
+.UA-body{
+    min-width: 1020px;
+    display: flex;
+    justify-content: center;
+}
+
+.UA-body-container{
+    min-height: 720px;
+    width: 990px;
+    padding: 15px 15px 36px 15px;
+    margin: 0 auto;    
+}
+
+.UA-body-layout{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+}
+.UA-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

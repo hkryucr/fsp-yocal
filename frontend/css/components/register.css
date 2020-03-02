@@ -1,0 +1,32 @@
+.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%
+}
+
+.register-container{
+    display: flex;
+    max-width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.register-start{
+    max-width: 300px;
+    margin: auto;
+}
+
+.register-switch {
+    margin: 12px auto 0;
+    text-align: right;
+}
+
+.register-switch-text {
+    color: #999;
+    margin-right: 10px;
+}
+
+.register-switch-link{
+    color: #0073bb;
+}

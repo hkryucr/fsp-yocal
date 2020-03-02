@@ -1,0 +1,20 @@
+.UA-header{
+    display: flex;
+    background-color: #d32323;
+    height: 64px;
+    width: 100%;
+}
+
+.UA-logo{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.UA-logo-image{
+    height: 63%;
+    width: auto
+}
+

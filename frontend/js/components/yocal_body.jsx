@@ -1,8 +1,7 @@
 import React from 'react';
-import MainSection from 'js/components/main_section/main_section';
+import MainSectionContainer from 'js/components/main_section/main_section_container';
 import BusinessSearch from 'js/components/business_search/business_search';
-import css from 'css/components/yocal_body.css';
-
+import 'css/components/yocal_body.css';
 
 class YocalBody extends React.Component{
     constructor(props){
@@ -12,7 +11,7 @@ class YocalBody extends React.Component{
     render (){
         return(
             <div className="yocal-body">
-                <MainSection/>
+                <MainSectionContainer/>
                 <BusinessSearch/>
             </div>
         )

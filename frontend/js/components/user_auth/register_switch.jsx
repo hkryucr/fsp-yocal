@@ -2,11 +2,16 @@ import React from 'react';
 import 'css/components/register.css';
 import { Link } from 'react-router-dom';
 
-const RegisterSwitch = ()=> {
+const RegisterSwitch = (props)=> {
+    const linkDiv = ((props.formType) === 'Log In') ? (
+        <Link to="/signup" className="small register-switch-link">Sign Up</Link>
+    ) : (
+        <Link to="/login" className="small register-switch-link">Log In</Link>
+    ) 
     return (
         <div className="register-switch">
-            <span className="medium register-switch-text">Already on Yelp?</span>
-            <Link to="/login" className="medium register-switch-link">Log in</Link>
+            <span className="small register-switch-text">{(props.formType) === 'Log In' ? 'New to Yelp?' : 'Already on Yelp?'}</span>
+            {linkDiv}
         </div>
     )
 }

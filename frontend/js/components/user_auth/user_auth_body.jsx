@@ -13,7 +13,7 @@ class UserAuthBody extends React.Component {
             <div className="UA-body">
                 <div className="UA-body-container">
                     <div className="UA-body-layout">
-                        <Register/>                        
+                        <Register formType={this.props.formType} processForm={this.props.processForm} history={this.props.history}/>                        
                         <UserAuthImage/>
                     </div>
                 </div>

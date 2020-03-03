@@ -1,0 +1,83 @@
+.register-signup-form{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.register-signup-form > .RS-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.RS-form ul {
+    display: flex;
+    flex-direction: row;
+    width: 100%
+}
+
+.firstname-label {
+    margin-right: 10px;
+    width: 40%
+}
+.lastname-label {
+    margin-left: 10px;
+    width: 40%
+
+}
+
+.register-signup-form label {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.input-wrapper, .input-wrapper-name{
+    text-align: left;
+    padding: 5px 0px 5px 0px;
+    border: 1px solid #666;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    width: 99%;
+}
+
+.input-wrapper input, .input-wrapper-name input{
+    font-size: 0.85rem;
+    margin-left: 4px;
+    width: 90%
+}
+
+.birthday-label{
+    display: flex;
+    flex-direction: column;
+}
+
+.birthday-header{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px;
+    align-items: center;
+}
+.birthday-header div:first-child{
+    margin-right: 5px;
+    font-weight: bold;
+}
+.birthday-header div:last-child{
+    margin-right: 5px;
+    color: #666;   
+}
+
+.RS-form > span{
+    color: #333;
+    text-align: justify;
+    margin-bottom: 20px;
+    margin-top: 7px;
+    line-height: 1.4;
+}
+
+.RS-form > button{
+    width: 100%;
+    padding: 10px 0 10px 0;
+    border-radius: 3px;
+    border: 1px solid #d32323;
+    font-weight: bold;
+}

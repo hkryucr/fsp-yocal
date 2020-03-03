@@ -1,30 +1,16 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import YocalMain from 'js/yocal-main';
-import UserAuth from 'js/components/user_auth/user_auth';
 import Footer from 'js/components/footer';
-// import css from 'css/app.css';
-
-// import GreetingContainer from 'components/greeting/greeting_container';
-// import LoginFormContainer from 'components/session_form/login_form_container';
-// import SignupFormContainer from 'components/session_form/signup_form_container';
-// import SearchContainer from 'components/benches/search_container';
-// import BenchFormContainer from 'components/bench_form/bench_form_container';
-// import { AuthRoute } from 'util/route_util';
+import { AuthRoute } from 'util/route_util.jsx';
+import RegisterSignupContainer from 'js/components/user_auth/register_signup_container';
+import RegisterLoginContainer from 'js/components/user_auth/register_login_container';
 
 const App = () => (
     <div className="app">
-        {/* <div>
-            <Link to="/"><h3>Bench BnB</h3></Link>
-            <Link to="/benches/new"><h3>New Bench</h3></Link>
-            <GreetingContainer />
-        </div>
-        <AuthRoute path="/login" component={LoginFormContainer} />
-        <AuthRoute path="/signup" component={SignupFormContainer} />
-        <Route exact path="/" component={SearchContainer} />
-        <Route exact path="/benches/new" component={BenchFormContainer} /> */}
         <Route exact path="/" component={YocalMain}></Route>
-        <Route exact path="/signup" component={UserAuth}></Route>
+        <AuthRoute path="/login" component={RegisterLoginContainer} />
+        <AuthRoute path="/signup" component={RegisterSignupContainer} />
         <Footer/>
     </div>
 );

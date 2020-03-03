@@ -1,7 +1,6 @@
 class Api::UsersController < ApplicationController
     def index
         @users = User.all
-        p @users
         render :index
     end
 
@@ -32,6 +31,6 @@ class Api::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:username, :password, :email, :zipcode, :birthday)
+        params.require(:user).permit(:email, :password, :firstname, :lastname, :zipcode, :birthday)
     end
 end

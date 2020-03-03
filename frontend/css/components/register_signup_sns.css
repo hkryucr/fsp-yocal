@@ -1,0 +1,42 @@
+.fb-button {
+    color: #fff;
+    background-color: #3b5998;
+    border: 1px solid #3b5998;   
+    font-weight: bold;
+    padding: 8px 0px 8px 0px;
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.fb-button > span {
+    margin-left: 6px;
+}
+
+.g-button{
+    color: #666;
+    border: 1px solid #5050505d;   
+    height: 0.9rem;
+    width: 100%;
+    font-weight: bold;
+    padding: 8px 0px 8px 0px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    text-align: center;
+    position:relative;
+}
+.g-button-img {
+    display: inline-block;
+    border: none;
+    height: 100%;
+    width: auto;
+}
+
+.g-button > span {
+    height: 100%;
+    width: 100%;
+    margin-left: 6px;
+    line-height: 4px;
+    margin-bottom:1px;
+}
+

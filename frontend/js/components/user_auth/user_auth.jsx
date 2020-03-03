@@ -11,7 +11,7 @@ class UserAuth extends React.Component {
         return (
             <div className="UA">
                 <UserAuthHeader/>
-                <UserAuthBody/>
+                <UserAuthBody formType={this.props.formType} processForm={this.props.processForm} history={this.props.history}/>
             </div>
         )
     }

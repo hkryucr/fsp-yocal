@@ -11,11 +11,9 @@ class RegisterSignupHeader extends React.Component {
     render() {
         return (
             <div className="register-signup-header">
-                <div className="h5 header-title">Sign Up for Yelp</div>
+                <div className="h5 header-title">{this.props.formType} for Yelp</div>
                 <div className="medium header-text">Connect with great local businesses</div>
                 <div className="small-medium header-text-link">By continuing, you agree to Yelp’s Terms of Service and acknowledge Yelp’s Privacy Policy.</div>
-                {/* <div className="register-signup-header-container">
-                </div> */}
             </div>
         )
     }

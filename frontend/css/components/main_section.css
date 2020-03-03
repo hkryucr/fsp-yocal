@@ -14,7 +14,6 @@
 
 .main-section-container-header{
     display: flex;
-    /* flex-direction: row; */
     justify-content: space-between;
     color: white
 }
@@ -35,6 +34,12 @@
     font-weight: 500;
     text-shadow: 0.2px 0.2px white;
     cursor: pointer;
+}
+.main-section-container-header-greeting{
+    padding: 10px;
+    margin-right: 30px;
+    font-weight: 500;
+    text-shadow: 0.2px 0.2px white;
 }
 
 .signup-button{
@@ -71,6 +76,7 @@
     flex-direction: row;
     justify-content: space-between;
     min-width: 100%;
+    align-items: center;
 }
 
 .search-form-arrange-unit{
@@ -94,8 +100,7 @@
 
 .find-span, .near-span {
     margin-right: 12px;
-    color: rgba(83, 83, 83, 0.548);
-    /* text-shadow: 0.3px 0.3px#666; */
+    color: #666;;
     font-weight: bold;
 }
 .pseudo-input-field-holder {
@@ -105,8 +110,10 @@
     width: 100%;
 }
 
-.arrange-unit-right{
-    border-left: 1px dashed rgb(163, 161, 161);
+.search-form-middle-border{
+    border-left: 1px solid #ccc;;
+    width: 1px;
+    height: 25px;
 }
 
 .search-form-button{
@@ -148,4 +155,3 @@
     color: white;
     padding: 2px;
 }
-

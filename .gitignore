@@ -6,6 +6,7 @@ bundle.js.map
 # config/initializers/secret_token.rb
 config/master.key
 config/initializers/secret_token.rb
+config/credentials.yml.enc
 
 # Ignore all logfiles and tempfiles.
 /log/*

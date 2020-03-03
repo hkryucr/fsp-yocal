@@ -1,19 +1,18 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
-import YocalBody from 'js/components/yocal_body';
-import Footer from 'js/components/footer';
-import css from 'css/yocal_main.css';
+import YocalBody from 'js/components/main_section/yocal_body';
+import 'css/yocal_main.css';
+import CustomMain from 'js/components/main_section/custom_main';
 
-// import GreetingContainer from 'components/greeting/greeting_container';
-// import LoginFormContainer from 'components/session_form/login_form_container';
-// import SignupFormContainer from 'components/session_form/signup_form_container';
-// import SearchContainer from 'components/benches/search_container';
-// import BenchFormContainer from 'components/bench_form/bench_form_container';
-// import { AuthRoute } from 'util/route_util';
+import BusinessSearch from 'js/components/business_search/business_search';
 
 const YocalMain = () => (
     <div className="yocal-main">
-        <YocalBody/>
+        <div className="yocal-main-container">
+            <YocalBody/>
+        </div>
+        {/* <BusinessSearch/> */}
+        {/* Reviews Await Page */}
+        <CustomMain/>
     </div>
 );
 

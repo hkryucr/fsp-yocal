@@ -1,4 +1,5 @@
 import React from 'react';
+import 'css/components/business_search.css';
 
 class BusinessSearch extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class BusinessSearch extends React.Component {
     render() {
         return (
             <div className="business-search">
-                {/* This is BusinessSearch */}
+                This is BusinessSearch - different page
             </div>
         )
     }

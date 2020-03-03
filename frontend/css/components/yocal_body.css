@@ -1,9 +1,8 @@
 .yocal-body{
-    height: 570px;
+    height: 600px;
     padding-top: 30px;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     width: 960px;
     margin: 0 auto;
     padding: 0 15px;

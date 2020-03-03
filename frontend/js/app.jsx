@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import YocalMain from 'js/yocal-main';
 import Footer from 'js/components/footer';
 import { AuthRoute } from 'util/route_util.jsx';

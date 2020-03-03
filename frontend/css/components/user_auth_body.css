@@ -3,12 +3,40 @@
     display: flex;
     justify-content: center;
 }
+.error-text-container {
+    display: flex;
+    justify-content: center;
+}
+
+.error-text-layout{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 12px;
+    padding: 18px 18px 18px 24px;
+    border-radius: 3px;
+    line-height: 1.5em;
+    background: #fcd6d3;
+}
+.error-text{
+    margin-left: 10px;
+}
+
+.error-x{
+    margin-right: 10px;
+    color:  #666;
+    cursor: pointer;
+}
 
 .UA-body-container{
     min-height: 720px;
     width: 990px;
     padding: 15px 15px 36px 15px;
-    margin: 0 auto;    
+    margin: 0 auto;   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .UA-body-layout{
@@ -16,6 +44,8 @@
     flex-direction: row;
     justify-content: space-between;
     height: 100%;
+    font-size: 0.9rem;
+    color:#333;
 }
 .UA-image{
     display: flex;

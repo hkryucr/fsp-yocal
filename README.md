@@ -1,24 +1,4 @@
-# README
+# Full-stack Project - Yocal
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Yocal is a single-page web clone application inspired by Yelp to help you find restaurants near you. Yocal is built using Ruby on Rails on the back-end, React, Redux on the front-end.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

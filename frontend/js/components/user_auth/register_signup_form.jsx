@@ -43,28 +43,28 @@ class RegisterSignupForm extends React.Component {
                 <ul>
                     <label className="firstname-label">
                         <div className="input-wrapper-name">
-                            <input type="text" placeholder="First Name" onChange={this.update('firstname')} />
+                            <input type="text" placeholder="First Name" required minLength="1" onChange={this.update('firstname')} />
                         </div>
                     </label>
                     <label className="lastname-label">
                         <div className="input-wrapper-name">
-                            <input type="text" placeholder="Last Name" onChange={this.update('lastname')} />
+                            <input type="text" placeholder="Last Name" required minLength="1" onChange={this.update('lastname')} />
                         </div>
                     </label>
                 </ul>
                 <label>
                     <div className="input-wrapper">
-                        <input type="text" placeholder="Email" onChange={this.update('email')} />
+                        <input type="email" placeholder="Email" required minLength="2" onChange={this.update('email')} />
                     </div>
                 </label>
                 <label>
                     <div className="input-wrapper">
-                        <input type="password" placeholder="Password" onChange={this.update('password')} />
+                        <input type="password" placeholder="Password" required minLength="6" onChange={this.update('password')} />
                     </div>
                 </label>
                 <label className="zipcode-label">
                     <div className="input-wrapper">
-                        <input type="text" placeholder="ZIP Code" onChange={this.update('zipcode')} />
+                        <input type="text" placeholder="ZIP Code" required minLength="1" onChange={this.update('zipcode')} />
                     </div>
                 </label>
                 <ul className="birthday">
@@ -87,12 +87,12 @@ class RegisterSignupForm extends React.Component {
             <form className="RS-form" onSubmit={this.handleSubmit(this.props.formType)}>
                 <label>
                     <div className="input-wrapper">
-                        <input type="text" placeholder="Email" onChange={this.update('email')} />
+                        <input type="email" placeholder="Email" required minLength="1" onChange={this.update('email')} />
                     </div>
                 </label>
                 <label>
                     <div className="input-wrapper">
-                        <input type="password" placeholder="Password" onChange={this.update('password')} />
+                        <input type="password" placeholder="Password" required minLength="6" onChange={this.update('password')} />
                     </div>
                 </label>
                 <button className="ui-button">{this.props.formType}</button>

@@ -1,4 +1,8 @@
 .yocal-main{
+    width: 100%;
+}
+
+.yocal-main-container{
     min-width: 1020px;
     display: flex;
     flex-direction: column;
@@ -7,5 +11,5 @@
     background-repeat: no-repeat;
     background-position: 50%;
     padding-top: 30px;
+    align-items: top;
 }
-

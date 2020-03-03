@@ -1,21 +1,8 @@
-import { RECEIVE_ERRORS, RECEIVE_CURRENT_USER } from "actions/session_actions";
+import { combineReducers } from "redux";
+import sessionErrorsReducer from "reducers/session_errors_reducer";
 
-// NOTE: action.errors is an array!!
-const sessionErrorsReducer = (state = [], action) => {
-    Object.freeze(state);
+const errorsReducer = combineReducers({
+    session: sessionErrorsReducer
+});
 
-    switch (action.type) {
-        case RECEIVE_ERRORS:
-            if (action.errors) {
-                return action.errors;
-            } else {
-                return [];
-            }
-        case RECEIVE_CURRENT_USER:
-            return [];
-        default:
-            return state;
-    }
-};
-
-export default sessionErrorsReducer;
+export default errorsReducer;

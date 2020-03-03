@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import RegisterSignup from 'js/components/user_auth/register_signup';
 import UserAuth from 'js/components/user_auth/user_auth';
+import { fetchClearErrors } from 'actions/session_actions'
 
 const mapStateToProps = (state, ownProps) => ({
     errors: state.errors,
@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    processForm: (action_name) => dispatch(action_name)
+    processForm: (action_name) => dispatch(action_name),
+    fetchClearErrors: () => dispatch(fetchClearErrors())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserAuth);

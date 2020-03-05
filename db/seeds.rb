@@ -39,10 +39,10 @@ biz_data.each do |biz|
     hour["business_id"] = cur_biz.id
     cur_hour = Hour.create(hour)
   end
-
-  cur_biz.business_photo.attach(io: File.open("/Users/henryryu/Desktop/fsp/photos/#{cur_biz[:business_name]}0.jpg"), filename: ("#{cur_biz[:business_name]}0.jpg"))
-  cur_biz.business_photo.attach(io: File.open("/Users/henryryu/Desktop/fsp/photos/#{cur_biz[:business_name]}1.jpg"), filename: ("#{cur_biz[:business_name]}1.jpg"))
-  cur_biz.business_photo.attach(io: File.open("/Users/henryryu/Desktop/fsp/photos/#{cur_biz[:business_name]}2.jpg"), filename: ("#{cur_biz[:business_name]}2.jpg"))
+  
+  cur_biz.business_photo.attach(io: File.open(Rails.root.join('lib', 'seeds', 'photos', "#{cur_biz[:business_name]}0.jpg")), filename: ("#{cur_biz[:business_name]}0.jpg"))
+  cur_biz.business_photo.attach(io: File.open(Rails.root.join('lib', 'seeds', 'photos', "#{cur_biz[:business_name]}1.jpg")), filename: ("#{cur_biz[:business_name]}0.jpg"))
+  cur_biz.business_photo.attach(io: File.open(Rails.root.join('lib', 'seeds', 'photos', "#{cur_biz[:business_name]}2.jpg")), filename: ("#{cur_biz[:business_name]}0.jpg"))
 end
 
 # reviews database

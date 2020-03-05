@@ -6,8 +6,10 @@ const sessionErrorsReducer = (state = [], action) => {
 
     switch (action.type) {
         case RECEIVE_ERRORS:
-            if (action.errors) {
+            if (action.errors & Array.isArray(action.errors)) {
                 return action.errors;
+            } else if (action.errors){
+                return [ action.errors ]
             } else {
                 return [];
             }

@@ -2649,8 +2649,10 @@ var sessionErrorsReducer = function sessionErrorsReducer() {
 
   switch (action.type) {
     case actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ERRORS"]:
-      if (action.errors) {
+      if (action.errors & Array.isArray(action.errors)) {
         return action.errors;
+      } else if (action.errors) {
+        return [action.errors];
       } else {
         return [];
       }

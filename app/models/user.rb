@@ -27,8 +27,6 @@ class User < ApplicationRecord
     
     # active storage association
     has_one_attached :photo
-    # User.all[0].photo.attached?
-    # User.all[0].photo -> this photo is the name I crea
 
     has_many :reviews,
         foreign_key: :author_id,
@@ -63,7 +61,7 @@ class User < ApplicationRecord
         self.session_token
     end
 
-    private
+    # private
     def ensure_session_token
         self.session_token ||= SecureRandom.urlsafe_base64(16)
     end

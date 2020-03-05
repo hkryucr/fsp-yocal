@@ -63,5 +63,6 @@ input[type="submit"] {
 }
 
 body{
-  font-family: "Verdana", sans-serif;
+  /* font-family: "Verdana", sans-serif; */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

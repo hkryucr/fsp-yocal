@@ -1828,7 +1828,7 @@ var RegisterSignupSNS = /*#__PURE__*/function (_React$Component) {
         className: "g-button small-medium"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "g-button-img",
-        src: "/assets/google_icon.png"
+        src: window.googleIcon
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.formType, " with Google ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "small"
       }, "Don't worry, we never post without your permission."));
@@ -2094,7 +2094,7 @@ var UserAuthHeader = /*#__PURE__*/function (_React$Component) {
         to: "/",
         className: "UA-logo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "/assets/yelp_logo.png",
+        src: window.yelpLogo,
         className: "UA-logo-image"
       })));
     }
@@ -2126,7 +2126,7 @@ var UserAuthImage = function UserAuthImage() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "UA-image-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "/assets/signup_photo.png",
+    src: window.signupPhoto,
     className: "UA-image-1"
   })));
 };

@@ -11,7 +11,7 @@ class UserAuthHeader extends React.Component {
         return (
             <div className="UA-header">
                 <Link to="/" className="UA-logo">
-                    <img src="/assets/yelp_logo.png" className="UA-logo-image"/>
+                    <img src={window.yelpLogo} className="UA-logo-image"/>
                 </Link>
             </div>
         )

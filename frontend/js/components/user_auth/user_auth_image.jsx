@@ -4,7 +4,7 @@ const UserAuthImage = ()=>{
     return (
         <div className="UA-image">
             <div className="UA-image-container">
-                <img src="/assets/signup_photo.png" className="UA-image-1" />
+                <img src={window.signupPhoto} className="UA-image-1" />
             </div>
         </div>
     )

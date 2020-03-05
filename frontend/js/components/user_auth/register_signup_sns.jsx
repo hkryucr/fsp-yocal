@@ -14,7 +14,7 @@ class RegisterSignupSNS extends React.Component{
                     <span> {this.props.formType} with Facebook </span>
                 </button>
                 <button className="g-button small-medium">
-                    <img className="g-button-img" src="/assets/google_icon.png"/>
+                    <img className="g-button-img" src={window.googleIcon}/>
                     <span>{this.props.formType} with Google </span>
                 </button>
                 <div className="small">Don't worry, we never post without your permission.</div>

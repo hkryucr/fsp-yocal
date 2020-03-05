@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_230548) do
+ActiveRecord::Schema.define(version: 2020_03_04_232337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,8 +55,52 @@ ActiveRecord::Schema.define(version: 2020_03_03_230548) do
     t.boolean "is_closed", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "review_count"
     t.index ["business_name"], name: "index_businesses_on_business_name"
     t.index ["latitude", "longitude"], name: "index_businesses_on_latitude_and_longitude"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categorizings", force: :cascade do |t|
+    t.integer "business_id", null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hours", force: :cascade do |t|
+    t.boolean "is_overnight"
+    t.string "start"
+    t.string "end"
+    t.integer "day"
+    t.integer "business_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_id"], name: "index_hours_on_business_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "author_id", null: false
+    t.integer "business_id", null: false
+    t.string "business_name", null: false
+    t.string "rating"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id", "business_id"], name: "index_reviews_on_author_id_and_business_id"
+  end
+
+  create_table "saved_businesses", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "business_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "business_id"], name: "index_saved_businesses_on_user_id_and_business_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|

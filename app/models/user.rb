@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  session_token   :string           not null
+#  password_digest :string           not null
+#  email           :string           not null
+#  zipcode         :string           not null
+#  birthday        :date
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  firstname       :string
+#  lastname        :string
+#
 class User < ApplicationRecord
     validates :firstname, presence: true
     validates :lastname, presence: true
@@ -14,6 +29,18 @@ class User < ApplicationRecord
     has_one_attached :photo
     # User.all[0].photo.attached?
     # User.all[0].photo -> this photo is the name I crea
+
+    has_many :reviews,
+        foreign_key: :author_id,
+        class_name: :Review
+
+    has_many :saved_relational_businesses,
+        foreign_key: :user_id,
+        class_name: :SavedBusiness
+    
+    has_many :saved_businesses,
+        through: :saved_relational_businesses,
+        source: :business
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)

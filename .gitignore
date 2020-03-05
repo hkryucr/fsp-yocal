@@ -1,5 +1,5 @@
-node_modules/
-bundle.js
+/node_modules/
+/bundle.js
 bundle.js.map
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
@@ -13,6 +13,8 @@ config/credentials.yml.enc
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/log/*
+/log/.keep
 
 ## Environment normalization:
 /.bundle
@@ -25,6 +27,7 @@ config/credentials.yml.enc
 
 # Ignore Byebug command history file.
 .byebug_history
+.DS_Store
 
 # Ignore node_modules
 /public/packs
@@ -32,3 +35,5 @@ config/credentials.yml.enc
 /public/assets
 /tmp
 
+npm-debug.log
+/yarn-error.log/public/assets

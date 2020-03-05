@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import YocalMain from 'js/yocal-main';
-import Footer from 'js/components/footer';
+import Footer from 'js/components/footer/footer';
 import { AuthRoute } from 'util/route_util.jsx';
 import RegisterSignupContainer from 'js/components/user_auth/register_signup_container';
 import RegisterLoginContainer from 'js/components/user_auth/register_login_container';
+import 'css/app.css';
 
 const App = () => (
     <div className="app">

@@ -1,5 +1,5 @@
 import React from 'react';
-import 'css/components/custom-main.css';
+import 'css/components/custom_main.css';
 
 import ReviewAwait from 'js/components/main_section/review_await';
 

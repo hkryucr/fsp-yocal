@@ -1,5 +1,5 @@
 .UA-body{
-    min-width: 1020px;
+    min-width: 63.75rem;
     display: flex;
     justify-content: center;
 }
@@ -30,7 +30,7 @@
 }
 
 .UA-body-container{
-    min-height: 720px;
+    min-height: 45rem;
     width: 990px;
     padding: 15px 15px 36px 15px;
     margin: 0 auto;   

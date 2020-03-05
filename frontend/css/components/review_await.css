@@ -1,4 +1,89 @@
 .review-await{
-    height: 500px;
-    background-color: rgba(240, 255, 255, 0.63);
+    width: 100%
+}
+
+.review-await-title {
+    font-weight: bold;
+    color: #d32323;
+    width: 100%
+}
+
+.review-await-container{
+    padding-top: 36px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.review-await-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.review-await-container h2 {
+    margin-bottom: 24px;
+}
+
+.review-await-items {
+    width: 100%
+}
+
+.review-await-items-container {
+    width: 100%
+}
+.review-await-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.review-await-item{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    width: 29.375;
+    /* width: 50%; */
+    /* align-items: center; */
+}
+
+.review-await-item-container{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    /* align-items: center; */
+}
+
+.review-await-item-content{
+    margin-bottom: 1rem;
+}
+
+.review-await-item-pic {
+    width: 9.375rem;
+    height: 9.375rem;
+    border-radius: 2px;
+}
+
+.pic-info{
+    padding: 1.5rem;
+}
+
+.review-await-item-title{
+    width: 15.625rem;
+    color: #0073bb;
+    font-weight: bold;
+    margin-bottom: 0.375rem;
+}
+
+.ratings .star{
+    border-radius: 4px;
+    width: 1.875rem;
+    height: 1.875rem;
+    padding: 0.4rem 0.2rem;
+    margin-right: 0.2rem;
+    background-color: #cccccc;
+    
 }

@@ -1,9 +1,18 @@
 .yocal-main{
     width: 100%;
+    height: auto;
+}
+.yocal-main:after{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
 }
 
 .yocal-main-container{
-    min-width: 1020px;
+    min-width: 63.75rem;
     display: flex;
     flex-direction: column;
     background-image: url('/assets/main_background.jpg');
@@ -13,3 +22,6 @@
     padding-top: 30px;
     align-items: top;
 }
+
+
+

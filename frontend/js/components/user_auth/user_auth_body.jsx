@@ -12,7 +12,6 @@ class UserAuthBody extends React.Component {
 
     removeError(e){
         e.preventDefault()
-        console.log(this.props)
         this.props.fetchClearErrors();
     }
 
@@ -21,7 +20,6 @@ class UserAuthBody extends React.Component {
             <div className="error-text-container">
                 <div className="error-text-layout">
                     <div className="error-text">
-                        {/* {this.errors.join(" &")} */}
                         {(!!this.props.errors.session) ? this.props.errors.session.join(" & ") : null}
                     </div>
                     <div className="error-x" onClick={this.removeError}>

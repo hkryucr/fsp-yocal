@@ -2,6 +2,15 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 
 const MainSectionHeader = (props) => {
+
+    const titleize = (string)=>{
+        if(string.length === 0){
+            return ""
+        } else {
+            return (string.charAt(0).toUpperCase() + string.slice(1))
+        }
+    }
+
     const handleClick = (e)=>{
         e.preventDefault();
         props.logout();
@@ -18,7 +27,7 @@ const MainSectionHeader = (props) => {
     } else {
         loginDiv = (
             <div className="main-section-container-header-right">
-                <div className="main-section-container-header-greeting medium">Hello, {props.currentUser.firstname} {props.currentUser.lastname} !</div>
+                <div className="main-section-container-header-greeting medium">Hello, {titleize(props.currentUser.firstname)} {titleize(props.currentUser.lastname)} !</div>
                 <div className="main-section-container-header-item medium signup-button" onClick={handleClick}>Log Out</div>
             </div>
         );

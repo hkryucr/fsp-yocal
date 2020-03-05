@@ -3,17 +3,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%
+    min-width: 63.75rem;
+    margin-bottom: 2rem;
 }
 
 .custom-main-container{
-    max-width: 960px;
+    max-width: 60rem;
     margin: 0 auto;
     padding: 0 15px;
-    background-color: antiquewhite;
 }
 
 .custom-main-layout{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }

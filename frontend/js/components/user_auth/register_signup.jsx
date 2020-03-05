@@ -1,6 +1,6 @@
 import React from 'react';
 import RegisterSignupHeader from 'js/components/user_auth/register_signup_header';
-import RegisterSignupSNS from 'js/components/user_auth/register_signup_SNS';
+import RegisterSignupSNS from 'js/components/user_auth/register_signup_sns';
 import RegisterSignupForm from 'js/components/user_auth/register_signup_form';
 import RegisterSwitch from 'js/components/user_auth/register_switch';
 import 'css/components/register_signup.css';

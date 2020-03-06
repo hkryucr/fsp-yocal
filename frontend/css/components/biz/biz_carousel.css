@@ -1,0 +1,43 @@
+.biz-carousel{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.biz-carousel-container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.biz-carousel-container{
+    background-color: white;
+}
+
+.biz-carousel-gallery{
+    background-color: white;
+}
+
+.biz-carousel-gallery-cell {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 25%;
+    height: calc(100vw/5 - 15px);
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.biz-carousel-gallery-cell img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.biz-carousel-gallery-cell:before {
+  display: block;
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+.flickity-page-dots{
+    display: none;
+}

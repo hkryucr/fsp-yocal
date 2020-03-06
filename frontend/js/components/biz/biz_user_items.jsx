@@ -13,12 +13,12 @@ class BizUserItem extends React.Component{
                         <div className="header-user-item">Write a Review</div>
                     </div>
                     <div className="header-user-button-container">
-                        <Link className="header-user-button-1">
+                        <Link to="/login" className="header-user-button-1">
                             <span>
                                 Log In
                             </span>
                         </Link>
-                        <Link className="header-user-button-2">
+                        <Link to="/signup" className="header-user-button-2">
                             <span>
                                 Sign Up
                             </span>

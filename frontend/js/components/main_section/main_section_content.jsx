@@ -36,7 +36,7 @@ class MainSectionContent extends React.Component {
                                 <span className="pseudo-input-wrapper">
                                     <span className="near-span">Near</span>
                                     <span className="pseudo-input-field-holder">
-                                        <input type="text" value="San Francisco, CA" />
+                                        <input type="text" placeholder="San Francisco, CA" />
                                     </span>
                                 </span>
                             </div>

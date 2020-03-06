@@ -12,7 +12,7 @@ class BizCarousel extends React.Component{
         $('.biz-carousel-gallery').flickity({
             pageDots: false,
             wrapAround: true,
-            autoPlay: 2000
+            autoPlay: 3000
         });
     }
 

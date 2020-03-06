@@ -16,7 +16,7 @@ class RegisterSignup extends React.Component{
             <div className="register-signup">
                 <div className="register-signup-container">
                     <RegisterSignupHeader formType={this.props.formType}/>
-                    <RegisterSignupSNS formType={this.props.formType}/>
+                    <RegisterSignupSNS formType={this.props.formType} processForm={this.props.processForm}/>
                     <div className="register-signup-line">
                         <div></div>
                         <span className="medium">OR</span>

@@ -1,6 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
+demo = User.create!(firstname: "Guest", lastname: "User", password: "GuestUser", email: "GuestUser@gmail.com", zipcode: "94538", birthday: Date.new(1984, 1, 27))
 user1 = User.create!(firstname: "henry", lastname: "ryu", password: "henry123", email: "henry@gmail.com", zipcode: "94538", birthday: Date.new(1984, 1, 27))
 user2 = User.create!(firstname: "billy", lastname: "jan", password: "billy123", email: "billy@gmail.com", zipcode: "94224", birthday: Date.new(1981, 12, 2))
 user3 = User.create!(firstname: "joy", lastname: "su", password: "joy123", email: "joy@gmail.com", zipcode: "93538", birthday: Date.new(1974, 1, 3))

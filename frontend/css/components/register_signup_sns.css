@@ -13,7 +13,7 @@
     margin-left: 6px;
 }
 
-.g-button{
+.g-button, .d-button{
     color: #666;
     border: 1px solid #5050505d;   
     height: 0.9rem;
@@ -40,3 +40,15 @@
     margin-bottom:1px;
 }
 
+.g-button-fai {
+    max-height: 100%;
+    width: auto;
+}
+
+.d-button > span {
+    color: rgb(65, 65, 65);
+}
+
+.d-button > span {
+    margin-left: 5px;
+}

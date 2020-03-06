@@ -1,6 +1,7 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import YocalMain from 'js/yocal-main';
+import Biz from 'js/components/biz/biz';
 import Footer from 'js/components/footer/footer';
 import { AuthRoute } from 'util/route_util.jsx';
 import RegisterSignupContainer from 'js/components/user_auth/register_signup_container';
@@ -9,9 +10,12 @@ import 'css/app.css';
 
 const App = () => (
     <div className="app">
-        <Route exact path="/" component={YocalMain}></Route>
-        <AuthRoute path="/login" component={RegisterLoginContainer} />
-        <AuthRoute path="/signup" component={RegisterSignupContainer} />
+        <Switch>
+            <AuthRoute path="/login" component={RegisterLoginContainer} />
+            <AuthRoute path="/signup" component={RegisterSignupContainer} />
+            <Route exact path="/biz" component={Biz}></Route>
+            <Route exact path="/" component={YocalMain}></Route>
+        </Switch>
         <Footer/>
     </div>
 );

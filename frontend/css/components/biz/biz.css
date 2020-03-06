@@ -1,0 +1,9 @@
+.biz{
+    width: 100%;   
+}
+
+.biz-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

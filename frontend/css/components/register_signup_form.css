@@ -45,6 +45,10 @@
     margin-left: 4px;
     width: 90%
 }
+/* .input-wrapper {
+    border-color: #7dbef1;
+    box-shadow:0 0 10px #7dbef1;
+} */
 
 .birthday-label{
     display: flex;

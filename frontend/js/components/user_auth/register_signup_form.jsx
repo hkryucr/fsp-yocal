@@ -15,7 +15,7 @@ class RegisterSignupForm extends React.Component {
             zipcode: "",
             birthday: ""
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);        
     }
 
     handleSubmit(processForm){
@@ -36,6 +36,18 @@ class RegisterSignupForm extends React.Component {
             })
         }
     }
+    componentDidMount(){
+        $('.input-wrapper input, .input-wrapper-name input').focus(
+            function () {
+                $(this).parent('div').css('border-color', '#7dbef1');
+                $(this).parent('div').css('box-shadow', '0 0 10px #7dbef1');
+                
+            }).blur(
+            function () {
+                $(this).parent('div').css('border-color', '#666');
+                $(this).parent('div').css('box-shadow', 'none');
+            });
+    }
 
     render() {        
         const form = (this.props.formType === 'Sign Up') ? (
@@ -53,17 +65,17 @@ class RegisterSignupForm extends React.Component {
                     </label>
                 </ul>
                 <label>
-                    <div className="input-wrapper">
+                    <div className="input-wrapper" tabIndex="0">
                         <input type="email" placeholder="Email" required minLength="2" onChange={this.update('email')} />
                     </div>
                 </label>
                 <label>
-                    <div className="input-wrapper">
+                    <div className="input-wrapper" tabIndex="0">
                         <input type="password" placeholder="Password" required minLength="6" onChange={this.update('password')} />
                     </div>
                 </label>
                 <label className="zipcode-label">
-                    <div className="input-wrapper">
+                    <div className="input-wrapper" tabIndex="0">
                         <input type="text" placeholder="ZIP Code" required minLength="1" onChange={this.update('zipcode')} />
                     </div>
                 </label>

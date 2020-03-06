@@ -33,7 +33,7 @@ class BizHeaderSearch extends React.Component{
                                 <div className="pseudo-input-label-near">
                                     <span className="pseudo-input-wrapper">
                                         <span className="pseudo-input-field-holder-biz">
-                                            <input type="text" value="San Francisco, CA" />
+                                            <input type="text" placeholder="San Francisco, CA" />
                                         </span>
                                     </span>
                                 </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import 'css/components/register_signup_form.css';
 import 'css/core/ui_base_button.css';
 import { signup, login } from 'actions/session_actions';
@@ -15,7 +14,8 @@ class RegisterSignupForm extends React.Component {
             zipcode: "",
             birthday: ""
         }
-        this.handleSubmit = this.handleSubmit.bind(this);        
+        this.handleSubmit = this.handleSubmit.bind(this);   
+        this.handPasswordClick = this.handPasswordClick.bind(this);
     }
 
     handleSubmit(processForm){
@@ -36,6 +36,12 @@ class RegisterSignupForm extends React.Component {
             })
         }
     }
+
+    handPasswordClick(e){
+        e.preventDefault()
+        document.getElementsByClassName("input-password-meter-wrapper")[0].classList.add('proress-bar-container-show');
+    }
+
     componentDidMount(){
         $('.input-wrapper input, .input-wrapper-name input').focus(
             function () {
@@ -46,7 +52,33 @@ class RegisterSignupForm extends React.Component {
             function () {
                 $(this).parent('div').css('border-color', '#666');
                 $(this).parent('div').css('box-shadow', 'none');
-            });
+            }
+        );
+
+        const evals = {
+            0: "Password must be at least 6 characters in length",
+            1: "Password strength: Weak",
+            2: "Please try adding a symbol (!#@) and letter (A-Z)",
+            3: "Password strength: Good",
+            4: "Password strength: Great"
+        }
+
+        const password = document.getElementById('password');
+        const meter = document.getElementById('password-strength-meter');
+        const text = document.getElementById('password-strength-text');
+
+        password.addEventListener('input', function () {
+            const val = password.value;
+            const result = zxcvbn(val);            
+            meter.value = result.score;
+
+            if (val !== "") {
+                text.innerHTML = evals[result.score];
+            } else {
+                text.innerHTML = "";
+            }
+        });
+
     }
 
     render() {        
@@ -69,9 +101,16 @@ class RegisterSignupForm extends React.Component {
                         <input type="email" placeholder="Email" required minLength="2" onChange={this.update('email')} />
                     </div>
                 </label>
-                <label>
+                <label htmlFor="password">
                     <div className="input-wrapper" tabIndex="0">
-                        <input type="password" placeholder="Password" required minLength="6" onChange={this.update('password')} />
+                        <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" id="password" name="password" required onChange={this.update('password')} placeholder="Password" onClick={this.handPasswordClick}/>
+                    </div>
+                    <div className="input-password-meter-wrapper">
+                        <div className="progress-bar-container">
+                            <meter min="0" max="4" id="password-strength-meter"></meter>
+                        </div>
+                        <div className="progress-bar-helper" id="password-strength-text">
+                        </div>
                     </div>
                 </label>
                 <label className="zipcode-label">
@@ -104,7 +143,8 @@ class RegisterSignupForm extends React.Component {
                 </label>
                 <label>
                     <div className="input-wrapper">
-                        <input type="password" placeholder="Password" required minLength="6" onChange={this.update('password')} />
+                        {/* <input type="password" placeholder="Password" required minLength="6" onChange={this.update('password')} /> */}
+                        <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" id="password" name="password" required onChange={this.update('password')} placeholder="Password"/>
                     </div>
                 </label>
                 <button className="ui-button">{this.props.formType}</button>

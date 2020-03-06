@@ -1,7 +1,6 @@
-import React from 'react';
 import BizHeader from 'js/components/biz/biz_header';
 import BizMain from 'js/components/biz/biz_main';
-
+import React from 'react';
 import 'css/components/biz/biz.css';
 
 class Biz extends React.Component{

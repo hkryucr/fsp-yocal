@@ -41,9 +41,14 @@ biz_data.each do |biz|
     cur_hour = Hour.create(hour)
   end
   
-  cur_biz.business_photo.attach(io: File.open(Rails.root.join('lib', 'seeds', 'photos', "#{cur_biz[:business_name]}0.jpg")), filename: ("#{cur_biz[:business_name]}0.jpg"))
-  cur_biz.business_photo.attach(io: File.open(Rails.root.join('lib', 'seeds', 'photos', "#{cur_biz[:business_name]}1.jpg")), filename: ("#{cur_biz[:business_name]}0.jpg"))
-  cur_biz.business_photo.attach(io: File.open(Rails.root.join('lib', 'seeds', 'photos', "#{cur_biz[:business_name]}2.jpg")), filename: ("#{cur_biz[:business_name]}0.jpg"))
+  cur_biz.business_photo.attach(io: File.open(Rails.root.join('lib', 'seeds', 'photos', "#{cur_biz[:business_name]}0.jpg")), filename: ("#{cur_biz[:business_name]}_0.jpg"))
+  cur_biz.business_photo.attach(io: File.open(Rails.root.join('lib', 'seeds', 'photos', "#{cur_biz[:business_name]}1.jpg")), filename: ("#{cur_biz[:business_name]}_1.jpg"))
+  cur_biz.business_photo.attach(io: File.open(Rails.root.join('lib', 'seeds', 'photos', "#{cur_biz[:business_name]}2.jpg")), filename: ("#{cur_biz[:business_name]}_2.jpg"))
+  
+  ran_selected_photos = (0..93).to_a.sample(7)
+  ran_selected_photos.each_with_index do |photo_idx, idx|
+    cur_biz.business_photo.attach(io: File.open(Rails.root.join('lib', 'seeds', 'additional_photos', "photo_#{photo_idx}.jpg")), filename: ("#{cur_biz[:business_name]}#{idx+3}.jpg"))
+  end
 end
 
 # reviews database

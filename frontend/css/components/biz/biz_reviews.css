@@ -1,0 +1,30 @@
+.biz-search-form{
+    width: 100%;
+    box-shadow: 0 2px 18px rgba(0,0,0,.15);
+    border-radius: 4px;
+}
+
+.biz-search-form-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.biz-search-form-arrange-unit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.pseudo-input-wrapper{
+    display: flex;
+    justify-content: row;
+    width: 100%;
+}
+
+.biz-search-form-button{
+    background-color: #f43939;
+    padding: 11px 14px 11px;
+    border-radius: 0 4px 4px 0;
+}

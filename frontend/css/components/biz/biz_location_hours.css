@@ -1,0 +1,34 @@
+.biz-location-hours, .biz-location-hours-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.biz-location-hours-container{
+    flex-direction: column;
+    border-top: 1px solid #eeeeef;;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    align-items: flex-start;
+}
+.biz-sub-title-wrapper{
+    margin-bottom: 2rem;
+}
+
+.biz-sub-title{
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+    font-weight: bold;
+}
+
+.biz-location-hours-layout{
+    display: flex;
+    flex-direction: row;
+}
+
+.biz-hours{
+    width: auto;
+    height: 282px;
+    margin-left: 3rem;
+}

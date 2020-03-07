@@ -37,3 +37,6 @@ config/credentials.yml.enc
 
 npm-debug.log
 /yarn-error.log/public/assets
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key

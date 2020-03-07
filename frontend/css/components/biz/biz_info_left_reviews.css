@@ -1,0 +1,28 @@
+.biz-reviews, .biz-reviews-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.biz-reviews-container{
+    flex-direction: column;
+    border-top: 1px solid #eeeeef;;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    align-items: flex-start;
+}
+.biz-sub-title-wrapper{
+    margin-bottom: 2rem;
+}
+
+.biz-sub-title{
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+    font-weight: bold;
+}
+
+.biz-reviews-layout{
+    display: flex;
+    flex-direction: row;
+}

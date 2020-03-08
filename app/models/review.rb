@@ -16,6 +16,8 @@ class Review < ApplicationRecord
     validates :business_id, presence: true
     validates :business_name, presence: true
 
+    has_many_attached :review_photo
+
     belongs_to :author,
         foreign_key: :author_id,
         class_name: :User

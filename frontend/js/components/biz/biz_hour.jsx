@@ -4,6 +4,7 @@ import 'css/components/biz/biz_hour.css';
 class BizHour extends React.Component {
     constructor(props) {
         super(props);
+        this.state = this.props
     }
 
     timeConvert(hour){
@@ -22,9 +23,10 @@ class BizHour extends React.Component {
         const curTime = new Date().getHours() + (new Date().getMinutes()/100);
 
         if (curTime > startHourMin && curTime < endHourMin){
-            return "Open now"
+            return <span className="biz-hour-opened">Open now</span >
+        } else {
+            return <span className="biz-hour-closed">Closed now</span >
         }
-        return null;
     }
 
     render(){
@@ -37,8 +39,8 @@ class BizHour extends React.Component {
         return (
             <div className="biz-hour">
                 <span className="biz-hour-day">{day}</span>
-                <span className="biz-hour-time">{start} - {end} </span>
-                <span className="biz-hour-open">{open}</span> 
+                <span className="biz-hour-time">{start} - {end}</span>
+                {open}
             </div>
         )
     }

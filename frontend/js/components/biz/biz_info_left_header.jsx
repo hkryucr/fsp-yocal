@@ -1,7 +1,9 @@
 import React from 'react';
-import { faCheckCircle, faStar, faEllipsisH, faCamera, faShare, faBookmark } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faCheckCircle, faEllipsisH, faCamera, faShare, faBookmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
+import Ratings from 'js/components/utils/ratings';
+
 import 'css/components/biz/biz_info_left.css'
 
 class BizInfoLeftHeader extends React.Component {
@@ -20,24 +22,7 @@ class BizInfoLeftHeader extends React.Component {
                             </span>
                 </div>
                 <div className="biz-info-left-header-rating">
-                    <div className="ratings">
-                        {/* this one should be radio input !!! */}
-                        <span className="star">
-                            <FontAwesomeIcon icon={faStar} size="lg" color="white" />
-                        </span>
-                        <span className="star">
-                            <FontAwesomeIcon icon={faStar} size="lg" color="white" />
-                        </span>
-                        <span className="star">
-                            <FontAwesomeIcon icon={faStar} size="lg" color="white" />
-                        </span>
-                        <span className="star">
-                            <FontAwesomeIcon icon={faStar} size="lg" color="white" />
-                        </span>
-                        <span className="star">
-                            <FontAwesomeIcon icon={faStar} size="lg" color="white" />
-                        </span>
-                    </div>
+                    <Ratings/>
                     <div className="review-count">
                         {/* {this.props.reviewCount} reviews */}
                         6034 reviews
@@ -77,7 +62,7 @@ class BizInfoLeftHeader extends React.Component {
                             <FontAwesomeIcon icon={faBookmark} size="1x" color="#2b273c" />
                             <span>
                                 Save
-                                    </span>
+                            </span>
                         </Link>
                     </div>
                 </div>

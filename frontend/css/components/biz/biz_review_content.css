@@ -1,0 +1,54 @@
+.biz-review-content-container .ratings{
+    vertical-align: baseline;
+}
+.biz-review-content-container .ratings .star {
+    padding: 0.2rem 0.2rem;
+    vertical-align: baseline;
+    font-size: 0.75rem;
+}
+
+.biz-review-content-1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.biz-review-ratings{
+    display: flex;
+    flex-direction: column;
+}
+
+.biz-review-content-1 div:last-child {
+    font-size: 0.875rem;
+    color: #757280;   
+}
+.biz-review-date{
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
+.biz-review-content-2{
+    font-size: 0.875rem;
+    white-space: pre-line;
+    color: #333333;
+    line-height: 1.125rem;
+}
+
+.biz-review-content-3{
+    font-size: 0.65rem;
+    display: flex;
+    color: #333333;
+    flex-direction: row;
+    margin-top: 1.25rem;
+}
+
+.biz-review-content-3 div span{
+    font-size: 0.75rem;
+    padding-left: 0.25rem;
+    margin-right: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+    /* line-height: 20px; */

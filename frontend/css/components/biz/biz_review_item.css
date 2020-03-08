@@ -1,0 +1,19 @@
+.biz-review-item{
+    width: 100%;
+    margin-bottom: 24px!important;
+    padding-bottom: 24px!important;
+    border-bottom: 1px solid #eeeeef;
+}
+
+.biz-review-item-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.biz-review-userinfo{
+    width: 33.33333%;
+}
+
+.biz-review-content{
+    width: 66.66666%
+}

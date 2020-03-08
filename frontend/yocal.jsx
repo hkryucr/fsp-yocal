@@ -5,6 +5,7 @@ import Root from "js/root";
 // import { login, logout, signup, fetchAllUsers} from 'actions/session_actions.js';
 
 document.addEventListener("DOMContentLoaded", () => {
+    
     let store;
     if (window.currentUser) {
         const preloadedState = {

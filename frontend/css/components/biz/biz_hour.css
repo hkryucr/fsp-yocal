@@ -14,9 +14,12 @@
     font-size: 0.875rem;
 }
 
-.biz-hour-open{
+.biz-hour-opened, .biz-hour-closed{
     font-weight: bold;
     font-size: 0.775rem;
     margin-left: 0.8rem;
-    color: #05a882;;
+    color: #05a882;
+}
+.biz-hour-closed {
+    color: #f43939;
 }

@@ -1,0 +1,45 @@
+.biz-review-userinfo, .biz-review-userinfo-container{
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    margin-right: 20px;
+}
+
+.biz-review-userinfo-photo{
+
+}
+
+.biz-review-userinfo-photo img {
+    height: 3.75rem;
+    width: 3.75rem;
+    margin-right: 0.5rem;
+}
+
+.userinfo-content > * {
+    font-size: 0.875rem;
+    margin-top: 0.3rem;
+}
+
+.userinfo-content-name{
+    color: #00838f;
+}
+
+.userinfo-content-name,
+.userinfo-content-location, 
+.userinfo-content-friends, 
+.userinfo-content-reviews{
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+}
+.userinfo-content-location{
+    white-space: nowrap;
+}
+.userinfo-content-reviews > *, .userinfo-content-friends > *{
+    margin-right: 0.3rem;
+    font-size: 0.75rem;
+}
+
+.userinfo-content > div > span:last-child{
+    font-weight: normal;
+}

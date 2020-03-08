@@ -10,6 +10,9 @@
     justify-content: center;
     width: 100%;
 }
+.biz-info-container {
+    min-width: 76.5rem;
+}
 
 .biz-info-layout{
     padding: 0 40px;

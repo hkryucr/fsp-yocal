@@ -1,7 +1,8 @@
 import React from 'react';
 import 'css/components/biz/biz_carousel.css';
-import BizCarouselGalleryCell from 'js/components/biz/biz-carousel-gallery-cell';
 import 'css/core/flickity.css';
+
+import BizCarouselGalleryCell from 'js/components/biz/biz-carousel-gallery-cell';
 
 class BizCarousel extends React.Component{
     constructor(props){

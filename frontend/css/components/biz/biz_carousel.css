@@ -16,15 +16,19 @@
     background-color: white;
 }
 
+/* .flickity-slider,  */
 .biz-carousel-gallery-cell {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 25%;
-    height: calc(100vw/5 - 1.5rem);
+    min-width: 10.625rem;
+    min-height: 10.625rem;
+    height: calc(100vw/5 - 3rem);
     margin-right: 5px;
     border-radius: 5px;
 }
+
 .biz-carousel-gallery-cell img {
     object-fit: cover;
     width: 100%;

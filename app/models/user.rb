@@ -23,6 +23,8 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6, allow_nil: true }
 
     after_initialize :ensure_session_token
+    has_many_attached :user_photo
+
     attr_reader :password
     
     # active storage association

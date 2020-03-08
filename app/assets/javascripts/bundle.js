@@ -4712,6 +4712,198 @@ var YocalMain = function YocalMain() {
 
 /***/ }),
 
+/***/ "./frontend/redux/actions/business_actions.js":
+/*!****************************************************!*\
+  !*** ./frontend/redux/actions/business_actions.js ***!
+  \****************************************************/
+/*! exports provided: RECEIVE_BUSINESSES, RECEIVE_BUSINESS, receiveBusinesses, receiveBusiness, fetchBusinesses, fetchBusiness */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_BUSINESSES", function() { return RECEIVE_BUSINESSES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_BUSINESS", function() { return RECEIVE_BUSINESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveBusinesses", function() { return receiveBusinesses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveBusiness", function() { return receiveBusiness; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusinesses", function() { return fetchBusinesses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusiness", function() { return fetchBusiness; });
+/* harmony import */ var util_business_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! util/business_api_util */ "./frontend/redux/util/business_api_util.js");
+
+var RECEIVE_BUSINESSES = "RECEIVE_BUSINESSES";
+var RECEIVE_BUSINESS = "RECEIVE_BUSINESS";
+var receiveBusinesses = function receiveBusinesses(businesses) {
+  return {
+    type: RECEIVE_BUSINESSES,
+    businesses: businesses
+  };
+};
+var receiveBusiness = function receiveBusiness(business) {
+  return {
+    type: RECEIVE_BUSINESS,
+    business: business
+  };
+};
+var fetchBusinesses = function fetchBusinesses() {
+  return function (dispatch) {
+    return util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBusinesses"]().then(function (res) {
+      return dispatch(receiveBusinesses(res));
+    });
+  };
+};
+var fetchBusiness = function fetchBusiness(id) {
+  return function (dispatch) {
+    return util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBusiness"](id).then(function (res) {
+      return dispatch(receiveBusiness(res));
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./frontend/redux/actions/category_actions.js":
+/*!****************************************************!*\
+  !*** ./frontend/redux/actions/category_actions.js ***!
+  \****************************************************/
+/*! exports provided: RECEIVE_CATEGORIES, RECEIVE_CATEGORY, receiveCategories, receiveCategory, fetchCategories, fetchCategory */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CATEGORIES", function() { return RECEIVE_CATEGORIES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CATEGORY", function() { return RECEIVE_CATEGORY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveCategories", function() { return receiveCategories; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveCategory", function() { return receiveCategory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchCategories", function() { return fetchCategories; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchCategory", function() { return fetchCategory; });
+/* harmony import */ var util_category_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! util/category_api_util */ "./frontend/redux/util/category_api_util.js");
+
+var RECEIVE_CATEGORIES = "RECEIVE_CATEGORIES";
+var RECEIVE_CATEGORY = "RECEIVE_CATEGORY";
+var receiveCategories = function receiveCategories(categories) {
+  return {
+    type: RECEIVE_CATEGORIES,
+    categories: categories
+  };
+};
+var receiveCategory = function receiveCategory(category) {
+  return {
+    type: RECEIVE_CATEGORY,
+    category: category
+  };
+};
+var fetchCategories = function fetchCategories() {
+  return function (dispatch) {
+    return util_category_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchCategories"]().then(function (res) {
+      return dispatch(receiveCategories(res));
+    });
+  };
+};
+var fetchCategory = function fetchCategory(id) {
+  return function (dispatch) {
+    return util_category_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchCategory"](id).then(function (res) {
+      return dispatch(receiveCategory(res));
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./frontend/redux/actions/hour_actions.js":
+/*!************************************************!*\
+  !*** ./frontend/redux/actions/hour_actions.js ***!
+  \************************************************/
+/*! exports provided: RECEIVE_HOURS, RECEIVE_HOUR, receiveHours, receiveHour, fetchHours, fetchHour */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_HOURS", function() { return RECEIVE_HOURS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_HOUR", function() { return RECEIVE_HOUR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveHours", function() { return receiveHours; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveHour", function() { return receiveHour; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchHours", function() { return fetchHours; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchHour", function() { return fetchHour; });
+/* harmony import */ var util_hour_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! util/hour_api_util */ "./frontend/redux/util/hour_api_util.js");
+
+var RECEIVE_HOURS = "RECEIVE_HOURS";
+var RECEIVE_HOUR = "RECEIVE_HOUR";
+var receiveHours = function receiveHours(hours) {
+  return {
+    type: RECEIVE_HOURS,
+    hours: hours
+  };
+};
+var receiveHour = function receiveHour(hour) {
+  return {
+    type: RECEIVE_HOUR,
+    hour: hour
+  };
+};
+var fetchHours = function fetchHours() {
+  return function (dispatch) {
+    return util_hour_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchHours"]().then(function (res) {
+      return dispatch(receiveHours(res));
+    });
+  };
+};
+var fetchHour = function fetchHour(id) {
+  return function (dispatch) {
+    return util_hour_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchHour"](id).then(function (res) {
+      return dispatch(receiveHour(res));
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./frontend/redux/actions/review_actions.js":
+/*!**************************************************!*\
+  !*** ./frontend/redux/actions/review_actions.js ***!
+  \**************************************************/
+/*! exports provided: RECEIVE_REVIEWS, RECEIVE_REVIEW, receiveReviews, receiveReview, fetchReviews, fetchReview */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEWS", function() { return RECEIVE_REVIEWS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW", function() { return RECEIVE_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReviews", function() { return receiveReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReview", function() { return receiveReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReview", function() { return fetchReview; });
+/* harmony import */ var util_review_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! util/review_api_util */ "./frontend/redux/util/review_api_util.js");
+
+var RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
+var RECEIVE_REVIEW = "RECEIVE_REVIEW";
+var receiveReviews = function receiveReviews(reviews) {
+  return {
+    type: RECEIVE_REVIEWS,
+    reviews: reviews
+  };
+};
+var receiveReview = function receiveReview(review) {
+  return {
+    type: RECEIVE_REVIEW,
+    review: review
+  };
+};
+var fetchReviews = function fetchReviews() {
+  return function (dispatch) {
+    return util_review_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchReviews"]().then(function (res) {
+      return dispatch(receiveReviews(res));
+    });
+  };
+};
+var fetchReview = function fetchReview(id) {
+  return function (dispatch) {
+    return util_review_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchReview"](id).then(function (res) {
+      return dispatch(receiveReview(res));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/redux/actions/session_actions.js":
 /*!***************************************************!*\
   !*** ./frontend/redux/actions/session_actions.js ***!
@@ -4823,6 +5015,84 @@ var fetchClearErrors = function fetchClearErrors() {
 
 /***/ }),
 
+/***/ "./frontend/redux/reducers/businesses_reducer.js":
+/*!*******************************************************!*\
+  !*** ./frontend/redux/reducers/businesses_reducer.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var actions_business_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! actions/business_actions */ "./frontend/redux/actions/business_actions.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var businessReducer = function businessReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  var newState = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.merge({}, state);
+
+  switch (action.type) {
+    case actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BUSINESSES"]:
+      return action.businesses;
+
+    case actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BUSINESS"]:
+      newState[action.business.id] = action.business;
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (businessReducer);
+
+/***/ }),
+
+/***/ "./frontend/redux/reducers/categories_reducer.js":
+/*!*******************************************************!*\
+  !*** ./frontend/redux/reducers/categories_reducer.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var actions_category_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! actions/category_actions */ "./frontend/redux/actions/category_actions.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var categoryReducer = function categoryReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  var newState = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.merge({}, state);
+
+  switch (action.type) {
+    case actions_category_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CATEGORIES"]:
+      return action.categories;
+
+    case actions_category_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CATEGORY"]:
+      newState[action.category.id] = action.category;
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (categoryReducer);
+
+/***/ }),
+
 /***/ "./frontend/redux/reducers/entities_reducer.js":
 /*!*****************************************************!*\
   !*** ./frontend/redux/reducers/entities_reducer.js ***!
@@ -4834,10 +5104,22 @@ var fetchClearErrors = function fetchClearErrors() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var reducers_users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reducers/users_reducer */ "./frontend/redux/reducers/users_reducer.js");
+/* harmony import */ var reducers_businesses_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reducers/businesses_reducer */ "./frontend/redux/reducers/businesses_reducer.js");
+/* harmony import */ var reducers_reviews_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reducers/reviews_reducer */ "./frontend/redux/reducers/reviews_reducer.js");
+/* harmony import */ var reducers_hours_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! reducers/hours_reducer */ "./frontend/redux/reducers/hours_reducer.js");
+/* harmony import */ var reducers_categories_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reducers/categories_reducer */ "./frontend/redux/reducers/categories_reducer.js");
+
+
+
+
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: reducers_users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: reducers_users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  businesses: reducers_businesses_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  hours: reducers_hours_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
+  reviews: reducers_reviews_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  categories: reducers_categories_reducer__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -4860,6 +5142,84 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
   session: reducers_session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/redux/reducers/hours_reducer.js":
+/*!**************************************************!*\
+  !*** ./frontend/redux/reducers/hours_reducer.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var actions_hour_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! actions/hour_actions */ "./frontend/redux/actions/hour_actions.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var hourReducer = function hourReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  var newState = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.merge({}, state);
+
+  switch (action.type) {
+    case actions_hour_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_HOURS"]:
+      return action.hours;
+
+    case actions_hour_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_HOUR"]:
+      newState[action.hour.id] = action.hour;
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (hourReducer);
+
+/***/ }),
+
+/***/ "./frontend/redux/reducers/reviews_reducer.js":
+/*!****************************************************!*\
+  !*** ./frontend/redux/reducers/reviews_reducer.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var actions_review_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! actions/review_actions */ "./frontend/redux/actions/review_actions.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var reviewReducer = function reviewReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  var newState = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.merge({}, state);
+
+  switch (action.type) {
+    case actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEWS"]:
+      return action.reviews;
+
+    case actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEW"]:
+      newState[action.review.id] = action.review;
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (reviewReducer);
 
 /***/ }),
 
@@ -5038,6 +5398,137 @@ var configureStore = function configureStore() {
 
 /***/ }),
 
+/***/ "./frontend/redux/util/business_api_util.js":
+/*!**************************************************!*\
+  !*** ./frontend/redux/util/business_api_util.js ***!
+  \**************************************************/
+/*! exports provided: fetchBusinesses, fetchBusiness */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusinesses", function() { return fetchBusinesses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusiness", function() { return fetchBusiness; });
+var fetchBusinesses = function fetchBusinesses(bounds) {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/businesses',
+    data: {
+      bounds: bounds
+    },
+    error: function error(err) {
+      return console.log(err);
+    }
+  });
+};
+var fetchBusiness = function fetchBusiness(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/businesses/".concat(id),
+    error: function error(err) {
+      return console.log(err);
+    }
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/redux/util/category_api_util.js":
+/*!**************************************************!*\
+  !*** ./frontend/redux/util/category_api_util.js ***!
+  \**************************************************/
+/*! exports provided: fetchCategories, fetchCategory */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchCategories", function() { return fetchCategories; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchCategory", function() { return fetchCategory; });
+var fetchCategories = function fetchCategories() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/categories',
+    error: function error(err) {
+      return console.log(err);
+    }
+  });
+};
+var fetchCategory = function fetchCategory(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/categories/".concat(id),
+    error: function error(err) {
+      return console.log(err);
+    }
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/redux/util/hour_api_util.js":
+/*!**********************************************!*\
+  !*** ./frontend/redux/util/hour_api_util.js ***!
+  \**********************************************/
+/*! exports provided: fetchHours, fetchHour */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchHours", function() { return fetchHours; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchHour", function() { return fetchHour; });
+var fetchHours = function fetchHours() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/hours',
+    error: function error(err) {
+      return console.log(err);
+    }
+  });
+};
+var fetchHour = function fetchHour(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/hours/".concat(id),
+    error: function error(err) {
+      return console.log(err);
+    }
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/redux/util/review_api_util.js":
+/*!************************************************!*\
+  !*** ./frontend/redux/util/review_api_util.js ***!
+  \************************************************/
+/*! exports provided: fetchReviews, fetchReview */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReview", function() { return fetchReview; });
+var fetchReviews = function fetchReviews() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/reviews',
+    error: function error(err) {
+      return console.log(err);
+    }
+  });
+};
+var fetchReview = function fetchReview(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/reviews/".concat(id),
+    error: function error(err) {
+      return console.log(err);
+    }
+  });
+};
+
+/***/ }),
+
 /***/ "./frontend/redux/util/route_util.jsx":
 /*!********************************************!*\
   !*** ./frontend/redux/util/route_util.jsx ***!
@@ -5150,12 +5641,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var js_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js/root */ "./frontend/js/root.jsx");
+/* harmony import */ var actions_session_actions_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! actions/session_actions.js */ "./frontend/redux/actions/session_actions.js");
+/* harmony import */ var actions_business_actions_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! actions/business_actions.js */ "./frontend/redux/actions/business_actions.js");
+/* harmony import */ var actions_review_actions_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! actions/review_actions.js */ "./frontend/redux/actions/review_actions.js");
+/* harmony import */ var actions_hour_actions_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! actions/hour_actions.js */ "./frontend/redux/actions/hour_actions.js");
+/* harmony import */ var actions_category_actions_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! actions/category_actions.js */ "./frontend/redux/actions/category_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
- // import { login, logout, signup, fetchAllUsers} from 'actions/session_actions.js';
+
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   var store;
@@ -5174,14 +5674,22 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     store = Object(store_store__WEBPACK_IMPORTED_MODULE_0__["default"])();
   } // const store = configureStore();
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
-  // window.login = login;
-  // window.logout = logout;
-  // window.signup = signup;
-  // window.fetchAllUsers = fetchAllUsers;
 
 
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  window.login = actions_session_actions_js__WEBPACK_IMPORTED_MODULE_4__["login"];
+  window.logout = actions_session_actions_js__WEBPACK_IMPORTED_MODULE_4__["logout"];
+  window.signup = actions_session_actions_js__WEBPACK_IMPORTED_MODULE_4__["signup"];
+  window.fetchBusinesses = actions_business_actions_js__WEBPACK_IMPORTED_MODULE_5__["fetchBusinesses"];
+  window.fetchBusiness = actions_business_actions_js__WEBPACK_IMPORTED_MODULE_5__["fetchBusiness"];
+  window.fetchReviews = actions_review_actions_js__WEBPACK_IMPORTED_MODULE_6__["fetchReviews"];
+  window.fetchReview = actions_review_actions_js__WEBPACK_IMPORTED_MODULE_6__["fetchReview"];
+  window.fetchHours = actions_hour_actions_js__WEBPACK_IMPORTED_MODULE_7__["fetchHours"];
+  window.fetchHour = actions_hour_actions_js__WEBPACK_IMPORTED_MODULE_7__["fetchHour"];
+  window.fetchCategories = actions_category_actions_js__WEBPACK_IMPORTED_MODULE_8__["fetchCategories"];
+  window.fetchCategory = actions_category_actions_js__WEBPACK_IMPORTED_MODULE_8__["fetchCategory"];
+  window.fetchAllUsers = actions_session_actions_js__WEBPACK_IMPORTED_MODULE_4__["fetchAllUsers"];
   var root = document.getElementById("root");
   react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(js_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store

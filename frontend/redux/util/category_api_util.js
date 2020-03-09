@@ -1,7 +1,10 @@
-export const fetchCategories = () => {
+export const fetchCategories = (ids) => {
     return $.ajax({
         method: 'GET',
         url: '/api/categories',
+        data: {
+            category: ids
+        },
         error: (err) => console.log(err)
     })
 }

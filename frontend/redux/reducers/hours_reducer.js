@@ -7,6 +7,7 @@ const hourReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_HOURS:
+            
             return action.hours;
 
         case RECEIVE_HOUR:

@@ -4,7 +4,6 @@ import 'css/components/biz/biz_hour.css';
 class BizHour extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props
     }
 
     timeConvert(hour){

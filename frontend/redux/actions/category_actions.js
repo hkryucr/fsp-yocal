@@ -13,7 +13,7 @@ export const receiveCategory = (category) => ({
     category
 })
 
-export const fetchCategories = () => (dispatch) => APIUtil.fetchCategories().then((res) => {
+export const fetchCategories = (ids) => (dispatch) => APIUtil.fetchCategories(ids).then((res) => {
     return dispatch(receiveCategories(res))
 })
 

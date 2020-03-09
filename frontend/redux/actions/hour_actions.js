@@ -13,7 +13,7 @@ export const receiveHour = (hour) => ({
     hour
 })
 
-export const fetchHours = () => (dispatch) => APIUtil.fetchHours().then((res) => {
+export const fetchHours = (ids) => (dispatch) => APIUtil.fetchHours(ids).then((res) => {
     return dispatch(receiveHours(res))
 })
 

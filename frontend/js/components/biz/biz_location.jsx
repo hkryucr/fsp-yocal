@@ -21,12 +21,12 @@ class BizLocation extends React.Component {
         return (
             <div className="biz-location">
                 <div className="biz-location-map" id="map-container" ref={map => this.mapNode = map}>
-                    location
+                    
                 </div>
                 <div className="biz-location-map-content">
                     <div className="biz-location-map-content-container">
                         <div className="biz-location-map-content-left">
-                            <div cla>Pier 39</div>
+                            <div>Pier 39</div>
                             <div>Ste A-202</div>
                             <div>San Francisco, CA 94133</div>
                             <div>Fisherman's Wharf, North Beach/Telegraph Hill</div>

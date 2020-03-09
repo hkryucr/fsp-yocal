@@ -9,9 +9,36 @@ class BizInfoLeft extends React.Component {
         return (
             <div className="biz-info-left">
                 <div className="biz-info-left-container">
-                    <BizInfoLeftHeader />
-                    <BizInfoLeftLocationHours />
-                    <BizInfoLeftReviews />
+                    <BizInfoLeftHeader 
+                        currentUser={this.props.currentUser}
+                        curBusinessId={this.props.curBusinessId}
+                        businesses={this.props.businesses}
+                        hours={this.props.hours}
+                        reviews={this.props.reviews}
+                        categories={this.props.categories}
+                        users={this.props.users}
+                        reviewers={this.props.reviewers}
+                    />
+                    <BizInfoLeftLocationHours
+                        currentUser={this.props.currentUser}
+                        curBusinessId={this.props.curBusinessId}
+                        businesses={this.props.businesses}
+                        hours={this.props.hours}
+                        reviews={this.props.reviews}
+                        categories={this.props.categories}
+                        users={this.props.users}
+                        reviewers={this.props.reviewers}
+                    />
+                    <BizInfoLeftReviews 
+                        currentUser={this.props.currentUser}
+                        curBusinessId={this.props.curBusinessId}
+                        businesses={this.props.businesses}
+                        hours={this.props.hours}
+                        reviews={this.props.reviews}
+                        categories={this.props.categories}
+                        users={this.props.users}
+                        reviewers={this.props.reviewers}
+                    />
                 </div>
             </div>
         )

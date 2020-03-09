@@ -1,8 +1,8 @@
+import BizCarouselGalleryCell from 'js/components/biz/biz-carousel-gallery-cell';
 import React from 'react';
+import _ from 'lodash';
 import 'css/components/biz/biz_carousel.css';
 import 'css/core/flickity.css';
-
-import BizCarouselGalleryCell from 'js/components/biz/biz-carousel-gallery-cell';
 
 class BizCarousel extends React.Component{
     constructor(props){
@@ -17,14 +17,18 @@ class BizCarousel extends React.Component{
         });
     }
 
-    render(){
-        return(
+    render() {
+        let photoDiv = null;
+        const curBusiness = this.props.businesses[this.props.curBusinessId];
+        photoDiv = curBusiness["photoUrls"].map((num, idx) => {
+            return <BizCarouselGalleryCell key={idx} photoUrl={num.photoUrl} />
+        });
+
+        return (
             <div className="biz-carousel">
                 <div className="biz-carousel-container">
                     <div className="biz-carousel-gallery">
-                        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num, idx) => {
-                            return <BizCarouselGalleryCell key={idx} srcLink={num} />
-                        })}
+                        {photoDiv}
                     </div>
                 </div>
             </div>

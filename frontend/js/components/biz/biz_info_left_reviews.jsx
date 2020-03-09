@@ -6,6 +6,11 @@ import BizReviewItem from 'js/components/biz/biz_review_item';
 
 class BizReviews extends React.Component {
     render() { 
+        const curBusiness = this.props.businesses[this.props.curBusinessId];
+        const curReviews = curBusiness.reviewIds.map((id, idx) => {
+            return this.props.reviews[id];
+        });
+        
         return (
             <div className="biz-reviews">
                 <div className="biz-reviews-container">
@@ -48,10 +53,7 @@ class BizReviews extends React.Component {
                     </div>
                     <div className="biz-review-items">
                         <div className="biz-review-items-container">
-                            <BizReviewItem />
-                            <BizReviewItem />
-                            <BizReviewItem />
-                            <BizReviewItem />
+                            {curReviews.map((review, idx) => <BizReviewItem key={idx} review={review} reviewers={this.props.reviewers}/>)}
                         </div>
                     </div>
                 </div>

@@ -5,50 +5,14 @@ import 'css/components/biz/biz_location_hours.css';
 
 class BizInfoLeftLocationHours extends React.Component {
     render(){
-        const demodata = [
-            {
-                start: "1100",
-                end: "2100",
-                day: 0,
-                business_id: 1
-            },
-            {
-                start: "1100",
-                end: "2100",
-                day: 1,
-                business_id: 1
-            },
-            {
-                start: "1100",
-                end: "2100",
-                day: 2,
-                business_id: 1
-            },
-            {
-                start: "1100",
-                end: "2100",
-                day: 3,
-                business_id: 1
-            },
-            {
-                start: "1100",
-                end: "2200",
-                day: 4,
-                business_id: 1
-            },
-            {
-                start: "1100",
-                end: "2200",
-                day: 5,
-                business_id: 1
-            },
-            {
-                start: "1100",
-                end: "2100",
-                day: 6,
-                business_id: 1
-            }
-        ]
+        if ((_.isEmpty(this.props.businesses) || _.isEmpty(this.props.hours))) {
+            return null;
+        }
+
+        const curBusiness = this.props.businesses[this.props.curBusinessId];
+        const curHours = curBusiness.hourIds.map((id, idx) => {
+            return this.props.hours[id];
+        });
 
         return (
             <div className="biz-location-hours">
@@ -62,7 +26,7 @@ class BizInfoLeftLocationHours extends React.Component {
                         <BizLocation/>
                         <div className="biz-hours">
                             <div className="biz-hours-container">
-                                {demodata.map((hour, idx)=><BizHour key={idx} hour={hour}/>)}
+                                {curHours.map((hour, idx)=><BizHour key={idx} hour={hour}/>)}
                             </div>
                         </div>
                     </div>

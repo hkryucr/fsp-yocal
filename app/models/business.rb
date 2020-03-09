@@ -52,4 +52,8 @@ class Business < ApplicationRecord
     has_many :users_who_saved,
         through: :saved_relational_businesses,
         source: :user
+
+    has_many :review_authors,
+        through: :reviews,
+        source: :author
 end

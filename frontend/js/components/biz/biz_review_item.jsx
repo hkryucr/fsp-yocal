@@ -8,8 +8,8 @@ class BizReviewItem extends React.Component{
         return (
             <div className="biz-review-item">
                 <div className="biz-review-item-container">
-                    <BizReviewUserinfo/>
-                    <BizReviewContent/>
+                    <BizReviewUserinfo reviewer={this.props.reviewers[this.props.review.authorId]}/>
+                    <BizReviewContent review={this.props.review}/>
                 </div>
             </div>
         )

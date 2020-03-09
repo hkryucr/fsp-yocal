@@ -14,7 +14,7 @@ class BizHeaderUpperItems extends React.Component{
                         </div>
                     </div>
                     <BizHeaderSearch />
-                    <BizUserItems />
+                    <BizUserItems currentUser={this.props.currentUser} logout={this.props.logout}/>
                 </div>
             </div>
         )

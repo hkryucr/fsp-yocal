@@ -6,14 +6,17 @@
 .biz-carousel-container{
     width: 100%;
     margin: 0 auto;
-}
-
-.biz-carousel-container{
     background-color: white;
 }
 
 .biz-carousel-gallery{
+    width: 100%;
     background-color: white;
+}
+
+.biz-carousel-gallery > div{
+    width: 100%;
+    overflow: hidden;
 }
 
 /* .flickity-slider,  */
@@ -40,8 +43,4 @@
   line-height: 200px;
   font-size: 80px;
   color: white;
-}
-
-.flickity-page-dots{
-    display: none;
 }

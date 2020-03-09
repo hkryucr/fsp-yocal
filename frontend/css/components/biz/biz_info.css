@@ -4,12 +4,13 @@
     width: 100%;
 }
 
-.biz-info-container, .biz-info-layout {
+.biz-info-container, .biz-info-layout, .biz-info-layout-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 100%;
 }
+
 .biz-info-container {
     min-width: 76.5rem;
 }

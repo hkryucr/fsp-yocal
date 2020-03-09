@@ -1,6 +1,8 @@
 class Api::UsersController < ApplicationController
     def index
-        @users = User.all
+        # debugger
+        @users = User.includes(:reviews, :saved_businesses).where("id IN (?)", params["user"].map(&:to_i))
+        # debugger
         render :index
     end
 

@@ -1,8 +1,8 @@
+import BizSearchContentItem from 'js/components/biz_search/biz_search_content_item';
 import React from 'react';
-import 'css/components/biz_search/biz_search.css';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import BizSearchContentItem from 'js/components/biz_search/biz_search_content_item';
+import 'css/components/biz_search/biz_search.css';
 
 class BizSearchResults extends React.Component {
     constructor(props) {
@@ -10,6 +10,7 @@ class BizSearchResults extends React.Component {
     }
 
     render() {
+        const businessArr = Object.values(this.props.businesses);
         return (
             <div className="biz-search-results">
                 <div className="biz-search-results-conatiner">
@@ -30,15 +31,9 @@ class BizSearchResults extends React.Component {
                     </div>
                     <div className="biz-search-content">
                         <div className="biz-search-content-container">
-                            <BizSearchContentItem />
-                            <BizSearchContentItem />
-                            <BizSearchContentItem />
-                            <BizSearchContentItem />
-                            <BizSearchContentItem />
-                            <BizSearchContentItem />
-                            <BizSearchContentItem />
-                            <BizSearchContentItem />
-                            <BizSearchContentItem/>
+                            {businessArr.map((business, idx)=>{                            
+                                return <BizSearchContentItem business={business} number={idx+1} key={idx}/>
+                            })}
                         </div>
                     </div>
                 </div>
@@ -47,4 +42,4 @@ class BizSearchResults extends React.Component {
     }
 }
 
-export default BizSearchResults
+export default BizSearchResults;

@@ -1,23 +1,27 @@
 json.extract! business, :id, :business_name, :url, :latitude, :longitude, :phone, :price, :rating, :zipcode, :country, :state, :city, :address1, :address2, :address3, :is_claimed, :is_closed, :review_count
 
-json.HourIds do 
+json.hourIds do 
     # debugger
     json.array! ((business.hours).map(&:id))
 end
 
-json.CategoryIds do 
+json.categoryIds do 
     json.array! (business.categories.map(&:id))
 end
 
-json.ReviewIds do 
+json.reviewIds do 
     json.array! (business.reviews.map(&:id))    
 end
+
+json.firstReview (business.reviews[0].text)
+
+json.categories (business.categories.map(&:name).join(", "))
 
 json.savedUserIds do 
     json.array! (business.users_who_saved.map(&:id))
 end
 
-json.ReviewAuthorsIds do 
+json.reviewAuthorsIds do 
     json.array! (business.review_authors.map(&:id))
 end
 

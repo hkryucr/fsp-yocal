@@ -1,6 +1,5 @@
 import BizCarouselGalleryCell from 'js/components/biz/biz-carousel-gallery-cell';
 import React from 'react';
-import _ from 'lodash';
 import 'css/components/biz/biz_carousel.css';
 import 'css/core/flickity.css';
 

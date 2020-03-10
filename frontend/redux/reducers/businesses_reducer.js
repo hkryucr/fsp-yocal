@@ -7,7 +7,7 @@ const businessReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_BUSINESSES:
-            newState = _.merge(newState, action.business);
+            newState = _.merge(newState, action.businesses);
             return newState
 
         case RECEIVE_BUSINESS:

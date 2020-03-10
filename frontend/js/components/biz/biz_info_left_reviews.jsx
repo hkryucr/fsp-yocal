@@ -21,9 +21,9 @@ class BizReviews extends React.Component {
                     </div>
                     <div className="biz-reviews-layout">
                         <div className="biz-review-search">
-                            <form onSubmit={this.handleSubmit} className="biz-search-form">
-                                <div className="biz-search-form-container">
-                                    <div className="biz-search-form-arrange-unit">
+                            <form onSubmit={this.handleSubmit} className="header-search-form">
+                                <div className="header-search-form-container">
+                                    <div className="header-search-form-arrange-unit">
                                         <div className="pseudo-input-label-near">
                                             <span className="pseudo-input-wrapper">
                                                 <span className="pseudo-input-field-holder-biz">
@@ -32,7 +32,7 @@ class BizReviews extends React.Component {
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="biz-search-form-button">
+                                    <div className="header-search-form-button">
                                         <FontAwesomeIcon icon={faSearch} style={{ color: 'white' }} />
                                     </div>
                                 </div>

@@ -613,15 +613,77 @@ module.exports = exported;
 
 /***/ }),
 
-/***/ "./frontend/css/components/business_search.css":
-/*!*****************************************************!*\
-  !*** ./frontend/css/components/business_search.css ***!
-  \*****************************************************/
+/***/ "./frontend/css/components/biz_search/biz_search.css":
+/*!***********************************************************!*\
+  !*** ./frontend/css/components/biz_search/biz_search.css ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-            var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!./business_search.css */ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/business_search.css");
+var api = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./biz_search.css */ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/biz_search/biz_search.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
+/***/ "./frontend/css/components/biz_search/biz_search_content_item.css":
+/*!************************************************************************!*\
+  !*** ./frontend/css/components/biz_search/biz_search_content_item.css ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./biz_search_content_item.css */ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/biz_search/biz_search_content_item.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
+/***/ "./frontend/css/components/biz_search/biz_search_map.css":
+/*!***************************************************************!*\
+  !*** ./frontend/css/components/biz_search/biz_search_map.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./biz_search_map.css */ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/biz_search/biz_search_map.css");
 
             content = content.__esModule ? content.default : content;
 
@@ -1184,7 +1246,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var js_yocal_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js/yocal-main */ "./frontend/js/yocal-main.jsx");
-/* harmony import */ var js_components_biz_biz__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js/components/biz/biz */ "./frontend/js/components/biz/biz.jsx");
+/* harmony import */ var js_components_biz_search_biz_search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js/components/biz_search/biz_search */ "./frontend/js/components/biz_search/biz_search.jsx");
 /* harmony import */ var js_components_biz_biz_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! js/components/biz/biz_container */ "./frontend/js/components/biz/biz_container.js");
 /* harmony import */ var js_components_footer_footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! js/components/footer/footer */ "./frontend/js/components/footer/footer.jsx");
 /* harmony import */ var util_route_util_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! util/route_util.jsx */ "./frontend/redux/util/route_util.jsx");
@@ -1214,12 +1276,12 @@ var App = function App() {
     component: js_components_user_auth_register_signup_container__WEBPACK_IMPORTED_MODULE_7__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
-    path: "/biz",
-    component: js_components_biz_biz__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
     path: "/biz/:id",
     component: js_components_biz_biz_container__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/search",
+    component: js_components_biz_search_biz_search__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/",
@@ -1731,13 +1793,13 @@ var BizHeaderSearch = /*#__PURE__*/function (_React$Component) {
         className: "biz-header-container-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
-        className: "biz-search-form"
+        className: "header-search-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "biz-search-form-container"
+        className: "header-search-form-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "biz-search-form-arrange-unit"
+        className: "header-search-form-arrange-unit"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pseudo-input-label-biz-search"
+        className: "pseudo-input-label-header-search"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "pseudo-input-wrapper-biz"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1746,9 +1808,9 @@ var BizHeaderSearch = /*#__PURE__*/function (_React$Component) {
         type: "text",
         placeholder: "burgers, barbers, spas, handymen..."
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "biz-search-form-arrange-unit arrange-unit-right"
+        className: "header-search-form-arrange-unit arrange-unit-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "biz-search-form-middle-border"
+        className: "header-search-form-middle-border"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pseudo-input-label-near"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1759,7 +1821,7 @@ var BizHeaderSearch = /*#__PURE__*/function (_React$Component) {
         type: "text",
         placeholder: "San Francisco, CA"
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "biz-search-form-button"
+        className: "header-search-form-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faSearch"],
         style: {
@@ -2426,11 +2488,11 @@ var BizReviews = /*#__PURE__*/function (_React$Component) {
         className: "biz-review-search"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
-        className: "biz-search-form"
+        className: "header-search-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "biz-search-form-container"
+        className: "header-search-form-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "biz-search-form-arrange-unit"
+        className: "header-search-form-arrange-unit"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pseudo-input-label-near"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -2441,7 +2503,7 @@ var BizReviews = /*#__PURE__*/function (_React$Component) {
         type: "text",
         placeholder: "Search within reviews"
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "biz-search-form-button"
+        className: "header-search-form-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSearch"],
         style: {
@@ -3123,10 +3185,10 @@ var BizUserItem = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./frontend/js/components/business_search/business_search.jsx":
-/*!********************************************************************!*\
-  !*** ./frontend/js/components/business_search/business_search.jsx ***!
-  \********************************************************************/
+/***/ "./frontend/js/components/biz_search/biz_search.jsx":
+/*!**********************************************************!*\
+  !*** ./frontend/js/components/biz_search/biz_search.jsx ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3134,8 +3196,11 @@ var BizUserItem = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var css_components_business_search_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css/components/business_search.css */ "./frontend/css/components/business_search.css");
-/* harmony import */ var css_components_business_search_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(css_components_business_search_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var css_components_biz_search_biz_search_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css/components/biz_search/biz_search.css */ "./frontend/css/components/biz_search/biz_search.css");
+/* harmony import */ var css_components_biz_search_biz_search_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(css_components_biz_search_biz_search_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var js_components_biz_biz_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js/components/biz/biz_header */ "./frontend/js/components/biz/biz_header.jsx");
+/* harmony import */ var js_components_biz_search_biz_search_results__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js/components/biz_search/biz_search_results */ "./frontend/js/components/biz_search/biz_search_results.jsx");
+/* harmony import */ var js_components_biz_search_biz_search_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! js/components/biz_search/biz_search_map */ "./frontend/js/components/biz_search/biz_search_map.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3157,28 +3222,295 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var BusinessSearch = /*#__PURE__*/function (_React$Component) {
-  _inherits(BusinessSearch, _React$Component);
 
-  function BusinessSearch(props) {
-    _classCallCheck(this, BusinessSearch);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BusinessSearch).call(this, props));
+
+var BizSearch = /*#__PURE__*/function (_React$Component) {
+  _inherits(BizSearch, _React$Component);
+
+  function BizSearch(props) {
+    _classCallCheck(this, BizSearch);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(BizSearch).call(this, props));
   }
 
-  _createClass(BusinessSearch, [{
+  _createClass(BizSearch, [{
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "business-search"
-      }, "This is BusinessSearch - different page");
+        className: "biz-search"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_header__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        currentUser: this.props.currentUser,
+        logout: this.props.logout
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-body-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_search_biz_search_results__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_search_biz_search_map__WEBPACK_IMPORTED_MODULE_4__["default"], null)))));
     }
   }]);
 
-  return BusinessSearch;
+  return BizSearch;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (BusinessSearch);
+/* harmony default export */ __webpack_exports__["default"] = (BizSearch);
+
+/***/ }),
+
+/***/ "./frontend/js/components/biz_search/biz_search_content_item.jsx":
+/*!***********************************************************************!*\
+  !*** ./frontend/js/components/biz_search/biz_search_content_item.jsx ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js/components/utils/ratings */ "./frontend/js/components/utils/ratings.jsx");
+/* harmony import */ var css_components_biz_search_biz_search_content_item_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! css/components/biz_search/biz_search_content_item.css */ "./frontend/css/components/biz_search/biz_search_content_item.css");
+/* harmony import */ var css_components_biz_search_biz_search_content_item_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(css_components_biz_search_biz_search_content_item_css__WEBPACK_IMPORTED_MODULE_2__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var BizSearchContentItem = /*#__PURE__*/function (_React$Component) {
+  _inherits(BizSearchContentItem, _React$Component);
+
+  function BizSearchContentItem() {
+    _classCallCheck(this, BizSearchContentItem);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(BizSearchContentItem).apply(this, arguments));
+  }
+
+  _createClass(BizSearchContentItem, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-item-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-item-img"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-item-img-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "assets/Oyster Bar.jpg"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-detail"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-detail-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-detail-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-detail-1"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-detail-title"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "1. "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Hog Island Oyster Co")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-detail-rating"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "8971")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-detail-category"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Seafood, Seafood Markets, Live/Raw Food"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-detail-1"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "(415) 292-8151"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "501 Geary St"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tenderloin"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-review"
+      }, "\u201CI came in here with my boyfriend at 7pm. I came in here with my boyfriend at 7pm.I came in here with my boyfriend at 7pm. I came in here with my boyfriend at 7pm. I came in here with my boyfriend at 7pm. It was pretty busy but there was no wait so that was nice. We sat at a high table across from another couple. That was a little to close for\u2026\u201D more")))));
+    }
+  }]);
+
+  return BizSearchContentItem;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (BizSearchContentItem);
+
+/***/ }),
+
+/***/ "./frontend/js/components/biz_search/biz_search_map.jsx":
+/*!**************************************************************!*\
+  !*** ./frontend/js/components/biz_search/biz_search_map.jsx ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var css_components_biz_search_biz_search_map_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css/components/biz_search/biz_search_map.css */ "./frontend/css/components/biz_search/biz_search_map.css");
+/* harmony import */ var css_components_biz_search_biz_search_map_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(css_components_biz_search_biz_search_map_css__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var BizSearchMap = /*#__PURE__*/function (_React$Component) {
+  _inherits(BizSearchMap, _React$Component);
+
+  function BizSearchMap(props) {
+    _classCallCheck(this, BizSearchMap);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(BizSearchMap).call(this, props));
+  }
+
+  _createClass(BizSearchMap, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      // set the map to show SF
+      var mapOptions = {
+        center: {
+          lat: 37.7758,
+          lng: -122.435
+        },
+        zoom: 13
+      }; // wrap this.mapNode in a Google Map
+
+      this.map = new google.maps.Map(this.mapNode, mapOptions);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-map"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-map-container",
+        id: "map-container",
+        ref: function ref(map) {
+          return _this.mapNode = map;
+        }
+      }));
+    }
+  }]);
+
+  return BizSearchMap;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (BizSearchMap);
+
+/***/ }),
+
+/***/ "./frontend/js/components/biz_search/biz_search_results.jsx":
+/*!******************************************************************!*\
+  !*** ./frontend/js/components/biz_search/biz_search_results.jsx ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var css_components_biz_search_biz_search_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css/components/biz_search/biz_search.css */ "./frontend/css/components/biz_search/biz_search.css");
+/* harmony import */ var css_components_biz_search_biz_search_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(css_components_biz_search_biz_search_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var js_components_biz_search_biz_search_content_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! js/components/biz_search/biz_search_content_item */ "./frontend/js/components/biz_search/biz_search_content_item.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+var BizSearchResults = /*#__PURE__*/function (_React$Component) {
+  _inherits(BizSearchResults, _React$Component);
+
+  function BizSearchResults(props) {
+    _classCallCheck(this, BizSearchResults);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(BizSearchResults).call(this, props));
+  }
+
+  _createClass(BizSearchResults, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-results"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-results-conatiner"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-header-path"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "San Francisco, CA"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faChevronRight"],
+        size: "sm",
+        color: "#757280"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Tenderloin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faChevronRight"],
+        size: "sm",
+        color: "#757280"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Restaurants")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-header-title"
+      }, "Restaurants near Tenderloin, San Francisco, CA"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-header-all-results"
+      }, "All Results")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-search-content-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_search_biz_search_content_item__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_search_biz_search_content_item__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_search_biz_search_content_item__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_search_biz_search_content_item__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_search_biz_search_content_item__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_search_biz_search_content_item__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_search_biz_search_content_item__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_search_biz_search_content_item__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_search_biz_search_content_item__WEBPACK_IMPORTED_MODULE_4__["default"], null)))));
+    }
+  }]);
+
+  return BizSearchResults;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (BizSearchResults);
 
 /***/ }),
 
@@ -5027,8 +5359,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var css_yocal_main_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! css/yocal_main.css */ "./frontend/css/yocal_main.css");
 /* harmony import */ var css_yocal_main_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(css_yocal_main_css__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var js_components_main_section_custom_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js/components/main_section/custom_main */ "./frontend/js/components/main_section/custom_main.jsx");
-/* harmony import */ var js_components_business_search_business_search__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! js/components/business_search/business_search */ "./frontend/js/components/business_search/business_search.jsx");
-
 
 
 
@@ -20198,7 +20528,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.biz-header-upper-items-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.header-logo{\n    display: flex;\n    align-items: center;\n    min-width: 80px;\n    margin-right: 32px;\n}\n.header-logo-container{\n    display: flex;\n    align-items: center;\n    width: calc((100vw - 1000px) / 2 - 78px);\n    height: 40px;\n}\n.header-logo-container img {\n    width: 80px;\n    height: 40px;\n}\n\n.header-search{\n    display: flex;\n    flex-direction: column;\n    width: auto;    \n    min-width: 58%;\n    margin-right: 24px; \n}\n\n.biz-header-container-content{\n    display: flex;\n    align-items: center;\n    width: 100%\n}    \n\n.biz-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.biz-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.biz-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.pseudo-input-label-biz-search, .pseudo-input-label-biz-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.biz-search-form-middle-border{\n    border-left: 1px solid #ccc;;\n    width: 1px;\n    height: 25px;\n}\n\n.biz-search-form-button{\n    background-color: #f43939;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n.pseudo-input-label-biz-search .find-span, .pseudo-input-label-biz-search .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n    width: 100%;\n}\n\n.header-user-items{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n}\n\n.header-user-items-container{\n    display: flex;\n    justify-content: space-evenly;\n    align-items: center;\n}\n\n.header-user-item-container{\n    padding: 8px;\n\n}\n.header-user-button-container{\n    display: flex;\n    flex-direction: row;\n    justify-items: center;\n    align-items: center;\n    padding: 8px 8px 8px 0px;\n}\n\n.header-user-button-container .item-mark {\n    color: #05a882;\n    font-weight: bold;\n    font-size: 0.75rem;\n    display: flex;\n    margin-right: 0;\n    /* flex-direction: column;\n    justify-content: center;\n    align-items: center; */\n}\n\n.header-user-item-container:hover{\n    background-color: #eeeeef;\n    border-radius: 4px;\n}\n\n.header-user-item{\n    font-size: 0.875rem;\n    white-space: nowrap;\n    margin-right: 8px\n}\n\n.header-user-button-1 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: white;\n    margin-left: 12px;\n    border: 1px solid #2b273c;\n}\n\n.header-user-button-1 span{\n    white-space: nowrap;\n    color: #2b273c;\n}\n.header-user-button-2 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: #f43939;\n    margin-left: 12px;\n}\n\n.header-user-button-2 span{\n    white-space: nowrap;\n    color: white;\n}", ""]);
+exports.push([module.i, "\n.biz-header-upper-items-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.header-logo{\n    display: flex;\n    align-items: center;\n    min-width: 80px;\n    margin-right: 32px;\n}\n.header-logo-container{\n    display: flex;\n    align-items: center;\n    width: calc((100vw - 1000px) / 2 - 78px);\n    height: 40px;\n}\n.header-logo-container img {\n    width: 80px;\n    height: 40px;\n}\n\n.header-search{\n    display: flex;\n    flex-direction: column;\n    width: auto;    \n    min-width: 58%;\n    margin-right: 24px; \n}\n\n.biz-header-container-content{\n    display: flex;\n    align-items: center;\n    width: 100%\n}    \n\n.header-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.header-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.header-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.pseudo-input-label-header-search, .pseudo-input-label-biz-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.header-search-form-middle-border{\n    border-left: 1px solid #ccc;;\n    width: 1px;\n    height: 25px;\n}\n\n.header-search-form-button{\n    background-color: #f43939;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n.pseudo-input-label-header-search .find-span, .pseudo-input-label-header-search .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n    width: 100%;\n}\n\n.header-user-items{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n}\n\n.header-user-items-container{\n    display: flex;\n    justify-content: space-evenly;\n    align-items: center;\n}\n\n.header-user-item-container{\n    padding: 8px;\n\n}\n.header-user-button-container{\n    display: flex;\n    flex-direction: row;\n    justify-items: center;\n    align-items: center;\n    padding: 8px 8px 8px 0px;\n}\n\n.header-user-button-container .item-mark {\n    color: #05a882;\n    font-weight: bold;\n    font-size: 0.75rem;\n    display: flex;\n    margin-right: 0;\n    /* flex-direction: column;\n    justify-content: center;\n    align-items: center; */\n}\n\n.header-user-item-container:hover{\n    background-color: #eeeeef;\n    border-radius: 4px;\n}\n\n.header-user-item{\n    font-size: 0.875rem;\n    white-space: nowrap;\n    margin-right: 8px\n}\n\n.header-user-button-1 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: white;\n    margin-left: 12px;\n    border: 1px solid #2b273c;\n}\n\n.header-user-button-1 span{\n    white-space: nowrap;\n    color: #2b273c;\n}\n.header-user-button-2 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: #f43939;\n    margin-left: 12px;\n}\n\n.header-user-button-2 span{\n    white-space: nowrap;\n    color: white;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -20396,25 +20726,61 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-reviews, .biz-reviews-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.biz-reviews-container{\n    flex-direction: column;\n    border-top: 1px solid #eeeeef;;\n    margin-top: 2rem;\n    padding-top: 2rem;\n    align-items: flex-start;\n    margin-bottom: 1.5rem;    \n}\n.biz-sub-title-wrapper{\n    margin-bottom: 2rem;\n}\n\n.biz-sub-title{\n    font-size: 1.25rem;\n    line-height: 1.625rem;\n    font-weight: bold;\n}\n\n.biz-review-search{\n    display: flex;\n    align-items: center;\n}\n\n.biz-reviews-layout, .biz-review-search, .biz-review-search-text{\n    display: flex;\n    flex-direction: row;\n}\n\n.biz-reviews-layout, .biz-review-search{\n    width: 100%;\n    font-size: 0.875rem;\n}\n\n.biz-reviews-layout{\n    margin-bottom: 1.5rem;\n    padding-bottom: 1.5rem;\n}\n\n.biz-review-search{\n    justify-content: space-between;\n}\n\n.biz-review-search-text{\n    font-size: 0.875rem;\n}\n\n.biz-review-search-text div {\n    white-space: nowrap;\n}\n\n.biz-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.biz-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.biz-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.biz-search-form-button{\n    background-color: #f43939;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n.biz-review-search-text {\n    margin-left: 2rem;\n    display: flex;\n    align-items: center;\n}\n\n/* .biz-review-search-text a{\n    margin: 0rem 0rem 0rem 0rem;\n} */\n\n.biz-review-search-text div{\n    margin-left: 1rem;\n}\n\n.biz-review-search-text div span {\n    margin-right: 0.4rem;\n}\n\n.biz-review-search-text div span:last-child {\n    font-weight: bold;\n    color: #00838f;\n}\n\n.biz-review-items, .biz-review-items-container {\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, ".biz-reviews, .biz-reviews-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.biz-reviews-container{\n    flex-direction: column;\n    border-top: 1px solid #eeeeef;;\n    margin-top: 2rem;\n    padding-top: 2rem;\n    align-items: flex-start;\n    margin-bottom: 1.5rem;    \n}\n.biz-sub-title-wrapper{\n    margin-bottom: 2rem;\n}\n\n.biz-sub-title{\n    font-size: 1.25rem;\n    line-height: 1.625rem;\n    font-weight: bold;\n}\n\n.biz-review-search{\n    display: flex;\n    align-items: center;\n}\n\n.biz-reviews-layout, .biz-review-search, .biz-review-search-text{\n    display: flex;\n    flex-direction: row;\n}\n\n.biz-reviews-layout, .biz-review-search{\n    width: 100%;\n    font-size: 0.875rem;\n}\n\n.biz-reviews-layout{\n    margin-bottom: 1.5rem;\n    padding-bottom: 1.5rem;\n}\n\n.biz-review-search{\n    justify-content: space-between;\n}\n\n.biz-review-search-text{\n    font-size: 0.875rem;\n}\n\n.biz-review-search-text div {\n    white-space: nowrap;\n}\n\n.header-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.header-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.header-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.header-search-form-button{\n    background-color: #f43939;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n.biz-review-search-text {\n    margin-left: 2rem;\n    display: flex;\n    align-items: center;\n}\n\n/* .biz-review-search-text a{\n    margin: 0rem 0rem 0rem 0rem;\n} */\n\n.biz-review-search-text div{\n    margin-left: 1rem;\n}\n\n.biz-review-search-text div span {\n    margin-right: 0.4rem;\n}\n\n.biz-review-search-text div span:last-child {\n    font-weight: bold;\n    color: #00838f;\n}\n\n.biz-review-items, .biz-review-items-container {\n    width: 100%;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/business_search.css":
-/*!*******************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./frontend/css/components/business_search.css ***!
-  \*******************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/biz_search/biz_search.css":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./frontend/css/components/biz_search/biz_search.css ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".business-search{\n    margin-top: 0px;\n}", ""]);
+exports.push([module.i, ".business-search{\n    width: 100%;\n    min-width: 67.125rem;\n}\n\n.business-search-container{\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n.business-search{\n    width: 100%;\n}\n\n.business-search-container{\n    width: 100%;\n    display: flex;\n    flex-direction: row;\n}\n\n.biz-search-body, .biz-search-body-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.biz-search-body-container{\n    border: 1px solid #eeeeef;\n}\n\n/* search result */\n\n.biz-search-results{\n    flex: 1 0 780px;\n    padding: 0 2.5rem!important;\n}\n\n.biz-search-results-container{\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n.biz-search-header{\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    margin: 1.5rem 0;\n}\n\n.biz-search-header-path{\n    color: #757280;\n    font-size: 0.75rem;\n    line-height: 18px;\n    margin-bottom: 2rem;\n}\n.biz-search-header-path svg{\n    margin-left: 0.75rem;\n    margin-right: 0.75rem;\n}\n\n.biz-search-header-title{\n    font-size: 1.5rem;\n    font-weight: bold;\n}\n\n.biz-search-header-all-results{\n    font-size: 1rem;\n    padding: 0.5rem 0;\n    font-weight: bold;\n    margin: 1rem 0 0.5rem 0;\n}\n\n/* search content*/\n.biz-search-content{\n\n}\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/biz_search/biz_search_content_item.css":
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./frontend/css/components/biz_search/biz_search_content_item.css ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".biz-search-content-item{\n    border-radius: 4px;\n    border: 1px solid #eeeeef;\n    margin: 1.5rem 0;\n    padding: 1.5rem;\n\n}\n.biz-search-content-item-container{\n    display: flex;\n    flex-direction: row;\n}\n.biz-search-content-item-img-container{\n    width: 200px;\n    height: 200px;\n    margin-right: 1.5rem;\n}\n.biz-search-content-item-img-container img{\n    width: 100%;\n    height: 100%;\n    border-radius: 4px;\n}\n\n.biz-search-content-detail, .biz-search-content-detail-container{\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    font-size: 0.875rem;\n    line-height: 18px;\n    color: #757280;\n}\n\n.biz-search-content-detail-header{\n    width: 100%;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n}\n\n.biz-search-content-detail-1{\n\n}\n\n.biz-search-content-detail-title{\n    font-size: 1.25rem;\n    font-weight: bold;\n    line-height: 26px;\n    margin-bottom: 0.5rem;\n    color: black;\n}\n\n.biz-search-content-review{\n    margin-top: 1rem;\n}\n\n.biz-search-content-detail-rating{\n    margin-bottom: 0.5rem 0;\n    display: flex;\n    align-items: center;\n}\n\n.biz-search-content-detail-rating > span .ratings{\n    margin-right: 0.3rem;\n    margin-top: 5px;\n    font-size: 0.65rem;\n}\n\n.biz-search-content-detail-rating > span:last-child{\n    height: 12px;\n}\n\n.biz-search-content-detail-category{\n    margin-top: 0.5rem;\n}\n\n.biz-search-content-detail-category span:first-child{\n    margin-right: 0.7rem;\n}\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/biz_search/biz_search_map.css":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./frontend/css/components/biz_search/biz_search_map.css ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "\n/* map */\n.biz-search-map{\n    flex: 4 0 290px;\n    \n}\n\n.biz-search-map-container {\n    width: 100%;\n    height: 800px;\n    /* border-radius: 4px 4px 0px 0px; */\n}\n", ""]);
 // Exports
 module.exports = exports;
 

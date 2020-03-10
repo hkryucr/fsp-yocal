@@ -17,10 +17,10 @@ class BizHeaderSearch extends React.Component{
         return (
             <div className="header-search">
                 <div className="biz-header-container-content">
-                    <form onSubmit={this.handleSubmit} className="biz-search-form">
-                        <div className="biz-search-form-container">
-                            <div className="biz-search-form-arrange-unit">
-                                <div className="pseudo-input-label-biz-search">
+                    <form onSubmit={this.handleSubmit} className="header-search-form">
+                        <div className="header-search-form-container">
+                            <div className="header-search-form-arrange-unit">
+                                <div className="pseudo-input-label-header-search">
                                     <span className="pseudo-input-wrapper-biz">
                                         <span className="pseudo-input-field-holder-biz">
                                             <input type="text" placeholder="burgers, barbers, spas, handymen..." />
@@ -28,8 +28,8 @@ class BizHeaderSearch extends React.Component{
                                     </span>
                                 </div>
                             </div>
-                            <div className="biz-search-form-arrange-unit arrange-unit-right">
-                                <div className="biz-search-form-middle-border"></div>
+                            <div className="header-search-form-arrange-unit arrange-unit-right">
+                                <div className="header-search-form-middle-border"></div>
                                 <div className="pseudo-input-label-near">
                                     <span className="pseudo-input-wrapper">
                                         <span className="pseudo-input-field-holder-biz">
@@ -38,7 +38,7 @@ class BizHeaderSearch extends React.Component{
                                     </span>
                                 </div>
                             </div>
-                            <div className="biz-search-form-button">
+                            <div className="header-search-form-button">
                                 <FontAwesomeIcon icon={faSearch} style={{ color: 'white' }} />
                             </div>
                         </div>

@@ -8,23 +8,28 @@
 .biz-header-down-items-container{
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
+
 .biz-header-down-items-ph{
-    min-width: 120px;
+    flex: 1 0 7rem;
+    margin-right: 32px;
 }
 
 .biz-header-down-items-layout{
-    padding-left: calc((100vw - 1144px) / 2 - 200px);
+    flex: 10 0 24rem;
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
+}
+
+.biz-header-down-placeholder{
+    flex: 1 0 30rem;
 }
 
 .bh-item-container{
     display: flex;
     flex-direction: row;
-    width: 100%;
 }
 .bh-item{
     display: flex;

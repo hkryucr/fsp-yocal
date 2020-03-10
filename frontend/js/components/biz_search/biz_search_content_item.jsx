@@ -23,7 +23,7 @@ class BizSearchContentItem extends React.Component{
                                 <div className="biz-search-content-detail-1">
                                     <div className="biz-search-content-detail-title"> 
                                         <span>{this.props.number}. </span> 
-                                        <span><Link to={businessLink}>{curBusiness.businessName}</Link></span>
+                                        <span><Link to={businessLink}>{curBusiness.businessName.split("_").join(" ")}</Link></span>
                                     </div>
                                     <div className="biz-search-content-detail-rating">
                                         <span>

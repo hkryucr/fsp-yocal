@@ -47,6 +47,7 @@ class BizHeaderDownItems extends React.Component {
                             </div>
                         </div>
                     </div>
+                    <div className="biz-header-down-placeholder"></div>
                 </div>
             </div>
         )

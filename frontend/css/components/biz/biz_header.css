@@ -1,9 +1,16 @@
+.biz-header{
+    width: 100%;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
 .biz-header-container{
     padding: 24px 40px 0;
-    min-width: 1020px;
     background-color: #fff;
+    width: 100%;
 }
-
+ 
 .biz-header-items{
     display: flex;
     flex-direction: row;

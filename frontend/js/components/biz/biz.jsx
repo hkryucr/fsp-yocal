@@ -16,7 +16,6 @@ class Biz extends React.Component{
     render(){
         if (
             (_.isEmpty(this.props.businesses)) || 
-            (_.isEmpty(this.props.users)) ||
             (_.isEmpty(this.props.hours)) ||
             (_.isEmpty(this.props.reviews)) ||
             (_.isEmpty(this.props.categories)) ||

@@ -11,8 +11,16 @@ class MainSection extends React.Component {
         return (
             <div className="main-section">
                 <div className="main-section-container">
-                    <MainSectionHeader currentUser={this.props.currentUser} logout={this.props.logout}/>
-                    <MainSectionContent/>
+                    <MainSectionHeader 
+                        currentUser={this.props.currentUser} 
+                        logout={this.props.logout}
+                    />
+                    <MainSectionContent
+                        businesses={this.props.businesses}
+                        categoryList={this.props.categoryList}
+                        businessList={this.props.businessList}
+                        fetchBusinesses={this.props.fetchBusinesses}
+                    />
                     <MainSectionCategories />
                     <MainSectionPhoto/>
                 </div>  

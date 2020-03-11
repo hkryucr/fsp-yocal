@@ -10,7 +10,7 @@ class ReviewAwaitItem extends React.Component{
     }
 
     render(){
-        const imageUrl = `/assets/${this.props.title}.jpg`
+        const imageUrl = this.props.imgUrl
         return (
             <li className="review-await-item">
                 <div className="review-await-item-container">

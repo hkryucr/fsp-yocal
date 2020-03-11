@@ -65,6 +65,7 @@
     width: 9.375rem;
     height: 9.375rem;
     border-radius: 2px;
+    object-fit: cover;
 }
 
 .pic-info{

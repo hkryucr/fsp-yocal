@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import YocalMain from 'js/yocal-main';
+import YocalMainContainer from 'js/components/main_section/yocal_main_container';
 import BizSearchContainer from 'js/components/biz_search/biz_search_container';
 import BizContainer from 'js/components/biz/biz_container';
 import Footer from 'js/components/footer/footer';
@@ -16,7 +16,7 @@ const App = () => (
             <AuthRoute path="/signup" component={RegisterSignupContainer} />
             <Route exact path="/biz/:id" component={BizContainer}></Route>
             <Route exact path="/search" component={BizSearchContainer}></Route>
-            <Route exact path="/" component={YocalMain}></Route>
+            <Route exact path="/" component={YocalMainContainer}></Route>
         </Switch>
         <Footer/>
     </div>

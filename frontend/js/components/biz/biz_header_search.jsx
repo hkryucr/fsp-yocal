@@ -17,7 +17,6 @@ class BizHeaderSearch extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(e, "handle submit")
         this.props.fetchBusinesses({
             text: this.state.text
         }).then(()=>{
@@ -59,7 +58,6 @@ class BizHeaderSearch extends React.Component{
     }
 
     render(){
-
         const { text } = this.state;
 
         return (

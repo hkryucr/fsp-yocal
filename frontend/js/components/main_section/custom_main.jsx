@@ -14,7 +14,9 @@ class CustomMain extends React.Component {
             <div className="custom-main">
                 <div className="custom-main-container">
                     <div className="custom-main-layout">
-                        <ReviewAwait/>
+                        <ReviewAwait 
+                            businesses={this.props.businesses}
+                        />
                     </div>
                 </div>
             </div>

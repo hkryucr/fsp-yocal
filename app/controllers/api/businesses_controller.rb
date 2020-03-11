@@ -10,10 +10,6 @@ class Api::BusinessesController < ApplicationController
         @businesses += Business.where("business_name LIKE ?", "%#{params[:bounds][:text]}%")
         @businesses += Business.joins(:categories).where( '(categories.name LIKE ?)', "%#{params[:bounds][:text]}%")
         @businesses = @businesses[0..31]
-
-        # search_result += Business.where( '(business_name LIKE ?) AND ', keyword )
-        # Business.where('(lat BETWEEN ? AND ?) AND (lng BETWEEN ? AND ?)', bounds[:southWest][:lat].to_f, bounds[:northEast][:lat].to_f, bounds[:southWest][:lng].to_f, bounds[:northEast][:lng].to_f)
-        # @benches = Bench.in_bounds(params[:bounds])
         
         render 'api/businesses/index'
     end

@@ -23,9 +23,9 @@ export const fetchBusinesses = (bounds) => (dispatch) => APIUtil.fetchBusinesses
 
 export const fetchBusiness = (id) => (dispatch, getState) => APIUtil.fetchBusiness(id).then((res) => {
     dispatch(receiveBusiness(res))
-    dispatch(fetchReviews(getState().entities.businesses[id].reviewIds));
-    dispatch(fetchHours(getState().entities.businesses[id].hourIds));
-    dispatch(fetchCategories(getState().entities.businesses[id].categoryIds));
-    dispatch(fetchReviewers(getState().entities.businesses[id].reviewAuthorsIds));
+    dispatch(fetchReviews(res.reviewIds));
+    dispatch(fetchHours(res.hourIds));
+    dispatch(fetchCategories(res.categoryIds));
+    dispatch(fetchReviewers(res.reviewAuthorsIds));
     return
 })

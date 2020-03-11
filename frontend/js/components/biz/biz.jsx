@@ -13,19 +13,28 @@ class Biz extends React.Component{
         this.props.fetchBusiness(this.props.curBusinessId);
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot){
+        if (this.props.match.params.id != prevProps.match.params.id){
+            this.props.clearupData()
+            this.props.fetchBusiness(this.props.match.params.id);
+        }
+    }
+
     render(){
         if (
             (_.isEmpty(this.props.businesses)) || 
             (_.isEmpty(this.props.hours)) ||
             (_.isEmpty(this.props.reviews)) ||
             (_.isEmpty(this.props.categories)) ||
-            (_.isEmpty(this.props.reviewers))
+            (_.isEmpty(this.props.reviewers)) || 
+            (!Object.keys(this.props.businesses).includes(this.props.curBusinessId)) 
             ) {
             return null;
         }
 
         const businessList = this.props.businesses[this.props.curBusinessId].businessList;
         const categoryList = this.props.businesses[this.props.curBusinessId].categoryList;
+
         return(
             <div className="biz">
                 <div className="biz-container">

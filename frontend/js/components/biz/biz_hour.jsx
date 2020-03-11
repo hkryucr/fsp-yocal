@@ -29,7 +29,7 @@ class BizHour extends React.Component {
     }
 
     render(){
-        const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ];
+        const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", ""];
         const day = weekday[this.props.hour.day];
         const start = this.timeConvert(this.props.hour.start);
         const end = this.timeConvert(this.props.hour.end);

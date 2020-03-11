@@ -11,6 +11,12 @@ class BizInfoLeftLocationHours extends React.Component {
 
         const curBusiness = this.props.businesses[this.props.curBusinessId];
         const curHours = curBusiness.hourIds.map((id, idx) => {
+            let prevId;
+            if (idx != 0 && this.props.hours[curBusiness.hourIds[idx - 1]].day === this.props.hours[id].day){
+                prevId = curBusiness.hourIds[idx-1]
+                this.props.hours[id].day = 7;
+            }
+
             return this.props.hours[id];
         });
 

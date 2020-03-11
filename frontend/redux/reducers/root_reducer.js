@@ -4,11 +4,17 @@ import sessionReducer from "reducers/session_reducer";
 import errorsReducer from "reducers/errors_reducer";
 import uiReducer from "reducers/ui_reducer";
 
-const rootReducer = combineReducers({
-    entities: entitiesReducer,
-    session: sessionReducer,
-    errors: errorsReducer,
-    ui: uiReducer
-})
+import appReducer from 'reducers/app_reducer';
+import CLEAR_UP_DATA from 'actions/clearup_actions';
+
+const rootReducer = (state, action) => {
+    const curUsers = state.entities.users;
+    if (action.type === 'CLEAR_UP_DATA') {
+        state.entities = {};
+        state.entities.users = curUsers;
+    }
+
+    return appReducer(state, action)
+}
 
 export default rootReducer;

@@ -1375,9 +1375,17 @@ var Biz = /*#__PURE__*/function (_React$Component) {
       this.props.fetchBusiness(this.props.curBusinessId);
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState, snapshot) {
+      if (this.props.match.params.id != prevProps.match.params.id) {
+        this.props.clearupData();
+        this.props.fetchBusiness(this.props.match.params.id);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      if (lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.businesses) || lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.hours) || lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.reviews) || lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.categories) || lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.reviewers)) {
+      if (lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.businesses) || lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.hours) || lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.reviews) || lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.categories) || lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.reviewers) || !Object.keys(this.props.businesses).includes(this.props.curBusinessId)) {
         return null;
       }
 
@@ -1508,8 +1516,10 @@ var BizCarousel = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! actions/business_actions */ "./frontend/redux/actions/business_actions.js");
-/* harmony import */ var actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! actions/session_actions */ "./frontend/redux/actions/session_actions.js");
-/* harmony import */ var js_components_biz_biz__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js/components/biz/biz */ "./frontend/js/components/biz/biz.jsx");
+/* harmony import */ var actions_clearup_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! actions/clearup_actions */ "./frontend/redux/actions/clearup_actions.js");
+/* harmony import */ var actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! actions/session_actions */ "./frontend/redux/actions/session_actions.js");
+/* harmony import */ var js_components_biz_biz__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! js/components/biz/biz */ "./frontend/js/components/biz/biz.jsx");
+
 
 
 
@@ -1533,13 +1543,16 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchBusiness: function fetchBusiness(id) {
       return dispatch(Object(actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["fetchBusiness"])(id));
     },
+    clearupData: function clearupData() {
+      return dispatch(Object(actions_clearup_actions__WEBPACK_IMPORTED_MODULE_2__["clearupData"])());
+    },
     logout: function logout() {
-      return dispatch(Object(actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"])());
+      return dispatch(Object(actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["logout"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(js_components_biz_biz__WEBPACK_IMPORTED_MODULE_3__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(js_components_biz_biz__WEBPACK_IMPORTED_MODULE_4__["default"]));
 
 /***/ }),
 
@@ -2075,7 +2088,7 @@ var BizHour = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      var weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", ""];
       var day = weekday[this.props.hour.day];
       var start = this.timeConvert(this.props.hour.start);
       var end = this.timeConvert(this.props.hour.end);
@@ -2472,6 +2485,13 @@ var BizInfoLeftLocationHours = /*#__PURE__*/function (_React$Component) {
 
       var curBusiness = this.props.businesses[this.props.curBusinessId];
       var curHours = curBusiness.hourIds.map(function (id, idx) {
+        var prevId;
+
+        if (idx != 0 && _this.props.hours[curBusiness.hourIds[idx - 1]].day === _this.props.hours[id].day) {
+          prevId = curBusiness.hourIds[idx - 1];
+          _this.props.hours[id].day = 7;
+        }
+
         return _this.props.hours[id];
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2530,9 +2550,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -2547,21 +2567,66 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var BizReviews = /*#__PURE__*/function (_React$Component) {
   _inherits(BizReviews, _React$Component);
 
-  function BizReviews() {
+  function BizReviews(props) {
+    var _this;
+
     _classCallCheck(this, BizReviews);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BizReviews).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(BizReviews).call(this, props));
+    _this.state = {
+      filteredReviews: [],
+      text: ""
+    };
+    _this.handleTextChange = _this.handleTextChange.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(BizReviews, [{
-    key: "render",
-    value: function render() {
-      var _this = this;
+    key: "handleTextChange",
+    value: function handleTextChange(e) {
+      var value = e.target.value;
+      var filteredReviews = [];
+
+      if (value.length > 0) {
+        var regex = new RegExp("".concat(value.toLowerCase()), 'i');
+        filteredReviews = this.curReviews.filter(function (review) {
+          return regex.test(review.text.toLowerCase());
+        });
+      } else if (value.length === 0) {
+        var _regex = new RegExp(" ", 'i');
+
+        filteredReviews = this.curReviews.filter(function (review) {
+          return _regex.test(review.text.toLowerCase());
+        });
+      }
+
+      this.setState({
+        filteredReviews: filteredReviews,
+        text: value
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
 
       var curBusiness = this.props.businesses[this.props.curBusinessId];
-      var curReviews = curBusiness.reviewIds.map(function (id, idx) {
-        return _this.props.reviews[id];
+      this.curReviews = curBusiness.reviewIds.map(function (id, idx) {
+        return _this2.props.reviews[id];
       });
+      this.setState({
+        filteredReviews: this.curReviews
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      if (this.state.filteredReviews === undefined) {
+        return null;
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-reviews"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2589,7 +2654,8 @@ var BizReviews = /*#__PURE__*/function (_React$Component) {
         className: "pseudo-input-field-holder-biz"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "Search within reviews"
+        placeholder: "Search within reviews",
+        onChange: this.handleTextChange
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "header-search-form-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
@@ -2603,11 +2669,11 @@ var BizReviews = /*#__PURE__*/function (_React$Component) {
         className: "biz-review-items"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-items-container"
-      }, curReviews.map(function (review, idx) {
+      }, this.state.filteredReviews.map(function (review, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_review_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
           key: idx,
           review: review,
-          reviewers: _this.props.reviewers
+          reviewers: _this3.props.reviewers
         });
       })))));
     }
@@ -5756,10 +5822,10 @@ var fetchBusiness = function fetchBusiness(id) {
   return function (dispatch, getState) {
     return util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBusiness"](id).then(function (res) {
       dispatch(receiveBusiness(res));
-      dispatch(Object(actions_review_actions_js__WEBPACK_IMPORTED_MODULE_1__["fetchReviews"])(getState().entities.businesses[id].reviewIds));
-      dispatch(Object(actions_hour_actions_js__WEBPACK_IMPORTED_MODULE_3__["fetchHours"])(getState().entities.businesses[id].hourIds));
-      dispatch(Object(actions_category_actions_js__WEBPACK_IMPORTED_MODULE_2__["fetchCategories"])(getState().entities.businesses[id].categoryIds));
-      dispatch(Object(actions_reviewer_actions_js__WEBPACK_IMPORTED_MODULE_4__["fetchReviewers"])(getState().entities.businesses[id].reviewAuthorsIds));
+      dispatch(Object(actions_review_actions_js__WEBPACK_IMPORTED_MODULE_1__["fetchReviews"])(res.reviewIds));
+      dispatch(Object(actions_hour_actions_js__WEBPACK_IMPORTED_MODULE_3__["fetchHours"])(res.hourIds));
+      dispatch(Object(actions_category_actions_js__WEBPACK_IMPORTED_MODULE_2__["fetchCategories"])(res.categoryIds));
+      dispatch(Object(actions_reviewer_actions_js__WEBPACK_IMPORTED_MODULE_4__["fetchReviewers"])(res.reviewAuthorsIds));
       return;
     });
   };
@@ -5810,6 +5876,26 @@ var fetchCategory = function fetchCategory(id) {
     return util_category_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchCategory"](id).then(function (res) {
       return dispatch(receiveCategory(res));
     });
+  };
+};
+
+/***/ }),
+
+/***/ "./frontend/redux/actions/clearup_actions.js":
+/*!***************************************************!*\
+  !*** ./frontend/redux/actions/clearup_actions.js ***!
+  \***************************************************/
+/*! exports provided: CLEAR_UP_DATA, clearupData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_UP_DATA", function() { return CLEAR_UP_DATA; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearupData", function() { return clearupData; });
+var CLEAR_UP_DATA = "CLEAR_UP_DATA";
+var clearupData = function clearupData() {
+  return {
+    type: CLEAR_UP_DATA
   };
 };
 
@@ -6133,6 +6219,35 @@ var fetchClearErrors = function fetchClearErrors() {
 
 /***/ }),
 
+/***/ "./frontend/redux/reducers/app_reducer.js":
+/*!************************************************!*\
+  !*** ./frontend/redux/reducers/app_reducer.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var reducers_entities_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reducers/entities_reducer */ "./frontend/redux/reducers/entities_reducer.js");
+/* harmony import */ var reducers_session_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reducers/session_reducer */ "./frontend/redux/reducers/session_reducer.js");
+/* harmony import */ var reducers_errors_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reducers/errors_reducer */ "./frontend/redux/reducers/errors_reducer.js");
+/* harmony import */ var reducers_ui_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! reducers/ui_reducer */ "./frontend/redux/reducers/ui_reducer.js");
+
+
+
+
+
+var appReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  entities: reducers_entities_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  session: reducers_session_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  errors: reducers_errors_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  ui: reducers_ui_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
+});
+/* harmony default export */ __webpack_exports__["default"] = (appReducer);
+
+/***/ }),
+
 /***/ "./frontend/redux/reducers/businesses_reducer.js":
 /*!*******************************************************!*\
   !*** ./frontend/redux/reducers/businesses_reducer.js ***!
@@ -6152,8 +6267,7 @@ var businessReducer = function businessReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
-
-  var newState = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.merge({}, state);
+  var newState = {};
 
   switch (action.type) {
     case actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BUSINESSES"]:
@@ -6429,17 +6543,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var reducers_session_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reducers/session_reducer */ "./frontend/redux/reducers/session_reducer.js");
 /* harmony import */ var reducers_errors_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reducers/errors_reducer */ "./frontend/redux/reducers/errors_reducer.js");
 /* harmony import */ var reducers_ui_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! reducers/ui_reducer */ "./frontend/redux/reducers/ui_reducer.js");
+/* harmony import */ var reducers_app_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reducers/app_reducer */ "./frontend/redux/reducers/app_reducer.js");
+/* harmony import */ var actions_clearup_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! actions/clearup_actions */ "./frontend/redux/actions/clearup_actions.js");
 
 
 
 
 
-var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  entities: reducers_entities_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  session: reducers_session_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  errors: reducers_errors_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
-  ui: reducers_ui_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
-});
+
+
+
+var rootReducer = function rootReducer(state, action) {
+  var curUsers = state.entities.users;
+
+  if (action.type === 'CLEAR_UP_DATA') {
+    state.entities = {};
+    state.entities.users = curUsers;
+  }
+
+  return Object(reducers_app_reducer__WEBPACK_IMPORTED_MODULE_5__["default"])(state, action);
+};
+
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
 
 /***/ }),
@@ -7012,14 +7136,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var js_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js/root */ "./frontend/js/root.jsx");
+/* harmony import */ var actions_session_actions_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! actions/session_actions.js */ "./frontend/redux/actions/session_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
  // import levenshtein from 'js-levenshtein';
-// import { login, logout, signup, fetchAllUsers} from 'actions/session_actions.js';
-// import { fetchBusinesses, fetchBusiness } from 'actions/business_actions.js';
+
+ // import { fetchBusinesses, fetchBusiness } from 'actions/business_actions.js';
 // import { fetchReviews, fetchReview } from 'actions/review_actions.js';
 // import { fetchHours, fetchHour } from 'actions/hour_actions.js';
 // import { fetchCategories, fetchCategory } from 'actions/category_actions.js';
@@ -7042,6 +7167,8 @@ document.addEventListener("DOMContentLoaded", function () {
     store = Object(store_store__WEBPACK_IMPORTED_MODULE_0__["default"])();
   }
 
+  window.logout = actions_session_actions_js__WEBPACK_IMPORTED_MODULE_4__["logout"];
+  window.dispatch = store.dispatch;
   var root = document.getElementById("root");
   react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(js_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store

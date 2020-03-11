@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchBusiness } from 'actions/business_actions';
+import { clearupData } from 'actions/clearup_actions';
 import { logout } from 'actions/session_actions';
 import Biz from 'js/components/biz/biz';
 
@@ -11,11 +12,12 @@ const mapStateToProps = (state, ownProps) => ({
     reviews: state.entities.reviews,
     categories: state.entities.categories,
     users: state.entities.users,
-    reviewers: state.entities.reviewers
+    reviewers: state.entities.reviewers,
 })
 
 const mapDispatchToProps = (dispatch) => ({
     fetchBusiness: (id) => dispatch(fetchBusiness(id)),
+    clearupData: () => dispatch(clearupData()),
     logout: () => dispatch(logout())
 })
 

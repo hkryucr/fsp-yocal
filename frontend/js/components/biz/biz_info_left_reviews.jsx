@@ -5,12 +5,50 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import BizReviewItem from 'js/components/biz/biz_review_item';
 
 class BizReviews extends React.Component {
-    render() { 
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            filteredReviews: [],
+            text: ""
+        }
+
+        this.handleTextChange=this.handleTextChange.bind(this);
+    }
+
+    handleTextChange(e) {
+        const value = e.target.value;
+        let filteredReviews = [];
+        if(value.length > 0 ){
+            const regex = new RegExp(`${value.toLowerCase()}`, 'i');
+            filteredReviews = this.curReviews.filter(review => regex.test(review.text.toLowerCase()));
+        } else if (value.length === 0){
+            const regex = new RegExp(` `, 'i');
+            filteredReviews = this.curReviews.filter(review => regex.test(review.text.toLowerCase()));
+        }
+
+        this.setState({
+            filteredReviews,
+            text: value
+        })
+    }
+
+    componentDidMount(){
         const curBusiness = this.props.businesses[this.props.curBusinessId];
-        const curReviews = curBusiness.reviewIds.map((id, idx) => {
-            return this.props.reviews[id];
-        });
-        
+        this.curReviews = curBusiness.reviewIds.map((id, idx) => this.props.reviews[id]);
+
+        this.setState({ 
+            filteredReviews: this.curReviews
+        })
+    }
+
+
+    render() {        
+        if(this.state.filteredReviews === undefined ){
+            return null;
+        }
+
         return (
             <div className="biz-reviews">
                 <div className="biz-reviews-container">
@@ -27,7 +65,7 @@ class BizReviews extends React.Component {
                                         <div className="pseudo-input-label-near">
                                             <span className="pseudo-input-wrapper">
                                                 <span className="pseudo-input-field-holder-biz">
-                                                    <input type="text" placeholder="Search within reviews" />
+                                                    <input type="text" placeholder="Search within reviews" onChange={this.handleTextChange}/>
                                                 </span>
                                             </span>
                                         </div>
@@ -53,7 +91,7 @@ class BizReviews extends React.Component {
                     </div>
                     <div className="biz-review-items">
                         <div className="biz-review-items-container">
-                            {curReviews.map((review, idx) => <BizReviewItem key={idx} review={review} reviewers={this.props.reviewers}/>)}
+                            {this.state.filteredReviews.map((review, idx) => <BizReviewItem key={idx} review={review} reviewers={this.props.reviewers}/>)}
                         </div>
                     </div>
                 </div>

@@ -1605,7 +1605,8 @@ var BizHeader = /*#__PURE__*/function (_React$Component) {
         currentUser: this.props.currentUser,
         logout: this.props.logout,
         businessList: this.props.businessList,
-        categoryList: this.props.categoryList
+        categoryList: this.props.categoryList,
+        fetchBusinesses: this.props.fetchBusinesses
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_header_down_items__WEBPACK_IMPORTED_MODULE_2__["default"], null)))));
     }
   }]);
@@ -1804,7 +1805,18 @@ var BizHeaderSearch = /*#__PURE__*/function (_React$Component) {
   _createClass(BizHeaderSearch, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this2 = this;
+
       e.preventDefault();
+      console.log(e, "handle submit");
+      this.props.fetchBusinesses({
+        text: this.state.text
+      }).then(function () {
+        _this2.setState({
+          candidates: [],
+          text: ""
+        });
+      });
     }
   }, {
     key: "handleTextChange",
@@ -1827,7 +1839,7 @@ var BizHeaderSearch = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderCandidates",
     value: function renderCandidates() {
-      var _this2 = this;
+      var _this3 = this;
 
       var candidates = this.state.candidates;
       if (candidates.length === 0) return null;
@@ -1835,7 +1847,7 @@ var BizHeaderSearch = /*#__PURE__*/function (_React$Component) {
         className: "auto-complete-text-container"
       }, candidates.slice(0, 5).map(function (item, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          onClick: _this2.candidateSelected,
+          onClick: _this3.candidateSelected,
           key: idx
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, item));
       }));
@@ -1869,12 +1881,12 @@ var BizHeaderSearch = /*#__PURE__*/function (_React$Component) {
         className: "pseudo-input-wrapper-biz"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "pseudo-input-field-holder-biz"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         value: text,
         onChange: this.handleTextChange,
         type: "text",
         placeholder: "burgers, barbers, spas, handymen..."
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "auto-complete-text"
       }, this.renderCandidates())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "header-search-form-arrange-unit arrange-unit-right"
@@ -1889,7 +1901,7 @@ var BizHeaderSearch = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "San Francisco, CA"
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "header-search-form-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faSearch"],
@@ -1922,6 +1934,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var js_components_biz_biz_user_items__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js/components/biz/biz_user_items */ "./frontend/js/components/biz/biz_user_items.jsx");
 /* harmony import */ var css_components_biz_biz_header_upper_items_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! css/components/biz/biz_header_upper_items.css */ "./frontend/css/components/biz/biz_header_upper_items.css");
 /* harmony import */ var css_components_biz_biz_header_upper_items_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(css_components_biz_biz_header_upper_items_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1939,6 +1952,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1965,11 +1979,14 @@ var BizHeaderUpperItems = /*#__PURE__*/function (_React$Component) {
         className: "header-logo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "header-logo-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+        to: "/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "assets/yelp_logo.png"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_header_search__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_header_search__WEBPACK_IMPORTED_MODULE_1__["default"], {
         businessList: this.props.businessList,
-        categoryList: this.props.categoryList
+        categoryList: this.props.categoryList,
+        fetchBusinesses: this.props.fetchBusinesses
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_user_items__WEBPACK_IMPORTED_MODULE_2__["default"], {
         currentUser: this.props.currentUser,
         logout: this.props.logout
@@ -3312,14 +3329,35 @@ var BizSearch = /*#__PURE__*/function (_React$Component) {
   _createClass(BizSearch, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchBusinesses("this is bounds");
+      this.props.fetchBusinesses({
+        text: ""
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      // console.log("............", this.props)
-      if (lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(this.props.businesses)) {
+      if (lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(this.props.businessList) || lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(this.props.categoryList)) {
         return null;
+      }
+
+      var bizSearchResultsDiv;
+
+      if (lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(this.props.businesses)) {
+        bizSearchResultsDiv = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+          className: "biz-search-results"
+        }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+          className: "biz-search-results-conatiner"
+        }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+          className: "biz-search-header"
+        }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+          className: "biz-search-header-title"
+        }, "No Results for \"Search Result Here\" San Francisco, CA"), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+          className: "biz-search-header-wrong-search"
+        }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", null, "Suggestions for improving the results:"), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", null, "Check the spelling or try alternate spellings."), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", null, "Try a more general search. e.g. \"pizza\" instead of \"pepperoni\""), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", null, "The basic searching algorithm for this app is based on business name and category names. Please search again with an appropriate word")))));
+      } else {
+        bizSearchResultsDiv = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(js_components_biz_search_biz_search_results__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          businesses: this.props.businesses
+        });
       }
 
       return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
@@ -3330,14 +3368,13 @@ var BizSearch = /*#__PURE__*/function (_React$Component) {
         businessList: this.props.businessList,
         categoryList: this.props.categoryList,
         currentUser: this.props.currentUser,
-        logout: this.props.logout
+        logout: this.props.logout,
+        fetchBusinesses: this.props.fetchBusinesses
       }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
         className: "biz-search-body"
       }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
         className: "biz-search-body-container"
-      }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(js_components_biz_search_biz_search_results__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        businesses: this.props.businesses
-      }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(js_components_biz_search_biz_search_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, bizSearchResultsDiv, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(js_components_biz_search_biz_search_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
         businesses: this.props.businesses
       })))));
     }
@@ -3550,7 +3587,11 @@ var BizSearchMap = /*#__PURE__*/function (_React$Component) {
 
       this.map = new google.maps.Map(this.mapNode, mapOptions);
       this.MarkerManager = new util_marker_manager__WEBPACK_IMPORTED_MODULE_2__["default"](this.map);
-      this.MarkerManager.updateMarkers(Object.values(this.props.businesses));
+
+      if (!_.isEmpty(this.props.businesses)) {
+        this.MarkerManager.updateMarkers(Object.values(this.props.businesses));
+      }
+
       this.map.addListener('idle', function () {
         var bounds = _this.map.getBounds();
 
@@ -3571,8 +3612,6 @@ var BizSearchMap = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
-      console.log("this is running?");
-
       if (!_.isEmpty(this.props.businesses)) {
         var businessArr = Object.values(this.props.businesses);
         this.MarkerManager.updateMarkers(businessArr);
@@ -3583,7 +3622,6 @@ var BizSearchMap = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log(this.props);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-search-map"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -6011,8 +6049,8 @@ var businessReducer = function businessReducer() {
 
   switch (action.type) {
     case actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BUSINESSES"]:
-      newState = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.merge(newState, action.businesses);
-      return newState;
+      // newState = _.merge(newState, action.businesses);
+      return action.businesses;
 
     case actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BUSINESS"]:
       newState[action.business.id] = action.business;
@@ -6388,11 +6426,11 @@ var sessionReducer = function sessionReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var reducers_filters_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reducers/filters_reducer */ "./frontend/redux/reducers/filters_reducer.js");
+/* harmony import */ var reducers_filters_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reducers/filters_reducer */ "./frontend/redux/reducers/filters_reducer.js");
 
 
 var uiReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  filters: reducers_filters_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  filters: reducers_filters_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (uiReducer);
 
@@ -21100,7 +21138,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-reviews, .biz-reviews-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.biz-reviews-container{\n    flex-direction: column;\n    border-top: 1px solid #eeeeef;;\n    margin-top: 2rem;\n    padding-top: 2rem;\n    align-items: flex-start;\n    margin-bottom: 1.5rem;    \n}\n.biz-sub-title-wrapper{\n    margin-bottom: 2rem;\n}\n\n.biz-sub-title{\n    font-size: 1.25rem;\n    line-height: 1.625rem;\n    font-weight: bold;\n}\n\n.biz-review-search{\n    display: flex;\n    align-items: center;\n}\n\n.biz-reviews-layout, .biz-review-search, .biz-review-search-text{\n    display: flex;\n    flex-direction: row;\n}\n\n.biz-reviews-layout, .biz-review-search{\n    width: 100%;\n    font-size: 0.875rem;\n}\n\n.biz-reviews-layout{\n    margin-bottom: 1.5rem;\n    padding-bottom: 1.5rem;\n}\n\n.biz-review-search{\n    justify-content: space-between;\n}\n\n.biz-review-search-text{\n    font-size: 0.875rem;\n}\n\n.biz-review-search-text div {\n    white-space: nowrap;\n}\n\n.header-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.header-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.header-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.header-search-form-button{\n    background-color: #f43939;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n.biz-review-search-text {\n    margin-left: 2rem;\n    display: flex;\n    align-items: center;\n}\n\n/* .biz-review-search-text a{\n    margin: 0rem 0rem 0rem 0rem;\n} */\n\n.biz-review-search-text div{\n    margin-left: 1rem;\n}\n\n.biz-review-search-text div span {\n    margin-right: 0.4rem;\n}\n\n.biz-review-search-text div span:last-child {\n    font-weight: bold;\n    color: #00838f;\n}\n\n.biz-review-items, .biz-review-items-container {\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, ".biz-reviews, .biz-reviews-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.biz-reviews-container{\n    flex-direction: column;\n    border-top: 1px solid #eeeeef;;\n    margin-top: 2rem;\n    padding-top: 2rem;\n    align-items: flex-start;\n    margin-bottom: 1.5rem;    \n}\n.biz-sub-title-wrapper{\n    margin-bottom: 2rem;\n}\n\n.biz-sub-title{\n    font-size: 1.25rem;\n    line-height: 1.625rem;\n    font-weight: bold;\n}\n\n.biz-review-search{\n    display: flex;\n    align-items: center;\n}\n\n.biz-reviews-layout, .biz-review-search, .biz-review-search-text{\n    display: flex;\n    flex-direction: row;\n}\n\n.biz-reviews-layout, .biz-review-search{\n    width: 100%;\n    font-size: 0.875rem;\n}\n\n.biz-reviews-layout{\n    margin-bottom: 1.5rem;\n    padding-bottom: 1.5rem;\n}\n\n.biz-review-search{\n    justify-content: space-between;\n}\n\n.biz-review-search-text{\n    font-size: 0.875rem;\n}\n\n.biz-review-search-text div {\n    white-space: nowrap;\n}\n\n.header-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.header-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.header-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.header-search-form-button{\n    background-color: #f43939;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n/* .header-search-form-button button{\n    content: \" \";\n    width: 100%;\n    height: 100%;\n    cursor: pointer;\n} */\n\n.header-search-form-button button svg {\n    /* padding: 11px 14px 11px; */\n}\n\n.biz-review-search-text {\n    margin-left: 2rem;\n    display: flex;\n    align-items: center;\n}\n\n/* .biz-review-search-text a{\n    margin: 0rem 0rem 0rem 0rem;\n} */\n\n.biz-review-search-text div{\n    margin-left: 1rem;\n}\n\n.biz-review-search-text div span {\n    margin-right: 0.4rem;\n}\n\n.biz-review-search-text div span:last-child {\n    font-weight: bold;\n    color: #00838f;\n}\n\n.biz-review-items, .biz-review-items-container {\n    width: 100%;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -21118,7 +21156,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".business-search{\n    width: 100%;\n    min-width: 67.125rem;\n}\n\n.business-search-container{\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n.business-search{\n    width: 100%;\n}\n\n.business-search-container{\n    width: 100%;\n    display: flex;\n    flex-direction: row;\n}\n\n.biz-search-body, .biz-search-body-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.biz-search-body-container{\n    border: 1px solid #eeeeef;\n}\n\n/* search result */\n\n.biz-search-results{\n    flex: 1 0 780px;\n    padding: 0 2.5rem!important;\n}\n\n.biz-search-results-container{\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n.biz-search-header{\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    margin: 1.5rem 0;\n}\n\n.biz-search-header-path{\n    color: #757280;\n    font-size: 0.75rem;\n    line-height: 18px;\n    margin-bottom: 2rem;\n}\n.biz-search-header-path svg{\n    margin-left: 0.75rem;\n    margin-right: 0.75rem;\n}\n\n.biz-search-header-title{\n    font-size: 1.5rem;\n    font-weight: bold;\n}\n\n.biz-search-header-all-results{\n    font-size: 1rem;\n    padding: 0.5rem 0;\n    font-weight: bold;\n    margin: 1rem 0 0.5rem 0;\n}\n\n/* search content*/\n.biz-search-content{\n\n}\n", ""]);
+exports.push([module.i, ".business-search{\n    width: 100%;\n    min-width: 67.125rem;\n}\n\n.business-search-container{\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n.business-search{\n    width: 100%;\n}\n\n.business-search-container{\n    width: 100%;\n    display: flex;\n    flex-direction: row;\n}\n\n.biz-search-body, .biz-search-body-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.biz-search-body-container{\n    border: 1px solid #eeeeef;\n}\n\n/* search result */\n\n.biz-search-results{\n    flex: 1 0 780px;\n    padding: 0 2.5rem!important;\n}\n\n.biz-search-results-container{\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n.biz-search-header{\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    margin: 1.5rem 0;\n}\n\n.biz-search-header-path{\n    color: #757280;\n    font-size: 0.75rem;\n    line-height: 18px;\n    margin-bottom: 2rem;\n}\n.biz-search-header-path svg{\n    margin-left: 0.75rem;\n    margin-right: 0.75rem;\n}\n\n.biz-search-header-title{\n    font-size: 1.5rem;\n    font-weight: bold;\n}\n\n.biz-search-header-all-results{\n    font-size: 1rem;\n    padding: 0.5rem 0;\n    font-weight: bold;\n    margin: 1rem 0 0.5rem 0;\n}\n\n/* search content*/\n.biz-search-header-wrong-search{\n    margin: 1.5rem 0;\n    font-size: 1rem;\n    padding: 0.5rem 0;\n    line-height: 1.6rem;\n}\n\n\n.biz-search-header-wrong-search div:first-child{\n    font-weight: bold;\n    margin-bottom: 0.5rem;\n}\n\n", ""]);
 // Exports
 module.exports = exports;
 

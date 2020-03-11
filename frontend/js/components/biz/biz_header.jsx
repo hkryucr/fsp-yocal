@@ -15,6 +15,7 @@ class BizHeader extends React.Component {
                                 logout={this.props.logout}
                                 businessList={this.props.businessList}
                                 categoryList={this.props.categoryList}
+                                fetchBusinesses={this.props.fetchBusinesses}
                             />
                             <BizHeaderDownItems/>
                         </div>

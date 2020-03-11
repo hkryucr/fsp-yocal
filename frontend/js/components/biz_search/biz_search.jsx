@@ -11,13 +11,39 @@ class BizSearch extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchBusinesses("this is bounds");
+        this.props.fetchBusinesses({
+            text: ""
+        });
     }
 
     render() {
-        // console.log("............", this.props)
-        if (_.isEmpty(this.props.businesses)) {
+
+        if (_.isEmpty(this.props.businessList) || _.isEmpty(this.props.categoryList)) {
             return null;
+        }
+        
+        let bizSearchResultsDiv;
+        if (_.isEmpty(this.props.businesses)){
+            bizSearchResultsDiv = (
+                <div className="biz-search-results">
+                    <div className="biz-search-results-conatiner">
+                        <div className="biz-search-header">
+                            <br/>
+                            <div className="biz-search-header-title">
+                                No Results for "Search Result Here" San Francisco, CA
+                            </div>
+                            <div className="biz-search-header-wrong-search">
+                                <div>Suggestions for improving the results:</div>
+                                <div>Check the spelling or try alternate spellings.</div>
+                                <div>Try a more general search. e.g. "pizza" instead of "pepperoni"</div>
+                                <div>The basic searching algorithm for this app is based on business name and category names. Please search again with an appropriate word</div>                  
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
+            )
+        } else {
+            bizSearchResultsDiv = (<BizSearchResults businesses={this.props.businesses} />);
         }
 
         return (
@@ -28,12 +54,11 @@ class BizSearch extends React.Component {
                         categoryList={this.props.categoryList}
                         currentUser={this.props.currentUser} 
                         logout={this.props.logout} 
+                        fetchBusinesses={this.props.fetchBusinesses}
                     />
                     <div className="biz-search-body">
                         <div className="biz-search-body-container">
-                            <BizSearchResults
-                                businesses={this.props.businesses}                            
-                            />
+                            { bizSearchResultsDiv }
                             <BizSearchMap businesses={this.props.businesses}/>
                         </div>
                     </div>

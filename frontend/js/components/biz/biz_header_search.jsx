@@ -17,6 +17,15 @@ class BizHeaderSearch extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault();
+        console.log(e, "handle submit")
+        this.props.fetchBusinesses({
+            text: this.state.text
+        }).then(()=>{
+            this.setState({
+                candidates: [],
+                text: ""
+            })
+        })
     }
 
     handleTextChange(e) {
@@ -62,7 +71,9 @@ class BizHeaderSearch extends React.Component{
                                 <div className="pseudo-input-label-header-search">
                                     <span className="pseudo-input-wrapper-biz">
                                         <span className="pseudo-input-field-holder-biz">
-                                            <input value={text} onChange={this.handleTextChange} type="text" placeholder="burgers, barbers, spas, handymen..." />
+                                            <label>
+                                                <input value={text} onChange={this.handleTextChange} type="text" placeholder="burgers, barbers, spas, handymen..." />
+                                            </label>
                                         </span>
                                     </span>
                                 </div>
@@ -82,9 +93,9 @@ class BizHeaderSearch extends React.Component{
                                     </span>
                                 </div>
                             </div>
-                            <div className="header-search-form-button">
+                            <button className="header-search-form-button">
                                 <FontAwesomeIcon icon={faSearch} style={{ color: 'white' }} />
-                            </div>
+                            </button>
                         </div>
                     </form>
                 </div>

@@ -73,6 +73,16 @@
 }
 
 /* search content*/
-.biz-search-content{
-
+.biz-search-header-wrong-search{
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    line-height: 1.6rem;
 }
+
+
+.biz-search-header-wrong-search div:first-child{
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+

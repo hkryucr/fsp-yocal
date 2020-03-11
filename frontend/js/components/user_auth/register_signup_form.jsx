@@ -78,7 +78,6 @@ class RegisterSignupForm extends React.Component {
                 text.innerHTML = "";
             }
         });
-
     }
 
     render() {        

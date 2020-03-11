@@ -61,7 +61,15 @@ class Business < ApplicationRecord
     #     Business.all.includes(:categories).map(&:categories)
     # end
 
+    def search_form(keyword)
+        search_result = []
+        search_result += Business.where( '(business_name LIKE ?) AND ', keyword )
+        search_result += Business.where( '(business_name LIKE ?) AND ', keyword )
+        search_result += Business.where( '(business_name LIKE ?) AND ', keyword )
+    end
+
+
     def self.in_bounds(bounds)    
-        Bench.where('(lat BETWEEN ? AND ?) AND (lng BETWEEN ? AND ?)', bounds[:southWest][:lat].to_f, bounds[:northEast][:lat].to_f, bounds[:southWest][:lng].to_f, bounds[:northEast][:lng].to_f)
+        # Bench.where('(lat BETWEEN ? AND ?) AND (lng BETWEEN ? AND ?)', bounds[:southWest][:lat].to_f, bounds[:northEast][:lat].to_f, bounds[:southWest][:lng].to_f, bounds[:northEast][:lng].to_f)
     end
 end

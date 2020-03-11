@@ -13,7 +13,10 @@ class BizHeaderUpperItems extends React.Component{
                             <img src="assets/yelp_logo.png" />
                         </div>
                     </div>
-                    <BizHeaderSearch />
+                    <BizHeaderSearch 
+                        businessList={this.props.businessList}
+                        categoryList={this.props.categoryList}
+                    />
                     <BizUserItems currentUser={this.props.currentUser} logout={this.props.logout}/>
                 </div>
             </div>

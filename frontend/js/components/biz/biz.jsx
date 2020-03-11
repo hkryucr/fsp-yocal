@@ -24,10 +24,17 @@ class Biz extends React.Component{
             return null;
         }
 
+        const businessList = this.props.businesses[this.props.curBusinessId].businessList;
+        const categoryList = this.props.businesses[this.props.curBusinessId].categoryList;
         return(
             <div className="biz">
                 <div className="biz-container">
-                    <BizHeader currentUser={this.props.currentUser} logout={this.props.logout}/>
+                    <BizHeader 
+                        categoryList={categoryList}
+                        businessList={businessList} 
+                        currentUser={this.props.currentUser} 
+                        logout={this.props.logout}
+                    />
                     <BizMain 
                         currentUser={this.props.currentUser}
                         curBusinessId={this.props.curBusinessId}

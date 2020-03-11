@@ -56,4 +56,12 @@ class Business < ApplicationRecord
     has_many :review_authors,
         through: :reviews,
         source: :author
+
+    # def search_term_generator
+    #     Business.all.includes(:categories).map(&:categories)
+    # end
+
+    def self.in_bounds(bounds)    
+        Bench.where('(lat BETWEEN ? AND ?) AND (lng BETWEEN ? AND ?)', bounds[:southWest][:lat].to_f, bounds[:northEast][:lat].to_f, bounds[:southWest][:lng].to_f, bounds[:northEast][:lng].to_f)
+    end
 end

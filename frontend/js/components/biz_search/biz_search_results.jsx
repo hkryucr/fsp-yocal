@@ -10,7 +10,9 @@ class BizSearchResults extends React.Component {
     }
 
     render() {
-        const businessArr = Object.values(this.props.businesses);
+        let bizArrWithLists = Object.values(this.props.businesses);
+        let businessArr = bizArrWithLists.slice(0, bizArrWithLists.length-2);
+        
         return (
             <div className="biz-search-results">
                 <div className="biz-search-results-conatiner">

@@ -7,3 +7,7 @@
     flex-direction: column;
     width: 100%;
 }
+
+.biz-container > .biz-header{
+    position: initial;
+}

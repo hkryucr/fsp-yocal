@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     fetchBusiness: (id) => dispatch(fetchBusiness(id)),
-    logout: ()=> dispatch(logout())
+    logout: () => dispatch(logout())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Biz);

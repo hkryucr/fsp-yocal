@@ -14,3 +14,30 @@
     height: 100%
     /* border-radius: 4px 4px 0px 0px; */
 }
+.g-map-infowindow {
+    font-size: 0.75;
+    color: #757280;
+    line-height: 18px;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    padding: 5px;
+}
+
+.g-map-infowindow-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    margin: 7px 0;
+}
+
+.g-map-infowindow-rating {
+    font-size: 0.9rem;
+    /* font-weight: bold; */
+    /* color: black; */
+    margin: 7px 0;
+}
+
+.g-map-infowindow-rating-span{
+    font-weight: bold;
+}

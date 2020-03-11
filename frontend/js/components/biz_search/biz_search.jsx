@@ -15,6 +15,7 @@ class BizSearch extends React.Component {
     }
 
     render() {
+        // console.log("............", this.props)
         if (_.isEmpty(this.props.businesses)) {
             return null;
         }
@@ -22,7 +23,12 @@ class BizSearch extends React.Component {
         return (
             <div className="biz-search">
                 <div className="biz-search-container">
-                    <BizHeader currentUser={this.props.currentUser} logout={this.props.logout} />
+                    <BizHeader 
+                        businessList={this.props.businessList} 
+                        categoryList={this.props.categoryList}
+                        currentUser={this.props.currentUser} 
+                        logout={this.props.logout} 
+                    />
                     <div className="biz-search-body">
                         <div className="biz-search-body-container">
                             <BizSearchResults

@@ -10,7 +10,12 @@ class BizHeader extends React.Component {
                 <div className="biz-header-container">
                     <div className="biz-header-items">
                         <div className="biz-header-items-container">
-                            <BizHeaderUpperItems currentUser={this.props.currentUser} logout={this.props.logout}/>
+                            <BizHeaderUpperItems 
+                                currentUser={this.props.currentUser} 
+                                logout={this.props.logout}
+                                businessList={this.props.businessList}
+                                categoryList={this.props.categoryList}
+                            />
                             <BizHeaderDownItems/>
                         </div>
                     </div>

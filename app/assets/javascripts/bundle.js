@@ -1381,11 +1381,15 @@ var Biz = /*#__PURE__*/function (_React$Component) {
         return null;
       }
 
+      var businessList = this.props.businesses[this.props.curBusinessId].businessList;
+      var categoryList = this.props.businesses[this.props.curBusinessId].categoryList;
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "biz"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "biz-container"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(js_components_biz_biz_header__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        categoryList: categoryList,
+        businessList: businessList,
         currentUser: this.props.currentUser,
         logout: this.props.logout
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(js_components_biz_biz_main__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -1599,7 +1603,9 @@ var BizHeader = /*#__PURE__*/function (_React$Component) {
         className: "biz-header-items-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_header_upper_items__WEBPACK_IMPORTED_MODULE_1__["default"], {
         currentUser: this.props.currentUser,
-        logout: this.props.logout
+        logout: this.props.logout,
+        businessList: this.props.businessList,
+        categoryList: this.props.categoryList
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_header_down_items__WEBPACK_IMPORTED_MODULE_2__["default"], null)))));
     }
   }]);
@@ -1745,6 +1751,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1774,6 +1788,15 @@ var BizHeaderSearch = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, BizHeaderSearch);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(BizHeaderSearch).call(this, props));
+    _this.items = [].concat(_toConsumableArray(_this.props.businessList.map(function (biz) {
+      return biz.split("_").join(" ");
+    })), _toConsumableArray(_this.props.categoryList));
+    _this.state = {
+      candidates: [],
+      text: ""
+    };
+    _this.candidateSelected = _this.candidateSelected.bind(_assertThisInitialized(_this));
+    _this.handleTextChange = _this.handleTextChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -1784,8 +1807,51 @@ var BizHeaderSearch = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
     }
   }, {
+    key: "handleTextChange",
+    value: function handleTextChange(e) {
+      var value = e.target.value;
+      var candidates = [];
+
+      if (value.length > 0) {
+        var regex = new RegExp("^".concat(value), 'i');
+        candidates = this.items.sort().filter(function (item) {
+          return regex.test(item);
+        });
+      }
+
+      this.setState({
+        candidates: candidates,
+        text: value
+      });
+    }
+  }, {
+    key: "renderCandidates",
+    value: function renderCandidates() {
+      var _this2 = this;
+
+      var candidates = this.state.candidates;
+      if (candidates.length === 0) return null;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "auto-complete-text-container"
+      }, candidates.slice(0, 5).map(function (item, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          onClick: _this2.candidateSelected,
+          key: idx
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, item));
+      }));
+    }
+  }, {
+    key: "candidateSelected",
+    value: function candidateSelected(e) {
+      this.setState({
+        text: e.nativeEvent.target.innerText,
+        candidates: []
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var text = this.state.text;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "header-search"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1804,9 +1870,13 @@ var BizHeaderSearch = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "pseudo-input-field-holder-biz"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        value: text,
+        onChange: this.handleTextChange,
         type: "text",
         placeholder: "burgers, barbers, spas, handymen..."
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "auto-complete-text"
+      }, this.renderCandidates())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "header-search-form-arrange-unit arrange-unit-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "header-search-form-middle-border"
@@ -1897,7 +1967,10 @@ var BizHeaderUpperItems = /*#__PURE__*/function (_React$Component) {
         className: "header-logo-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "assets/yelp_logo.png"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_header_search__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_user_items__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_header_search__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        businessList: this.props.businessList,
+        categoryList: this.props.categoryList
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_user_items__WEBPACK_IMPORTED_MODULE_2__["default"], {
         currentUser: this.props.currentUser,
         logout: this.props.logout
       })));
@@ -3244,6 +3317,7 @@ var BizSearch = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      // console.log("............", this.props)
       if (lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(this.props.businesses)) {
         return null;
       }
@@ -3253,6 +3327,8 @@ var BizSearch = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
         className: "biz-search-container"
       }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(js_components_biz_biz_header__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        businessList: this.props.businessList,
+        categoryList: this.props.categoryList,
         currentUser: this.props.currentUser,
         logout: this.props.logout
       }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
@@ -3295,14 +3371,10 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     currentUser: state.entities.users[state.session.id],
-    // curBusinessId: ownProps.match.params.id,
     entities: state.entities,
-    businesses: state.entities.businesses // hours: state.entities.hours,
-    // reviews: state.entities.reviews,
-    // categories: state.entities.categories,
-    // users: state.entities.users,
-    // reviewers: state.entities.reviewers
-
+    businesses: state.entities.businesses.businessItems,
+    businessList: state.entities.businesses.businessList,
+    categoryList: state.entities.businesses.categoryList
   };
 };
 
@@ -3493,7 +3565,7 @@ var BizSearchMap = /*#__PURE__*/function (_React$Component) {
             lat: sw.lat(),
             lng: sw.lng()
           }
-        }; // this.props.updateBounds('bounds', boundsObj);
+        };
       });
     }
   }, {
@@ -3503,7 +3575,6 @@ var BizSearchMap = /*#__PURE__*/function (_React$Component) {
 
       if (!_.isEmpty(this.props.businesses)) {
         var businessArr = Object.values(this.props.businesses);
-        console.log(businessArr);
         this.MarkerManager.updateMarkers(businessArr);
       }
     }
@@ -3584,7 +3655,8 @@ var BizSearchResults = /*#__PURE__*/function (_React$Component) {
   _createClass(BizSearchResults, [{
     key: "render",
     value: function render() {
-      var businessArr = Object.values(this.props.businesses);
+      var bizArrWithLists = Object.values(this.props.businesses);
+      var businessArr = bizArrWithLists.slice(0, bizArrWithLists.length - 2);
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "biz-search-results"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -5597,6 +5669,37 @@ var fetchCategory = function fetchCategory(id) {
 
 /***/ }),
 
+/***/ "./frontend/redux/actions/filter_actions.js":
+/*!**************************************************!*\
+  !*** ./frontend/redux/actions/filter_actions.js ***!
+  \**************************************************/
+/*! exports provided: UPDATE_FILTER, changeFilter, updateFilter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_FILTER", function() { return UPDATE_FILTER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeFilter", function() { return changeFilter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateFilter", function() { return updateFilter; });
+/* harmony import */ var actions_business_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! actions/business_actions */ "./frontend/redux/actions/business_actions.js");
+
+var UPDATE_FILTER = 'UPDATE_FILTER';
+var changeFilter = function changeFilter(filters, value) {
+  return {
+    type: UPDATE_FILTER,
+    filters: filters,
+    value: value
+  };
+};
+function updateFilter(filters, value) {
+  return function (dispatch, getState) {
+    dispatch(changeFilter(filters, value));
+    return Object(actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["fetchBusinesses"])(getState().ui.filters)(dispatch);
+  };
+}
+
+/***/ }),
+
 /***/ "./frontend/redux/actions/hour_actions.js":
 /*!************************************************!*\
   !*** ./frontend/redux/actions/hour_actions.js ***!
@@ -6020,6 +6123,36 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
 
 /***/ }),
 
+/***/ "./frontend/redux/reducers/filters_reducer.js":
+/*!****************************************************!*\
+  !*** ./frontend/redux/reducers/filters_reducer.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! actions/filter_actions */ "./frontend/redux/actions/filter_actions.js");
+
+
+var filtersReducer = function filtersReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_FILTER"]:
+      return action.value;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (filtersReducer);
+
+/***/ }),
+
 /***/ "./frontend/redux/reducers/hours_reducer.js":
 /*!**************************************************!*\
   !*** ./frontend/redux/reducers/hours_reducer.js ***!
@@ -6149,16 +6282,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var reducers_entities_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reducers/entities_reducer */ "./frontend/redux/reducers/entities_reducer.js");
 /* harmony import */ var reducers_session_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reducers/session_reducer */ "./frontend/redux/reducers/session_reducer.js");
 /* harmony import */ var reducers_errors_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reducers/errors_reducer */ "./frontend/redux/reducers/errors_reducer.js");
+/* harmony import */ var reducers_ui_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! reducers/ui_reducer */ "./frontend/redux/reducers/ui_reducer.js");
 
 
 
- // import uiReducer from "reducers/ui_reducer";
+
 
 var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   entities: reducers_entities_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   session: reducers_session_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  errors: reducers_errors_reducer__WEBPACK_IMPORTED_MODULE_3__["default"] // ui: uiReducer
-
+  errors: reducers_errors_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  ui: reducers_ui_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
 
@@ -6241,6 +6375,26 @@ var sessionReducer = function sessionReducer() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (sessionReducer);
+
+/***/ }),
+
+/***/ "./frontend/redux/reducers/ui_reducer.js":
+/*!***********************************************!*\
+  !*** ./frontend/redux/reducers/ui_reducer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var reducers_filters_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reducers/filters_reducer */ "./frontend/redux/reducers/filters_reducer.js");
+
+
+var uiReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  filters: reducers_filters_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+});
+/* harmony default export */ __webpack_exports__["default"] = (uiReducer);
 
 /***/ }),
 
@@ -6429,11 +6583,17 @@ var fetchHour = function fetchHour(id) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MarkerManager; });
+/* harmony import */ var js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js/components/utils/ratings */ "./frontend/js/components/utils/ratings.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
 
 var MarkerManager = /*#__PURE__*/function () {
   function MarkerManager(map) {
@@ -6446,6 +6606,8 @@ var MarkerManager = /*#__PURE__*/function () {
   _createClass(MarkerManager, [{
     key: "updateMarkers",
     value: function updateMarkers(businesses) {
+      var _this = this;
+
       var businessObj = {};
 
       for (var i = 0; i < businesses.length; i++) {
@@ -6459,33 +6621,56 @@ var MarkerManager = /*#__PURE__*/function () {
         }
       }
 
-      for (var _i2 = 0; _i2 < businesses.length; _i2++) {
+      var _loop = function _loop(_i2) {
         var _businesses$_i = businesses[_i2],
             id = _businesses$_i.id,
             businessName = _businesses$_i.businessName,
             latitude = _businesses$_i.latitude,
-            longitude = _businesses$_i.longitude;
+            longitude = _businesses$_i.longitude,
+            photoUrls = _businesses$_i.photoUrls,
+            reviewCount = _businesses$_i.reviewCount,
+            rating = _businesses$_i.rating,
+            categories = _businesses$_i.categories;
+        var firstImg = photoUrls[0];
 
-        if (this.markers[id] === undefined) {
+        if (_this.markers[id] === undefined) {
           var newMarker = new google.maps.Marker({
             id: id,
             position: {
               lat: latitude,
               lng: longitude
             },
-            map: this.map,
+            map: _this.map,
             businessName: businessName
           });
-          this.markers[id] = newMarker;
+          newMarker.setLabel({
+            text: "".concat(_i2 + 1),
+            color: "rgb(255, 255, 255)",
+            fontWeight: "bold",
+            fontSize: "12px"
+          });
+          var infoWindow = new google.maps.InfoWindow();
+          google.maps.event.addListener(newMarker, 'mouseover', function () {
+            infoWindow.setContent('<div class="' + 'g-map-infowindow' + '">' + '<img src="' + photoUrls[0].photoUrl + '" style="' + 'height:200px; width:200px; object-fit:cover; border-radius: 4px' + '"/>' + '<div class="' + 'g-map-infowindow-title' + '">' + businessName + '</div>' + '<div class="' + 'g-map-infowindow-rating' + '">' + '<span class="' + 'g-map-infowindow-rating-span' + '">' + rating + '</span>' + " rating out of " + '<span class="' + 'g-map-infowindow-rating-span' + '">' + reviewCount + '</span>' + " reviews" + '</div>' + '<div>' + categories + '</div>' + '</div>');
+            infoWindow.open(this.map, newMarker);
+          });
+          google.maps.event.addListener(newMarker, 'mouseout', function () {
+            console.log("marker is working");
+            infoWindow.setContent('this is marker');
+            infoWindow.close(this.map, newMarker);
+          });
+          _this.markers[id] = newMarker;
         }
+      };
+
+      for (var _i2 = 0; _i2 < businesses.length; _i2++) {
+        _loop(_i2);
       }
-    }
-  }, {
-    key: "removeMarker",
-    value: function removeMarker(marker) {
-      this.markers[marker.id].setMap(null);
-      delete this.markers[marker.id];
-    }
+    } // removeMarker(marker) {
+    //     this.markers[marker.id].setMap(null);
+    //     delete this.markers[marker.id];
+    // }
+
   }]);
 
   return MarkerManager;
@@ -20645,7 +20830,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz{\n    width: 100%;   \n}\n\n.biz-container{\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n}", ""]);
+exports.push([module.i, ".biz{\n    width: 100%;   \n}\n\n.biz-container{\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n}\n\n.biz-container > .biz-header{\n    position: initial;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -20717,7 +20902,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-header-upper-items{\n    width: 100;\n}\n\n.biz-header-upper-items-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.header-logo{\n    flex: 1 0 7rem;\n    display: flex;\n    align-items: center;\n    margin-right: 32px;\n}\n%\n.header-logo-container{\n    display: flex;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n}\n\n.header-logo-container img {\n    width: 80px;\n    height: 40px;\n}\n\n.header-search{\n    display: flex;\n    flex-direction: column;\n    width: auto;    \n    /* min-width: 58%; */\n    flex: 10 0 24rem;\n    margin-right: 24px; \n}\n\n.biz-header-container-content{\n    display: flex;\n    align-items: center;\n    width: 100%\n}    \n\n.header-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.header-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 100%;\n}\n\n.header-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.pseudo-input-label-header-search, .pseudo-input-label-biz-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.header-search-form-middle-border{\n    border-left: 1px solid #ccc;;\n    width: 1px;\n    height: 25px;\n}\n\n.header-search-form-button{\n    background-color: #f43939;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n.pseudo-input-label-header-search .find-span, .pseudo-input-label-header-search .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n    width: 100%;\n}\n\n.header-user-items{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    flex: 1 0 30rem;\n}\n\n.header-user-items-container{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-left: 2rem;\n}\n\n.header-user-item-container{\n    padding: 8px 0;\n\n}\n.header-user-button-container{\n    display: flex;\n    flex-direction: row;\n    justify-items: center;\n    align-items: center;\n    padding: 8px 8px 8px 0px;\n}\n\n.header-user-button-container .item-mark {\n    color: #05a882;\n    font-weight: bold;\n    font-size: 0.75rem;\n    display: flex;\n    /* margin-right: 0; */\n    margin-right: 1.5rem;\n    /* flex-direction: column;\n    justify-content: center;\n    align-items: center; */\n}\n\n.header-user-item-container:hover{\n    background-color: #eeeeef;\n    border-radius: 4px;\n}\n\n.header-user-item{\n    font-size: 0.875rem;\n    white-space: nowrap;\n}\n\n.header-user-button-1 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: white;\n    margin-left: 12px;\n    border: 1px solid #2b273c;\n}\n\n.header-user-button-1 span{\n    white-space: nowrap;\n    color: #2b273c;\n}\n.header-user-button-2 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: #f43939;\n    margin-left: 12px;\n}\n\n.header-user-button-2 span{\n    white-space: nowrap;\n    color: white;\n}", ""]);
+exports.push([module.i, ".biz-header-upper-items{\n    width: 100;\n}\n\n.biz-header-upper-items-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.header-logo{\n    flex: 1 0 7rem;\n    display: flex;\n    align-items: center;\n    margin-right: 32px;\n}\n%\n.header-logo-container{\n    display: flex;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n}\n\n.header-logo-container img {\n    width: 80px;\n    height: 40px;\n}\n\n.header-search{\n    display: flex;\n    flex-direction: column;\n    width: auto;    \n    /* min-width: 58%; */\n    flex: 10 0 24rem;\n    margin-right: 24px; \n}\n\n.biz-header-container-content{\n    display: flex;\n    align-items: center;\n    width: 100%\n}    \n\n.header-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.header-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 100%;\n}\n\n.header-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n    position: relative;\n}\n\n.pseudo-input-label-header-search, .pseudo-input-label-biz-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.header-search-form-middle-border{\n    border-left: 1px solid #ccc;\n    width: 1px;\n    height: 25px;\n}\n\n/* autocomplete search text  */\n.header-search-form-arrange-unit .auto-complete-text{\n    position: absolute;\n    background-color: white;\n    top: 40px;\n    width: 100%;\n    z-index: 1;\n    border-radius: 0 0 4px 4px;\n    /* border-bottom: 1px solid #ccc;\n    border-left: 1px solid #ccc;\n    border-right: 1px solid #ccc; */\n    line-height: 21px;\n    z-index: 1;\n}\n\n.auto-complete-text-container{\n    display: flex;\n    flex-direction: column;\n    box-shadow: 2px 2px 1px 1px rgba(0,0,0,.10);\n\n}\n\n.auto-complete-text-container li {\n    display: flex;\n    align-items: center;\n    padding: 0 0.8rem 0.8rem 0.8rem;\n    margin-top: 10px;\n}\n\n.auto-complete-text-container li:hover {\n    font-weight: bold;\n    text-decoration: underline;\n}\n\n/* position: relative;  */\n\n/* */\n\n.header-search-form-button{\n    background-color: #f43939;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n    z-index: 1;\n}\n\n.pseudo-input-label-header-search .find-span, .pseudo-input-label-header-search .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n    width: 100%;\n}\n.pseudo-input-field-holder-biz input, .pseudo-input-field-holder-biz input, .pseudo-input-field-holder-biz{\n    width: 100%;\n}\n\n.header-user-items{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    flex: 1 0 30rem;\n}\n\n.header-user-items-container{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-left: 2rem;\n}\n\n.header-user-item-container{\n    padding: 8px 0;\n\n}\n.header-user-button-container{\n    display: flex;\n    flex-direction: row;\n    justify-items: center;\n    align-items: center;\n    padding: 8px 8px 8px 0px;\n}\n\n.header-user-button-container .item-mark {\n    color: #05a882;\n    font-weight: bold;\n    font-size: 0.75rem;\n    display: flex;\n    /* margin-right: 0; */\n    margin-right: 1.5rem;\n    /* flex-direction: column;\n    justify-content: center;\n    align-items: center; */\n}\n\n.header-user-item-container:hover{\n    background-color: #eeeeef;\n    border-radius: 4px;\n}\n\n.header-user-item{\n    font-size: 0.875rem;\n    white-space: nowrap;\n}\n\n.header-user-button-1 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: white;\n    margin-left: 12px;\n    border: 1px solid #2b273c;\n}\n\n.header-user-button-1 span{\n    white-space: nowrap;\n    color: #2b273c;\n}\n.header-user-button-2 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: #f43939;\n    margin-left: 12px;\n}\n\n.header-user-button-2 span{\n    white-space: nowrap;\n    color: white;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -20969,7 +21154,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n/* map */\n.biz-search-map{\n    flex: 4 0 290px;\n    height: 100%;\n    position: sticky;\n    height: calc(100vh - 128px);  \n    top: 128px;\n    z-index: 0;\n}\n\n.biz-search-map-container {\n    width: 100%;\n    height: 100%\n    /* border-radius: 4px 4px 0px 0px; */\n}\n", ""]);
+exports.push([module.i, "\n/* map */\n.biz-search-map{\n    flex: 4 0 290px;\n    height: 100%;\n    position: sticky;\n    height: calc(100vh - 128px);  \n    top: 128px;\n    z-index: 0;\n}\n\n.biz-search-map-container {\n    width: 100%;\n    height: 100%\n    /* border-radius: 4px 4px 0px 0px; */\n}\n.g-map-infowindow {\n    font-size: 0.75;\n    color: #757280;\n    line-height: 18px;\n    display: flex;\n    flex-direction: column;\n    width: 250px;\n    padding: 5px;\n}\n\n.g-map-infowindow-title {\n    font-size: 1.2rem;\n    font-weight: bold;\n    color: black;\n    margin: 7px 0;\n}\n\n.g-map-infowindow-rating {\n    font-size: 0.9rem;\n    /* font-weight: bold; */\n    /* color: black; */\n    margin: 7px 0;\n}\n\n.g-map-infowindow-rating-span{\n    font-weight: bold;\n}", ""]);
 // Exports
 module.exports = exports;
 

@@ -33,8 +33,6 @@ class BizSearchMap extends React.Component {
                     lng: sw.lng()
                 }
             };
-
-            // this.props.updateBounds('bounds', boundsObj);
         });
     }
 
@@ -42,7 +40,6 @@ class BizSearchMap extends React.Component {
         console.log("this is running?")
         if (!(_.isEmpty(this.props.businesses))) {
             const businessArr = Object.values(this.props.businesses);
-            console.log(businessArr);
             this.MarkerManager.updateMarkers(businessArr);
         }
     }   

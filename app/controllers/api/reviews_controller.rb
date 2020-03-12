@@ -1,6 +1,7 @@
 class Api::ReviewsController < ApplicationController
     def index
-        @reviews = Review.where("id IN (?)", params["review"].map(&:to_i))
+        @reviews = Review.where("id IN (?)", params["review"].map(&:to_i)).order('review_date DESC')
+
         render 'api/reviews/index'
     end
 
@@ -10,19 +11,18 @@ class Api::ReviewsController < ApplicationController
     end
 
     def create
-        input = {
-            author_id: params[:review][:business_id].to_i, 
-            business_id: params[:review][:business_id].to_i, 
-            business_name: params[:review][:business_name], 
-            rating: params[:review][:rating], 
-            text: params[:review][:text],
-            review_date: params[:review][:review_date], 
+        cur_review = {
+            author_id: review_params[:author_id].to_i, 
+            business_id: review_params[:business_id].to_i, 
+            business_name: review_params[:business_name], 
+            rating: review_params[:rating], 
+            text: review_params[:text],
+            review_date: Time.at(review_params[:review_date].to_f/1000.0), 
             useful: 0, 
             funny: 0, 
             cool: 0
         }
-        @review = Review.new(input)
-
+        @review = Review.new(cur_review)
         if @review.save
             render 'api/reviews/show'
         else
@@ -31,6 +31,6 @@ class Api::ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:author_id, :business_id, :business_name, :rating, :text, :review_date, :useful, :funny, :cool)
+        params.require(:review).permit(:author_id, :business_id, :business_name, :rating, :text, :review_date, :useful, :funny, :cool, :review_photo)
     end
 end

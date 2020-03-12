@@ -12,8 +12,10 @@ class Api::UsersController < ApplicationController
     end
 
     def create
+
         @user = User.new(user_params)
         if @user.save
+            @user.user_photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', "profile_basic2.png")), filename: ("user_#{@user.id}.png"))
             login(@user)
             render :show
         else

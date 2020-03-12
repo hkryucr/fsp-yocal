@@ -20,33 +20,12 @@
 .main-section-container-header-left{
     display: flex;
     flex-direction: row;
-}
-
-.main-section-container-header-right{
-    display: flex;
-    flex-direction: row;
+    align-items: center;
+    font-weight: bold;
 }
 
 .main-section-container-header-item{
-    padding: 10px;
-    margin-right: 30px;
-    font-weight: 500;
-    cursor: pointer;
-}
-.main-section-container-header-greeting{
-    padding: 10px;
-    margin-right: 30px;
-    font-weight: 500;
-}
-
-.signup-button{
-    border-radius: 2px;
-    border: solid 1px white;
-    margin-right: 0px;
-    padding: 0px 25px 0px 25px;
-    text-align: center;
-    display: inline-block;
-    line-height: 2.5;
+    margin-right: 2rem;
 }
 
 .main-section-container-content{

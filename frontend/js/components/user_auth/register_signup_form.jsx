@@ -102,7 +102,7 @@ class RegisterSignupForm extends React.Component {
                 </label>
                 <label htmlFor="password">
                     <div className="input-wrapper" tabIndex="0">
-                        <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" id="password" name="password" required onChange={this.update('password')} placeholder="Password" onClick={this.handPasswordClick}/>
+                        <input type="password" id="password" name="password" required onChange={this.update('password')} placeholder="Password" onClick={this.handPasswordClick}/>
                     </div>
                     <div className="input-password-meter-wrapper">
                         <div className="progress-bar-container">

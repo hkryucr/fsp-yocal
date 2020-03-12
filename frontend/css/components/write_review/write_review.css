@@ -40,15 +40,16 @@
     color: white;
 }
 
+.write-review-right .profile-greeting{
+    color: white;
+    font-weight: bold;
+}
+
 /* body */
 
 .wrtie-review-body, .wrtie-review-body-container, .wrtie-review-content{
     display: flex;
     width: 100%;
-}
-
-.wrtie-review-body{
-
 }
 
 .wrtie-review-body-container{

@@ -1,5 +1,6 @@
 import React from 'react';
 import WriteReviewForm from 'js/components/write_review/write_review_form';
+import Profile from 'js/components/utils/profile';
 import { Link } from 'react-router-dom';
 import 'css/components/write_review/write_review.css';
 
@@ -29,7 +30,7 @@ class WriteReview extends React.Component{
                                 </div>
                             </div>
                             <div className="write-review-right">
-                                About Me
+                                <Profile currentUser={this.props.currentUser} logout={this.props.logout} />
                             </div>
                         </div>
                     </div>

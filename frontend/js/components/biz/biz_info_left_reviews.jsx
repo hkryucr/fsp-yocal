@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import BizReviewItem from 'js/components/biz/biz_review_item';
 
 class BizReviews extends React.Component {
-
     constructor(props){
         super(props);
 
@@ -37,7 +36,6 @@ class BizReviews extends React.Component {
     componentDidMount(){
         const curBusiness = this.props.businesses[this.props.curBusinessId];
         this.curReviews = curBusiness.reviewIds.map((id, idx) => this.props.reviews[id]);
-
         this.setState({ 
             filteredReviews: this.curReviews
         })
@@ -91,7 +89,7 @@ class BizReviews extends React.Component {
                     </div>
                     <div className="biz-review-items">
                         <div className="biz-review-items-container">
-                            {this.state.filteredReviews.map((review, idx) => <BizReviewItem key={idx} review={review} reviewers={this.props.reviewers}/>)}
+                            {(this.state.filteredReviews.sort((a, b) => new Date(b.reviewDate) - new Date(a.reviewDate))).map((review, idx) => <BizReviewItem key={idx} review={review} reviewers={this.props.reviewers}/>)}
                         </div>
                     </div>
                 </div>

@@ -29,7 +29,6 @@ class YocalMain extends React.Component{
                 </div>
             );
         }
-        console.log(this.props, "whatever passing here")
 
         return (
             <div className="yocal-main">

@@ -9,6 +9,7 @@ class WriteReviewForm extends React.Component{
         this.selectRating = this.selectRating.bind(this);
         this.changeRatingText = this.changeRatingText.bind(this);
         this.handleText = this.handleText.bind(this);
+        this.uploadFile = this.uploadFile.bind(this);
 
         this.state = {
             author_id: 1,
@@ -20,15 +21,18 @@ class WriteReviewForm extends React.Component{
             useful: 0,
             funny: 0,
             cool: 0,
-            curRating: 0
+            curRating: 0,
+            photoFile: ""
         }
+    }
+
+    uploadFile(e){
+        e.preventDefault()
+        this.setState({ photoFile: e.currentTarget.files[0]})
     }
 
     selectRating(e){
         e.preventDefault();
-        let curDate = new Date();
-        curDate = curDate.getFullYear() + '-' + (curDate.getMonth() + 1) + '-' + curDate.getDate();
-
         let curSpan = e.currentTarget;
         let siblingSpans = curSpan.parentNode.childNodes
         for (let i = 0; i < siblingSpans.length ;i++ ){
@@ -38,7 +42,6 @@ class WriteReviewForm extends React.Component{
         const curRating = curSpan.firstElementChild.value
         this.setState({
             rating: curRating,
-            review_date: curDate
         })
     }
 
@@ -61,17 +64,20 @@ class WriteReviewForm extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault()
-        this.props.createReview({
-            author_id: this.props.currentUser.id,
-            business_id: this.props.businessId,
-            business_name: this.props.businessName,
-            text: this.state.text,
-            rating: this.state.rating,
-            review_date: this.state.review_date,
-            useful: 0,
-            funny: 0,
-            cool: 0
-        }).then(()=>{
+        const formData = new FormData();
+        // debugger
+        formData.append('review[review_photo]', this.state.photoFile);
+        formData.append('review[author_id]', this.props.currentUser.id);
+        formData.append('review[business_id]', this.props.businessId);
+        formData.append('review[business_name]', this.props.businessName);
+        formData.append('review[text]', this.state.text);
+        formData.append('review[rating]', this.state.rating);
+        formData.append('review[review_date]', new Date().getTime());
+        formData.append('review[useful]', 0);
+        formData.append('review[funny]', 0);
+        formData.append('review[cool]', 0);        
+
+        this.props.createReview(formData).then(()=>{
             this.props.history.push(`/biz/${this.props.businessId}`);
         })
     }
@@ -128,7 +134,7 @@ class WriteReviewForm extends React.Component{
                         <span>Optional</span>
                     </div>
                     <div className="wrtie-review-form-photo-upload">
-                        <input type="file" name="file" id="file" className="input-file"/>
+                        <input type="file" name="file" id="file" className="input-file" onChange={this.uploadFile}/>
                         <label htmlFor="file">
                             <FontAwesomeIcon icon={faImages} size="2x" color="#999999" />
                             <div>Upload</div>

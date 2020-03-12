@@ -17,12 +17,12 @@ export const fetchReview = (id) => {
     })
 }
 
-export const createReview = (review) => (
+export const createReview = (formData) => (
     $.ajax({
         method: 'POST',
         url: `/api/reviews`,
-        data: {
-            review
-        }
+        data: formData,
+        contentType: false,
+        processData: false
     })
 )

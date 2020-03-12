@@ -1,0 +1,52 @@
+.profile-user .userinfo-container{
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    margin-right: 20px;
+}
+
+.profile-user .userinfo-container{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #cccccc;
+}
+
+.profile-user .userinfo-photo{
+    margin-right: 0.1rem;
+    padding-top: 5px;
+}
+
+.profile-user .userinfo-photo img {
+    height: 3rem;
+    width: 3rem;
+    margin-right: 0.5rem;
+}
+
+
+.profile-user .userinfo-content > * {
+    font-size: 0.7rem;
+}
+
+.profile-user .userinfo-content-name{
+    color: #00838f;
+}
+
+.profile-user .userinfo-content-name,
+.profile-user .userinfo-content-location, 
+.profile-user .userinfo-content-friends, 
+.profile-user .userinfo-content-reviews{
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+}
+.profile-user .userinfo-content-location{
+    white-space: nowrap;
+}
+.profile-user .userinfo-content-reviews > *, .profile-user .userinfo-content-friends > *{
+    margin-top: 0.1rem;
+    margin-right: 0.2rem;
+    font-size: 0.7rem;
+}
+
+.profile-user .userinfo-content > div > span:last-child{
+    font-weight: normal;
+}

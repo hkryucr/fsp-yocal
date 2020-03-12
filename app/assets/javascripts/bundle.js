@@ -1047,6 +1047,37 @@ module.exports = exported;
 
 /***/ }),
 
+/***/ "./frontend/css/components/utils/profile.css":
+/*!***************************************************!*\
+  !*** ./frontend/css/components/utils/profile.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./profile.css */ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/utils/profile.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
 /***/ "./frontend/css/components/utils/ratings.css":
 /*!***************************************************!*\
   !*** ./frontend/css/components/utils/ratings.css ***!
@@ -1056,6 +1087,37 @@ module.exports = exported;
 
 var api = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
             var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./ratings.css */ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/utils/ratings.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
+/***/ "./frontend/css/components/utils/userinfo.css":
+/*!****************************************************!*\
+  !*** ./frontend/css/components/utils/userinfo.css ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./userinfo.css */ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/utils/userinfo.css");
 
             content = content.__esModule ? content.default : content;
 
@@ -2743,7 +2805,9 @@ var BizReviews = /*#__PURE__*/function (_React$Component) {
         className: "biz-review-items"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-items-container"
-      }, this.state.filteredReviews.map(function (review, idx) {
+      }, this.state.filteredReviews.sort(function (a, b) {
+        return new Date(b.reviewDate) - new Date(a.reviewDate);
+      }).map(function (review, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_review_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
           key: idx,
           review: review,
@@ -3268,7 +3332,7 @@ var BizReviewUserinfo = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, BizReviewUserinfo);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(BizReviewUserinfo).call(this, props));
-    _this.city = ["Los Angeles", "San Diego", "San Jose", "San Francisco", "Fresno", "Sacramento", "Long Beach", "Oakland", "Bakersfield", "Anaheim", "Santa Ana", "Riverside", "Stockton", "Chula Vista", "Irvine", "Fremont", "San Bernardino", "Modesto", "Fontana", "Oxnard", "Moreno Valley", "Huntington Beach", "Glendale", "Santa Clarita", "Garden Grove", "Oceanside", "Rancho Cucamonga", "Santa Rosa", "Ontario", "Lancaster", "Elk Grove", "Corona", "Palmdale", "Salinas", "Pomona", "Hayward", "Escondido", "Torrance", "Sunnyvale", "Orange", "Fullerton", "Pasadena", "Thousand Oaks", "Visalia", "Simi Valley", "Concord", "Roseville", "Victorville", "Santa Clara", "Vallejo", "Berkeley", "El Monte", "Downey", "Costa Mesa", "Inglewood", "Carlsbad", "San Buenaventura (Ventura)", "Fairfield", "West Covina", "Murrieta", "Richmond", "Norwalk", "Antioch", "Temecula", "Burbank", "Daly City", "Rialto", "Santa Maria", "El Cajon", "San Mateo", "Clovis", "Compton", "Jurupa Valley", "Vista", "South Gate", "Mission Viejo", "Vacaville", "Carson", "Hesperia", "Santa Monica", "Westminster", "Redding", "Santa Barbara", "Chico", "Newport Beach", "San Leandro", "San Marcos", "Whittier", "Hawthorne", "Citrus Heights", "Tracy", "Alhambra", "Livermore", "Buena Park", "Menifee", "Hemet", "Lakewood", "Merced", "Chino", "Indio", "Redwood City", "Lake Forest", "Napa", "Tustin", "Bellflower", "Mountain View", "Chino Hills", "Baldwin Park", "Alameda", "Upland", "San Ramon", "Folsom", "Pleasanton", "Union City", "Perris", "Manteca", "Lynwood", "Apple Valley", "Redlands", "Turlock", "Milpitas", "Redondo Beach", "Rancho Cordova", "Yorba Linda", "Palo Alto", "Davis", "Camarillo", "Walnut Creek", "Pittsburg", "South San Francisco", "Yuba City", "San Clemente", "Laguna Niguel", "Pico Rivera", "Montebello", "Lodi", "Madera", "Santa Cruz", "La Habra", "Encinitas", "Monterey Park", "Tulare", "Cupertino", "Gardena", "National City", "Rocklin", "Petaluma", "Huntington Park", "San Rafael", "La Mesa", "Arcadia", "Fountain Valley", "Diamond Bar", "Woodland", "Santee", "Lake Elsinore", "Porterville", "Paramount", "Eastvale", "Rosemead", "Hanford", "Highland", "Brentwood", "Novato", "Colton", "Cathedral City", "Delano", "Yucaipa", "Watsonville", "Placentia", "Glendora", "Gilroy", "Palm Desert", "Cerritos", "West Sacramento", "Aliso Viejo", "Poway", "La Mirada", "Rancho Santa Margarita", "Cypress", "Dublin", "Covina", "Azusa", "Palm Springs", "San Luis Obispo", "Ceres", "San Jacinto", "Lincoln", "Newark", "Lompoc", "El Centro", "Danville", "Bell Gardens", "Coachella", "Rancho Palos Verdes", "San Bruno", "Rohnert Park", "Brea", "La Puente", "Campbell", "San Gabriel", "Beaumont", "Morgan Hill", "Culver City", "Calexico", "Stanton", "La Quinta", "Pacifica", "Montclair", "Oakley", "Monrovia", "Los Banos", "Martinez"];
+    _this.city = ["Los Angeles", "San Diego", "San Jose", "San Francisco", "Fresno", "Sacramento", "Long Beach", "Oakland", "Bakersfield", "Anaheim", "Santa Ana", "Riverside", "Stockton", "Chula Vista", "Irvine", "Fremont", "San Bernardino", "Modesto", "Fontana", "Oxnard", "Moreno Valley", "Huntington Beach", "Glendale", "Santa Clarita", "Garden Grove", "Oceanside", "Rancho Cucamonga", "Santa Rosa", "Ontario", "Lancaster", "Elk Grove", "Corona", "Palmdale", "Salinas", "Pomona", "Hayward", "Escondido", "Torrance", "Sunnyvale", "Orange", "Fullerton", "Pasadena", "Thousand Oaks", "Visalia", "Simi Valley", "Concord", "Roseville", "Victorville", "Santa Clara", "Vallejo", "Berkeley", "El Monte", "Downey", "Costa Mesa", "Inglewood", "Carlsbad", "Fairfield", "West Covina", "Murrieta", "Richmond", "Norwalk", "Antioch", "Temecula", "Burbank", "Daly City", "Rialto", "Santa Maria", "El Cajon", "San Mateo", "Clovis", "Compton", "Jurupa Valley", "Vista", "South Gate", "Mission Viejo", "Vacaville", "Carson", "Hesperia", "Santa Monica", "Westminster", "Redding", "Santa Barbara", "Chico", "Newport Beach", "San Leandro", "San Marcos", "Whittier", "Hawthorne", "Citrus Heights", "Tracy", "Alhambra", "Livermore", "Buena Park", "Menifee", "Hemet", "Lakewood", "Merced", "Chino", "Indio", "Redwood City", "Lake Forest", "Napa", "Tustin", "Bellflower", "Mountain View", "Chino Hills", "Baldwin Park", "Alameda", "Upland", "San Ramon", "Folsom", "Pleasanton", "Union City", "Perris", "Manteca", "Lynwood", "Apple Valley", "Redlands", "Turlock", "Milpitas", "Redondo Beach", "Rancho Cordova", "Yorba Linda", "Palo Alto", "Davis", "Camarillo", "Walnut Creek", "Pittsburg", "South San Francisco", "Yuba City", "San Clemente", "Laguna Niguel", "Pico Rivera", "Montebello", "Lodi", "Madera", "Santa Cruz", "La Habra", "Encinitas", "Monterey Park", "Tulare", "Cupertino", "Gardena", "National City", "Rocklin", "Petaluma", "San Rafael", "La Mesa", "Arcadia", "Fountain Valley", "Diamond Bar", "Woodland", "Santee", "Lake Elsinore", "Porterville", "Paramount", "Eastvale", "Rosemead", "Hanford", "Highland", "Brentwood", "Novato", "Colton", "Cathedral City", "Delano", "Yucaipa", "Watsonville", "Placentia", "Glendora", "Gilroy", "Palm Desert", "Cerritos", "West Sacramento", "Aliso Viejo", "Poway", "La Mirada", "Cypress", "Dublin", "Covina", "Azusa", "Palm Springs", "San Luis Obispo", "Ceres", "San Jacinto", "Lincoln", "Newark", "Lompoc", "El Centro", "Danville", "Bell Gardens", "Coachella", "Rancho Palos Verdes", "San Bruno", "Rohnert Park", "Brea", "La Puente", "Campbell", "San Gabriel", "Beaumont", "Morgan Hill", "Culver City", "Calexico", "Stanton", "La Quinta", "Pacifica", "Montclair", "Oakley", "Monrovia", "Los Banos", "Martinez"];
     return _this;
   }
 
@@ -4389,61 +4453,61 @@ var MainSectionContent = /*#__PURE__*/function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var js_components_utils_profile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js/components/utils/profile */ "./frontend/js/components/utils/profile.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
-var MainSectionHeader = function MainSectionHeader(props) {
-  var titleize = function titleize(string) {
-    if (string.length === 0) {
-      return "";
-    } else {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-  };
 
-  var handleClick = function handleClick(e) {
-    e.preventDefault();
-    props.logout();
-  };
+var MainSectionHeader = /*#__PURE__*/function (_React$Component) {
+  _inherits(MainSectionHeader, _React$Component);
 
-  var loginDiv;
+  function MainSectionHeader() {
+    _classCallCheck(this, MainSectionHeader);
 
-  if (props.currentUser === undefined) {
-    loginDiv = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      className: "main-section-container-header-right"
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Link"], {
-      to: "/login",
-      className: "main-section-container-header-item medium"
-    }, "Log In"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Link"], {
-      to: "/signup",
-      className: "main-section-container-header-item medium signup-button"
-    }, "Sign Up"));
-  } else {
-    loginDiv = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      className: "main-section-container-header-right"
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      className: "main-section-container-header-greeting medium"
-    }, "Hello, ", titleize(props.currentUser.firstname), " ", titleize(props.currentUser.lastname), " !"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      className: "main-section-container-header-item medium signup-button",
-      onClick: handleClick
-    }, "Log Out"));
+    return _possibleConstructorReturn(this, _getPrototypeOf(MainSectionHeader).apply(this, arguments));
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "main-section-container-header"
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "main-section-container-header-left"
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "main-section-container-header-item medium"
-  }, "Write a Review"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "main-section-container-header-item medium"
-  }, "Events"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "main-section-container-header-item medium"
-  }, "Talk")), loginDiv);
-};
+  _createClass(MainSectionHeader, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-section-container-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-section-container-header-left"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-section-container-header-item medium"
+      }, "Write a Review"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-section-container-header-item medium"
+      }, "Events"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-section-container-header-item medium"
+      }, "Talk")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_utils_profile__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        currentUser: this.props.currentUser,
+        logout: this.props.logout
+      }));
+    }
+  }]);
+
+  return MainSectionHeader;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (MainSectionHeader);
 
@@ -4797,7 +4861,6 @@ var YocalMain = /*#__PURE__*/function (_React$Component) {
         }));
       }
 
-      console.log(this.props, "whatever passing here");
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "yocal-main"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -5284,7 +5347,6 @@ var RegisterSignupForm = /*#__PURE__*/function (_React$Component) {
         className: "input-wrapper",
         tabIndex: "0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        pattern: "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,}",
         type: "password",
         id: "password",
         name: "password",
@@ -5823,6 +5885,165 @@ var UserAuthImage = function UserAuthImage() {
 
 /***/ }),
 
+/***/ "./frontend/js/components/utils/profile.jsx":
+/*!**************************************************!*\
+  !*** ./frontend/js/components/utils/profile.jsx ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var js_components_utils_userinfo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! js/components/utils/userinfo */ "./frontend/js/components/utils/userinfo.jsx");
+/* harmony import */ var css_components_utils_profile_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! css/components/utils/profile.css */ "./frontend/css/components/utils/profile.css");
+/* harmony import */ var css_components_utils_profile_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(css_components_utils_profile_css__WEBPACK_IMPORTED_MODULE_5__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+var Profile = /*#__PURE__*/function (_React$Component) {
+  _inherits(Profile, _React$Component);
+
+  function Profile(props) {
+    var _this;
+
+    _classCallCheck(this, Profile);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Profile).call(this, props));
+    _this.state = {
+      showDropDown: false
+    };
+    _this.showDropDown = _this.showDropDown.bind(_assertThisInitialized(_this));
+    _this.closeDropDown = _this.closeDropDown.bind(_assertThisInitialized(_this));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Profile, [{
+    key: "titleize",
+    value: function titleize(string) {
+      if (string.length === 0) {
+        return "";
+      } else {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick(e) {
+      e.preventDefault();
+      this.props.logout();
+    }
+  }, {
+    key: "showDropDown",
+    value: function showDropDown(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      this.setState({
+        showDropDown: true
+      }, function () {
+        document.addEventListener('click', _this2.closeDropDown);
+      });
+    }
+  }, {
+    key: "closeDropDown",
+    value: function closeDropDown(e) {
+      var _this3 = this;
+
+      if (this.dropDown != undefined && !this.dropDown.contains(e.target)) {
+        this.setState({
+          showDropDown: false
+        }, function () {
+          document.removeEventListener('click', _this3.closeDropDown);
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      if (this.props.currentUser === undefined) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/login",
+          className: "profile-item medium"
+        }, "Log In"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/signup",
+          className: "profile-item medium signup-button"
+        }, "Sign Up"));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile-greeting medium"
+        }, "Hello, ", this.titleize(this.props.currentUser.firstname), " ", this.titleize(this.props.currentUser.lastname), " !"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile-img",
+          onClick: this.showDropDown
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: this.props.currentUser.photoUrl
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile-dropdown-white"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCaretDown"],
+          style: {
+            color: '#fff',
+            opacity: '0.75'
+          }
+        }))), this.state.showDropDown ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile-dropdown",
+          ref: function ref(element) {
+            _this4.dropDown = element;
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "arrow up"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile-user"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_utils_userinfo__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          currentUser: this.props.currentUser
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile-item medium signup-button",
+          onClick: this.handleClick
+        }, "Log Out")) : null);
+      }
+    }
+  }]);
+
+  return Profile;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Profile);
+
+/***/ }),
+
 /***/ "./frontend/js/components/utils/ratings.jsx":
 /*!**************************************************!*\
   !*** ./frontend/js/components/utils/ratings.jsx ***!
@@ -5883,10 +6104,10 @@ var Ratings = function Ratings() {
 
 /***/ }),
 
-/***/ "./frontend/js/components/write_review/write_review.jsx":
-/*!**************************************************************!*\
-  !*** ./frontend/js/components/write_review/write_review.jsx ***!
-  \**************************************************************/
+/***/ "./frontend/js/components/utils/userinfo.jsx":
+/*!***************************************************!*\
+  !*** ./frontend/js/components/utils/userinfo.jsx ***!
+  \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5894,10 +6115,10 @@ var Ratings = function Ratings() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var js_components_write_review_write_review_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js/components/write_review/write_review_form */ "./frontend/js/components/write_review/write_review_form.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! css/components/write_review/write_review.css */ "./frontend/css/components/write_review/write_review.css");
-/* harmony import */ var css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var css_components_utils_userinfo_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! css/components/utils/userinfo.css */ "./frontend/css/components/utils/userinfo.css");
+/* harmony import */ var css_components_utils_userinfo_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(css_components_utils_userinfo_css__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5915,6 +6136,112 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var UserInfo = /*#__PURE__*/function (_React$Component) {
+  _inherits(UserInfo, _React$Component);
+
+  function UserInfo(props) {
+    var _this;
+
+    _classCallCheck(this, UserInfo);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UserInfo).call(this, props));
+    _this.city = ["Los Angeles", "San Diego", "San Jose", "San Francisco", "Fresno", "Sacramento", "Long Beach", "Oakland", "Bakersfield", "Anaheim", "Santa Ana", "Riverside", "Stockton", "Chula Vista", "Irvine", "Fremont", "San Bernardino", "Modesto", "Fontana", "Oxnard", "Moreno Valley", "Huntington Beach", "Glendale", "Santa Clarita", "Garden Grove", "Oceanside", "Rancho Cucamonga", "Santa Rosa", "Ontario", "Lancaster", "Elk Grove", "Corona", "Palmdale", "Salinas", "Pomona", "Hayward", "Escondido", "Torrance", "Sunnyvale", "Orange", "Fullerton", "Pasadena", "Thousand Oaks", "Visalia", "Simi Valley", "Concord", "Roseville", "Victorville", "Santa Clara", "Vallejo", "Berkeley", "El Monte", "Downey", "Costa Mesa", "Inglewood", "Carlsbad", "Fairfield", "West Covina", "Murrieta", "Richmond", "Norwalk", "Antioch", "Temecula", "Burbank", "Daly City", "Rialto", "Santa Maria", "El Cajon", "San Mateo", "Clovis", "Compton", "Jurupa Valley", "Vista", "South Gate", "Mission Viejo", "Vacaville", "Carson", "Hesperia", "Santa Monica", "Westminster", "Redding", "Santa Barbara", "Chico", "Newport Beach", "San Leandro", "San Marcos", "Whittier", "Hawthorne", "Citrus Heights", "Tracy", "Alhambra", "Livermore", "Buena Park", "Menifee", "Hemet", "Lakewood", "Merced", "Chino", "Indio", "Redwood City", "Lake Forest", "Napa", "Tustin", "Bellflower", "Mountain View", "Chino Hills", "Baldwin Park", "Alameda", "Upland", "San Ramon", "Folsom", "Pleasanton", "Union City", "Perris", "Manteca", "Lynwood", "Apple Valley", "Redlands", "Turlock", "Milpitas", "Redondo Beach", "Rancho Cordova", "Yorba Linda", "Palo Alto", "Davis", "Camarillo", "Walnut Creek", "Pittsburg", "South San Francisco", "Yuba City", "San Clemente", "Laguna Niguel", "Pico Rivera", "Montebello", "Lodi", "Madera", "Santa Cruz", "La Habra", "Encinitas", "Monterey Park", "Tulare", "Cupertino", "Gardena", "National City", "Rocklin", "Petaluma", "San Rafael", "La Mesa", "Arcadia", "Fountain Valley", "Diamond Bar", "Woodland", "Santee", "Lake Elsinore", "Porterville", "Paramount", "Eastvale", "Rosemead", "Hanford", "Highland", "Brentwood", "Novato", "Colton", "Cathedral City", "Delano", "Yucaipa", "Watsonville", "Placentia", "Glendora", "Gilroy", "Palm Desert", "Cerritos", "West Sacramento", "Aliso Viejo", "Poway", "La Mirada", "Cypress", "Dublin", "Covina", "Azusa", "Palm Springs", "San Luis Obispo", "Ceres", "San Jacinto", "Lincoln", "Newark", "Lompoc", "El Centro", "Danville", "Bell Gardens", "Coachella", "Rancho Palos Verdes", "San Bruno", "Rohnert Park", "Brea", "La Puente", "Campbell", "San Gabriel", "Beaumont", "Morgan Hill", "Culver City", "Calexico", "Stanton", "La Quinta", "Pacifica", "Montclair", "Oakley", "Monrovia", "Los Banos", "Martinez"];
+    return _this;
+  }
+
+  _createClass(UserInfo, [{
+    key: "titleize",
+    value: function titleize(string) {
+      if (string.length === 0) {
+        return "";
+      } else {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var currentUser = this.props.currentUser;
+
+      if (!currentUser) {
+        return null;
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "userinfo-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "userinfo-photo"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: currentUser.photoUrl
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "userinfo-content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "userinfo-content-name"
+      }, this.titleize(currentUser.firstname) + " " + currentUser.lastname.slice(0, 1).toUpperCase() + "."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "userinfo-content-location"
+      }, this.city[Math.floor(Math.random() * this.city.length)], ", CA"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "userinfo-content-friend-location-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "userinfo-content-friends"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faUserFriends"],
+        color: "#f15c00"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, currentUser.savedBusinessIds.length)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "userinfo-content-reviews"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faStarHalfAlt"],
+        color: "#f15c00"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, currentUser.reviewIds.length)))));
+    }
+  }]);
+
+  return UserInfo;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (UserInfo);
+
+/***/ }),
+
+/***/ "./frontend/js/components/write_review/write_review.jsx":
+/*!**************************************************************!*\
+  !*** ./frontend/js/components/write_review/write_review.jsx ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var js_components_write_review_write_review_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js/components/write_review/write_review_form */ "./frontend/js/components/write_review/write_review_form.jsx");
+/* harmony import */ var js_components_utils_profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js/components/utils/profile */ "./frontend/js/components/utils/profile.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! css/components/write_review/write_review.css */ "./frontend/css/components/write_review/write_review.css");
+/* harmony import */ var css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_4__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -5948,7 +6275,7 @@ var WriteReview = /*#__PURE__*/function (_React$Component) {
         className: "write-review-left"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "write-review-left-logo"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "assets/yelp_logo.png"
@@ -5956,7 +6283,10 @@ var WriteReview = /*#__PURE__*/function (_React$Component) {
         className: "write-review-left-title"
       }, "Write a Review")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "write-review-right"
-      }, "About Me"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_utils_profile__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        currentUser: this.props.currentUser,
+        logout: this.props.logout
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "wrtie-review-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "wrtie-review-body-container"
@@ -6084,6 +6414,7 @@ var WriteReviewForm = /*#__PURE__*/function (_React$Component) {
     _this.selectRating = _this.selectRating.bind(_assertThisInitialized(_this));
     _this.changeRatingText = _this.changeRatingText.bind(_assertThisInitialized(_this));
     _this.handleText = _this.handleText.bind(_assertThisInitialized(_this));
+    _this.uploadFile = _this.uploadFile.bind(_assertThisInitialized(_this));
     _this.state = {
       author_id: 1,
       business_id: 1,
@@ -6094,17 +6425,24 @@ var WriteReviewForm = /*#__PURE__*/function (_React$Component) {
       useful: 0,
       funny: 0,
       cool: 0,
-      curRating: 0
+      curRating: 0,
+      photoFile: ""
     };
     return _this;
   }
 
   _createClass(WriteReviewForm, [{
+    key: "uploadFile",
+    value: function uploadFile(e) {
+      e.preventDefault();
+      this.setState({
+        photoFile: e.currentTarget.files[0]
+      });
+    }
+  }, {
     key: "selectRating",
     value: function selectRating(e) {
       e.preventDefault();
-      var curDate = new Date();
-      curDate = curDate.getFullYear() + '-' + (curDate.getMonth() + 1) + '-' + curDate.getDate();
       var curSpan = e.currentTarget;
       var siblingSpans = curSpan.parentNode.childNodes;
 
@@ -6115,8 +6453,7 @@ var WriteReviewForm = /*#__PURE__*/function (_React$Component) {
       curSpan.classList.add("checked");
       var curRating = curSpan.firstElementChild.value;
       this.setState({
-        rating: curRating,
-        review_date: curDate
+        rating: curRating
       });
     }
   }, {
@@ -6147,17 +6484,19 @@ var WriteReviewForm = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       e.preventDefault();
-      this.props.createReview({
-        author_id: this.props.currentUser.id,
-        business_id: this.props.businessId,
-        business_name: this.props.businessName,
-        text: this.state.text,
-        rating: this.state.rating,
-        review_date: this.state.review_date,
-        useful: 0,
-        funny: 0,
-        cool: 0
-      }).then(function () {
+      var formData = new FormData(); // debugger
+
+      formData.append('review[review_photo]', this.state.photoFile);
+      formData.append('review[author_id]', this.props.currentUser.id);
+      formData.append('review[business_id]', this.props.businessId);
+      formData.append('review[business_name]', this.props.businessName);
+      formData.append('review[text]', this.state.text);
+      formData.append('review[rating]', this.state.rating);
+      formData.append('review[review_date]', new Date().getTime());
+      formData.append('review[useful]', 0);
+      formData.append('review[funny]', 0);
+      formData.append('review[cool]', 0);
+      this.props.createReview(formData).then(function () {
         _this2.props.history.push("/biz/".concat(_this2.props.businessId));
       });
     }
@@ -6245,7 +6584,8 @@ var WriteReviewForm = /*#__PURE__*/function (_React$Component) {
         type: "file",
         name: "file",
         id: "file",
-        className: "input-file"
+        className: "input-file",
+        onChange: this.uploadFile
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "file"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
@@ -7533,13 +7873,13 @@ var fetchReview = function fetchReview(id) {
     }
   });
 };
-var createReview = function createReview(review) {
+var createReview = function createReview(formData) {
   return $.ajax({
     method: 'POST',
     url: "/api/reviews",
-    data: {
-      review: review
-    }
+    data: formData,
+    contentType: false,
+    processData: false
   });
 };
 
@@ -21915,7 +22255,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-review-userinfo, .biz-review-userinfo-container{\n    width: 100%;\n    flex-direction: row;\n    display: flex;\n    margin-right: 20px;\n}\n\n.biz-review-userinfo-photo{\n\n}\n\n.biz-review-userinfo-photo img {\n    height: 3.75rem;\n    width: 3.75rem;\n    margin-right: 0.5rem;\n}\n\n.userinfo-content > * {\n    font-size: 0.875rem;\n    margin-top: 0.3rem;\n}\n\n.userinfo-content-name{\n    color: #00838f;\n}\n\n.userinfo-content-name,\n.userinfo-content-location, \n.userinfo-content-friends, \n.userinfo-content-reviews{\n    display: flex;\n    flex-direction: row;\n    font-weight: bold;\n}\n.userinfo-content-location{\n    white-space: nowrap;\n}\n.userinfo-content-reviews > *, .userinfo-content-friends > *{\n    margin-right: 0.3rem;\n    font-size: 0.75rem;\n}\n\n.userinfo-content > div > span:last-child{\n    font-weight: normal;\n}", ""]);
+exports.push([module.i, ".biz-review-userinfo, .biz-review-userinfo-container{\n    width: 100%;\n    flex-direction: row;\n    display: flex;\n    margin-right: 20px;\n}\n\n.biz-review-userinfo-photo img {\n    height: 3.75rem;\n    width: 3.75rem;\n    margin-right: 0.5rem;\n}\n\n.userinfo-content > * {\n    font-size: 0.875rem;\n    margin-top: 0.3rem;\n}\n\n.userinfo-content-name{\n    color: #00838f;\n}\n\n.userinfo-content-name,\n.userinfo-content-location, \n.userinfo-content-friends, \n.userinfo-content-reviews{\n    display: flex;\n    flex-direction: row;\n    font-weight: bold;\n}\n.userinfo-content-location{\n    white-space: nowrap;\n}\n.userinfo-content-reviews > *, .userinfo-content-friends > *{\n    margin-right: 0.3rem;\n    font-size: 0.75rem;\n}\n\n.userinfo-content > div > span:last-child{\n    font-weight: normal;\n}\n\n.userinfo-content-friend-location-wrapper{\n    display: flex;    \n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -22041,7 +22381,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".main-section{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    width: 100%;\n}\n\n.main-section-container{\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n}\n\n.main-section-container-header{\n    display: flex;\n    justify-content: space-between;\n    color: white\n}\n\n.main-section-container-header-left{\n    display: flex;\n    flex-direction: row;\n}\n\n.main-section-container-header-right{\n    display: flex;\n    flex-direction: row;\n}\n\n.main-section-container-header-item{\n    padding: 10px;\n    margin-right: 30px;\n    font-weight: 500;\n    cursor: pointer;\n}\n.main-section-container-header-greeting{\n    padding: 10px;\n    margin-right: 30px;\n    font-weight: 500;\n}\n\n.signup-button{\n    border-radius: 2px;\n    border: solid 1px white;\n    margin-right: 0px;\n    padding: 0px 25px 0px 25px;\n    text-align: center;\n    display: inline-block;\n    line-height: 2.5;\n}\n\n.main-section-container-content{\n    padding-top: 80px;\n}\n\n.main-section-container-content > .header-search{\n    margin-right: 0;\n}\n\n.logo{\n    display: flex;\n    justify-content: center;\n    height: 80px;\n    margin: 0 auto 48px;\n}\n\n.logo-image{\n    width: auto;\n    height: 100%;\n}\n.search-form{\n    min-width: 100%;\n    margin-bottom: 20px;\n}\n.search-form-container{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    min-width: 100%;\n    align-items: center;\n}\n\n.search-form-arrange-unit{\n    width: 100%;\n}\n\n.pseudo-input-label-search, .pseudo-input-label-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n.pseudo-input-label-search{\n    border-radius: 4px 0 0 4px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n}\n\n.find-span, .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n}\n.pseudo-input-field-holder {\n    width: 100%;\n}\n.pseudo-input-field-holder > input {\n    width: 100%;\n}\n\n.search-form-middle-border{\n    border-left: 1px solid #ccc;;\n    width: 1px;\n    height: 25px;\n}\n\n.search-form-button{\n    background-color: #f43939;\n    padding: 11px 22px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n.categories-tags{\n    color: white;\n    display: flex;\n    justify-content: center;\n    margin-top: 1.4rem;\n}\n\n.categories-tag {\n    padding: 0 12px;\n    margin-right: 0.85rem;\n    padding-bottom: 168px;\n    font-weight: bold;\n}\n.categories-tag-span{\n    margin-left: 7px;\n}\n\n.main-photo-info{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n}\n\n.main-photo-info-container{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.main-photo-place, .main-photo-credit{\n    color: white;\n    padding: 2px;\n}\n", ""]);
+exports.push([module.i, ".main-section{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    width: 100%;\n}\n\n.main-section-container{\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n}\n\n.main-section-container-header{\n    display: flex;\n    justify-content: space-between;\n    color: white\n}\n\n.main-section-container-header-left{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    font-weight: bold;\n}\n\n.main-section-container-header-item{\n    margin-right: 2rem;\n}\n\n.main-section-container-content{\n    padding-top: 80px;\n}\n\n.main-section-container-content > .header-search{\n    margin-right: 0;\n}\n\n.logo{\n    display: flex;\n    justify-content: center;\n    height: 80px;\n    margin: 0 auto 48px;\n}\n\n.logo-image{\n    width: auto;\n    height: 100%;\n}\n.search-form{\n    min-width: 100%;\n    margin-bottom: 20px;\n}\n.search-form-container{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    min-width: 100%;\n    align-items: center;\n}\n\n.search-form-arrange-unit{\n    width: 100%;\n}\n\n.pseudo-input-label-search, .pseudo-input-label-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n.pseudo-input-label-search{\n    border-radius: 4px 0 0 4px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n}\n\n.find-span, .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n}\n.pseudo-input-field-holder {\n    width: 100%;\n}\n.pseudo-input-field-holder > input {\n    width: 100%;\n}\n\n.search-form-middle-border{\n    border-left: 1px solid #ccc;;\n    width: 1px;\n    height: 25px;\n}\n\n.search-form-button{\n    background-color: #f43939;\n    padding: 11px 22px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n.categories-tags{\n    color: white;\n    display: flex;\n    justify-content: center;\n    margin-top: 1.4rem;\n}\n\n.categories-tag {\n    padding: 0 12px;\n    margin-right: 0.85rem;\n    padding-bottom: 168px;\n    font-weight: bold;\n}\n.categories-tag-span{\n    margin-left: 7px;\n}\n\n.main-photo-info{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n}\n\n.main-photo-info-container{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.main-photo-place, .main-photo-credit{\n    color: white;\n    padding: 2px;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -22192,6 +22532,24 @@ module.exports = exports;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/utils/profile.css":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./frontend/css/components/utils/profile.css ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".profile{\n    display: flex;\n    flex-direction: row;\n    position: relative;\n}\n\n.profile-item{\n    margin-right: 30px;\n    font-weight: 500;\n    cursor: pointer;\n}\n\n.profile-greeting{\n    padding: 10px;\n    margin-right: 30px;\n    font-weight: 500;\n    white-space: nowrap;\n}\n\n.profile-img{\n    width: 3.375rem; \n    height: 38px; \n    border-radius: 3px 0 0 3px; \n    display: flex;\n    flex-direction: row;\n}\n\n.profile-img img{\n    width: 2.375rem; \n    height: 38px; \n    border-radius: 3px 0 0 3px; \n    object-fit: cover;\n    opacity: 98%;\n}\n\n.profile-dropdown .signup-button{\n    border-radius: 2px;\n    border: solid 1px white;\n    margin-top: 0.5rem;\n    display: inline-block;\n    line-height: 1.5;\n}\n\n.profile-dropdown{\n    position: absolute;\n    z-index: 11;\n    padding: 12px;\n    width: 12rem;\n    background: #fff;\n    border: 1px solid rgba(0,0,0,.2);\n    border-radius: 3px;\n    box-shadow: 0 2px 8px rgba(0,0,0,.2);\n    box-sizing: border-box;\n    margin-top: 13px;\n    right: 0;\n    top: 36px;\n    left: 1.9rem;\n    color: black;\n}\n\n.profile-dropdown div {\n    z-index: 10;\n}\n\n.profile-dropdown .arrow {\n    border-style: solid;\n    position: absolute;\n}\n\n.profile-dropdown .up {\n    content: \"\";\n    border-color: transparent transparent white transparent;\n    border-width: 0px 8px 8px 8px;\n    top: -8px;\n    right: 13px;\n}\n\n.profile-dropdown .up::after {\n    border-color: transparent transparent white transparent;\n    border-style: solid;\n    border-width: 7px 7px 0px 7px;\n    content: \"\";\n    position: absolute;\n    bottom: 1px;\n    right: 13px;\n} \n\n.profile-dropdown-white{\n    width: 1rem;\n    height: 100%;\n    background-color: #666;\n    border-radius: 0 3px 3px 0; \n    display: flex;\n    align-items: center;\n    justify-content: center;\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/utils/ratings.css":
 /*!*****************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./frontend/css/components/utils/ratings.css ***!
@@ -22210,6 +22568,24 @@ module.exports = exports;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/utils/userinfo.css":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./frontend/css/components/utils/userinfo.css ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".profile-user .userinfo-container{\n    width: 100%;\n    flex-direction: row;\n    display: flex;\n    margin-right: 20px;\n}\n\n.profile-user .userinfo-container{\n    padding-bottom: 1rem;\n    border-bottom: 1px solid #cccccc;\n}\n\n.profile-user .userinfo-photo{\n    margin-right: 0.1rem;\n    padding-top: 5px;\n}\n\n.profile-user .userinfo-photo img {\n    height: 3rem;\n    width: 3rem;\n    margin-right: 0.5rem;\n}\n\n\n.profile-user .userinfo-content > * {\n    font-size: 0.7rem;\n}\n\n.profile-user .userinfo-content-name{\n    color: #00838f;\n}\n\n.profile-user .userinfo-content-name,\n.profile-user .userinfo-content-location, \n.profile-user .userinfo-content-friends, \n.profile-user .userinfo-content-reviews{\n    display: flex;\n    flex-direction: row;\n    font-weight: bold;\n}\n.profile-user .userinfo-content-location{\n    white-space: nowrap;\n}\n.profile-user .userinfo-content-reviews > *, .profile-user .userinfo-content-friends > *{\n    margin-top: 0.1rem;\n    margin-right: 0.2rem;\n    font-size: 0.7rem;\n}\n\n.profile-user .userinfo-content > div > span:last-child{\n    font-weight: normal;\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/write_review/write_review.css":
 /*!*****************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./frontend/css/components/write_review/write_review.css ***!
@@ -22221,7 +22597,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".write-review, .write-review-container, .wrtie-review-body, .wrtie-review-body-container, .write-review-left, .write-review-left-container{\n    display: flex;\n    width: 100%;\n}\n\n.write-review-container{\n    flex-direction: column;\n}\n\n.wrtie-review-header{\n    background-color: #d32323;\n    padding: 12px 0;\n    width: 100%;\n}\n\n.wrtie-review-header-container{\n    display: flex;\n    flex-direction: row;\n    max-width: 60rem;\n    justify-content: space-between;\n    align-items: center;\n    margin: 0 auto;\n}\n\n.write-review-left{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.write-review-left-logo{\n    width: 80px;\n    height: 40px;\n    margin-right: 1.5rem;\n}\n\n.write-review-left-title{\n    font-size: 1.25rem;\n    font-weight: bold;\n    color: white;\n}\n\n/* body */\n\n.wrtie-review-body, .wrtie-review-body-container, .wrtie-review-content{\n    display: flex;\n    width: 100%;\n}\n\n.wrtie-review-body{\n\n}\n\n.wrtie-review-body-container{\n    flex-direction: row;\n    /* max-width: 60rem; */\n}\n\n.wrtie-review-content-container{\n    display: flex;\n    flex-direction: column;\n    /* width: 100%; */\n    /* align-items: center; */\n    margin: 0 auto;\n    flex-grow: 1;\n    max-width: 40rem;\n}\n\n.wrtie-review-form-title {\n    padding-top: 24px;\n    padding-bottom: 12px;\n    font-size: 2.25rem;\n    color: #0073bb;\n    font-weight: bold;\n    margin: 6px 0;\n}\n\n.wrtie-review-form-text{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 380px;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n}\n\n.wrtie-review-form-text-ratings{\n    margin-bottom: 1rem;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    align-items: center;\n}\n\n.wrtie-review-form-text-ratings > span:last-child{\n    margin-left: 0.5rem;\n    font-size: 0.85rem;\n}\n\n.wrtie-review-form-text textarea{\n    width: 100%;\n    min-height: 380px;\n    line-height: 1.6rem;\n    font-size: 1.125rem;\n    resize: none;\n}\n\n.wrtie-review-form-photo{\n    margin-top: 1rem;\n}\n\n.wrtie-review-form-photo span:first-child{\n    font-size: 1rem;\n    font-weight: bold;\n    color: #333333;\n    margin-right: 0.75rem;\n}   \n\n.wrtie-review-form-photo span:last-child{\n    font-size: 0.75rem;\n    color: #333333;\n}   \n\n.wrtie-review-form-photo-upload{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 110px;\n    margin-top: 0.8rem;\n}\n\n.wrtie-review-form-photo-upload input{\n    width: 630px;\n    height: 110px;\n    opacity: 0;\n    overflow: hidden;\n    position: absolute;\n    /* z-index: ; */\n    cursor: pointer;\n}\n.wrtie-review-form-photo-upload{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-bottom: 1.6rem;\n    color: #999999;\n}\n\n.inputfile label {\n    font-weight: bold;\n    color: white;\n    background-color: black;\n    display: inline-block;\n    cursor: pointer;\n}\n\n.inputfile:focus + label {\n    cursor: pointer; /* \"hand\" cursor */\n\toutline: 1px dotted #999999;\n\toutline: -webkit-focus-ring-color auto 5px;\n}\n\n.inputfile + label * {\n\tpointer-events: none\n}\n\n.wrtie-review-form-photo-upload label svg {\n    margin-left: 3px;\n    margin-bottom: 2px;\n}\n.wrtie-review-form-photo-upload label div:last-child{\n   font-size: 0.85rem;\n}\n\n.wrtie-review-form-button {\n    height: 26px;\n    width: 240px;\n    padding: 10px 13px 10px 13px;\n    background-color: #d32323;\n    border-radius: 4px;\n    display: flex;\n    align-items: center;\n}\n\n.wrtie-review-form-button button {\n    color: white;\n    font-weight: bold;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: center;\n}\n\n/* Media Query Required*/\n.wrtie-review-prevs{\n    height: calc(100vh - 64px);\n    width: 20rem;\n    background-color: ivory;\n    right: 0px;\n}\n\n\n\n\n/* star-ratings */\n/* .star-ratings input[type=radio] {\n    border: 0;\n    clip: rect(0 0 0 0);\n    height: 1px;\n    margin: -1px;\n    overflow: hidden;\n    padding: 0;\n    position: absolute;\n    width: 1px; \n}     */\n\n/* \n.star-ratings input[type=radio] + label:after {\n    display: inline-block;\n    content: '★';\n    letter-spacing: 10px;\n    font-size: 2rem;\n    color: red;\n} */\n\n.star-ratings {\n    /* display: flex;\n    flex-direction: row;\n    align-items: center; */\n    float:left;\n    cursor: pointer;\n}\n\n.star-ratings span { \n    /* display: flex;\n    justify-content: center;\n    align-items: center; */\n    float:right; \n    position:relative;\n    width: 30px;\n    height: 30px;\n    background-color: #e6e6e6;\n    border-radius: 5px;\n    margin-right: 3px;\n    cursor: pointer;\n}\n\n.star-ratings span input {\n    position:absolute;\n    width: 0.01px;\n    height: 0.01px;\n    opacity:0;\n    cursor: pointer;\n}\n\n.star-ratings span label::before {\n    display: inline-block;\n    /* text-align: center;\n    vertical-align: center; */\n    content: '★';\n    /* letter-spacing: 10px; */\n    font-size: 1.6rem;\n    margin-left: 1px;\n    color: white;\n    /* background-color: #333333; */\n}\n\n.star-ratings span label{\n    margin-left: 1.5px;\n    cursor: pointer;\n}\n\n.star-ratings span:hover ~ span,\n.star-ratings span:hover,\n.star-ratings span.checked,\n.star-ratings span.checked ~ span{\n    color:#FFF;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 30px;\n    height: 30px;\n    background-color: #db2a2a;\n    border-radius: 5px;\n    margin-right: 3px;\n}\n\n\n/* .star-ratings span:hover ~ span,\n.star-ratings span:hover,\n.star-ratings span.checked,\n.star-ratings span.checked ~ span{\n    color:#FFF;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 30px;\n    height: 30px;\n    background-color: red;\n    border-radius: 5px;\n    margin-right: 3px;\n} */\n", ""]);
+exports.push([module.i, ".write-review, .write-review-container, .wrtie-review-body, .wrtie-review-body-container, .write-review-left, .write-review-left-container{\n    display: flex;\n    width: 100%;\n}\n\n.write-review-container{\n    flex-direction: column;\n}\n\n.wrtie-review-header{\n    background-color: #d32323;\n    padding: 12px 0;\n    width: 100%;\n}\n\n.wrtie-review-header-container{\n    display: flex;\n    flex-direction: row;\n    max-width: 60rem;\n    justify-content: space-between;\n    align-items: center;\n    margin: 0 auto;\n}\n\n.write-review-left{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.write-review-left-logo{\n    width: 80px;\n    height: 40px;\n    margin-right: 1.5rem;\n}\n\n.write-review-left-title{\n    font-size: 1.25rem;\n    font-weight: bold;\n    color: white;\n}\n\n.write-review-right .profile-greeting{\n    color: white;\n    font-weight: bold;\n}\n\n/* body */\n\n.wrtie-review-body, .wrtie-review-body-container, .wrtie-review-content{\n    display: flex;\n    width: 100%;\n}\n\n.wrtie-review-body-container{\n    flex-direction: row;\n    /* max-width: 60rem; */\n}\n\n.wrtie-review-content-container{\n    display: flex;\n    flex-direction: column;\n    /* width: 100%; */\n    /* align-items: center; */\n    margin: 0 auto;\n    flex-grow: 1;\n    max-width: 40rem;\n}\n\n.wrtie-review-form-title {\n    padding-top: 24px;\n    padding-bottom: 12px;\n    font-size: 2.25rem;\n    color: #0073bb;\n    font-weight: bold;\n    margin: 6px 0;\n}\n\n.wrtie-review-form-text{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 380px;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n}\n\n.wrtie-review-form-text-ratings{\n    margin-bottom: 1rem;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    align-items: center;\n}\n\n.wrtie-review-form-text-ratings > span:last-child{\n    margin-left: 0.5rem;\n    font-size: 0.85rem;\n}\n\n.wrtie-review-form-text textarea{\n    width: 100%;\n    min-height: 380px;\n    line-height: 1.6rem;\n    font-size: 1.125rem;\n    resize: none;\n}\n\n.wrtie-review-form-photo{\n    margin-top: 1rem;\n}\n\n.wrtie-review-form-photo span:first-child{\n    font-size: 1rem;\n    font-weight: bold;\n    color: #333333;\n    margin-right: 0.75rem;\n}   \n\n.wrtie-review-form-photo span:last-child{\n    font-size: 0.75rem;\n    color: #333333;\n}   \n\n.wrtie-review-form-photo-upload{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 110px;\n    margin-top: 0.8rem;\n}\n\n.wrtie-review-form-photo-upload input{\n    width: 630px;\n    height: 110px;\n    opacity: 0;\n    overflow: hidden;\n    position: absolute;\n    /* z-index: ; */\n    cursor: pointer;\n}\n.wrtie-review-form-photo-upload{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-bottom: 1.6rem;\n    color: #999999;\n}\n\n.inputfile label {\n    font-weight: bold;\n    color: white;\n    background-color: black;\n    display: inline-block;\n    cursor: pointer;\n}\n\n.inputfile:focus + label {\n    cursor: pointer; /* \"hand\" cursor */\n\toutline: 1px dotted #999999;\n\toutline: -webkit-focus-ring-color auto 5px;\n}\n\n.inputfile + label * {\n\tpointer-events: none\n}\n\n.wrtie-review-form-photo-upload label svg {\n    margin-left: 3px;\n    margin-bottom: 2px;\n}\n.wrtie-review-form-photo-upload label div:last-child{\n   font-size: 0.85rem;\n}\n\n.wrtie-review-form-button {\n    height: 26px;\n    width: 240px;\n    padding: 10px 13px 10px 13px;\n    background-color: #d32323;\n    border-radius: 4px;\n    display: flex;\n    align-items: center;\n}\n\n.wrtie-review-form-button button {\n    color: white;\n    font-weight: bold;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: center;\n}\n\n/* Media Query Required*/\n.wrtie-review-prevs{\n    height: calc(100vh - 64px);\n    width: 20rem;\n    background-color: ivory;\n    right: 0px;\n}\n\n\n\n\n/* star-ratings */\n/* .star-ratings input[type=radio] {\n    border: 0;\n    clip: rect(0 0 0 0);\n    height: 1px;\n    margin: -1px;\n    overflow: hidden;\n    padding: 0;\n    position: absolute;\n    width: 1px; \n}     */\n\n/* \n.star-ratings input[type=radio] + label:after {\n    display: inline-block;\n    content: '★';\n    letter-spacing: 10px;\n    font-size: 2rem;\n    color: red;\n} */\n\n.star-ratings {\n    /* display: flex;\n    flex-direction: row;\n    align-items: center; */\n    float:left;\n    cursor: pointer;\n}\n\n.star-ratings span { \n    /* display: flex;\n    justify-content: center;\n    align-items: center; */\n    float:right; \n    position:relative;\n    width: 30px;\n    height: 30px;\n    background-color: #e6e6e6;\n    border-radius: 5px;\n    margin-right: 3px;\n    cursor: pointer;\n}\n\n.star-ratings span input {\n    position:absolute;\n    width: 0.01px;\n    height: 0.01px;\n    opacity:0;\n    cursor: pointer;\n}\n\n.star-ratings span label::before {\n    display: inline-block;\n    /* text-align: center;\n    vertical-align: center; */\n    content: '★';\n    /* letter-spacing: 10px; */\n    font-size: 1.6rem;\n    margin-left: 1px;\n    color: white;\n    /* background-color: #333333; */\n}\n\n.star-ratings span label{\n    margin-left: 1.5px;\n    cursor: pointer;\n}\n\n.star-ratings span:hover ~ span,\n.star-ratings span:hover,\n.star-ratings span.checked,\n.star-ratings span.checked ~ span{\n    color:#FFF;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 30px;\n    height: 30px;\n    background-color: #db2a2a;\n    border-radius: 5px;\n    margin-right: 3px;\n}\n\n\n/* .star-ratings span:hover ~ span,\n.star-ratings span:hover,\n.star-ratings span.checked,\n.star-ratings span.checked ~ span{\n    color:#FFF;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 30px;\n    height: 30px;\n    background-color: red;\n    border-radius: 5px;\n    margin-right: 3px;\n} */\n", ""]);
 // Exports
 module.exports = exports;
 

@@ -1,0 +1,96 @@
+.profile{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.profile-item{
+    margin-right: 30px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.profile-greeting{
+    padding: 10px;
+    margin-right: 30px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.profile-img{
+    width: 3.375rem; 
+    height: 38px; 
+    border-radius: 3px 0 0 3px; 
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-img img{
+    width: 2.375rem; 
+    height: 38px; 
+    border-radius: 3px 0 0 3px; 
+    object-fit: cover;
+    opacity: 98%;
+}
+
+.profile-dropdown .signup-button{
+    border-radius: 2px;
+    border: solid 1px white;
+    margin-top: 0.5rem;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+.profile-dropdown{
+    position: absolute;
+    z-index: 11;
+    padding: 12px;
+    width: 12rem;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+    box-sizing: border-box;
+    margin-top: 13px;
+    right: 0;
+    top: 36px;
+    left: 1.9rem;
+    color: black;
+}
+
+.profile-dropdown div {
+    z-index: 10;
+}
+
+.profile-dropdown .arrow {
+    border-style: solid;
+    position: absolute;
+}
+
+.profile-dropdown .up {
+    content: "";
+    border-color: transparent transparent white transparent;
+    border-width: 0px 8px 8px 8px;
+    top: -8px;
+    right: 13px;
+}
+
+.profile-dropdown .up::after {
+    border-color: transparent transparent white transparent;
+    border-style: solid;
+    border-width: 7px 7px 0px 7px;
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    right: 13px;
+} 
+
+.profile-dropdown-white{
+    width: 1rem;
+    height: 100%;
+    background-color: #666;
+    border-radius: 0 3px 3px 0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

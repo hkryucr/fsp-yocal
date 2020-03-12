@@ -10,8 +10,7 @@ class BizSearchResults extends React.Component {
     }
 
     render() {
-        let bizArrWithLists = Object.values(this.props.businesses);
-        let businessArr = bizArrWithLists.slice(0, bizArrWithLists.length-2);
+        let businessArr = Object.values(this.props.businesses);
         
         return (
             <div className="biz-search-results">
@@ -25,7 +24,7 @@ class BizSearchResults extends React.Component {
                             <span>Restaurants</span>
                         </div>
                         <div className="biz-search-header-title">
-                            Restaurants near Tenderloin, San Francisco, CA
+                            Restaurants "{this.props.searchTerm}" near San Francisco, CA
                         </div>
                         <div className="biz-search-header-all-results">
                             All Results

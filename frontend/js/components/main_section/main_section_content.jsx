@@ -15,17 +15,10 @@ class MainSectionContent extends React.Component {
         this.handleTextChange = this.handleTextChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    
     handleSubmit(e) {
         e.preventDefault();
-        this.props.fetchBusinesses({
-            text: this.state.text
-        }).then(() => {
-            this.setState({
-                candidates: [],
-                text: ""
-            })
-        })
+        this.props.history.push(`/search?desc=${this.state.text}`)
     }
 
     handleTextChange(e) {

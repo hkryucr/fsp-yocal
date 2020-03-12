@@ -31,6 +31,7 @@ class BizMain extends React.Component{
                         categories={this.props.categories}
                         users={this.props.users}
                         reviewers={this.props.reviewers}
+                        history={this.props.history}
                     />
                 </div>
             </div>

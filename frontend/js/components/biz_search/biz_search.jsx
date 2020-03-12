@@ -8,20 +8,40 @@ import _ from 'lodash';
 class BizSearch extends React.Component {
     constructor(props) {
         super(props)
+        this.searchTerm = this.props.location.search.split("?desc=")[1]
+        if (this.searchTerm.length > 0 && this.searchTerm.includes("%20")) {
+            this.searchTerm = this.searchTerm.split("%20").join(" ");
+        }
     }
 
-    componentDidMount(){
+    componentDidMount(){        
         this.props.fetchBusinesses({
-            text: ""
-        });
+            text: this.searchTerm
+        })
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.location.search != prevProps.location.search) {
+            this.searchTerm = this.props.location.search.split("?desc=")[1]
+            if (this.searchTerm.length > 0 && this.searchTerm.includes("%20")) {
+                this.searchTerm = this.searchTerm.split("%20").join(" ");
+            }
+            this.props.clearupData()
+            this.props.fetchBusinesses({
+                text: this.searchTerm
+            })
+        }
     }
 
     render() {
-
         if (_.isEmpty(this.props.businessList) || _.isEmpty(this.props.categoryList)) {
-            return null;
+            return (
+                <div style={{ display: "flex", margin: "100px 0", justifyContent: "center", alignItems: "center", height: "60%" }}>
+                    <img src="assets/Preloader_2.gif" style={{ textAlign: "center", height: "100px", width: "100px", objectFit: "cover" }} />
+                </div>
+            );
         }
-        
+
         let bizSearchResultsDiv;
         if (_.isEmpty(this.props.businesses)){
             bizSearchResultsDiv = (
@@ -30,7 +50,7 @@ class BizSearch extends React.Component {
                         <div className="biz-search-header">
                             <br/>
                             <div className="biz-search-header-title">
-                                No Results for "Search Result Here" San Francisco, CA
+                                No Results for "{this.searchTerm}" San Francisco, CA
                             </div>
                             <div className="biz-search-header-wrong-search">
                                 <div>Suggestions for improving the results:</div>
@@ -43,7 +63,7 @@ class BizSearch extends React.Component {
                 </div>
             )
         } else {
-            bizSearchResultsDiv = (<BizSearchResults businesses={this.props.businesses} />);
+            bizSearchResultsDiv = (<BizSearchResults searchTerm={this.searchTerm} businesses={this.props.businesses} />);
         }
 
         return (
@@ -55,6 +75,7 @@ class BizSearch extends React.Component {
                         currentUser={this.props.currentUser} 
                         logout={this.props.logout} 
                         fetchBusinesses={this.props.fetchBusinesses}
+                        history={this.props.history}
                     />
                     <div className="biz-search-body">
                         <div className="biz-search-body-container">

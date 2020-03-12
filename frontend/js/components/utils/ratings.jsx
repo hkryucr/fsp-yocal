@@ -22,6 +22,6 @@ const Ratings = () => {
                 <FontAwesomeIcon icon={faStar} size="1x" color="white" />
             </span>
         </div>        
-    )    
+    )
 }
 export default Ratings;

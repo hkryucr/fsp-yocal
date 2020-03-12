@@ -11,15 +11,16 @@ class ReviewAwaitItem extends React.Component{
 
     render(){
         const imageUrl = this.props.imgUrl
+        const bizLinkId = `/biz/${this.props.itemId}`;
         return (
             <li className="review-await-item">
                 <div className="review-await-item-container">
                     <div className="pic-div">
-                        <img className="review-await-item-pic" src={imageUrl} alt="" />
+                        <img className="review-await-item-pic" src={imageUrl}/>
                     </div>
                     <div className="pic-info">
                         <div className="review-await-item-title">
-                            <Link to="/businesses/1">{this.props.title}</Link>
+                            <Link to={bizLinkId}>{this.props.title.split("_").join(" ")}</Link>
                         </div>
                         <div className="review-await-item-content medium" >{this.props.content}</div>
                         <div className="ratings">

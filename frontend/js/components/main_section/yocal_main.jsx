@@ -3,22 +3,35 @@ import CustomMain from 'js/components/main_section/custom_main';
 import MainSection from 'js/components/main_section/main_section';
 import 'css/yocal_main.css';
 import 'css/components/yocal_body.css';
+import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class YocalMain extends React.Component{
     componentDidMount(){
         this.props.fetchBusinesses({ text: "" });
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.location.search != prevProps.location.search) {
+            this.props.clearupData()
+            this.props.fetchBusiness({ text: "" });
+        }
+    }
+
     render( ){
-        console.log(this.props)
         if (_.isEmpty(this.props.businesses) ||
             _.isEmpty(this.props.categoryList) ||
             _.isEmpty(this.props.businessList)
         ) {
-            return null;
+            return (
+                <div style={{ display: "flex", margin: "100px 0", justifyContent: "center", alignItems: "center", height: "60%" }}>
+                    <img src="assets/Preloader_2.gif" style={{ textAlign: "center", height: "100px", width: "100px", objectFit: "cover"}}/>
+                </div>
+            );
         }
+        console.log(this.props, "whatever passing here")
 
-        return(
+        return (
             <div className="yocal-main">
                 <div className="yocal-main-container">
                     <div className="yocal-body">
@@ -29,7 +42,9 @@ class YocalMain extends React.Component{
                             currentUser={this.props.currentUser}
                             logout={this.props.logout}
                             fetchBusinesses={this.props.fetchBusinesses}
-                        />
+                            updateFilter={this.props.updateFilter}
+                            history={this.props.history}
+                    />
                     </div>
                 </div>
                 {/* <BusinessSearch/> */}

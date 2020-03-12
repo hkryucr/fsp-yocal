@@ -20,6 +20,8 @@ class MainSection extends React.Component {
                         categoryList={this.props.categoryList}
                         businessList={this.props.businessList}
                         fetchBusinesses={this.props.fetchBusinesses}
+                        updateFilter={this.props.updateFilter}
+                        history={this.props.history}
                     />
                     <MainSectionCategories />
                     <MainSectionPhoto/>

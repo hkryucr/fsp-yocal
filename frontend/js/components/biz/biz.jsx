@@ -29,7 +29,11 @@ class Biz extends React.Component{
             (_.isEmpty(this.props.reviewers)) || 
             (!Object.keys(this.props.businesses).includes(this.props.curBusinessId)) 
             ) {
-            return null;
+            return (
+                <div style={{ display: "flex", margin: "100px 0", justifyContent: "center", alignItems: "center", height: "60%" }}>
+                    <img src="assets/Preloader_2.gif" style={{ textAlign: "center", height: "100px", width: "100px", objectFit: "cover" }} />
+                </div>
+            );
         }
 
         const businessList = this.props.businesses[this.props.curBusinessId].businessList;
@@ -43,6 +47,7 @@ class Biz extends React.Component{
                         businessList={businessList} 
                         currentUser={this.props.currentUser} 
                         logout={this.props.logout}
+                        history={this.props.history}
                     />
                     <BizMain 
                         currentUser={this.props.currentUser}
@@ -53,6 +58,7 @@ class Biz extends React.Component{
                         categories={this.props.categories}
                         users={this.props.users}
                         reviewers={this.props.reviewers}
+                        history={this.props.history}
                     />
                </div>
             </div>

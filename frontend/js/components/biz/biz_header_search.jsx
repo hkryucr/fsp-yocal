@@ -17,14 +17,20 @@ class BizHeaderSearch extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.fetchBusinesses({
-            text: this.state.text
-        }).then(()=>{
-            this.setState({
-                candidates: [],
-                text: ""
-            })
+        const searchTerm = this.state.text;
+        this.setState({
+            candidates: [],
+            text: ""
         })
+        this.props.history.push(`/search?desc=${searchTerm}`)
+        // this.props.fetchBusinesses({
+        //     text: this.state.text
+        // }).then(()=>{
+        //     this.setState({
+        //         candidates: [],
+        //         text: ""
+        //     })
+        // })
     }
 
     handleTextChange(e) {
@@ -34,6 +40,7 @@ class BizHeaderSearch extends React.Component{
             const regex = new RegExp(`^${value}`, 'i');
             candidates = this.items.sort().filter(item => regex.test(item));
         }
+        
         this.setState({
             candidates,
             text: value

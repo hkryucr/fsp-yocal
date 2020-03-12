@@ -8,6 +8,10 @@ import appReducer from 'reducers/app_reducer';
 import CLEAR_UP_DATA from 'actions/clearup_actions';
 
 const rootReducer = (state, action) => {
+    if (state.entities === undefined){
+        return appReducer(state, action)
+    }
+    
     const curUsers = state.entities.users;
     if (action.type === 'CLEAR_UP_DATA') {
         state.entities = {};

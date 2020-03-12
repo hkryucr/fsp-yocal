@@ -8,6 +8,18 @@ import 'css/components/biz/biz_info_left.css'
 
 
 class BizInfoLeftHeader extends React.Component {
+    constructor(props){
+        super(props);
+        this.writeReview = this.writeReview.bind(this);
+    }
+
+    writeReview(e){
+        e.preventDefault();
+        const curBizName = this.props.businesses[this.props.curBusinessId].businessName;
+        const curBizId = this.props.curBusinessId;
+        this.props.history.push(`/writeareview?bizId=${curBizId}&bizName=${curBizName}`);
+    }
+
     render() {
         if ((_.isEmpty(this.props.businesses) || _.isEmpty(this.props.categories))){
             return null;
@@ -48,30 +60,30 @@ class BizInfoLeftHeader extends React.Component {
                 </div>
                 <div className="biz-info-left-buttons">
                     <div className="biz-info-button-container">
-                        <Link to="/" className="biz-info-button">
+                        <div className="biz-info-button" onClick={this.writeReview}>
                             <FontAwesomeIcon icon={faStar} size="1x" color="white" />
                             <span>
                                 Write a Review
                             </span>
-                        </Link>
-                        <Link to="/" className="biz-info-button">
+                        </div>
+                        <div className="biz-info-button" onClick={this.writeReview}>
                             <FontAwesomeIcon icon={faCamera} size="1x" color="#2b273c" />
                             <span>
                                 Add Photo
-                                    </span>
-                        </Link>
-                        <Link to="/" className="biz-info-button">
+                            </span>
+                        </div>
+                        <div className="biz-info-button" onClick={this.writeReview}>
                             <FontAwesomeIcon icon={faShare} size="1x" color="#2b273c" />
                             <span>
                                 Share
                             </span>
-                        </Link>
-                        <Link to="/" className="biz-info-button">
+                        </div>
+                        <div className="biz-info-button" onClick={this.writeReview}>
                             <FontAwesomeIcon icon={faBookmark} size="1x" color="#2b273c" />
                             <span>
                                 Save
                             </span>
-                        </Link>
+                        </div>
                     </div>
                 </div>
             </div>

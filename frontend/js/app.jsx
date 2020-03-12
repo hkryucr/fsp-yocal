@@ -7,6 +7,7 @@ import Footer from 'js/components/footer/footer';
 import { AuthRoute } from 'util/route_util.jsx';
 import RegisterSignupContainer from 'js/components/user_auth/register_signup_container';
 import RegisterLoginContainer from 'js/components/user_auth/register_login_container';
+import WriteReviewContainer from 'js/components/write_review/write_review_container';
 import 'css/app.css';
 
 const App = () => (
@@ -17,6 +18,7 @@ const App = () => (
             <Route exact path="/biz/:id" component={BizContainer}></Route>
             <Route exact path="/search" component={BizSearchContainer}></Route>
             <Route exact path="/" component={YocalMainContainer}></Route>
+            <Route exact path="/writeareview" component={WriteReviewContainer}></Route>
         </Switch>
         <Footer/>
     </div>

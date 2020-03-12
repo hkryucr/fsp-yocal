@@ -19,6 +19,7 @@ class BizHeaderUpperItems extends React.Component{
                         businessList={this.props.businessList}
                         categoryList={this.props.categoryList}
                         fetchBusinesses={this.props.fetchBusinesses}
+                        history={this.props.history}
                     />
                     <BizUserItems currentUser={this.props.currentUser} logout={this.props.logout}/>
                 </div>

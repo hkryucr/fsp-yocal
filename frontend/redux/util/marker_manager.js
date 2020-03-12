@@ -47,8 +47,8 @@ export default class MarkerManager {
                     infoWindow.setContent('<div class="' + 'g-map-infowindow' + '">' + '<img src="' + photoUrls[0].photoUrl + '" style="' + 'height:200px; width:200px; object-fit:cover; border-radius: 4px' + '"/>' + '<div class="' + 'g-map-infowindow-title' + '">' + businessName + '</div>' + '<div class="' + 'g-map-infowindow-rating' + '">' + '<span class="' + 'g-map-infowindow-rating-span' + '">' + rating + '</span>' + " rating out of " + '<span class="' + 'g-map-infowindow-rating-span' + '">' + reviewCount + '</span>'+ " reviews" + '</div>' + '<div>' + categories + '</div>' + '</div>');
                     infoWindow.open(this.map, newMarker);
                 })
+
                 google.maps.event.addListener(newMarker, 'mouseout', function () {
-                    console.log("marker is working");
                     infoWindow.setContent('this is marker');
                     infoWindow.close(this.map, newMarker);
                 })

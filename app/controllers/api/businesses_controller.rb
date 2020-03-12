@@ -7,8 +7,8 @@ class Api::BusinessesController < ApplicationController
         @businesses = []
         
         # "name LIKE ? OR postal_code LIKE ?", "%#{search}%", "%#{search}%"
-        @businesses += Business.where("business_name LIKE ?", "%#{params[:bounds][:text]}%")
-        @businesses += Business.joins(:categories).where( '(categories.name LIKE ?)', "%#{params[:bounds][:text]}%")
+        @businesses += Business.where("lower(business_name) LIKE ?", "%#{params[:bounds][:text].downcase}%")
+        @businesses += Business.joins(:categories).where( '(lower(categories.name) LIKE ?)', "%#{params[:bounds][:text].downcase}%")
         @businesses = @businesses[0..31]
         
         render 'api/businesses/index'

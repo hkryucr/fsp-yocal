@@ -41,12 +41,17 @@ class BizReviews extends React.Component {
         })
     }
 
+    // componentDidUpdate(prevProp, prevState){
+    //     if (Object.keys(prevProp.reviews).length != Object.keys(this.props.reviews).length){
+    //         this.props.fetchReviews()
+    //     }        
+    // }
+
 
     render() {        
         if(this.state.filteredReviews === undefined ){
             return null;
         }
-
         return (
             <div className="biz-reviews">
                 <div className="biz-reviews-container">
@@ -78,7 +83,7 @@ class BizReviews extends React.Component {
                                     <span>Sort by</span>
                                     <span>
                                         Newest First
-                            </span>
+                                    </span>
                                 </div>
                                 <div>
                                     <span>Language</span>
@@ -89,7 +94,7 @@ class BizReviews extends React.Component {
                     </div>
                     <div className="biz-review-items">
                         <div className="biz-review-items-container">
-                            {(this.state.filteredReviews.sort((a, b) => new Date(b.reviewDate) - new Date(a.reviewDate))).map((review, idx) => <BizReviewItem key={idx} review={review} reviewers={this.props.reviewers}/>)}
+                            {(this.state.filteredReviews.sort((a, b) => new Date(b.reviewDate) - new Date(a.reviewDate))).map((review, idx) => <BizReviewItem clearupData={this.props.clearupData} currentUser={this.props.currentUser} deleteReview={this.props.deleteReview} key={idx} review={review} reviewers={this.props.reviewers}/>)}
                         </div>
                     </div>
                 </div>

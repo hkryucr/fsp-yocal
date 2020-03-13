@@ -4,11 +4,16 @@ import Ratings from 'js/components/utils/ratings';
 import 'css/components/biz_search/biz_search_content_item.css';
 
 class BizSearchContentItem extends React.Component{
+    constructor(props){
+        super(props);
+    }
+    
     render(){
         const curBusiness = this.props.business;
         const phoneNum = `(${curBusiness.phone.slice(2, 5)}) ${curBusiness.phone.slice(5, 8)} - ${curBusiness.phone.slice(8)}`
         const filteredReview = curBusiness.firstReview.slice(0, 400);
         const businessLink = `/biz/${curBusiness.id}`
+
         return (
             <div className="biz-search-content-item">
                 <div className="biz-search-content-item-container">

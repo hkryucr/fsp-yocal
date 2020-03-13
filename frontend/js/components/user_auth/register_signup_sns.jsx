@@ -34,7 +34,7 @@ class RegisterSignupSNS extends React.Component{
                 </button> */}
                 <button className="d-button small-medium" onClick={this.handleClick}>
                     {/* <img className="g-button-img" src={window.googleIcon} /> */}
-                    <FontAwesomeIcon className='g-button-fai' icon={faYelp} size="2x" color="#f43939"/>
+                    <FontAwesomeIcon className='g-button-fai' icon={faYelp} size="2x" color="#d32323"/>
                     <span> {this.props.formType} With Guest User Account</span>
                 </button>
                 <div className="small">Don't worry, we never post without your permission.</div>

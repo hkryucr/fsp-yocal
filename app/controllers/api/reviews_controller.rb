@@ -30,6 +30,15 @@ class Api::ReviewsController < ApplicationController
         end
     end
 
+    def destroy
+        @review = Review.find_by(id: params[:id])
+        if @review && @review.destroy
+            render 'api/reviews/show'
+        else
+            render json: ['The parameter for finding a review is not correct.'], status: 401
+        end
+    end
+
     def review_params
         params.require(:review).permit(:author_id, :business_id, :business_name, :rating, :text, :review_date, :useful, :funny, :cool, :review_photo)
     end

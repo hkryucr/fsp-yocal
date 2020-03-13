@@ -14,7 +14,8 @@ class BizSearch extends React.Component {
         }
     }
 
-    componentDidMount(){        
+    componentDidMount(){   
+        this.props.clearupData()     
         this.props.fetchBusinesses({
             text: this.searchTerm
         })

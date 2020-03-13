@@ -14,7 +14,7 @@ class Biz extends React.Component{
     }
 
     componentDidUpdate(prevProps, prevState, snapshot){
-        if (this.props.match.params.id != prevProps.match.params.id){
+        if (this.props.match.params.id !== prevProps.match.params.id){
             this.props.clearupData()
             this.props.fetchBusiness(this.props.match.params.id);
         }
@@ -50,6 +50,7 @@ class Biz extends React.Component{
                         history={this.props.history}
                     />
                     <BizMain 
+                        deleteReview={this.props.deleteReview}
                         currentUser={this.props.currentUser}
                         curBusinessId={this.props.curBusinessId}
                         businesses={this.props.businesses}
@@ -59,6 +60,7 @@ class Biz extends React.Component{
                         users={this.props.users}
                         reviewers={this.props.reviewers}
                         history={this.props.history}
+                        clearupData={this.props.clearupData}
                     />
                </div>
             </div>

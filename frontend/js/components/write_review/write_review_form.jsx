@@ -1,5 +1,5 @@
 import React from 'react';
-import { faImages, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faImages } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class WriteReviewForm extends React.Component{    
@@ -22,13 +22,25 @@ class WriteReviewForm extends React.Component{
             funny: 0,
             cool: 0,
             curRating: 0,
-            photoFile: ""
+            photoFile: null,
+            photoUrl: null
         }
     }
 
     uploadFile(e){
         e.preventDefault()
-        this.setState({ photoFile: e.currentTarget.files[0]})
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({ 
+                photoFile: file, 
+                photoUrl: fileReader.result
+            });
+        }
+
+        if(file){
+            fileReader.readAsDataURL(file);
+        };
     }
 
     selectRating(e){
@@ -65,7 +77,7 @@ class WriteReviewForm extends React.Component{
     handleSubmit(e) {
         e.preventDefault()
         const formData = new FormData();
-        // debugger
+
         formData.append('review[review_photo]', this.state.photoFile);
         formData.append('review[author_id]', this.props.currentUser.id);
         formData.append('review[business_id]', this.props.businessId);
@@ -78,13 +90,12 @@ class WriteReviewForm extends React.Component{
         formData.append('review[cool]', 0);        
 
         this.props.createReview(formData).then(()=>{
+            this.props.clearupData();
             this.props.history.push(`/biz/${this.props.businessId}`);
         })
     }
 
     render(){
-        console.log(this.props);
-
         const reviewSample = "Doesn’t look like much when you walk past, but I was practically dying of hunger so I popped in. The definition of a hole-in-the-wall. I got the regular hamburger and wow…  there are no words. A classic burger done right. Crisp bun, juicy patty, stuffed with all the essentials (ketchup, shredded lettuce, tomato, and pickles). There’s about a million options available between the menu board and wall full of specials, so it can get a little overwhelming, but you really can’t go wrong. Not much else to say besides go see for yourself! You won’t be disappointed."
 
         const ratingComments = {
@@ -97,6 +108,7 @@ class WriteReviewForm extends React.Component{
         }
 
         const curComment = ratingComments[this.state.curRating];
+        const preview = this.state.photoUrl ? <img style={{ position: "absolute", zIndex:2, height: "140px", width: "140px", borderRadius: "5px" }} src={this.state.photoUrl} /> : null;
 
         return (
             <div className="wrtie-review-form">
@@ -139,6 +151,7 @@ class WriteReviewForm extends React.Component{
                             <FontAwesomeIcon icon={faImages} size="2x" color="#999999" />
                             <div>Upload</div>
                         </label>
+                        {preview}
                     </div>
                     <div className="wrtie-review-form-button">
                         <button type="submit" onClick={this.handleSubmit}>Post Review</button>

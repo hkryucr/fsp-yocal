@@ -3,6 +3,7 @@ import BizHeaderSearch from 'js/components/biz/biz_header_search';
 import BizUserItems from 'js/components/biz/biz_user_items';
 import 'css/components/biz/biz_header_upper_items.css';
 import { Link } from 'react-router-dom';
+
 class BizHeaderUpperItems extends React.Component{
     render(){
         return (

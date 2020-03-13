@@ -47,7 +47,7 @@ class BizUserItem extends React.Component{
                 </Link>
             </div >
         );
-
+        
         return(
             <div className="header-user-items">
                 <div className="header-user-items-container">

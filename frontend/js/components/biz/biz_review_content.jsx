@@ -3,24 +3,44 @@ import Ratings from 'js/components/utils/ratings';
 import 'css/components/biz/biz_review_content.css';
 import { faLightbulb, faLaughSquint, faThumbsUp } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
-class BizReviewContent extends React.Component {    
+class BizReviewContent extends React.Component {   
+    constructor(props){
+        super(props)
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(e){
+        e.preventDefault()        
+        if(this.props.currentUser.id === this.props.review.authorId){
+            if (window.confirm('Are you sure you wish to delete this review?')){
+                this.props.deleteReview(this.props.review.id);
+            }
+        } else {
+            alert("You can't delete others' reviews");
+        }
+    }
+    
     render() {
-        const multiLine = "Incredible incredible incredible experience! Such a beautiful place with delicious food. Our bartender was so bubbly and sweet, and made great drinks. \n Our waiter, Michael, was absolutely amazing! He was incredibly friendly and attentive.Had great suggestions and surprised us with a tasting of the clam chowder when we were unsure about which appetizer to decide on.The food was absolutely amazing.Definitely recommend the poke and the clam chowder as appetizers.For dinner, I got the scallop and crab risotto and my boyfriend got the filet with crab meat on top, spinach, and garlic mashed potatoes.So delicious!! Thank you Michael for a great experience!!";
 
+        let rawDate = this.props.review.reviewDate;
+        const reviewDate = rawDate.slice(0, 10);
         return (
             <div className="biz-review-content">
                 <div className="biz-review-content-container">
                     <div className="biz-review-content-1">
-                        <div className="biz-review-ratings">
-                            <Ratings/>
+                        <div className="biz-review-content-1-container">
+                            <div className="biz-review-ratings">
+                                <Ratings/>
+                            </div>
+                            <div className="biz-review-date">{reviewDate}</div>
                         </div>
-                        <div className="biz-review-date">{this.props.review.reviewDate}</div>
+                        <div className="biz-review-delete" onClick={this.handleClick}> X </div>
                     </div>
                     <div className="biz-review-content-2">
                         {this.props.review.text}
                     </div>
+                    <div className="biz-review-content-2-pic"></div>
                     <div className="biz-review-content-3">
                         <div className="useful">
                             <FontAwesomeIcon icon={faLightbulb } size="2x" />

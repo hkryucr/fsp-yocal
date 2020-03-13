@@ -24,6 +24,7 @@ class BizInfoLeftHeader extends React.Component {
         if ((_.isEmpty(this.props.businesses) || _.isEmpty(this.props.categories))){
             return null;
         }
+
         const curBusiness = this.props.businesses[this.props.curBusinessId];
         const curCategories = curBusiness.categoryIds.map((id, idx)=>{
             return this.props.categories[id].name;

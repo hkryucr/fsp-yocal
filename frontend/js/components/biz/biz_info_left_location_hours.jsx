@@ -29,7 +29,7 @@ class BizInfoLeftLocationHours extends React.Component {
                         </div>
                     </div>
                     <div className="biz-location-hours-layout">
-                        <BizLocation/>
+                        <BizLocation curBusiness={this.props.businesses[this.props.curBusinessId]} />
                         <div className="biz-hours">
                             <div className="biz-hours-container">
                                 {curHours.map((hour, idx)=><BizHour key={idx} hour={hour}/>)}

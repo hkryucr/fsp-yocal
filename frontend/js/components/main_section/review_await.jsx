@@ -13,6 +13,7 @@ class ReviewAwait extends React.Component{
         if (Object.keys(curBusinesses).length < 6){
             return null;
         }
+        console.log(curBusinesses)
         return (
             <div className="review-await">
                 <div className="review-await-container">
@@ -35,7 +36,10 @@ class ReviewAwait extends React.Component{
                                 <ReviewAwaitItem itemId={curBusinesses[5].id} imgUrl={curBusinesses[5].photoUrls[0].photoUrl} title={curBusinesses[5].businessName} content={curBusinesses[5].address1} />
                                 <ReviewAwaitItem itemId={curBusinesses[6].id} imgUrl={curBusinesses[6].photoUrls[0].photoUrl} title={curBusinesses[6].businessName} content={curBusinesses[6].address1} />
                             </ul>
-                            
+                            <ul className="review-await-row">
+                                <ReviewAwaitItem itemId={curBusinesses[7].id} imgUrl={curBusinesses[7].photoUrls[0].photoUrl} title={curBusinesses[7].businessName} content={curBusinesses[7].address1} />
+                                <ReviewAwaitItem itemId={curBusinesses[8].id} imgUrl={curBusinesses[8].photoUrls[0].photoUrl} title={curBusinesses[8].businessName} content={curBusinesses[8].address1} />
+                            </ul>                            
                         </div>
                     </div>
 

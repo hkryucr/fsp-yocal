@@ -1381,7 +1381,7 @@ var App = function App() {
     exact: true,
     path: "/",
     component: js_components_main_section_yocal_main_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(util_route_util_jsx__WEBPACK_IMPORTED_MODULE_6__["ProtectedRoute"], {
     exact: true,
     path: "/writeareview",
     component: js_components_write_review_write_review_container__WEBPACK_IMPORTED_MODULE_9__["default"]
@@ -1476,7 +1476,7 @@ var Biz = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState, snapshot) {
-      if (this.props.match.params.id != prevProps.match.params.id) {
+      if (this.props.match.params.id !== prevProps.match.params.id) {
         this.props.clearupData();
         this.props.fetchBusiness(this.props.match.params.id);
       }
@@ -1517,6 +1517,7 @@ var Biz = /*#__PURE__*/function (_React$Component) {
         logout: this.props.logout,
         history: this.props.history
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(js_components_biz_biz_main__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        deleteReview: this.props.deleteReview,
         currentUser: this.props.currentUser,
         curBusinessId: this.props.curBusinessId,
         businesses: this.props.businesses,
@@ -1525,7 +1526,8 @@ var Biz = /*#__PURE__*/function (_React$Component) {
         categories: this.props.categories,
         users: this.props.users,
         reviewers: this.props.reviewers,
-        history: this.props.history
+        history: this.props.history,
+        clearupData: this.props.clearupData
       })));
     }
   }]);
@@ -1634,8 +1636,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! actions/business_actions */ "./frontend/redux/actions/business_actions.js");
 /* harmony import */ var actions_clearup_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! actions/clearup_actions */ "./frontend/redux/actions/clearup_actions.js");
-/* harmony import */ var actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! actions/session_actions */ "./frontend/redux/actions/session_actions.js");
-/* harmony import */ var js_components_biz_biz__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! js/components/biz/biz */ "./frontend/js/components/biz/biz.jsx");
+/* harmony import */ var actions_review_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! actions/review_actions */ "./frontend/redux/actions/review_actions.js");
+/* harmony import */ var actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! actions/session_actions */ "./frontend/redux/actions/session_actions.js");
+/* harmony import */ var js_components_biz_biz__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! js/components/biz/biz */ "./frontend/js/components/biz/biz.jsx");
+
 
 
 
@@ -1664,12 +1668,15 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       return dispatch(Object(actions_clearup_actions__WEBPACK_IMPORTED_MODULE_2__["clearupData"])());
     },
     logout: function logout() {
-      return dispatch(Object(actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["logout"])());
+      return dispatch(Object(actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["logout"])());
+    },
+    deleteReview: function deleteReview(id) {
+      return dispatch(Object(actions_review_actions__WEBPACK_IMPORTED_MODULE_3__["deleteReview"])(id));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(js_components_biz_biz__WEBPACK_IMPORTED_MODULE_4__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(js_components_biz_biz__WEBPACK_IMPORTED_MODULE_5__["default"]));
 
 /***/ }),
 
@@ -1942,14 +1949,7 @@ var BizHeaderSearch = /*#__PURE__*/function (_React$Component) {
         candidates: [],
         text: ""
       });
-      this.props.history.push("/search?desc=".concat(searchTerm)); // this.props.fetchBusinesses({
-      //     text: this.state.text
-      // }).then(()=>{
-      //     this.setState({
-      //         candidates: [],
-      //         text: ""
-      //     })
-      // })
+      this.props.history.push("/search?desc=".concat(searchTerm));
     }
   }, {
     key: "handleTextChange",
@@ -2291,6 +2291,7 @@ var BizInfo = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "biz-info-layout-container"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(js_components_biz_biz_info_left__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        deleteReview: this.props.deleteReview,
         currentUser: this.props.currentUser,
         curBusinessId: this.props.curBusinessId,
         businesses: this.props.businesses,
@@ -2299,7 +2300,8 @@ var BizInfo = /*#__PURE__*/function (_React$Component) {
         categories: this.props.categories,
         users: this.props.users,
         reviewers: this.props.reviewers,
-        history: this.props.history
+        history: this.props.history,
+        clearupData: this.props.clearupData
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(js_components_biz_biz_info_right__WEBPACK_IMPORTED_MODULE_1__["default"], {
         currentUser: this.props.currentUser,
         curBusinessId: this.props.curBusinessId,
@@ -2396,6 +2398,7 @@ var BizInfoLeft = /*#__PURE__*/function (_React$Component) {
         users: this.props.users,
         reviewers: this.props.reviewers
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_info_left_reviews__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        deleteReview: this.props.deleteReview,
         currentUser: this.props.currentUser,
         curBusinessId: this.props.curBusinessId,
         businesses: this.props.businesses,
@@ -2403,7 +2406,8 @@ var BizInfoLeft = /*#__PURE__*/function (_React$Component) {
         reviews: this.props.reviews,
         categories: this.props.categories,
         users: this.props.users,
-        reviewers: this.props.reviewers
+        reviewers: this.props.reviewers,
+        clearupData: this.props.clearupData
       })));
     }
   }]);
@@ -2640,7 +2644,9 @@ var BizInfoLeftLocationHours = /*#__PURE__*/function (_React$Component) {
         className: "biz-sub-title"
       }, "Location & Hours")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-location-hours-layout"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_location__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_location__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        curBusiness: this.props.businesses[this.props.curBusinessId]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-hours"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-hours-container"
@@ -2753,7 +2759,12 @@ var BizReviews = /*#__PURE__*/function (_React$Component) {
       this.setState({
         filteredReviews: this.curReviews
       });
-    }
+    } // componentDidUpdate(prevProp, prevState){
+    //     if (Object.keys(prevProp.reviews).length != Object.keys(this.props.reviews).length){
+    //         this.props.fetchReviews()
+    //     }        
+    // }
+
   }, {
     key: "render",
     value: function render() {
@@ -2809,6 +2820,9 @@ var BizReviews = /*#__PURE__*/function (_React$Component) {
         return new Date(b.reviewDate) - new Date(a.reviewDate);
       }).map(function (review, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_review_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          clearupData: _this3.props.clearupData,
+          currentUser: _this3.props.currentUser,
+          deleteReview: _this3.props.deleteReview,
           key: idx,
           review: review,
           reviewers: _this3.props.reviewers
@@ -2994,20 +3008,32 @@ var BizLocation = /*#__PURE__*/function (_React$Component) {
       // set the map to show SF
       var mapOptions = {
         center: {
-          lat: 37.7758,
-          lng: -122.435
+          lat: parseFloat(this.props.curBusiness.latitude),
+          lng: parseFloat(this.props.curBusiness.longitude)
         },
         // this is SF
         zoom: 13
       }; // wrap this.mapNode in a Google Map
 
       this.map = new google.maps.Map(this.mapNode, mapOptions);
+      var newMarker = new google.maps.Marker({
+        id: 0,
+        position: {
+          lat: this.props.curBusiness.latitude,
+          lng: this.props.curBusiness.longitude
+        },
+        map: this.map,
+        businessName: this.props.curBusiness.businessName
+      });
     }
   }, {
     key: "render",
     value: function render() {
       var _this = this;
 
+      console.log(this.props, "biz_location");
+      var curBusiness = this.props.curBusiness;
+      var directLocation = "https://www.google.com/maps?q=".concat(curBusiness.latitude, ",").concat(curBusiness.longitude);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-location"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3022,13 +3048,15 @@ var BizLocation = /*#__PURE__*/function (_React$Component) {
         className: "biz-location-map-content-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-location-map-content-left"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pier 39"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ste A-202"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "San Francisco, CA 94133"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Fisherman's Wharf, North Beach/Telegraph Hill"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, curBusiness.address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, curBusiness.address2), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, curBusiness.city, ", ", curBusiness.state, " ", curBusiness.zipcode), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, curBusiness.businessName.split("_").join(" ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-location-map-content-left"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-location-map-dir"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-location-map-dir-button"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Get directions"))))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: directLocation
+      }, "Direction"))))));
     }
   }]);
 
@@ -3103,6 +3131,7 @@ var BizMain = /*#__PURE__*/function (_React$Component) {
         users: this.props.users,
         reviewers: this.props.reviewers
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_info__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        deleteReview: this.props.deleteReview,
         currentUser: this.props.currentUser,
         curBusinessId: this.props.curBusinessId,
         businesses: this.props.businesses,
@@ -3111,7 +3140,8 @@ var BizMain = /*#__PURE__*/function (_React$Component) {
         categories: this.props.categories,
         users: this.props.users,
         reviewers: this.props.reviewers,
-        history: this.props.history
+        history: this.props.history,
+        clearupData: this.props.clearupData
       })));
     }
   }]);
@@ -3149,9 +3179,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -3161,21 +3191,39 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
- // import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
+
 
 var BizReviewContent = /*#__PURE__*/function (_React$Component) {
   _inherits(BizReviewContent, _React$Component);
 
-  function BizReviewContent() {
+  function BizReviewContent(props) {
+    var _this;
+
     _classCallCheck(this, BizReviewContent);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BizReviewContent).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(BizReviewContent).call(this, props));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(BizReviewContent, [{
+    key: "handleClick",
+    value: function handleClick(e) {
+      e.preventDefault();
+
+      if (this.props.currentUser.id === this.props.review.authorId) {
+        if (window.confirm('Are you sure you wish to delete this review?')) {
+          this.props.deleteReview(this.props.review.id);
+        }
+      } else {
+        alert("You can't delete others' reviews");
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var multiLine = "Incredible incredible incredible experience! Such a beautiful place with delicious food. Our bartender was so bubbly and sweet, and made great drinks. \n Our waiter, Michael, was absolutely amazing! He was incredibly friendly and attentive.Had great suggestions and surprised us with a tasting of the clam chowder when we were unsure about which appetizer to decide on.The food was absolutely amazing.Definitely recommend the poke and the clam chowder as appetizers.For dinner, I got the scallop and crab risotto and my boyfriend got the filet with crab meat on top, spinach, and garlic mashed potatoes.So delicious!! Thank you Michael for a great experience!!";
+      var rawDate = this.props.review.reviewDate;
+      var reviewDate = rawDate.slice(0, 10);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3183,12 +3231,19 @@ var BizReviewContent = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-content-1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-review-content-1-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-ratings"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-date"
-      }, this.props.review.reviewDate)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, reviewDate)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-review-delete",
+        onClick: this.handleClick
+      }, " X ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-content-2"
       }, this.props.review.text), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-review-content-2-pic"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-content-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "useful"
@@ -3273,7 +3328,10 @@ var BizReviewItem = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_review_userinfo__WEBPACK_IMPORTED_MODULE_1__["default"], {
         reviewer: this.props.reviewers[this.props.review.authorId]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_review_content__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        review: this.props.review
+        clearupData: this.props.clearupData,
+        currentUser: this.props.currentUser,
+        review: this.props.review,
+        deleteReview: this.props.deleteReview
       })));
     }
   }]);
@@ -3359,12 +3417,12 @@ var BizReviewUserinfo = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faUserFriends"],
         color: "#f15c00"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, curReviewer.savedBusinessIds.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "friend")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, curReviewer.savedBusinessIds.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, curReviewer.savedBusinessIds.length === 1 ? "friend" : "friends")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "userinfo-content-reviews"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faStarHalfAlt"],
         color: "#f15c00"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, curReviewer.reviewIds.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "review")))));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, curReviewer.reviewIds.length), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, curReviewer.reviewIds.length === 1 ? "review" : "reviews")))));
     }
   }]);
 
@@ -3542,6 +3600,7 @@ var BizSearch = /*#__PURE__*/function (_React$Component) {
   _createClass(BizSearch, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.props.clearupData();
       this.props.fetchBusinesses({
         text: this.searchTerm
       });
@@ -3724,10 +3783,10 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var BizSearchContentItem = /*#__PURE__*/function (_React$Component) {
   _inherits(BizSearchContentItem, _React$Component);
 
-  function BizSearchContentItem() {
+  function BizSearchContentItem(props) {
     _classCallCheck(this, BizSearchContentItem);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BizSearchContentItem).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(BizSearchContentItem).call(this, props));
   }
 
   _createClass(BizSearchContentItem, [{
@@ -3828,15 +3887,13 @@ var BizSearchMap = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this = this;
 
-      // set the map to show SF
       var mapOptions = {
         center: {
           lat: 37.7758,
           lng: -122.435
         },
         zoom: 13
-      }; // wrap this.mapNode in a Google Map
-
+      };
       this.map = new google.maps.Map(this.mapNode, mapOptions);
       this.MarkerManager = new util_marker_manager__WEBPACK_IMPORTED_MODULE_2__["default"](this.map);
 
@@ -4599,6 +4656,7 @@ var ReviewAwait = /*#__PURE__*/function (_React$Component) {
         return null;
       }
 
+      console.log(curBusinesses);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-await"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4645,6 +4703,18 @@ var ReviewAwait = /*#__PURE__*/function (_React$Component) {
         imgUrl: curBusinesses[6].photoUrls[0].photoUrl,
         title: curBusinesses[6].businessName,
         content: curBusinesses[6].address1
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "review-await-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        itemId: curBusinesses[7].id,
+        imgUrl: curBusinesses[7].photoUrls[0].photoUrl,
+        title: curBusinesses[7].businessName,
+        content: curBusinesses[7].address1
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        itemId: curBusinesses[8].id,
+        imgUrl: curBusinesses[8].photoUrls[0].photoUrl,
+        title: curBusinesses[8].businessName,
+        content: curBusinesses[8].address1
       }))))));
     }
   }]);
@@ -4824,6 +4894,7 @@ var YocalMain = /*#__PURE__*/function (_React$Component) {
   _createClass(YocalMain, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.props.clearupData();
       this.props.fetchBusinesses({
         text: ""
       });
@@ -4833,7 +4904,7 @@ var YocalMain = /*#__PURE__*/function (_React$Component) {
     value: function componentDidUpdate(prevProps, prevState, snapshot) {
       if (this.props.location.search != prevProps.location.search) {
         this.props.clearupData();
-        this.props.fetchBusiness({
+        this.props.fetchBusinesses({
           text: ""
         });
       }
@@ -5309,6 +5380,8 @@ var RegisterSignupForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _React$createElement;
+
       var form = this.props.formType === 'Sign Up' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "RS-form",
         onSubmit: this.handleSubmit(this.props.formType)
@@ -5346,15 +5419,13 @@ var RegisterSignupForm = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input-wrapper",
         tabIndex: "0"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement = {
         type: "password",
         id: "password",
         name: "password",
         required: true,
-        onChange: this.update('password'),
-        placeholder: "Password",
-        onClick: this.handPasswordClick
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onChange: this.update('password')
+      }, _defineProperty(_React$createElement, "onChange", this.handPasswordClick), _defineProperty(_React$createElement, "placeholder", "Password"), _defineProperty(_React$createElement, "onClick", this.handPasswordClick), _React$createElement))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input-password-meter-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "progress-bar-container"
@@ -5579,7 +5650,7 @@ var RegisterSignupSNS = /*#__PURE__*/function (_React$Component) {
         className: "g-button-fai",
         icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faYelp"],
         size: "2x",
-        color: "#f43939"
+        color: "#d32323"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " ", this.props.formType, " With Guest User Account")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "small"
       }, "Don't worry, we never post without your permission."));
@@ -6301,7 +6372,8 @@ var WriteReview = /*#__PURE__*/function (_React$Component) {
         businessName: businessName,
         currentUser: this.props.currentUser,
         history: this.props.history,
-        createReview: this.props.createReview
+        createReview: this.props.createReview,
+        clearupData: this.props.clearupData
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "wrtie-review-prevs"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -6328,8 +6400,10 @@ var WriteReview = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var actions_review_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! actions/review_actions */ "./frontend/redux/actions/review_actions.js");
-/* harmony import */ var actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! actions/session_actions */ "./frontend/redux/actions/session_actions.js");
-/* harmony import */ var js_components_write_review_write_review__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js/components/write_review/write_review */ "./frontend/js/components/write_review/write_review.jsx");
+/* harmony import */ var actions_clearup_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! actions/clearup_actions */ "./frontend/redux/actions/clearup_actions.js");
+/* harmony import */ var actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! actions/session_actions */ "./frontend/redux/actions/session_actions.js");
+/* harmony import */ var js_components_write_review_write_review__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! js/components/write_review/write_review */ "./frontend/js/components/write_review/write_review.jsx");
+
 
  // import { clearupData } from 'actions/clearup_actions';
 
@@ -6354,15 +6428,18 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     // fetchBusiness: (id) => dispatch(fetchBusiness(id)),
     // clearupData: () => dispatch(clearupData()),
     logout: function logout() {
-      return dispatch(Object(actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"])());
+      return dispatch(Object(actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["logout"])());
     },
     createReview: function createReview(review) {
       return dispatch(Object(actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["createReview"])(review));
+    },
+    clearupData: function clearupData() {
+      return dispatch(Object(actions_clearup_actions__WEBPACK_IMPORTED_MODULE_2__["clearupData"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(js_components_write_review_write_review__WEBPACK_IMPORTED_MODULE_3__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(js_components_write_review_write_review__WEBPACK_IMPORTED_MODULE_4__["default"]));
 
 /***/ }),
 
@@ -6426,7 +6503,8 @@ var WriteReviewForm = /*#__PURE__*/function (_React$Component) {
       funny: 0,
       cool: 0,
       curRating: 0,
-      photoFile: ""
+      photoFile: null,
+      photoUrl: null
     };
     return _this;
   }
@@ -6434,10 +6512,24 @@ var WriteReviewForm = /*#__PURE__*/function (_React$Component) {
   _createClass(WriteReviewForm, [{
     key: "uploadFile",
     value: function uploadFile(e) {
+      var _this2 = this;
+
       e.preventDefault();
-      this.setState({
-        photoFile: e.currentTarget.files[0]
-      });
+      var file = e.currentTarget.files[0];
+      var fileReader = new FileReader();
+
+      fileReader.onloadend = function () {
+        _this2.setState({
+          photoFile: file,
+          photoUrl: fileReader.result
+        });
+      };
+
+      if (file) {
+        fileReader.readAsDataURL(file);
+      }
+
+      ;
     }
   }, {
     key: "selectRating",
@@ -6481,11 +6573,10 @@ var WriteReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this2 = this;
+      var _this3 = this;
 
       e.preventDefault();
-      var formData = new FormData(); // debugger
-
+      var formData = new FormData();
       formData.append('review[review_photo]', this.state.photoFile);
       formData.append('review[author_id]', this.props.currentUser.id);
       formData.append('review[business_id]', this.props.businessId);
@@ -6497,13 +6588,14 @@ var WriteReviewForm = /*#__PURE__*/function (_React$Component) {
       formData.append('review[funny]', 0);
       formData.append('review[cool]', 0);
       this.props.createReview(formData).then(function () {
-        _this2.props.history.push("/biz/".concat(_this2.props.businessId));
+        _this3.props.clearupData();
+
+        _this3.props.history.push("/biz/".concat(_this3.props.businessId));
       });
     }
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props);
       var reviewSample = "Doesn’t look like much when you walk past, but I was practically dying of hunger so I popped in. The definition of a hole-in-the-wall. I got the regular hamburger and wow…  there are no words. A classic burger done right. Crisp bun, juicy patty, stuffed with all the essentials (ketchup, shredded lettuce, tomato, and pickles). There’s about a million options available between the menu board and wall full of specials, so it can get a little overwhelming, but you really can’t go wrong. Not much else to say besides go see for yourself! You won’t be disappointed.";
       var ratingComments = {
         0: "Select your rating",
@@ -6514,6 +6606,16 @@ var WriteReviewForm = /*#__PURE__*/function (_React$Component) {
         5: "Woohoo! As good as it gets!"
       };
       var curComment = ratingComments[this.state.curRating];
+      var preview = this.state.photoUrl ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        style: {
+          position: "absolute",
+          zIndex: 2,
+          height: "140px",
+          width: "140px",
+          borderRadius: "5px"
+        },
+        src: this.state.photoUrl
+      }) : null;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "wrtie-review-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -6592,7 +6694,7 @@ var WriteReviewForm = /*#__PURE__*/function (_React$Component) {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faImages"],
         size: "2x",
         color: "#999999"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Upload"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Upload")), preview), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "wrtie-review-form-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
@@ -6850,7 +6952,7 @@ var fetchHour = function fetchHour(id) {
 /*!**************************************************!*\
   !*** ./frontend/redux/actions/review_actions.js ***!
   \**************************************************/
-/*! exports provided: RECEIVE_REVIEWS, RECEIVE_REVIEW, CREATE_REVIEW, receiveReviews, receiveReview, makeReview, fetchReviews, fetchReview, createReview */
+/*! exports provided: RECEIVE_REVIEWS, RECEIVE_REVIEW, CREATE_REVIEW, DELETE_REVIEW, receiveReviews, receiveReview, makeReview, destroyReview, deleteReview, fetchReviews, fetchReview, createReview */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6858,17 +6960,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEWS", function() { return RECEIVE_REVIEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW", function() { return RECEIVE_REVIEW; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_REVIEW", function() { return CREATE_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_REVIEW", function() { return DELETE_REVIEW; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReviews", function() { return receiveReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReview", function() { return receiveReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeReview", function() { return makeReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyReview", function() { return destroyReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteReview", function() { return deleteReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReview", function() { return fetchReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
 /* harmony import */ var util_review_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! util/review_api_util */ "./frontend/redux/util/review_api_util.js");
+/* harmony import */ var actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! actions/business_actions */ "./frontend/redux/actions/business_actions.js");
+/* harmony import */ var actions_clearup_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! actions/clearup_actions */ "./frontend/redux/actions/clearup_actions.js");
+
+
 
 var RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
 var RECEIVE_REVIEW = "RECEIVE_REVIEW";
 var CREATE_REVIEW = "CREATE_REVIEW";
+var DELETE_REVIEW = "DELETE_REVIEW";
 var receiveReviews = function receiveReviews(reviews) {
   return {
     type: RECEIVE_REVIEWS,
@@ -6885,6 +6995,21 @@ var makeReview = function makeReview(review) {
   return {
     type: CREATE_REVIEW,
     review: review
+  };
+};
+var destroyReview = function destroyReview(review) {
+  return {
+    type: DELETE_REVIEW,
+    review: review
+  };
+};
+var deleteReview = function deleteReview(id) {
+  return function (dispatch) {
+    return util_review_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteReview"](id).then(function (res) {
+      dispatch(destroyReview(res));
+      dispatch(Object(actions_clearup_actions__WEBPACK_IMPORTED_MODULE_2__["clearupData"])());
+      return dispatch(Object(actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["fetchBusiness"])(parseInt(res.businessId)));
+    });
   };
 };
 var fetchReviews = function fetchReviews(ids) {
@@ -7399,6 +7524,10 @@ var reviewReducer = function reviewReducer() {
     case actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEWS"]:
       return action.reviews;
 
+    case actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_REVIEW"]:
+      delete newState[action.review.id];
+      return newState;
+
     case actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["CREATE_REVIEW"]:
       newState[action.review.id] = action.review;
       return newState;
@@ -7744,9 +7873,9 @@ var fetchHour = function fetchHour(id) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MarkerManager; });
-/* harmony import */ var js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js/components/utils/ratings */ "./frontend/js/components/utils/ratings.jsx");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -7812,7 +7941,7 @@ var MarkerManager = /*#__PURE__*/function () {
           });
           var infoWindow = new google.maps.InfoWindow();
           google.maps.event.addListener(newMarker, 'mouseover', function () {
-            infoWindow.setContent('<div class="' + 'g-map-infowindow' + '">' + '<img src="' + photoUrls[0].photoUrl + '" style="' + 'height:200px; width:200px; object-fit:cover; border-radius: 4px' + '"/>' + '<div class="' + 'g-map-infowindow-title' + '">' + businessName + '</div>' + '<div class="' + 'g-map-infowindow-rating' + '">' + '<span class="' + 'g-map-infowindow-rating-span' + '">' + rating + '</span>' + " rating out of " + '<span class="' + 'g-map-infowindow-rating-span' + '">' + reviewCount + '</span>' + " reviews" + '</div>' + '<div>' + categories + '</div>' + '</div>');
+            infoWindow.setContent('<div class="' + 'g-map-infowindow' + '">' + '<img src="' + photoUrls[0].photoUrl + '" style="' + 'height:200px; width:200px; object-fit:cover; border-radius: 4px' + '"/>' + '<div class="' + 'g-map-infowindow-title' + '">' + businessName.split("_").join(" ") + '</div>' + '<div class="' + 'g-map-infowindow-rating' + '">' + '<span class="' + 'g-map-infowindow-rating-span' + '">' + rating + '</span>' + " rating out of " + '<span class="' + 'g-map-infowindow-rating-span' + '">' + reviewCount + '</span>' + " reviews" + '</div>' + '<div>' + categories + '</div>' + '</div>');
             infoWindow.open(this.map, newMarker);
           });
           google.maps.event.addListener(newMarker, 'mouseout', function () {
@@ -7844,7 +7973,7 @@ var MarkerManager = /*#__PURE__*/function () {
 /*!************************************************!*\
   !*** ./frontend/redux/util/review_api_util.js ***!
   \************************************************/
-/*! exports provided: fetchReviews, fetchReview, createReview */
+/*! exports provided: fetchReviews, fetchReview, createReview, deleteReview */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7852,6 +7981,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReview", function() { return fetchReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteReview", function() { return deleteReview; });
 var fetchReviews = function fetchReviews(ids) {
   return $.ajax({
     method: 'GET',
@@ -7880,6 +8010,15 @@ var createReview = function createReview(formData) {
     data: formData,
     contentType: false,
     processData: false
+  });
+};
+var deleteReview = function deleteReview(id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "/api/reviews/".concat(id),
+    error: function error(err) {
+      return console.log(err);
+    }
   });
 };
 
@@ -7918,12 +8057,13 @@ var fetchReviewers = function fetchReviewers(ids) {
 /*!********************************************!*\
   !*** ./frontend/redux/util/route_util.jsx ***!
   \********************************************/
-/*! exports provided: AuthRoute */
+/*! exports provided: AuthRoute, ProtectedRoute */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthRoute", function() { return AuthRoute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProtectedRoute", function() { return ProtectedRoute; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
@@ -7955,6 +8095,24 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var AuthRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, null)(Auth));
+
+var Protected = function Protected(_ref2) {
+  var Component = _ref2.component,
+      path = _ref2.path,
+      loggedIn = _ref2.loggedIn,
+      exact = _ref2.exact;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: path,
+    exact: exact,
+    render: function render(props) {
+      return loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+        to: "/login"
+      });
+    }
+  });
+};
+
+var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps)(Protected));
 
 /***/ }),
 
@@ -22075,7 +22233,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-header-upper-items{\n    width: 100;\n}\n\n.biz-header-upper-items-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.header-logo{\n    flex: 1 0 7rem;\n    display: flex;\n    align-items: center;\n    margin-right: 32px;\n}\n%\n.header-logo-container{\n    display: flex;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n}\n\n.header-logo-container img {\n    width: 80px;\n    height: 40px;\n}\n\n.header-search{\n    display: flex;\n    flex-direction: column;\n    width: auto;    \n    /* min-width: 58%; */\n    flex: 10 0 24rem;\n    margin-right: 24px; \n}\n\n.biz-header-container-content{\n    display: flex;\n    align-items: center;\n    width: 100%\n}    \n\n.header-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.header-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 100%;\n}\n\n.header-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n    position: relative;\n}\n\n.pseudo-input-label-header-search, .pseudo-input-label-biz-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.header-search-form-middle-border{\n    border-left: 1px solid #ccc;\n    width: 1px;\n    height: 25px;\n}\n\n/* autocomplete search text  */\n.header-search-form-arrange-unit .auto-complete-text{\n    position: absolute;\n    background-color: white;\n    top: 40px;\n    width: 100%;\n    z-index: 1;\n    border-radius: 0 0 4px 4px;\n    /* border-bottom: 1px solid #ccc;\n    border-left: 1px solid #ccc;\n    border-right: 1px solid #ccc; */\n    line-height: 21px;\n    z-index: 1;\n}\n\n.auto-complete-text-container{\n    display: flex;\n    flex-direction: column;\n    box-shadow: 2px 2px 1px 1px rgba(0,0,0,.10);\n\n}\n\n.auto-complete-text-container li {\n    display: flex;\n    align-items: center;\n    padding: 0 0.8rem 0.8rem 0.8rem;\n    margin-top: 10px;\n}\n\n.auto-complete-text-container li:hover {\n    font-weight: bold;\n    text-decoration: underline;\n}\n\n/* position: relative;  */\n\n/* */\n\n.header-search-form-button{\n    background-color: #f43939;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n    z-index: 1;\n}\n\n.pseudo-input-label-header-search .find-span, .pseudo-input-label-header-search .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n    width: 100%;\n}\n.pseudo-input-field-holder-biz input, .pseudo-input-field-holder-biz input, .pseudo-input-field-holder-biz{\n    width: 100%;\n}\n\n.header-user-items{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    flex: 1 0 30rem;\n}\n\n.header-user-items-container{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-left: 2rem;\n}\n\n.header-user-item-container{\n    padding: 8px 0;\n\n}\n.header-user-button-container{\n    display: flex;\n    flex-direction: row;\n    justify-items: center;\n    align-items: center;\n    padding: 8px 8px 8px 0px;\n}\n\n.header-user-button-container .item-mark {\n    color: #05a882;\n    font-weight: bold;\n    font-size: 0.75rem;\n    display: flex;\n    /* margin-right: 0; */\n    margin-right: 1.5rem;\n    /* flex-direction: column;\n    justify-content: center;\n    align-items: center; */\n}\n\n.header-user-item-container:hover{\n    background-color: #eeeeef;\n    border-radius: 4px;\n}\n\n.header-user-item{\n    font-size: 0.875rem;\n    white-space: nowrap;\n}\n\n.header-user-button-1 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: white;\n    margin-left: 12px;\n    border: 1px solid #2b273c;\n}\n\n.header-user-button-1 span{\n    white-space: nowrap;\n    color: #2b273c;\n}\n.header-user-button-2 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: #f43939;\n    margin-left: 12px;\n}\n\n.header-user-button-2 span{\n    white-space: nowrap;\n    color: white;\n}", ""]);
+exports.push([module.i, ".biz-header-upper-items{\n    width: 100;\n}\n\n.biz-header-upper-items-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.header-logo{\n    flex: 1 0 7rem;\n    display: flex;\n    align-items: center;\n    margin-right: 32px;\n}\n%\n.header-logo-container{\n    display: flex;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n}\n\n.header-logo-container img {\n    width: 80px;\n    height: 40px;\n}\n\n.header-search{\n    display: flex;\n    flex-direction: column;\n    width: auto;    \n    /* min-width: 58%; */\n    flex: 10 0 24rem;\n    margin-right: 24px; \n}\n\n.biz-header-container-content{\n    display: flex;\n    align-items: center;\n    width: 100%\n}    \n\n.header-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.header-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 100%;\n}\n\n.header-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n    position: relative;\n}\n\n.pseudo-input-label-header-search, .pseudo-input-label-biz-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.header-search-form-middle-border{\n    border-left: 1px solid #ccc;\n    width: 1px;\n    height: 25px;\n}\n\n/* autocomplete search text  */\n.header-search-form-arrange-unit .auto-complete-text{\n    position: absolute;\n    background-color: white;\n    top: 40px;\n    width: 100%;\n    z-index: 1;\n    border-radius: 0 0 4px 4px;\n    /* border-bottom: 1px solid #ccc;\n    border-left: 1px solid #ccc;\n    border-right: 1px solid #ccc; */\n    line-height: 21px;\n    z-index: 1;\n}\n\n.auto-complete-text-container{\n    display: flex;\n    flex-direction: column;\n    box-shadow: 2px 2px 1px 1px rgba(0,0,0,.10);\n\n}\n\n.auto-complete-text-container li {\n    display: flex;\n    align-items: center;\n    padding: 0 0.8rem 0.8rem 0.8rem;\n    margin-top: 10px;\n}\n\n.auto-complete-text-container li:hover {\n    font-weight: bold;\n    text-decoration: underline;\n}\n\n/* position: relative;  */\n\n/* */\n\n.header-search-form-button{\n    background-color: #d32323;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n    z-index: 1;\n}\n\n.pseudo-input-label-header-search .find-span, .pseudo-input-label-header-search .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n    width: 100%;\n}\n.pseudo-input-field-holder-biz input, .pseudo-input-field-holder-biz input, .pseudo-input-field-holder-biz{\n    width: 100%;\n}\n\n.header-user-items{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    flex: 1 0 30rem;\n}\n\n.header-user-items-container{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-left: 2rem;\n}\n\n.header-user-item-container{\n    padding: 8px 0;\n\n}\n.header-user-button-container{\n    display: flex;\n    flex-direction: row;\n    justify-items: center;\n    align-items: center;\n    padding: 8px 8px 8px 0px;\n}\n\n.header-user-button-container .item-mark {\n    color: #05a882;\n    font-weight: bold;\n    font-size: 0.75rem;\n    display: flex;\n    /* margin-right: 0; */\n    margin-right: 1.5rem;\n    /* flex-direction: column;\n    justify-content: center;\n    align-items: center; */\n}\n\n.header-user-item-container:hover{\n    background-color: #eeeeef;\n    border-radius: 4px;\n}\n\n.header-user-item{\n    font-size: 0.875rem;\n    white-space: nowrap;\n}\n\n.header-user-button-1 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: white;\n    margin-left: 12px;\n    border: 1px solid #2b273c;\n}\n\n.header-user-button-1 span{\n    white-space: nowrap;\n    color: #2b273c;\n}\n.header-user-button-2 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: #d32323;\n    margin-left: 12px;\n}\n\n.header-user-button-2 span{\n    white-space: nowrap;\n    color: white;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -22093,7 +22251,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-hour {\n    display: flex;\n    flex-direction: row;\n    line-height: 1.45rem;\n}\n\n.biz-hour-day {\n    min-width: 36px;\n    font-size: 0.875rem;\n    font-weight: bold;\n}\n\n.biz-hour-time {\n    font-size: 0.875rem;\n}\n\n.biz-hour-opened, .biz-hour-closed{\n    font-weight: bold;\n    font-size: 0.775rem;\n    margin-left: 0.8rem;\n    color: #05a882;\n}\n.biz-hour-closed {\n    color: #f43939;\n}\n", ""]);
+exports.push([module.i, ".biz-hour {\n    display: flex;\n    flex-direction: row;\n    line-height: 1.45rem;\n}\n\n.biz-hour-day {\n    min-width: 36px;\n    font-size: 0.875rem;\n    font-weight: bold;\n}\n\n.biz-hour-time {\n    font-size: 0.875rem;\n}\n\n.biz-hour-opened, .biz-hour-closed{\n    font-weight: bold;\n    font-size: 0.775rem;\n    margin-left: 0.8rem;\n    color: #05a882;\n}\n.biz-hour-closed {\n    color: #d32323;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -22129,7 +22287,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-info-left{\n    width: 66.66667%;\n    margin-right: 3rem;\n}\n\n.biz-info-left-container, .biz-info-left-header{\n    width: 100%;\n}\n.biz-info-left-header-title{\n    margin-bottom: 12px;\n}\n.biz-info-left-header-title span{\n    margin-right: 0.5rem;\n    font-size: 1rem;\n}\n\n.biz-info-left-header-title span:first-child{\n    font-size: 3rem;\n    font-weight: bolder;\n}\n\n.biz-info-left-header-rating, .review-price-categories{\n    width: 100%;\n    display: flex;\n    flex-direction: row;\n    margin-bottom: 12px;\n}\n\n.review-count{\n    font-size: 1rem;\n    color: #757280;\n    margin-left: 6px;\n    margin-right: 6px;\n}\n\n.review-price-categories{\n    display: flex;\n    align-items: center;\n    margin-bottom: 1.5rem;\n}\n\n.review-price{\n    font-size: 1rem;\n    color: #2b273c;\n    margin-right: 8px;\n}\n\n.review-categories{\n    font-size: 1rem;\n    color: #757280;\n    margin: 0 8px;\n}\n\n.biz-info-left-buttons{\n    display: flex;\n    flex-direction: row;\n}\n\n\n.biz-info-button-container{\n    display: flex;\n    flex-direction: row;\n    justify-items: center;\n    padding: 8px 8px 8px 0px;\n}\n\n\n.biz-info-button {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    border: 1px solid #757280;\n    background-color: white;\n    margin-left: 12px;\n    cursor: pointer;\n}\n\n.biz-info-button:first-child {\n    margin-left: 0px;\n    color: #757280;\n    border: 1px solid #f43939;\n    background-color: #f43939;\n}\n\n.biz-info-button span {\n    color: #2b273c;\n    font-size: 1rem;\n    margin-left: 0.5rem;\n}\n\n.biz-info-button:first-child span {\n    color: white;\n    font-size: 1rem;\n    margin-left: 0.5rem;\n}", ""]);
+exports.push([module.i, ".biz-info-left{\n    width: 66.66667%;\n    margin-right: 3rem;\n}\n\n.biz-info-left-container, .biz-info-left-header{\n    width: 100%;\n}\n.biz-info-left-header-title{\n    margin-bottom: 12px;\n}\n.biz-info-left-header-title span{\n    margin-right: 0.5rem;\n    font-size: 1rem;\n}\n\n.biz-info-left-header-title span:first-child{\n    font-size: 3rem;\n    font-weight: bolder;\n}\n\n.biz-info-left-header-rating, .review-price-categories{\n    width: 100%;\n    display: flex;\n    flex-direction: row;\n    margin-bottom: 12px;\n}\n\n.review-count{\n    font-size: 1rem;\n    color: #757280;\n    margin-left: 6px;\n    margin-right: 6px;\n}\n\n.review-price-categories{\n    display: flex;\n    align-items: center;\n    margin-bottom: 1.5rem;\n}\n\n.review-price{\n    font-size: 1rem;\n    color: #2b273c;\n    margin-right: 8px;\n}\n\n.review-categories{\n    font-size: 1rem;\n    color: #757280;\n    margin: 0 8px;\n}\n\n.biz-info-left-buttons{\n    display: flex;\n    flex-direction: row;\n}\n\n\n.biz-info-button-container{\n    display: flex;\n    flex-direction: row;\n    justify-items: center;\n    padding: 8px 8px 8px 0px;\n}\n\n\n.biz-info-button {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    border: 1px solid #757280;\n    background-color: white;\n    margin-left: 12px;\n    cursor: pointer;\n}\n\n.biz-info-button:first-child {\n    margin-left: 0px;\n    color: #757280;\n    border: 1px solid #d32323;\n    background-color: #d32323;\n}\n\n.biz-info-button span {\n    color: #2b273c;\n    font-size: 1rem;\n    margin-left: 0.5rem;\n}\n\n.biz-info-button:first-child span {\n    color: white;\n    font-size: 1rem;\n    margin-left: 0.5rem;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -22219,7 +22377,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-review-content-container .ratings{\n    vertical-align: baseline;\n}\n.biz-review-content-container .ratings .star {\n    padding: 0.2rem 0.2rem;\n    vertical-align: baseline;\n    font-size: 0.75rem;\n}\n\n.biz-review-content-1{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    height: 100%;\n    margin-bottom: 0.5rem;\n}\n\n.biz-review-ratings{\n    display: flex;\n    flex-direction: column;\n}\n\n.biz-review-content-1 div:last-child {\n    font-size: 0.875rem;\n    color: #757280;   \n}\n.biz-review-date{\n    margin-left: 10px;\n    margin-top: 2px;\n}\n\n.biz-review-content-2{\n    font-size: 0.875rem;\n    white-space: pre-line;\n    color: #333333;\n    line-height: 1.125rem;\n}\n\n.biz-review-content-3{\n    font-size: 0.65rem;\n    display: flex;\n    color: #333333;\n    flex-direction: row;\n    margin-top: 1.25rem;\n}\n\n.biz-review-content-3 div span{\n    font-size: 0.75rem;\n    padding-left: 0.25rem;\n    margin-right: 1.25rem;\n    margin-bottom: 0.25rem;\n}\n\n    /* line-height: 20px; */\n", ""]);
+exports.push([module.i, ".biz-review-content-container .ratings{\n    vertical-align: baseline;\n}\n.biz-review-content-container .ratings .star {\n    padding: 0.2rem 0.2rem;\n    vertical-align: baseline;\n    font-size: 0.75rem;\n}\n\n.biz-review-content-1{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    height: 100%;\n    margin-bottom: 0.5rem;\n}\n\n.biz-review-content-1-container{\n    display: flex;\n}\n\n\n.biz-review-ratings{\n    display: flex;\n    flex-direction: column;\n}\n\n.biz-review-content-1 .biz-review-date {\n    font-size: 0.875rem;\n    color: #757280;   \n    margin-left: 10px;\n    margin-top: 2px;\n}\n\n.biz-review-delete{\n    font-size: 0.875rem;\n    color: #757280;   \n    cursor: pointer;\n}\n\n.biz-review-content-2{\n    font-size: 0.875rem;\n    white-space: pre-line;\n    color: #333333;\n    line-height: 1.125rem;\n}\n\n.biz-review-content-3{\n    font-size: 0.65rem;\n    display: flex;\n    color: #333333;\n    flex-direction: row;\n    margin-top: 1.25rem;\n}\n\n.biz-review-content-3 div span{\n    font-size: 0.75rem;\n    padding-left: 0.25rem;\n    margin-right: 1.25rem;\n    margin-bottom: 0.25rem;\n}\n\n    /* line-height: 20px; */\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -22273,7 +22431,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-reviews, .biz-reviews-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.biz-reviews-container{\n    flex-direction: column;\n    border-top: 1px solid #eeeeef;;\n    margin-top: 2rem;\n    padding-top: 2rem;\n    align-items: flex-start;\n    margin-bottom: 1.5rem;    \n}\n.biz-sub-title-wrapper{\n    margin-bottom: 2rem;\n}\n\n.biz-sub-title{\n    font-size: 1.25rem;\n    line-height: 1.625rem;\n    font-weight: bold;\n}\n\n.biz-review-search{\n    display: flex;\n    align-items: center;\n}\n\n.biz-reviews-layout, .biz-review-search, .biz-review-search-text{\n    display: flex;\n    flex-direction: row;\n}\n\n.biz-reviews-layout, .biz-review-search{\n    width: 100%;\n    font-size: 0.875rem;\n}\n\n.biz-reviews-layout{\n    margin-bottom: 1.5rem;\n    padding-bottom: 1.5rem;\n}\n\n.biz-review-search{\n    justify-content: space-between;\n}\n\n.biz-review-search-text{\n    font-size: 0.875rem;\n}\n\n.biz-review-search-text div {\n    white-space: nowrap;\n}\n\n.header-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.header-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.header-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.header-search-form-button{\n    background-color: #f43939;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n/* .header-search-form-button button{\n    content: \" \";\n    width: 100%;\n    height: 100%;\n    cursor: pointer;\n} */\n\n.header-search-form-button button svg {\n    /* padding: 11px 14px 11px; */\n}\n\n.biz-review-search-text {\n    margin-left: 2rem;\n    display: flex;\n    align-items: center;\n}\n\n/* .biz-review-search-text a{\n    margin: 0rem 0rem 0rem 0rem;\n} */\n\n.biz-review-search-text div{\n    margin-left: 1rem;\n}\n\n.biz-review-search-text div span {\n    margin-right: 0.4rem;\n}\n\n.biz-review-search-text div span:last-child {\n    font-weight: bold;\n    color: #00838f;\n}\n\n.biz-review-items, .biz-review-items-container {\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, ".biz-reviews, .biz-reviews-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.biz-reviews-container{\n    flex-direction: column;\n    border-top: 1px solid #eeeeef;;\n    margin-top: 2rem;\n    padding-top: 2rem;\n    align-items: flex-start;\n    margin-bottom: 1.5rem;    \n}\n.biz-sub-title-wrapper{\n    margin-bottom: 2rem;\n}\n\n.biz-sub-title{\n    font-size: 1.25rem;\n    line-height: 1.625rem;\n    font-weight: bold;\n}\n\n.biz-review-search{\n    display: flex;\n    align-items: center;\n}\n\n.biz-reviews-layout, .biz-review-search, .biz-review-search-text{\n    display: flex;\n    flex-direction: row;\n}\n\n.biz-reviews-layout, .biz-review-search{\n    width: 100%;\n    font-size: 0.875rem;\n}\n\n.biz-reviews-layout{\n    margin-bottom: 1.5rem;\n    padding-bottom: 1.5rem;\n}\n\n.biz-review-search{\n    justify-content: space-between;\n}\n\n.biz-review-search-text{\n    font-size: 0.875rem;\n}\n\n.biz-review-search-text div {\n    white-space: nowrap;\n}\n\n.header-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.header-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.header-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.header-search-form-button{\n    background-color: #d32323;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n/* .header-search-form-button button{\n    content: \" \";\n    width: 100%;\n    height: 100%;\n    cursor: pointer;\n} */\n\n.header-search-form-button button svg {\n    /* padding: 11px 14px 11px; */\n}\n\n.biz-review-search-text {\n    margin-left: 2rem;\n    display: flex;\n    align-items: center;\n}\n\n/* .biz-review-search-text a{\n    margin: 0rem 0rem 0rem 0rem;\n} */\n\n.biz-review-search-text div{\n    margin-left: 1rem;\n}\n\n.biz-review-search-text div span {\n    margin-right: 0.4rem;\n}\n\n.biz-review-search-text div span:last-child {\n    font-weight: bold;\n    color: #00838f;\n}\n\n.biz-review-items, .biz-review-items-container {\n    width: 100%;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -22327,7 +22485,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n/* map */\n.biz-search-map{\n    flex: 4 0 290px;\n    height: 100%;\n    position: sticky;\n    height: calc(100vh - 128px);  \n    top: 128px;\n    z-index: 0;\n}\n\n.biz-search-map-container {\n    width: 100%;\n    height: 100%\n    /* border-radius: 4px 4px 0px 0px; */\n}\n.g-map-infowindow {\n    font-size: 0.75;\n    color: #757280;\n    line-height: 18px;\n    display: flex;\n    flex-direction: column;\n    width: 250px;\n    padding: 5px;\n}\n\n.g-map-infowindow-title {\n    font-size: 1.2rem;\n    font-weight: bold;\n    color: black;\n    margin: 7px 0;\n}\n\n.g-map-infowindow-rating {\n    font-size: 0.9rem;\n    /* font-weight: bold; */\n    /* color: black; */\n    margin: 7px 0;\n}\n\n.g-map-infowindow-rating-span{\n    font-weight: bold;\n}", ""]);
+exports.push([module.i, "\n/* map */\n.biz-search-map{\n    flex: 4 0 290px;\n    height: 100%;\n    position: sticky;\n    height: calc(100vh - 128px);  \n    top: 128px;\n    z-index: 0;\n}\n\n.biz-search-map-container {\n    width: 100%;\n    height: 100%\n    /* border-radius: 4px 4px 0px 0px; */\n}\n.g-map-infowindow {\n    font-size: 0.75;\n    color: #757280;\n    line-height: 18px;\n    display: flex;\n    flex-direction: column;\n    width: 250px;\n    padding: 5px;\n}\n\n.g-map-infowindow-title {\n    font-size: 1.2rem;\n    font-weight: bold;\n    color: black;\n    margin: 7px 0;\n}\n\n.g-map-infowindow-rating {\n    font-size: 0.9rem;\n    /* font-weight: bold; */\n    /* color: black; */\n    margin: 7px 0;\n}\n\n.g-map-infowindow-rating-span{\n    font-weight: bold;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -22381,7 +22539,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".main-section{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    width: 100%;\n}\n\n.main-section-container{\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n}\n\n.main-section-container-header{\n    display: flex;\n    justify-content: space-between;\n    color: white\n}\n\n.main-section-container-header-left{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    font-weight: bold;\n}\n\n.main-section-container-header-item{\n    margin-right: 2rem;\n}\n\n.main-section-container-content{\n    padding-top: 80px;\n}\n\n.main-section-container-content > .header-search{\n    margin-right: 0;\n}\n\n.logo{\n    display: flex;\n    justify-content: center;\n    height: 80px;\n    margin: 0 auto 48px;\n}\n\n.logo-image{\n    width: auto;\n    height: 100%;\n}\n.search-form{\n    min-width: 100%;\n    margin-bottom: 20px;\n}\n.search-form-container{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    min-width: 100%;\n    align-items: center;\n}\n\n.search-form-arrange-unit{\n    width: 100%;\n}\n\n.pseudo-input-label-search, .pseudo-input-label-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n.pseudo-input-label-search{\n    border-radius: 4px 0 0 4px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n}\n\n.find-span, .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n}\n.pseudo-input-field-holder {\n    width: 100%;\n}\n.pseudo-input-field-holder > input {\n    width: 100%;\n}\n\n.search-form-middle-border{\n    border-left: 1px solid #ccc;;\n    width: 1px;\n    height: 25px;\n}\n\n.search-form-button{\n    background-color: #f43939;\n    padding: 11px 22px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n.categories-tags{\n    color: white;\n    display: flex;\n    justify-content: center;\n    margin-top: 1.4rem;\n}\n\n.categories-tag {\n    padding: 0 12px;\n    margin-right: 0.85rem;\n    padding-bottom: 168px;\n    font-weight: bold;\n}\n.categories-tag-span{\n    margin-left: 7px;\n}\n\n.main-photo-info{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n}\n\n.main-photo-info-container{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.main-photo-place, .main-photo-credit{\n    color: white;\n    padding: 2px;\n}\n", ""]);
+exports.push([module.i, ".main-section{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    width: 100%;\n}\n\n.main-section-container{\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n}\n\n.main-section-container-header{\n    display: flex;\n    justify-content: space-between;\n    color: white\n}\n\n.main-section-container-header-left{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    font-weight: bold;\n}\n\n.main-section-container-header-item{\n    margin-right: 2rem;\n}\n\n.main-section-container-content{\n    padding-top: 80px;\n}\n\n.main-section-container-content > .header-search{\n    margin-right: 0;\n}\n\n.logo{\n    display: flex;\n    justify-content: center;\n    height: 80px;\n    margin: 0 auto 48px;\n}\n\n.logo-image{\n    width: auto;\n    height: 100%;\n}\n.search-form{\n    min-width: 100%;\n    margin-bottom: 20px;\n}\n.search-form-container{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    min-width: 100%;\n    align-items: center;\n}\n\n.search-form-arrange-unit{\n    width: 100%;\n}\n\n.pseudo-input-label-search, .pseudo-input-label-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n.pseudo-input-label-search{\n    border-radius: 4px 0 0 4px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n}\n\n.find-span, .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n}\n.pseudo-input-field-holder {\n    width: 100%;\n}\n.pseudo-input-field-holder > input {\n    width: 100%;\n}\n\n.search-form-middle-border{\n    border-left: 1px solid #ccc;;\n    width: 1px;\n    height: 25px;\n}\n\n.search-form-button{\n    background-color: d32323;\n    padding: 11px 22px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n.categories-tags{\n    color: white;\n    display: flex;\n    justify-content: center;\n    margin-top: 1.4rem;\n}\n\n.categories-tag {\n    padding: 0 12px;\n    margin-right: 0.85rem;\n    padding-bottom: 168px;\n    font-weight: bold;\n}\n.categories-tag-span{\n    margin-left: 7px;\n}\n\n.main-photo-info{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n}\n\n.main-photo-info-container{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.main-photo-place, .main-photo-credit{\n    color: white;\n    padding: 2px;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -22525,7 +22683,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".UA-header{\n    display: flex;\n    background-color: #f43939;\n    height: 64px;\n    width: 100%;\n}\n\n.UA-logo{\n    width: 100%;\n    display:flex;\n    justify-content: center;\n    flex-direction: row;\n    align-items: center;\n}\n\n.UA-logo-image{\n    height: 63%;\n    width: auto\n}\n\n", ""]);
+exports.push([module.i, ".UA-header{\n    display: flex;\n    background-color: #d32323;\n    height: 64px;\n    width: 100%;\n}\n\n.UA-logo{\n    width: 100%;\n    display:flex;\n    justify-content: center;\n    flex-direction: row;\n    align-items: center;\n}\n\n.UA-logo-image{\n    height: 63%;\n    width: auto\n}\n\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -22597,7 +22755,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".write-review, .write-review-container, .wrtie-review-body, .wrtie-review-body-container, .write-review-left, .write-review-left-container{\n    display: flex;\n    width: 100%;\n}\n\n.write-review-container{\n    flex-direction: column;\n}\n\n.wrtie-review-header{\n    background-color: #d32323;\n    padding: 12px 0;\n    width: 100%;\n}\n\n.wrtie-review-header-container{\n    display: flex;\n    flex-direction: row;\n    max-width: 60rem;\n    justify-content: space-between;\n    align-items: center;\n    margin: 0 auto;\n}\n\n.write-review-left{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.write-review-left-logo{\n    width: 80px;\n    height: 40px;\n    margin-right: 1.5rem;\n}\n\n.write-review-left-title{\n    font-size: 1.25rem;\n    font-weight: bold;\n    color: white;\n}\n\n.write-review-right .profile-greeting{\n    color: white;\n    font-weight: bold;\n}\n\n/* body */\n\n.wrtie-review-body, .wrtie-review-body-container, .wrtie-review-content{\n    display: flex;\n    width: 100%;\n}\n\n.wrtie-review-body-container{\n    flex-direction: row;\n    /* max-width: 60rem; */\n}\n\n.wrtie-review-content-container{\n    display: flex;\n    flex-direction: column;\n    /* width: 100%; */\n    /* align-items: center; */\n    margin: 0 auto;\n    flex-grow: 1;\n    max-width: 40rem;\n}\n\n.wrtie-review-form-title {\n    padding-top: 24px;\n    padding-bottom: 12px;\n    font-size: 2.25rem;\n    color: #0073bb;\n    font-weight: bold;\n    margin: 6px 0;\n}\n\n.wrtie-review-form-text{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 380px;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n}\n\n.wrtie-review-form-text-ratings{\n    margin-bottom: 1rem;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    align-items: center;\n}\n\n.wrtie-review-form-text-ratings > span:last-child{\n    margin-left: 0.5rem;\n    font-size: 0.85rem;\n}\n\n.wrtie-review-form-text textarea{\n    width: 100%;\n    min-height: 380px;\n    line-height: 1.6rem;\n    font-size: 1.125rem;\n    resize: none;\n}\n\n.wrtie-review-form-photo{\n    margin-top: 1rem;\n}\n\n.wrtie-review-form-photo span:first-child{\n    font-size: 1rem;\n    font-weight: bold;\n    color: #333333;\n    margin-right: 0.75rem;\n}   \n\n.wrtie-review-form-photo span:last-child{\n    font-size: 0.75rem;\n    color: #333333;\n}   \n\n.wrtie-review-form-photo-upload{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 110px;\n    margin-top: 0.8rem;\n}\n\n.wrtie-review-form-photo-upload input{\n    width: 630px;\n    height: 110px;\n    opacity: 0;\n    overflow: hidden;\n    position: absolute;\n    /* z-index: ; */\n    cursor: pointer;\n}\n.wrtie-review-form-photo-upload{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-bottom: 1.6rem;\n    color: #999999;\n}\n\n.inputfile label {\n    font-weight: bold;\n    color: white;\n    background-color: black;\n    display: inline-block;\n    cursor: pointer;\n}\n\n.inputfile:focus + label {\n    cursor: pointer; /* \"hand\" cursor */\n\toutline: 1px dotted #999999;\n\toutline: -webkit-focus-ring-color auto 5px;\n}\n\n.inputfile + label * {\n\tpointer-events: none\n}\n\n.wrtie-review-form-photo-upload label svg {\n    margin-left: 3px;\n    margin-bottom: 2px;\n}\n.wrtie-review-form-photo-upload label div:last-child{\n   font-size: 0.85rem;\n}\n\n.wrtie-review-form-button {\n    height: 26px;\n    width: 240px;\n    padding: 10px 13px 10px 13px;\n    background-color: #d32323;\n    border-radius: 4px;\n    display: flex;\n    align-items: center;\n}\n\n.wrtie-review-form-button button {\n    color: white;\n    font-weight: bold;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: center;\n}\n\n/* Media Query Required*/\n.wrtie-review-prevs{\n    height: calc(100vh - 64px);\n    width: 20rem;\n    background-color: ivory;\n    right: 0px;\n}\n\n\n\n\n/* star-ratings */\n/* .star-ratings input[type=radio] {\n    border: 0;\n    clip: rect(0 0 0 0);\n    height: 1px;\n    margin: -1px;\n    overflow: hidden;\n    padding: 0;\n    position: absolute;\n    width: 1px; \n}     */\n\n/* \n.star-ratings input[type=radio] + label:after {\n    display: inline-block;\n    content: '★';\n    letter-spacing: 10px;\n    font-size: 2rem;\n    color: red;\n} */\n\n.star-ratings {\n    /* display: flex;\n    flex-direction: row;\n    align-items: center; */\n    float:left;\n    cursor: pointer;\n}\n\n.star-ratings span { \n    /* display: flex;\n    justify-content: center;\n    align-items: center; */\n    float:right; \n    position:relative;\n    width: 30px;\n    height: 30px;\n    background-color: #e6e6e6;\n    border-radius: 5px;\n    margin-right: 3px;\n    cursor: pointer;\n}\n\n.star-ratings span input {\n    position:absolute;\n    width: 0.01px;\n    height: 0.01px;\n    opacity:0;\n    cursor: pointer;\n}\n\n.star-ratings span label::before {\n    display: inline-block;\n    /* text-align: center;\n    vertical-align: center; */\n    content: '★';\n    /* letter-spacing: 10px; */\n    font-size: 1.6rem;\n    margin-left: 1px;\n    color: white;\n    /* background-color: #333333; */\n}\n\n.star-ratings span label{\n    margin-left: 1.5px;\n    cursor: pointer;\n}\n\n.star-ratings span:hover ~ span,\n.star-ratings span:hover,\n.star-ratings span.checked,\n.star-ratings span.checked ~ span{\n    color:#FFF;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 30px;\n    height: 30px;\n    background-color: #db2a2a;\n    border-radius: 5px;\n    margin-right: 3px;\n}\n\n\n/* .star-ratings span:hover ~ span,\n.star-ratings span:hover,\n.star-ratings span.checked,\n.star-ratings span.checked ~ span{\n    color:#FFF;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 30px;\n    height: 30px;\n    background-color: red;\n    border-radius: 5px;\n    margin-right: 3px;\n} */\n", ""]);
+exports.push([module.i, ".write-review, .write-review-container, .wrtie-review-body, .wrtie-review-body-container, .write-review-left, .write-review-left-container{\n    display: flex;\n    width: 100%;\n}\n\n.write-review-container{\n    flex-direction: column;\n}\n\n.wrtie-review-header{\n    background-color: #d32323;\n    padding: 12px 0;\n    width: 100%;\n}\n\n.wrtie-review-header-container{\n    display: flex;\n    flex-direction: row;\n    max-width: 60rem;\n    justify-content: space-between;\n    align-items: center;\n    margin: 0 auto;\n}\n\n.write-review-left{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.write-review-left-logo{\n    width: 80px;\n    height: 40px;\n    margin-right: 1.5rem;\n}\n\n.write-review-left-title{\n    font-size: 1.25rem;\n    font-weight: bold;\n    color: white;\n}\n\n.write-review-right .profile-greeting{\n    color: white;\n    font-weight: bold;\n}\n\n/* body */\n\n.wrtie-review-body, .wrtie-review-body-container, .wrtie-review-content{\n    display: flex;\n    width: 100%;\n}\n\n.wrtie-review-body-container{\n    flex-direction: row;\n    /* max-width: 60rem; */\n}\n\n.wrtie-review-content-container{\n    display: flex;\n    flex-direction: column;\n    /* width: 100%; */\n    /* align-items: center; */\n    margin: 0 auto;\n    flex-grow: 1;\n    max-width: 40rem;\n}\n\n.wrtie-review-form-title {\n    padding-top: 24px;\n    padding-bottom: 12px;\n    font-size: 2.25rem;\n    color: #0073bb;\n    font-weight: bold;\n    margin: 6px 0;\n}\n\n.wrtie-review-form-text{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 380px;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n}\n\n.wrtie-review-form-text-ratings{\n    margin-bottom: 1rem;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    align-items: center;\n}\n\n.wrtie-review-form-text-ratings > span:last-child{\n    margin-left: 0.5rem;\n    font-size: 0.85rem;\n}\n\n.wrtie-review-form-text textarea{\n    width: 100%;\n    min-height: 380px;\n    line-height: 1.6rem;\n    font-size: 1.125rem;\n    resize: none;\n}\n\n.wrtie-review-form-photo{\n    margin-top: 1rem;\n}\n\n.wrtie-review-form-photo span:first-child{\n    font-size: 1rem;\n    font-weight: bold;\n    color: #333333;\n    margin-right: 0.75rem;\n}   \n\n.wrtie-review-form-photo span:last-child{\n    font-size: 0.75rem;\n    color: #333333;\n}   \n\n.wrtie-review-form-photo-upload{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 150px;\n    margin-top: 0.8rem;\n}\n\n.wrtie-review-form-photo-upload input{\n    width: 630px;\n    height: 110px;\n    opacity: 0;\n    overflow: hidden;\n    position: absolute;\n    /* z-index: ; */\n    cursor: pointer;\n}\n.wrtie-review-form-photo-upload{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-bottom: 1.6rem;\n    color: #999999;\n}\n\n.inputfile label {\n    font-weight: bold;\n    color: white;\n    background-color: black;\n    display: inline-block;\n    cursor: pointer;\n}\n\n.inputfile:focus + label {\n    cursor: pointer; /* \"hand\" cursor */\n\toutline: 1px dotted #999999;\n\toutline: -webkit-focus-ring-color auto 5px;\n}\n\n.inputfile + label * {\n\tpointer-events: none\n}\n\n.wrtie-review-form-photo-upload label svg {\n    margin-left: 3px;\n    margin-bottom: 2px;\n}\n.wrtie-review-form-photo-upload label div:last-child{\n   font-size: 0.85rem;\n}\n\n.wrtie-review-form-button {\n    height: 26px;\n    width: 240px;\n    padding: 10px 13px 10px 13px;\n    background-color: #d32323;\n    border-radius: 4px;\n    display: flex;\n    align-items: center;\n}\n\n.wrtie-review-form-button button {\n    color: white;\n    font-weight: bold;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: center;\n}\n\n/* Media Query Required*/\n.wrtie-review-prevs{\n    height: calc(100vh - 64px);\n    width: 20rem;\n    background-color: ivory;\n    right: 0px;\n}\n\n\n\n\n/* star-ratings */\n/* .star-ratings input[type=radio] {\n    border: 0;\n    clip: rect(0 0 0 0);\n    height: 1px;\n    margin: -1px;\n    overflow: hidden;\n    padding: 0;\n    position: absolute;\n    width: 1px; \n}     */\n\n/* \n.star-ratings input[type=radio] + label:after {\n    display: inline-block;\n    content: '★';\n    letter-spacing: 10px;\n    font-size: 2rem;\n    color: red;\n} */\n\n.star-ratings {\n    /* display: flex;\n    flex-direction: row;\n    align-items: center; */\n    float:left;\n    cursor: pointer;\n}\n\n.star-ratings span { \n    /* display: flex;\n    justify-content: center;\n    align-items: center; */\n    float:right; \n    position:relative;\n    width: 30px;\n    height: 30px;\n    background-color: #e6e6e6;\n    border-radius: 5px;\n    margin-right: 3px;\n    cursor: pointer;\n}\n\n.star-ratings span input {\n    position:absolute;\n    width: 0.01px;\n    height: 0.01px;\n    opacity:0;\n    cursor: pointer;\n}\n\n.star-ratings span label::before {\n    display: inline-block;\n    /* text-align: center;\n    vertical-align: center; */\n    content: '★';\n    /* letter-spacing: 10px; */\n    font-size: 1.6rem;\n    margin-left: 1px;\n    color: white;\n    /* background-color: #333333; */\n}\n\n.star-ratings span label{\n    margin-left: 1.5px;\n    cursor: pointer;\n}\n\n.star-ratings span:hover ~ span,\n.star-ratings span:hover,\n.star-ratings span.checked,\n.star-ratings span.checked ~ span{\n    color:#FFF;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 30px;\n    height: 30px;\n    background-color: #db2a2a;\n    border-radius: 5px;\n    margin-right: 3px;\n}\n\n\n/* .star-ratings span:hover ~ span,\n.star-ratings span:hover,\n.star-ratings span.checked,\n.star-ratings span.checked ~ span{\n    color:#FFF;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 30px;\n    height: 30px;\n    background-color: red;\n    border-radius: 5px;\n    margin-right: 3px;\n} */\n", ""]);
 // Exports
 module.exports = exports;
 

@@ -47,6 +47,7 @@ class WriteReview extends React.Component{
                                         currentUser={this.props.currentUser}
                                         history= {this.props.history}
                                         createReview={this.props.createReview}
+                                        clearupData={this.props.clearupData}
                                     />
                                     
                                 </div>  

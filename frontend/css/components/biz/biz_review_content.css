@@ -10,23 +10,33 @@
 .biz-review-content-1{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
     margin-bottom: 0.5rem;
 }
+
+.biz-review-content-1-container{
+    display: flex;
+}
+
 
 .biz-review-ratings{
     display: flex;
     flex-direction: column;
 }
 
-.biz-review-content-1 div:last-child {
+.biz-review-content-1 .biz-review-date {
     font-size: 0.875rem;
     color: #757280;   
-}
-.biz-review-date{
     margin-left: 10px;
     margin-top: 2px;
+}
+
+.biz-review-delete{
+    font-size: 0.875rem;
+    color: #757280;   
+    cursor: pointer;
 }
 
 .biz-review-content-2{

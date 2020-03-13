@@ -8,13 +8,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class YocalMain extends React.Component{
     componentDidMount(){
+        this.props.clearupData();
         this.props.fetchBusinesses({ text: "" });
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.location.search != prevProps.location.search) {
-            this.props.clearupData()
-            this.props.fetchBusiness({ text: "" });
+            this.props.clearupData();
+            this.props.fetchBusinesses({ text: "" });
         }
     }
 

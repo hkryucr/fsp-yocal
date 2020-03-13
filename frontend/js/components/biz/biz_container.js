@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchBusiness } from 'actions/business_actions';
 import { clearupData } from 'actions/clearup_actions';
+import { deleteReview } from 'actions/review_actions';
 import { logout } from 'actions/session_actions';
 import Biz from 'js/components/biz/biz';
 
@@ -18,7 +19,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch) => ({
     fetchBusiness: (id) => dispatch(fetchBusiness(id)),
     clearupData: () => dispatch(clearupData()),
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    deleteReview: (id)=> dispatch(deleteReview(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Biz);

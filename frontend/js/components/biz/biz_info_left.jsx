@@ -31,6 +31,7 @@ class BizInfoLeft extends React.Component {
                         reviewers={this.props.reviewers}
                     />
                     <BizInfoLeftReviews 
+                        deleteReview={this.props.deleteReview}
                         currentUser={this.props.currentUser}
                         curBusinessId={this.props.curBusinessId}
                         businesses={this.props.businesses}
@@ -39,6 +40,7 @@ class BizInfoLeft extends React.Component {
                         categories={this.props.categories}
                         users={this.props.users}
                         reviewers={this.props.reviewers}
+                        clearupData={this.props.clearupData}
                     />
                 </div>
             </div>

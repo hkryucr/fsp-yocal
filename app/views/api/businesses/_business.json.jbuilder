@@ -13,7 +13,11 @@ json.reviewIds do
     json.array! (business.reviews.map(&:id))    
 end
 
-json.firstReview (business.reviews[0].text)
+if (business.reviews[0])
+    json.firstReview (business.reviews[0].text)
+else
+    json.firstReview ("")
+end
 
 json.categories (business.categories.map(&:name).join(", "))
 

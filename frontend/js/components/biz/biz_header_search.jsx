@@ -23,14 +23,6 @@ class BizHeaderSearch extends React.Component{
             text: ""
         })
         this.props.history.push(`/search?desc=${searchTerm}`)
-        // this.props.fetchBusinesses({
-        //     text: this.state.text
-        // }).then(()=>{
-        //     this.setState({
-        //         candidates: [],
-        //         text: ""
-        //     })
-        // })
     }
 
     handleTextChange(e) {

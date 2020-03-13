@@ -23,6 +23,7 @@ class BizMain extends React.Component{
                         reviewers={this.props.reviewers}
                     />
                     <BizInfo 
+                        deleteReview={this.props.deleteReview}
                         currentUser={this.props.currentUser}
                         curBusinessId={this.props.curBusinessId}
                         businesses={this.props.businesses}
@@ -32,6 +33,7 @@ class BizMain extends React.Component{
                         users={this.props.users}
                         reviewers={this.props.reviewers}
                         history={this.props.history}
+                        clearupData={this.props.clearupData}
                     />
                 </div>
             </div>

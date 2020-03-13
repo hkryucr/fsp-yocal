@@ -8,15 +8,14 @@ class BizSearchMap extends React.Component {
     }
 
     componentDidMount() {
-        // set the map to show SF
         const mapOptions = {
             center: { lat: 37.7758, lng: -122.435 },
             zoom: 13
         };
 
-        // wrap this.mapNode in a Google Map
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map);
+        
         if (!(_.isEmpty(this.props.businesses))){
             this.MarkerManager.updateMarkers(Object.values(this.props.businesses));
         }

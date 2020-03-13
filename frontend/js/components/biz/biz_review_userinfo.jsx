@@ -25,12 +25,12 @@ class BizReviewUserinfo extends React.Component {
                         <div className="userinfo-content-friends">
                             <FontAwesomeIcon icon={faUserFriends} color="#f15c00" />
                             <span>{curReviewer.savedBusinessIds.length}</span> 
-                            <span>friend</span> 
+                            <span>{curReviewer.savedBusinessIds.length === 1 ? "friend" : "friends"}</span> 
                         </div>
                         <div className="userinfo-content-reviews">
                             <FontAwesomeIcon icon={faStarHalfAlt} color="#f15c00" />
                             <span>{curReviewer.reviewIds.length}</span>
-                            <span>review</span>
+                            <span>{curReviewer.reviewIds.length === 1 ? "review" : "reviews"}</span>
                         </div>
                     </div> 
                 </div>

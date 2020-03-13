@@ -1,4 +1,4 @@
-import { RECEIVE_REVIEWS, RECEIVE_REVIEW, CREATE_REVIEW } from 'actions/review_actions';
+import { RECEIVE_REVIEWS, RECEIVE_REVIEW, CREATE_REVIEW, DELETE_REVIEW } from 'actions/review_actions';
 import _ from 'lodash';
 
 const reviewReducer = (state = {}, action) => {
@@ -9,6 +9,10 @@ const reviewReducer = (state = {}, action) => {
         case RECEIVE_REVIEWS:
             return action.reviews;
 
+        case DELETE_REVIEW:
+            delete newState[action.review.id];
+            return newState;
+            
         case CREATE_REVIEW:
             newState[action.review.id] = action.review;
             return newState;

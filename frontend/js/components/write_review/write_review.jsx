@@ -1,5 +1,6 @@
 import React from 'react';
 import WriteReviewForm from 'js/components/write_review/write_review_form';
+import WriteReviewPrevs from 'js/components/write_review/write_review_prevs';
 import Profile from 'js/components/utils/profile';
 import { Link } from 'react-router-dom';
 import 'css/components/write_review/write_review.css';
@@ -52,11 +53,7 @@ class WriteReview extends React.Component{
                                     
                                 </div>  
                             </div>
-                            <div className="wrtie-review-prevs">
-                                <div className="wrtie-review-prevs-container">
-
-                                </div>
-                            </div>
+                            <WriteReviewPrevs/>
                         </div>
                     </div>
                 </div>

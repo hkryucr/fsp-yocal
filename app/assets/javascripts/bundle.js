@@ -1171,6 +1171,37 @@ module.exports = exported;
 
 /***/ }),
 
+/***/ "./frontend/css/components/write_review/write_review_prev.css":
+/*!********************************************************************!*\
+  !*** ./frontend/css/components/write_review/write_review_prev.css ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./write_review_prev.css */ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/write_review/write_review_prev.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
 /***/ "./frontend/css/components/yocal_body.css":
 /*!************************************************!*\
   !*** ./frontend/css/components/yocal_body.css ***!
@@ -2432,12 +2463,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! js/components/utils/ratings */ "./frontend/js/components/utils/ratings.jsx");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var css_components_biz_biz_info_left_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! css/components/biz/biz_info_left.css */ "./frontend/css/components/biz/biz_info_left.css");
-/* harmony import */ var css_components_biz_biz_info_left_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(css_components_biz_biz_info_left_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js/components/utils/ratings */ "./frontend/js/components/utils/ratings.jsx");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var css_components_biz_biz_info_left_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! css/components/biz/biz_info_left.css */ "./frontend/css/components/biz/biz_info_left.css");
+/* harmony import */ var css_components_biz_biz_info_left_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(css_components_biz_biz_info_left_css__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2455,7 +2485,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -2490,7 +2519,7 @@ var BizInfoLeftHeader = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      if (lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(this.props.businesses) || lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(this.props.categories)) {
+      if (lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.businesses) || lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.categories)) {
         return null;
       }
 
@@ -2512,7 +2541,9 @@ var BizInfoLeftHeader = /*#__PURE__*/function (_React$Component) {
         color: "#f4131a"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, curBusiness.isClaimed ? "Claimed" : "Not Claimed")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-info-left-header-rating"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        rating: curBusiness.rating
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-count"
       }, curBusiness.reviewCount, " reviews")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-price-categories"
@@ -3234,7 +3265,9 @@ var BizReviewContent = /*#__PURE__*/function (_React$Component) {
         className: "biz-review-content-1-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-ratings"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        rating: this.props.review.rating
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-date"
       }, reviewDate)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-delete",
@@ -4656,7 +4689,6 @@ var ReviewAwait = /*#__PURE__*/function (_React$Component) {
         return null;
       }
 
-      console.log(curBusinesses);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-await"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4670,11 +4702,13 @@ var ReviewAwait = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "review-await-row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        rating: curBusinesses[1].rating,
         itemId: curBusinesses[1].id,
         imgUrl: curBusinesses[1].photoUrls[0].photoUrl,
         title: curBusinesses[1].businessName,
         content: curBusinesses[1].address1
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        rating: curBusinesses[2].rating,
         itemId: curBusinesses[2].id,
         imgUrl: curBusinesses[2].photoUrls[0].photoUrl,
         title: curBusinesses[2].businessName,
@@ -4682,11 +4716,13 @@ var ReviewAwait = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "review-await-row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        rating: curBusinesses[3].rating,
         itemId: curBusinesses[3].id,
         imgUrl: curBusinesses[3].photoUrls[0].photoUrl,
         title: curBusinesses[3].businessName,
         content: curBusinesses[3].address1
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        rating: curBusinesses[4].rating,
         itemId: curBusinesses[4].id,
         imgUrl: curBusinesses[4].photoUrls[0].photoUrl,
         title: curBusinesses[4].businessName,
@@ -4694,11 +4730,13 @@ var ReviewAwait = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "review-await-row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        rating: curBusinesses[5].rating,
         itemId: curBusinesses[5].id,
         imgUrl: curBusinesses[5].photoUrls[0].photoUrl,
         title: curBusinesses[5].businessName,
         content: curBusinesses[5].address1
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        rating: curBusinesses[6].rating,
         itemId: curBusinesses[6].id,
         imgUrl: curBusinesses[6].photoUrls[0].photoUrl,
         title: curBusinesses[6].businessName,
@@ -4706,11 +4744,13 @@ var ReviewAwait = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "review-await-row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        rating: curBusinesses[7].rating,
         itemId: curBusinesses[7].id,
         imgUrl: curBusinesses[7].photoUrls[0].photoUrl,
         title: curBusinesses[7].businessName,
         content: curBusinesses[7].address1
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        rating: curBusinesses[8].rating,
         itemId: curBusinesses[8].id,
         imgUrl: curBusinesses[8].photoUrls[0].photoUrl,
         title: curBusinesses[8].businessName,
@@ -4738,8 +4778,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js/components/utils/ratings */ "./frontend/js/components/utils/ratings.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4757,7 +4796,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -4794,39 +4832,9 @@ var ReviewAwaitItem = /*#__PURE__*/function (_React$Component) {
         to: bizLinkId
       }, this.props.title.split("_").join(" "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-await-item-content medium"
-      }, this.props.content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "ratings"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "star"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faStar"],
-        size: "lg",
-        color: "white"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "star"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faStar"],
-        size: "lg",
-        color: "white"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "star"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faStar"],
-        size: "lg",
-        color: "white"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "star"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faStar"],
-        size: "lg",
-        color: "white"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "star"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faStar"],
-        size: "lg",
-        color: "white"
-      }))))));
+      }, this.props.content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        rating: this.props.rating
+      }))));
     }
   }]);
 
@@ -6135,40 +6143,45 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Ratings = function Ratings() {
+var StarDiv = function StarDiv() {
+  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("span", {
+    className: "star"
+  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faStar"],
+    size: "1x",
+    color: "white"
+  }));
+};
+
+var WhiteStarDiv = function WhiteStarDiv() {
+  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("span", {
+    className: "white-star"
+  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faStar"],
+    size: "1x",
+    color: "white"
+  }));
+};
+
+var Ratings = function Ratings(props) {
+  var elements = [];
+  var roundedRating = Math.round(parseFloat(props.rating));
+
+  for (var i = 0; i < roundedRating; i++) {
+    elements.push(react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(StarDiv, {
+      key: i
+    }));
+  }
+
+  for (var i = 4; i >= roundedRating; i--) {
+    elements.push(react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(WhiteStarDiv, {
+      key: i
+    }));
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     className: "ratings"
-  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("span", {
-    className: "star"
-  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faStar"],
-    size: "1x",
-    color: "white"
-  })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("span", {
-    className: "star"
-  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faStar"],
-    size: "1x",
-    color: "white"
-  })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("span", {
-    className: "star"
-  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faStar"],
-    size: "1x",
-    color: "white"
-  })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("span", {
-    className: "star"
-  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faStar"],
-    size: "1x",
-    color: "white"
-  })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("span", {
-    className: "star"
-  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faStar"],
-    size: "1x",
-    color: "white"
-  })));
+  }, elements);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Ratings);
@@ -6291,10 +6304,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var js_components_write_review_write_review_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js/components/write_review/write_review_form */ "./frontend/js/components/write_review/write_review_form.jsx");
-/* harmony import */ var js_components_utils_profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js/components/utils/profile */ "./frontend/js/components/utils/profile.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! css/components/write_review/write_review.css */ "./frontend/css/components/write_review/write_review.css");
-/* harmony import */ var css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var js_components_write_review_write_review_prevs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js/components/write_review/write_review_prevs */ "./frontend/js/components/write_review/write_review_prevs.jsx");
+/* harmony import */ var js_components_utils_profile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js/components/utils/profile */ "./frontend/js/components/utils/profile.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! css/components/write_review/write_review.css */ "./frontend/css/components/write_review/write_review.css");
+/* harmony import */ var css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6312,6 +6326,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -6346,7 +6361,7 @@ var WriteReview = /*#__PURE__*/function (_React$Component) {
         className: "write-review-left"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "write-review-left-logo"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: "/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "assets/yelp_logo.png"
@@ -6354,7 +6369,7 @@ var WriteReview = /*#__PURE__*/function (_React$Component) {
         className: "write-review-left-title"
       }, "Write a Review")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "write-review-right"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_utils_profile__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_utils_profile__WEBPACK_IMPORTED_MODULE_3__["default"], {
         currentUser: this.props.currentUser,
         logout: this.props.logout
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -6374,11 +6389,7 @@ var WriteReview = /*#__PURE__*/function (_React$Component) {
         history: this.props.history,
         createReview: this.props.createReview,
         clearupData: this.props.clearupData
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "wrtie-review-prevs"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "wrtie-review-prevs-container"
-      }))))));
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_write_review_write_review_prevs__WEBPACK_IMPORTED_MODULE_2__["default"], null)))));
     }
   }]);
 
@@ -6707,6 +6718,67 @@ var WriteReviewForm = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (WriteReviewForm);
+
+/***/ }),
+
+/***/ "./frontend/js/components/write_review/write_review_prevs.jsx":
+/*!********************************************************************!*\
+  !*** ./frontend/js/components/write_review/write_review_prevs.jsx ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var css_components_write_review_write_review_prev_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! css/components/write_review/write_review_prev.css */ "./frontend/css/components/write_review/write_review_prev.css");
+/* harmony import */ var css_components_write_review_write_review_prev_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(css_components_write_review_write_review_prev_css__WEBPACK_IMPORTED_MODULE_2__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var WriteReviewPrevs = /*#__PURE__*/function (_React$Component) {
+  _inherits(WriteReviewPrevs, _React$Component);
+
+  function WriteReviewPrevs() {
+    _classCallCheck(this, WriteReviewPrevs);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(WriteReviewPrevs).apply(this, arguments));
+  }
+
+  _createClass(WriteReviewPrevs, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "wrtie-review-prevs"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "wrtie-review-prevs-container"
+      }));
+    }
+  }]);
+
+  return WriteReviewPrevs;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (WriteReviewPrevs);
 
 /***/ }),
 
@@ -22377,7 +22449,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-review-content-container .ratings{\n    vertical-align: baseline;\n}\n.biz-review-content-container .ratings .star {\n    padding: 0.2rem 0.2rem;\n    vertical-align: baseline;\n    font-size: 0.75rem;\n}\n\n.biz-review-content-1{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    height: 100%;\n    margin-bottom: 0.5rem;\n}\n\n.biz-review-content-1-container{\n    display: flex;\n}\n\n\n.biz-review-ratings{\n    display: flex;\n    flex-direction: column;\n}\n\n.biz-review-content-1 .biz-review-date {\n    font-size: 0.875rem;\n    color: #757280;   \n    margin-left: 10px;\n    margin-top: 2px;\n}\n\n.biz-review-delete{\n    font-size: 0.875rem;\n    color: #757280;   \n    cursor: pointer;\n}\n\n.biz-review-content-2{\n    font-size: 0.875rem;\n    white-space: pre-line;\n    color: #333333;\n    line-height: 1.125rem;\n}\n\n.biz-review-content-3{\n    font-size: 0.65rem;\n    display: flex;\n    color: #333333;\n    flex-direction: row;\n    margin-top: 1.25rem;\n}\n\n.biz-review-content-3 div span{\n    font-size: 0.75rem;\n    padding-left: 0.25rem;\n    margin-right: 1.25rem;\n    margin-bottom: 0.25rem;\n}\n\n    /* line-height: 20px; */\n", ""]);
+exports.push([module.i, ".biz-review-content-container .ratings{\n    vertical-align: baseline;\n}\n\n.biz-review-content-container .ratings .star {\n    padding: 0.2rem 0.2rem;\n    vertical-align: baseline;\n    font-size: 0.75rem;\n}\n.biz-review-content-container .ratings .white-star {\n    padding: 0.2rem 0.2rem;\n    vertical-align: baseline;\n    font-size: 0.75rem;\n}\n\n.biz-review-content-1{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    height: 100%;\n    margin-bottom: 0.5rem;\n}\n\n.biz-review-content-1-container{\n    display: flex;\n}\n\n\n.biz-review-ratings{\n    display: flex;\n    flex-direction: column;\n}\n\n.biz-review-content-1 .biz-review-date {\n    font-size: 0.875rem;\n    color: #757280;   \n    margin-left: 10px;\n    margin-top: 2px;\n}\n\n.biz-review-delete{\n    font-size: 0.875rem;\n    color: #757280;   \n    cursor: pointer;\n}\n\n.biz-review-content-2{\n    font-size: 0.875rem;\n    white-space: pre-line;\n    color: #333333;\n    line-height: 1.125rem;\n}\n\n.biz-review-content-3{\n    font-size: 0.65rem;\n    display: flex;\n    color: #333333;\n    flex-direction: row;\n    margin-top: 1.25rem;\n}\n\n.biz-review-content-3 div span{\n    font-size: 0.75rem;\n    padding-left: 0.25rem;\n    margin-right: 1.25rem;\n    margin-bottom: 0.25rem;\n}\n\n    /* line-height: 20px; */\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -22719,7 +22791,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".ratings .star{\n    border-radius: 4px;\n    width: 1.875rem;\n    height: 1.875rem;\n    padding: 0.3rem 0.3rem;\n    margin-right: 0.2rem;\n    background-color: #f40d15;\n}\n", ""]);
+exports.push([module.i, ".ratings .star{\n    border-radius: 4px;\n    width: 1.875rem;\n    height: 1.875rem;\n    padding: 0.3rem 0.3rem;\n    margin-right: 0.2rem;\n    background-color: #f40d15;\n}\n\n\n.ratings .white-star {\n    border-radius: 4px;\n    width: 1.875rem;\n    height: 1.875rem;\n    padding: 0.3rem 0.3rem;\n    margin-right: 0.2rem;\n    background-color: lightgray;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -22755,7 +22827,25 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".write-review, .write-review-container, .wrtie-review-body, .wrtie-review-body-container, .write-review-left, .write-review-left-container{\n    display: flex;\n    width: 100%;\n}\n\n.write-review-container{\n    flex-direction: column;\n}\n\n.wrtie-review-header{\n    background-color: #d32323;\n    padding: 12px 0;\n    width: 100%;\n}\n\n.wrtie-review-header-container{\n    display: flex;\n    flex-direction: row;\n    max-width: 60rem;\n    justify-content: space-between;\n    align-items: center;\n    margin: 0 auto;\n}\n\n.write-review-left{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.write-review-left-logo{\n    width: 80px;\n    height: 40px;\n    margin-right: 1.5rem;\n}\n\n.write-review-left-title{\n    font-size: 1.25rem;\n    font-weight: bold;\n    color: white;\n}\n\n.write-review-right .profile-greeting{\n    color: white;\n    font-weight: bold;\n}\n\n/* body */\n\n.wrtie-review-body, .wrtie-review-body-container, .wrtie-review-content{\n    display: flex;\n    width: 100%;\n}\n\n.wrtie-review-body-container{\n    flex-direction: row;\n    /* max-width: 60rem; */\n}\n\n.wrtie-review-content-container{\n    display: flex;\n    flex-direction: column;\n    /* width: 100%; */\n    /* align-items: center; */\n    margin: 0 auto;\n    flex-grow: 1;\n    max-width: 40rem;\n}\n\n.wrtie-review-form-title {\n    padding-top: 24px;\n    padding-bottom: 12px;\n    font-size: 2.25rem;\n    color: #0073bb;\n    font-weight: bold;\n    margin: 6px 0;\n}\n\n.wrtie-review-form-text{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 380px;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n}\n\n.wrtie-review-form-text-ratings{\n    margin-bottom: 1rem;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    align-items: center;\n}\n\n.wrtie-review-form-text-ratings > span:last-child{\n    margin-left: 0.5rem;\n    font-size: 0.85rem;\n}\n\n.wrtie-review-form-text textarea{\n    width: 100%;\n    min-height: 380px;\n    line-height: 1.6rem;\n    font-size: 1.125rem;\n    resize: none;\n}\n\n.wrtie-review-form-photo{\n    margin-top: 1rem;\n}\n\n.wrtie-review-form-photo span:first-child{\n    font-size: 1rem;\n    font-weight: bold;\n    color: #333333;\n    margin-right: 0.75rem;\n}   \n\n.wrtie-review-form-photo span:last-child{\n    font-size: 0.75rem;\n    color: #333333;\n}   \n\n.wrtie-review-form-photo-upload{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 150px;\n    margin-top: 0.8rem;\n}\n\n.wrtie-review-form-photo-upload input{\n    width: 630px;\n    height: 110px;\n    opacity: 0;\n    overflow: hidden;\n    position: absolute;\n    /* z-index: ; */\n    cursor: pointer;\n}\n.wrtie-review-form-photo-upload{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-bottom: 1.6rem;\n    color: #999999;\n}\n\n.inputfile label {\n    font-weight: bold;\n    color: white;\n    background-color: black;\n    display: inline-block;\n    cursor: pointer;\n}\n\n.inputfile:focus + label {\n    cursor: pointer; /* \"hand\" cursor */\n\toutline: 1px dotted #999999;\n\toutline: -webkit-focus-ring-color auto 5px;\n}\n\n.inputfile + label * {\n\tpointer-events: none\n}\n\n.wrtie-review-form-photo-upload label svg {\n    margin-left: 3px;\n    margin-bottom: 2px;\n}\n.wrtie-review-form-photo-upload label div:last-child{\n   font-size: 0.85rem;\n}\n\n.wrtie-review-form-button {\n    height: 26px;\n    width: 240px;\n    padding: 10px 13px 10px 13px;\n    background-color: #d32323;\n    border-radius: 4px;\n    display: flex;\n    align-items: center;\n}\n\n.wrtie-review-form-button button {\n    color: white;\n    font-weight: bold;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: center;\n}\n\n/* Media Query Required*/\n.wrtie-review-prevs{\n    height: calc(100vh - 64px);\n    width: 20rem;\n    background-color: ivory;\n    right: 0px;\n}\n\n\n\n\n/* star-ratings */\n/* .star-ratings input[type=radio] {\n    border: 0;\n    clip: rect(0 0 0 0);\n    height: 1px;\n    margin: -1px;\n    overflow: hidden;\n    padding: 0;\n    position: absolute;\n    width: 1px; \n}     */\n\n/* \n.star-ratings input[type=radio] + label:after {\n    display: inline-block;\n    content: '★';\n    letter-spacing: 10px;\n    font-size: 2rem;\n    color: red;\n} */\n\n.star-ratings {\n    /* display: flex;\n    flex-direction: row;\n    align-items: center; */\n    float:left;\n    cursor: pointer;\n}\n\n.star-ratings span { \n    /* display: flex;\n    justify-content: center;\n    align-items: center; */\n    float:right; \n    position:relative;\n    width: 30px;\n    height: 30px;\n    background-color: #e6e6e6;\n    border-radius: 5px;\n    margin-right: 3px;\n    cursor: pointer;\n}\n\n.star-ratings span input {\n    position:absolute;\n    width: 0.01px;\n    height: 0.01px;\n    opacity:0;\n    cursor: pointer;\n}\n\n.star-ratings span label::before {\n    display: inline-block;\n    /* text-align: center;\n    vertical-align: center; */\n    content: '★';\n    /* letter-spacing: 10px; */\n    font-size: 1.6rem;\n    margin-left: 1px;\n    color: white;\n    /* background-color: #333333; */\n}\n\n.star-ratings span label{\n    margin-left: 1.5px;\n    cursor: pointer;\n}\n\n.star-ratings span:hover ~ span,\n.star-ratings span:hover,\n.star-ratings span.checked,\n.star-ratings span.checked ~ span{\n    color:#FFF;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 30px;\n    height: 30px;\n    background-color: #db2a2a;\n    border-radius: 5px;\n    margin-right: 3px;\n}\n\n\n/* .star-ratings span:hover ~ span,\n.star-ratings span:hover,\n.star-ratings span.checked,\n.star-ratings span.checked ~ span{\n    color:#FFF;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 30px;\n    height: 30px;\n    background-color: red;\n    border-radius: 5px;\n    margin-right: 3px;\n} */\n", ""]);
+exports.push([module.i, ".write-review, .write-review-container, .wrtie-review-body, .wrtie-review-body-container, .write-review-left, .write-review-left-container{\n    display: flex;\n    width: 100%;\n}\n\n.write-review-container{\n    flex-direction: column;\n}\n\n.wrtie-review-header{\n    background-color: #d32323;\n    padding: 12px 0;\n    width: 100%;\n}\n\n.wrtie-review-header-container{\n    display: flex;\n    flex-direction: row;\n    max-width: 60rem;\n    justify-content: space-between;\n    align-items: center;\n    margin: 0 auto;\n}\n\n.write-review-left{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.write-review-left-logo{\n    width: 80px;\n    height: 40px;\n    margin-right: 1.5rem;\n}\n\n.write-review-left-title{\n    font-size: 1.25rem;\n    font-weight: bold;\n    color: white;\n}\n\n.write-review-right .profile-greeting{\n    color: white;\n    font-weight: bold;\n}\n\n/* body */\n\n.wrtie-review-body, .wrtie-review-body-container, .wrtie-review-content{\n    display: flex;\n    width: 100%;\n}\n\n.wrtie-review-body-container{\n    flex-direction: row;\n    /* max-width: 60rem; */\n}\n\n.wrtie-review-content-container{\n    display: flex;\n    flex-direction: column;\n    /* width: 100%; */\n    /* align-items: center; */\n    margin: 0 auto;\n    flex-grow: 1;\n    max-width: 40rem;\n}\n\n.wrtie-review-form-title {\n    padding-top: 24px;\n    padding-bottom: 12px;\n    font-size: 2.25rem;\n    color: #0073bb;\n    font-weight: bold;\n    margin: 6px 0;\n}\n\n.wrtie-review-form-text{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 380px;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n}\n\n.wrtie-review-form-text-ratings{\n    margin-bottom: 1rem;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    align-items: center;\n}\n\n.wrtie-review-form-text-ratings > span:last-child{\n    margin-left: 0.5rem;\n    font-size: 0.85rem;\n}\n\n.wrtie-review-form-text textarea{\n    width: 100%;\n    min-height: 380px;\n    line-height: 1.6rem;\n    font-size: 1.125rem;\n    resize: none;\n}\n\n.wrtie-review-form-photo{\n    margin-top: 1rem;\n}\n\n.wrtie-review-form-photo span:first-child{\n    font-size: 1rem;\n    font-weight: bold;\n    color: #333333;\n    margin-right: 0.75rem;\n}   \n\n.wrtie-review-form-photo span:last-child{\n    font-size: 0.75rem;\n    color: #333333;\n}   \n\n.wrtie-review-form-photo-upload{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 150px;\n    margin-top: 0.8rem;\n}\n\n.wrtie-review-form-photo-upload input{\n    width: 630px;\n    height: 110px;\n    opacity: 0;\n    overflow: hidden;\n    position: absolute;\n    /* z-index: ; */\n    cursor: pointer;\n}\n.wrtie-review-form-photo-upload{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-bottom: 1.6rem;\n    color: #999999;\n}\n\n.inputfile label {\n    font-weight: bold;\n    color: white;\n    background-color: black;\n    display: inline-block;\n    cursor: pointer;\n}\n\n.inputfile:focus + label {\n    cursor: pointer; /* \"hand\" cursor */\n\toutline: 1px dotted #999999;\n\toutline: -webkit-focus-ring-color auto 5px;\n}\n\n.inputfile + label * {\n\tpointer-events: none\n}\n\n.wrtie-review-form-photo-upload label svg {\n    margin-left: 3px;\n    margin-bottom: 2px;\n}\n\n.wrtie-review-form-photo-upload label div:last-child{\n   font-size: 0.85rem;\n}\n\n.wrtie-review-form-button {\n    height: 26px;\n    width: 240px;\n    padding: 10px 13px 10px 13px;\n    background-color: #d32323;\n    border-radius: 4px;\n    display: flex;\n    align-items: center;\n}\n\n.wrtie-review-form-button button {\n    color: white;\n    font-weight: bold;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: center;\n}\n\n/* Media Query Required*/\n.wrtie-review-prevs{\n    height: calc(100vh - 64px);\n    width: 20rem;\n    background-color: ivory;\n    right: 0px;\n}\n\n.star-ratings {\n    float:left;\n    cursor: pointer;\n}\n\n.star-ratings span { \n    float:right; \n    position:relative;\n    width: 30px;\n    height: 30px;\n    background-color: #e6e6e6;\n    border-radius: 5px;\n    margin-right: 3px;\n    cursor: pointer;\n}\n\n.star-ratings span input {\n    position:absolute;\n    width: 0.01px;\n    height: 0.01px;\n    opacity:0;\n    cursor: pointer;\n}\n\n.star-ratings span label::before {\n    display: inline-block;\n    /* text-align: center;\n    vertical-align: center; */\n    content: '★';\n    /* letter-spacing: 10px; */\n    font-size: 1.6rem;\n    margin-left: 1px;\n    color: white;\n    /* background-color: #333333; */\n}\n\n.star-ratings span label{\n    margin-left: 1.5px;\n    cursor: pointer;\n}\n\n.star-ratings span:hover ~ span,\n.star-ratings span:hover,\n.star-ratings span.checked,\n.star-ratings span.checked ~ span{\n    color:#FFF;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 30px;\n    height: 30px;\n    background-color: #db2a2a;\n    border-radius: 5px;\n    margin-right: 3px;\n}\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./frontend/css/components/write_review/write_review_prev.css":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./frontend/css/components/write_review/write_review_prev.css ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "", ""]);
 // Exports
 module.exports = exports;
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { faStar, faCheckCircle, faEllipsisH, faCamera, faShare, faBookmark, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
 import Ratings from 'js/components/utils/ratings';
 import _ from 'lodash';
 import 'css/components/biz/biz_info_left.css'
@@ -44,8 +43,7 @@ class BizInfoLeftHeader extends React.Component {
                     </span>
                 </div>
                 <div className="biz-info-left-header-rating">
-                    {/* ratings!! */}
-                    <Ratings/>
+                    <Ratings rating={curBusiness.rating}/>
                     <div className="review-count">
                         {curBusiness.reviewCount} reviews
                     </div>

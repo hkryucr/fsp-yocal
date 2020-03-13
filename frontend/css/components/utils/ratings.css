@@ -6,3 +6,13 @@
     margin-right: 0.2rem;
     background-color: #f40d15;
 }
+
+
+.ratings .white-star {
+    border-radius: 4px;
+    width: 1.875rem;
+    height: 1.875rem;
+    padding: 0.3rem 0.3rem;
+    margin-right: 0.2rem;
+    background-color: lightgray;
+}

@@ -1,7 +1,13 @@
 .biz-review-content-container .ratings{
     vertical-align: baseline;
 }
+
 .biz-review-content-container .ratings .star {
+    padding: 0.2rem 0.2rem;
+    vertical-align: baseline;
+    font-size: 0.75rem;
+}
+.biz-review-content-container .ratings .white-star {
     padding: 0.2rem 0.2rem;
     vertical-align: baseline;
     font-size: 0.75rem;

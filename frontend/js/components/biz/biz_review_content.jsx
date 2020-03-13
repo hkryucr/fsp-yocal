@@ -22,7 +22,6 @@ class BizReviewContent extends React.Component {
     }
     
     render() {
-
         let rawDate = this.props.review.reviewDate;
         const reviewDate = rawDate.slice(0, 10);
         return (
@@ -31,7 +30,7 @@ class BizReviewContent extends React.Component {
                     <div className="biz-review-content-1">
                         <div className="biz-review-content-1-container">
                             <div className="biz-review-ratings">
-                                <Ratings/>
+                                <Ratings rating={this.props.review.rating}/>
                             </div>
                             <div className="biz-review-date">{reviewDate}</div>
                         </div>

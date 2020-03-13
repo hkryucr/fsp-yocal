@@ -13,7 +13,7 @@ class ReviewAwait extends React.Component{
         if (Object.keys(curBusinesses).length < 6){
             return null;
         }
-        console.log(curBusinesses)
+
         return (
             <div className="review-await">
                 <div className="review-await-container">
@@ -25,20 +25,60 @@ class ReviewAwait extends React.Component{
                     <div className="review-await-items">
                         <div className="review-await-items-container">
                             <ul className="review-await-row">
-                                <ReviewAwaitItem itemId={curBusinesses[1].id} imgUrl={curBusinesses[1].photoUrls[0].photoUrl} title={curBusinesses[1].businessName} content={curBusinesses[1].address1} />
-                                <ReviewAwaitItem itemId={curBusinesses[2].id} imgUrl={curBusinesses[2].photoUrls[0].photoUrl} title={curBusinesses[2].businessName} content={curBusinesses[2].address1}/>
+                                <ReviewAwaitItem 
+                                rating={curBusinesses[1].rating}
+                                itemId={curBusinesses[1].id} 
+                                imgUrl={curBusinesses[1].photoUrls[0].photoUrl} 
+                                title={curBusinesses[1].businessName} 
+                                content={curBusinesses[1].address1} />
+                                <ReviewAwaitItem 
+                                rating={curBusinesses[2].rating}
+                                itemId={curBusinesses[2].id} 
+                                imgUrl={curBusinesses[2].photoUrls[0].photoUrl} 
+                                title={curBusinesses[2].businessName} 
+                                content={curBusinesses[2].address1}/>
                             </ul>
                             <ul className="review-await-row">
-                                <ReviewAwaitItem itemId={curBusinesses[3].id} imgUrl={curBusinesses[3].photoUrls[0].photoUrl} title={curBusinesses[3].businessName} content={curBusinesses[3].address1} />
-                                <ReviewAwaitItem itemId={curBusinesses[4].id} imgUrl={curBusinesses[4].photoUrls[0].photoUrl} title={curBusinesses[4].businessName} content={curBusinesses[4].address1} />
+                                <ReviewAwaitItem 
+                                rating={curBusinesses[3].rating}
+                                itemId={curBusinesses[3].id} 
+                                imgUrl={curBusinesses[3].photoUrls[0].photoUrl} 
+                                title={curBusinesses[3].businessName} 
+                                content={curBusinesses[3].address1} />
+                                <ReviewAwaitItem 
+                                rating={curBusinesses[4].rating}
+                                itemId={curBusinesses[4].id} 
+                                imgUrl={curBusinesses[4].photoUrls[0].photoUrl} 
+                                title={curBusinesses[4].businessName} 
+                                content={curBusinesses[4].address1} />
                             </ul>
                             <ul className="review-await-row">
-                                <ReviewAwaitItem itemId={curBusinesses[5].id} imgUrl={curBusinesses[5].photoUrls[0].photoUrl} title={curBusinesses[5].businessName} content={curBusinesses[5].address1} />
-                                <ReviewAwaitItem itemId={curBusinesses[6].id} imgUrl={curBusinesses[6].photoUrls[0].photoUrl} title={curBusinesses[6].businessName} content={curBusinesses[6].address1} />
+                                <ReviewAwaitItem 
+                                rating={curBusinesses[5].rating}
+                                itemId={curBusinesses[5].id} 
+                                imgUrl={curBusinesses[5].photoUrls[0].photoUrl} 
+                                title={curBusinesses[5].businessName} 
+                                content={curBusinesses[5].address1} />
+                                <ReviewAwaitItem 
+                                rating={curBusinesses[6].rating}
+                                itemId={curBusinesses[6].id} 
+                                imgUrl={curBusinesses[6].photoUrls[0].photoUrl} 
+                                title={curBusinesses[6].businessName} 
+                                content={curBusinesses[6].address1} />
                             </ul>
                             <ul className="review-await-row">
-                                <ReviewAwaitItem itemId={curBusinesses[7].id} imgUrl={curBusinesses[7].photoUrls[0].photoUrl} title={curBusinesses[7].businessName} content={curBusinesses[7].address1} />
-                                <ReviewAwaitItem itemId={curBusinesses[8].id} imgUrl={curBusinesses[8].photoUrls[0].photoUrl} title={curBusinesses[8].businessName} content={curBusinesses[8].address1} />
+                                <ReviewAwaitItem 
+                                rating={curBusinesses[7].rating}
+                                itemId={curBusinesses[7].id} 
+                                imgUrl={curBusinesses[7].photoUrls[0].photoUrl} 
+                                title={curBusinesses[7].businessName} 
+                                content={curBusinesses[7].address1} />
+                                <ReviewAwaitItem 
+                                rating={curBusinesses[8].rating}
+                                itemId={curBusinesses[8].id} 
+                                imgUrl={curBusinesses[8].photoUrls[0].photoUrl} 
+                                title={curBusinesses[8].businessName} 
+                                content={curBusinesses[8].address1} />
                             </ul>                            
                         </div>
                     </div>

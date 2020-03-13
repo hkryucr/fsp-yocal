@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { faStar } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import Ratings from 'js/components/utils/ratings';
 
 class ReviewAwaitItem extends React.Component{
     constructor(props){
@@ -23,24 +21,7 @@ class ReviewAwaitItem extends React.Component{
                             <Link to={bizLinkId}>{this.props.title.split("_").join(" ")}</Link>
                         </div>
                         <div className="review-await-item-content medium" >{this.props.content}</div>
-                        <div className="ratings">
-                            {/* this one should be radio input !!! */}
-                            <span className="star">
-                                <FontAwesomeIcon icon={faStar} size="lg" color="white"/>
-                            </span>
-                            <span className="star">
-                                <FontAwesomeIcon icon={faStar} size="lg" color="white" />
-                            </span>
-                            <span className="star">
-                                <FontAwesomeIcon icon={faStar} size="lg" color="white" />
-                            </span>
-                            <span className="star">
-                                <FontAwesomeIcon icon={faStar} size="lg" color="white" />
-                            </span>
-                            <span className="star">
-                                <FontAwesomeIcon icon={faStar} size="lg" color="white" />
-                            </span>
-                        </div>
+                            <Ratings rating={this.props.rating}/>
                     </div>
                 </div>
             </li>

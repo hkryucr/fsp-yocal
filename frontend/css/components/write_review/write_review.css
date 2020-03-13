@@ -170,6 +170,7 @@
     margin-left: 3px;
     margin-bottom: 2px;
 }
+
 .wrtie-review-form-photo-upload label div:last-child{
    font-size: 0.85rem;
 }
@@ -201,42 +202,12 @@
     right: 0px;
 }
 
-
-
-
-/* star-ratings */
-/* .star-ratings input[type=radio] {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px; 
-}     */
-
-/* 
-.star-ratings input[type=radio] + label:after {
-    display: inline-block;
-    content: '★';
-    letter-spacing: 10px;
-    font-size: 2rem;
-    color: red;
-} */
-
 .star-ratings {
-    /* display: flex;
-    flex-direction: row;
-    align-items: center; */
     float:left;
     cursor: pointer;
 }
 
 .star-ratings span { 
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     float:right; 
     position:relative;
     width: 30px;
@@ -286,19 +257,3 @@
     border-radius: 5px;
     margin-right: 3px;
 }
-
-
-/* .star-ratings span:hover ~ span,
-.star-ratings span:hover,
-.star-ratings span.checked,
-.star-ratings span.checked ~ span{
-    color:#FFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    border-radius: 5px;
-    margin-right: 3px;
-} */

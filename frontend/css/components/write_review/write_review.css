@@ -16,7 +16,7 @@
 .wrtie-review-header-container{
     display: flex;
     flex-direction: row;
-    max-width: 60rem;
+    max-width: 62rem;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
@@ -195,12 +195,44 @@
 }
 
 /* Media Query Required*/
-.wrtie-review-prevs{
+
+.wrtie-review-prevs {
+    border-left: 1px solid #eeeeef;
+    padding-left: 1.5rem;
     height: calc(100vh - 64px);
-    width: 20rem;
-    background-color: ivory;
+    width: 30rem;
+    /* background-color: ; */
     right: 0px;
+    display: none;
+    flex-direction: row;
+    overflow: scroll;
 }
+
+.wrtie-review-prevs .biz-review-userinfo{
+    width: 90%;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+}
+.wrtie-review-prevs .biz-review-content, .wrtie-review-prevs .biz-review-content-container {
+    width: 90%;
+}
+
+.wrtie-review-prevs .biz-review-content-container{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eeeeef;
+}
+
+.wrtie-review-prevs .biz-review-delete, .wrtie-review-prevs .biz-review-content-3{
+    display: none;
+}
+
+
+@media screen and (min-width: 980px){
+    .wrtie-review-prevs {
+        display: flex;
+    }
+}
+
 
 .star-ratings {
     float:left;

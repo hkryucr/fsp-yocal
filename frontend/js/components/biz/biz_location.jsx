@@ -28,8 +28,6 @@ class BizLocation extends React.Component {
     }
     
     render() {
-        console.log(this.props, "biz_location")
-
         const curBusiness = this.props.curBusiness;
         const directLocation = `https://www.google.com/maps?q=${curBusiness.latitude},${curBusiness.longitude}`
 

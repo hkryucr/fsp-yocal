@@ -12,7 +12,11 @@ class BizReviewUserinfo extends React.Component {
     }
 
     render() {
+
         const curReviewer = this.props.reviewer;
+        if (!curReviewer){
+            return null;
+        }
         return (
             <div className="biz-review-userinfo">
                 <div className="biz-review-userinfo-container">

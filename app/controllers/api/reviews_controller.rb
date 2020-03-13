@@ -20,8 +20,10 @@ class Api::ReviewsController < ApplicationController
             review_date: Time.at(review_params[:review_date].to_f/1000.0), 
             useful: 0, 
             funny: 0, 
-            cool: 0
+            cool: 0,
+            review_photo: review_params[:review_photo]
         }
+
         @review = Review.new(cur_review)
         if @review.save
             render 'api/reviews/show'

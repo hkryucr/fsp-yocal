@@ -2790,12 +2790,7 @@ var BizReviews = /*#__PURE__*/function (_React$Component) {
       this.setState({
         filteredReviews: this.curReviews
       });
-    } // componentDidUpdate(prevProp, prevState){
-    //     if (Object.keys(prevProp.reviews).length != Object.keys(this.props.reviews).length){
-    //         this.props.fetchReviews()
-    //     }        
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -3062,7 +3057,6 @@ var BizLocation = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      console.log(this.props, "biz_location");
       var curBusiness = this.props.curBusiness;
       var directLocation = "https://www.google.com/maps?q=".concat(curBusiness.latitude, ",").concat(curBusiness.longitude);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3255,6 +3249,17 @@ var BizReviewContent = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var rawDate = this.props.review.reviewDate;
       var reviewDate = rawDate.slice(0, 10);
+      var photoUrl = null;
+
+      if (!!this.props.review.photoUrl) {
+        photoUrl = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "biz-review-content-2-pic"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: this.props.review.photoUrl,
+          alt: ""
+        }));
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3274,9 +3279,7 @@ var BizReviewContent = /*#__PURE__*/function (_React$Component) {
         onClick: this.handleClick
       }, " X ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-content-2"
-      }, this.props.review.text), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "biz-review-content-2-pic"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.review.text), photoUrl, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-content-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "useful"
@@ -3431,6 +3434,11 @@ var BizReviewUserinfo = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var curReviewer = this.props.reviewer;
+
+      if (!curReviewer) {
+        return null;
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-review-userinfo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -5388,8 +5396,6 @@ var RegisterSignupForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _React$createElement;
-
       var form = this.props.formType === 'Sign Up' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "RS-form",
         onSubmit: this.handleSubmit(this.props.formType)
@@ -5427,13 +5433,15 @@ var RegisterSignupForm = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input-wrapper",
         tabIndex: "0"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement = {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
         id: "password",
         name: "password",
         required: true,
-        onChange: this.update('password')
-      }, _defineProperty(_React$createElement, "onChange", this.handPasswordClick), _defineProperty(_React$createElement, "placeholder", "Password"), _defineProperty(_React$createElement, "onClick", this.handPasswordClick), _React$createElement))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onChange: this.update('password'),
+        placeholder: "Password",
+        onClick: this.handPasswordClick
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input-password-meter-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "progress-bar-container"
@@ -6309,6 +6317,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! css/components/write_review/write_review.css */ "./frontend/css/components/write_review/write_review.css");
 /* harmony import */ var css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(css_components_write_review_write_review_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_6__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6334,6 +6344,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var WriteReview = /*#__PURE__*/function (_React$Component) {
   _inherits(WriteReview, _React$Component);
 
@@ -6344,8 +6355,19 @@ var WriteReview = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(WriteReview, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var searchSplit = this.props.location.search.split("=");
+      var businessId = searchSplit[1].split("&")[0];
+      this.props.fetchBusiness(businessId);
+    }
+  }, {
     key: "render",
     value: function render() {
+      if (lodash__WEBPACK_IMPORTED_MODULE_6___default.a.isEmpty(this.props.reviews) || lodash__WEBPACK_IMPORTED_MODULE_6___default.a.isEmpty(this.props.reviewers || lodash__WEBPACK_IMPORTED_MODULE_6___default.a.isEmpty(this.props.businesses) || lodash__WEBPACK_IMPORTED_MODULE_6___default.a.isEmpty(this.props.curBusinessId))) {
+        return null;
+      }
+
       var searchSplit = this.props.location.search.split("=");
       var businessName = searchSplit[searchSplit.length - 1];
       var businessId = searchSplit[1].split("&")[0];
@@ -6389,7 +6411,10 @@ var WriteReview = /*#__PURE__*/function (_React$Component) {
         history: this.props.history,
         createReview: this.props.createReview,
         clearupData: this.props.clearupData
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_write_review_write_review_prevs__WEBPACK_IMPORTED_MODULE_2__["default"], null)))));
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_write_review_write_review_prevs__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        reviewers: this.props.reviewers,
+        reviews: this.props.reviews
+      })))));
     }
   }]);
 
@@ -6412,34 +6437,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var actions_review_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! actions/review_actions */ "./frontend/redux/actions/review_actions.js");
 /* harmony import */ var actions_clearup_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! actions/clearup_actions */ "./frontend/redux/actions/clearup_actions.js");
-/* harmony import */ var actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! actions/session_actions */ "./frontend/redux/actions/session_actions.js");
-/* harmony import */ var js_components_write_review_write_review__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! js/components/write_review/write_review */ "./frontend/js/components/write_review/write_review.jsx");
+/* harmony import */ var actions_business_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! actions/business_actions */ "./frontend/redux/actions/business_actions.js");
+/* harmony import */ var actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! actions/session_actions */ "./frontend/redux/actions/session_actions.js");
+/* harmony import */ var js_components_write_review_write_review__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! js/components/write_review/write_review */ "./frontend/js/components/write_review/write_review.jsx");
 
 
- // import { clearupData } from 'actions/clearup_actions';
+
 
 
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    currentUser: state.entities.users[state.session.id] // curBusinessId: ownProps.match.params.id,
-    // businesses: state.entities.businesses,
+    currentUser: state.entities.users[state.session.id],
+    curBusinessId: ownProps.match.params.id,
+    businesses: state.entities.businesses,
     // hours: state.entities.hours,
-    // reviews: state.entities.reviews,
+    // entities: state.entities,
     // categories: state.entities.categories,
     // users: state.entities.users,
-    // reviewers: state.entities.reviewers,
-
+    reviews: state.entities.reviews,
+    reviewers: state.entities.reviewers
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    // fetchBusiness: (id) => dispatch(fetchBusiness(id)),
+    fetchBusiness: function fetchBusiness(id) {
+      return dispatch(Object(actions_business_actions__WEBPACK_IMPORTED_MODULE_3__["fetchBusiness"])(id));
+    },
     // clearupData: () => dispatch(clearupData()),
     logout: function logout() {
-      return dispatch(Object(actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["logout"])());
+      return dispatch(Object(actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["logout"])());
     },
     createReview: function createReview(review) {
       return dispatch(Object(actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["createReview"])(review));
@@ -6450,7 +6479,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(js_components_write_review_write_review__WEBPACK_IMPORTED_MODULE_4__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(js_components_write_review_write_review__WEBPACK_IMPORTED_MODULE_5__["default"]));
 
 /***/ }),
 
@@ -6732,8 +6761,14 @@ var WriteReviewForm = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var css_components_write_review_write_review_prev_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! css/components/write_review/write_review_prev.css */ "./frontend/css/components/write_review/write_review_prev.css");
-/* harmony import */ var css_components_write_review_write_review_prev_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(css_components_write_review_write_review_prev_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var css_components_write_review_write_review_prev_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css/components/write_review/write_review_prev.css */ "./frontend/css/components/write_review/write_review_prev.css");
+/* harmony import */ var css_components_write_review_write_review_prev_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(css_components_write_review_write_review_prev_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var js_components_biz_biz_review_userinfo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js/components/biz/biz_review_userinfo */ "./frontend/js/components/biz/biz_review_userinfo.jsx");
+/* harmony import */ var js_components_biz_biz_review_content__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js/components/biz/biz_review_content */ "./frontend/js/components/biz/biz_review_content.jsx");
+/* harmony import */ var css_components_biz_biz_review_item_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! css/components/biz/biz_review_item.css */ "./frontend/css/components/biz/biz_review_item.css");
+/* harmony import */ var css_components_biz_biz_review_item_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(css_components_biz_biz_review_item_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6755,23 +6790,57 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
+
+
 var WriteReviewPrevs = /*#__PURE__*/function (_React$Component) {
   _inherits(WriteReviewPrevs, _React$Component);
 
-  function WriteReviewPrevs() {
+  function WriteReviewPrevs(props) {
     _classCallCheck(this, WriteReviewPrevs);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(WriteReviewPrevs).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(WriteReviewPrevs).call(this, props));
   }
 
   _createClass(WriteReviewPrevs, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
+      if (lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(this.props.reviews) && lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(this.props.reviewers)) {
+        return null;
+      }
+
+      var curReviews = Object.values(this.props.reviews);
+
+      var BizReviewItem = function BizReviewItem(props) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_review_userinfo__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          reviewer: props.reviewers[props.review.authorId]
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_biz_biz_review_content__WEBPACK_IMPORTED_MODULE_3__["default"] // clearupData={this.props.clearupData}
+        , {
+          currentUser: props.currentUser,
+          review: props.review // deleteReview={this.props.deleteReview}
+
+        }));
+      };
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "wrtie-review-prevs"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "wrtie-review-prevs-container"
-      }));
+      }, curReviews.sort(function (a, b) {
+        return new Date(b.reviewDate) - new Date(a.reviewDate);
+      }).map(function (review, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BizReviewItem, {
+          clearupData: _this.props.clearupData,
+          currentUser: _this.props.currentUser,
+          deleteReview: _this.props.deleteReview,
+          key: idx,
+          review: review,
+          reviewers: _this.props.reviewers
+        });
+      })));
     }
   }]);
 
@@ -7351,7 +7420,6 @@ var businessReducer = function businessReducer() {
 
   switch (action.type) {
     case actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BUSINESSES"]:
-      // newState = _.merge(newState, action.businesses);
       return action.businesses;
 
     case actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BUSINESS"]:
@@ -22305,7 +22373,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-header-upper-items{\n    width: 100;\n}\n\n.biz-header-upper-items-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.header-logo{\n    flex: 1 0 7rem;\n    display: flex;\n    align-items: center;\n    margin-right: 32px;\n}\n%\n.header-logo-container{\n    display: flex;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n}\n\n.header-logo-container img {\n    width: 80px;\n    height: 40px;\n}\n\n.header-search{\n    display: flex;\n    flex-direction: column;\n    width: auto;    \n    /* min-width: 58%; */\n    flex: 10 0 24rem;\n    margin-right: 24px; \n}\n\n.biz-header-container-content{\n    display: flex;\n    align-items: center;\n    width: 100%\n}    \n\n.header-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.header-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 100%;\n}\n\n.header-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n    position: relative;\n}\n\n.pseudo-input-label-header-search, .pseudo-input-label-biz-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.header-search-form-middle-border{\n    border-left: 1px solid #ccc;\n    width: 1px;\n    height: 25px;\n}\n\n/* autocomplete search text  */\n.header-search-form-arrange-unit .auto-complete-text{\n    position: absolute;\n    background-color: white;\n    top: 40px;\n    width: 100%;\n    z-index: 1;\n    border-radius: 0 0 4px 4px;\n    /* border-bottom: 1px solid #ccc;\n    border-left: 1px solid #ccc;\n    border-right: 1px solid #ccc; */\n    line-height: 21px;\n    z-index: 1;\n}\n\n.auto-complete-text-container{\n    display: flex;\n    flex-direction: column;\n    box-shadow: 2px 2px 1px 1px rgba(0,0,0,.10);\n\n}\n\n.auto-complete-text-container li {\n    display: flex;\n    align-items: center;\n    padding: 0 0.8rem 0.8rem 0.8rem;\n    margin-top: 10px;\n}\n\n.auto-complete-text-container li:hover {\n    font-weight: bold;\n    text-decoration: underline;\n}\n\n/* position: relative;  */\n\n/* */\n\n.header-search-form-button{\n    background-color: #d32323;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n    z-index: 1;\n}\n\n.pseudo-input-label-header-search .find-span, .pseudo-input-label-header-search .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n    width: 100%;\n}\n.pseudo-input-field-holder-biz input, .pseudo-input-field-holder-biz input, .pseudo-input-field-holder-biz{\n    width: 100%;\n}\n\n.header-user-items{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    flex: 1 0 30rem;\n}\n\n.header-user-items-container{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-left: 2rem;\n}\n\n.header-user-item-container{\n    padding: 8px 0;\n\n}\n.header-user-button-container{\n    display: flex;\n    flex-direction: row;\n    justify-items: center;\n    align-items: center;\n    padding: 8px 8px 8px 0px;\n}\n\n.header-user-button-container .item-mark {\n    color: #05a882;\n    font-weight: bold;\n    font-size: 0.75rem;\n    display: flex;\n    /* margin-right: 0; */\n    margin-right: 1.5rem;\n    /* flex-direction: column;\n    justify-content: center;\n    align-items: center; */\n}\n\n.header-user-item-container:hover{\n    background-color: #eeeeef;\n    border-radius: 4px;\n}\n\n.header-user-item{\n    font-size: 0.875rem;\n    white-space: nowrap;\n}\n\n.header-user-button-1 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: white;\n    margin-left: 12px;\n    border: 1px solid #2b273c;\n}\n\n.header-user-button-1 span{\n    white-space: nowrap;\n    color: #2b273c;\n}\n.header-user-button-2 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: #d32323;\n    margin-left: 12px;\n}\n\n.header-user-button-2 span{\n    white-space: nowrap;\n    color: white;\n}", ""]);
+exports.push([module.i, ".biz-header-upper-items{\n    width: 100;\n}\n\n.biz-header-upper-items-container{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.header-logo{\n    flex: 1 0 7rem;\n    display: flex;\n    align-items: center;\n    margin-right: 32px;\n}\n%\n.header-logo-container{\n    display: flex;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n}\n\n.header-logo-container img {\n    width: 80px;\n    height: 40px;\n}\n\n.header-search{\n    display: flex;\n    flex-direction: column;\n    width: auto;    \n    /* min-width: 58%; */\n    flex: 10 0 24rem;\n    margin-right: 24px; \n}\n\n.biz-header-container-content{\n    display: flex;\n    align-items: center;\n    width: 100%\n}    \n\n.header-search-form{\n    width: 100%;\n    box-shadow: 0 2px 18px rgba(0,0,0,.15);\n    border-radius: 4px;\n}\n\n.header-search-form-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 100%;\n}\n\n.header-search-form-arrange-unit{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n    position: relative;\n}\n\n.pseudo-input-label-header-search, .pseudo-input-label-biz-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n    width: 100%;\n}\n\n.header-search-form-middle-border{\n    border-left: 1px solid #ccc;\n    width: 1px;\n    height: 25px;\n}\n\n/* autocomplete search text  */\n.header-search-form-arrange-unit .auto-complete-text{\n    position: absolute;\n    background-color: white;\n    top: 40px;\n    width: 100%;\n    z-index: 1;\n    border-radius: 0 0 4px 4px;\n    /* border-bottom: 1px solid #ccc;\n    border-left: 1px solid #ccc;\n    border-right: 1px solid #ccc; */\n    line-height: 21px;\n    z-index: 1;\n}\n\n.auto-complete-text-container{\n    display: flex;\n    flex-direction: column;\n    box-shadow: 2px 2px 1px 1px rgba(0,0,0,.10);\n\n}\n\n.auto-complete-text-container li {\n    display: flex;\n    align-items: center;\n    padding: 0 0.8rem 0.8rem 0.8rem;\n    margin-top: 10px;\n}\n\n.auto-complete-text-container li:hover {\n    font-weight: bold;\n    text-decoration: underline;\n}\n\n/* position: relative;  */\n\n/* */\n\n.header-search-form-button{\n    background-color: #d32323;\n    padding: 11px 14px 11px;\n    border-radius: 0 4px 4px 0;\n    z-index: 1;\n}\n\n.pseudo-input-label-header-search .find-span, .pseudo-input-label-header-search .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n    width: 100%;\n}\n.pseudo-input-field-holder-biz input, .pseudo-input-field-holder-biz input, .pseudo-input-field-holder-biz{\n    width: 100%;\n}\n\n.header-user-items{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    flex: 1 0 30rem;\n}\n\n.header-user-items-container{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-left: 2rem;\n}\n\n.header-user-item-container{\n    padding: 8px 8px;\n    cursor: pointer;\n}\n.header-user-button-container{\n    display: flex;\n    flex-direction: row;\n    justify-items: center;\n    align-items: center;\n    padding: 8px 8px 8px 0px;\n}\n\n.header-user-button-container .item-mark {\n    color: #05a882;\n    font-weight: bold;\n    font-size: 0.75rem;\n    display: flex;\n    margin-right: 1.5rem;\n    cursor: pointer;\n    /* margin-right: 0; */\n    /* flex-direction: column;\n    justify-content: center;\n    align-items: center; */\n}\n\n.header-user-item-container:hover{\n    background-color: #eeeeef;\n    border-radius: 4px;\n}\n\n.header-user-item{\n    font-size: 0.875rem;\n    white-space: nowrap;\n}\n\n.header-user-button-1 {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: white;\n    margin-left: 12px;\n    border: 1px solid #2b273c;\n}\n\n.header-user-button-1 span{\n    white-space: nowrap;\n    color: #2b273c;\n}\n.header-user-button-2 {\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    background-color: #d32323;\n    margin-left: 12px;\n}\n\n.header-user-button-2 span{\n    white-space: nowrap;\n    color: white;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -22449,7 +22517,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-review-content-container .ratings{\n    vertical-align: baseline;\n}\n\n.biz-review-content-container .ratings .star {\n    padding: 0.2rem 0.2rem;\n    vertical-align: baseline;\n    font-size: 0.75rem;\n}\n.biz-review-content-container .ratings .white-star {\n    padding: 0.2rem 0.2rem;\n    vertical-align: baseline;\n    font-size: 0.75rem;\n}\n\n.biz-review-content-1{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    height: 100%;\n    margin-bottom: 0.5rem;\n}\n\n.biz-review-content-1-container{\n    display: flex;\n}\n\n\n.biz-review-ratings{\n    display: flex;\n    flex-direction: column;\n}\n\n.biz-review-content-1 .biz-review-date {\n    font-size: 0.875rem;\n    color: #757280;   \n    margin-left: 10px;\n    margin-top: 2px;\n}\n\n.biz-review-delete{\n    font-size: 0.875rem;\n    color: #757280;   \n    cursor: pointer;\n}\n\n.biz-review-content-2{\n    font-size: 0.875rem;\n    white-space: pre-line;\n    color: #333333;\n    line-height: 1.125rem;\n}\n\n.biz-review-content-3{\n    font-size: 0.65rem;\n    display: flex;\n    color: #333333;\n    flex-direction: row;\n    margin-top: 1.25rem;\n}\n\n.biz-review-content-3 div span{\n    font-size: 0.75rem;\n    padding-left: 0.25rem;\n    margin-right: 1.25rem;\n    margin-bottom: 0.25rem;\n}\n\n    /* line-height: 20px; */\n", ""]);
+exports.push([module.i, ".biz-review-content-container .ratings{\n    vertical-align: baseline;\n}\n\n.biz-review-content-container .ratings .star {\n    padding: 0.2rem 0.2rem;\n    vertical-align: baseline;\n    font-size: 0.75rem;\n}\n.biz-review-content-container .ratings .white-star {\n    padding: 0.2rem 0.2rem;\n    vertical-align: baseline;\n    font-size: 0.75rem;\n}\n\n.biz-review-content-1{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    height: 100%;\n    margin-bottom: 0.5rem;\n}\n\n.biz-review-content-1-container{\n    display: flex;\n}\n\n\n.biz-review-ratings{\n    display: flex;\n    flex-direction: column;\n}\n\n.biz-review-content-1 .biz-review-date {\n    font-size: 0.875rem;\n    color: #757280;   \n    margin-left: 10px;\n    margin-top: 2px;\n}\n\n.biz-review-delete{\n    font-size: 0.875rem;\n    color: #757280;   \n    cursor: pointer;\n}\n\n.biz-review-content-2{\n    font-size: 0.875rem;\n    white-space: pre-line;\n    color: #333333;\n    line-height: 1.125rem;\n}\n\n.biz-review-content-2-pic{\n    margin-top: 1rem;\n    height: 300px;\n    width: 300px;\n    object-fit: cover;\n}\n\n.biz-review-content-3{\n    font-size: 0.65rem;\n    display: flex;\n    color: #333333;\n    flex-direction: row;\n    margin-top: 1.25rem;\n}\n\n.biz-review-content-3 div span{\n    font-size: 0.75rem;\n    padding-left: 0.25rem;\n    margin-right: 1.25rem;\n    margin-bottom: 0.25rem;\n}\n\n    /* line-height: 20px; */\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -22827,7 +22895,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".write-review, .write-review-container, .wrtie-review-body, .wrtie-review-body-container, .write-review-left, .write-review-left-container{\n    display: flex;\n    width: 100%;\n}\n\n.write-review-container{\n    flex-direction: column;\n}\n\n.wrtie-review-header{\n    background-color: #d32323;\n    padding: 12px 0;\n    width: 100%;\n}\n\n.wrtie-review-header-container{\n    display: flex;\n    flex-direction: row;\n    max-width: 60rem;\n    justify-content: space-between;\n    align-items: center;\n    margin: 0 auto;\n}\n\n.write-review-left{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.write-review-left-logo{\n    width: 80px;\n    height: 40px;\n    margin-right: 1.5rem;\n}\n\n.write-review-left-title{\n    font-size: 1.25rem;\n    font-weight: bold;\n    color: white;\n}\n\n.write-review-right .profile-greeting{\n    color: white;\n    font-weight: bold;\n}\n\n/* body */\n\n.wrtie-review-body, .wrtie-review-body-container, .wrtie-review-content{\n    display: flex;\n    width: 100%;\n}\n\n.wrtie-review-body-container{\n    flex-direction: row;\n    /* max-width: 60rem; */\n}\n\n.wrtie-review-content-container{\n    display: flex;\n    flex-direction: column;\n    /* width: 100%; */\n    /* align-items: center; */\n    margin: 0 auto;\n    flex-grow: 1;\n    max-width: 40rem;\n}\n\n.wrtie-review-form-title {\n    padding-top: 24px;\n    padding-bottom: 12px;\n    font-size: 2.25rem;\n    color: #0073bb;\n    font-weight: bold;\n    margin: 6px 0;\n}\n\n.wrtie-review-form-text{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 380px;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n}\n\n.wrtie-review-form-text-ratings{\n    margin-bottom: 1rem;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    align-items: center;\n}\n\n.wrtie-review-form-text-ratings > span:last-child{\n    margin-left: 0.5rem;\n    font-size: 0.85rem;\n}\n\n.wrtie-review-form-text textarea{\n    width: 100%;\n    min-height: 380px;\n    line-height: 1.6rem;\n    font-size: 1.125rem;\n    resize: none;\n}\n\n.wrtie-review-form-photo{\n    margin-top: 1rem;\n}\n\n.wrtie-review-form-photo span:first-child{\n    font-size: 1rem;\n    font-weight: bold;\n    color: #333333;\n    margin-right: 0.75rem;\n}   \n\n.wrtie-review-form-photo span:last-child{\n    font-size: 0.75rem;\n    color: #333333;\n}   \n\n.wrtie-review-form-photo-upload{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 150px;\n    margin-top: 0.8rem;\n}\n\n.wrtie-review-form-photo-upload input{\n    width: 630px;\n    height: 110px;\n    opacity: 0;\n    overflow: hidden;\n    position: absolute;\n    /* z-index: ; */\n    cursor: pointer;\n}\n.wrtie-review-form-photo-upload{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-bottom: 1.6rem;\n    color: #999999;\n}\n\n.inputfile label {\n    font-weight: bold;\n    color: white;\n    background-color: black;\n    display: inline-block;\n    cursor: pointer;\n}\n\n.inputfile:focus + label {\n    cursor: pointer; /* \"hand\" cursor */\n\toutline: 1px dotted #999999;\n\toutline: -webkit-focus-ring-color auto 5px;\n}\n\n.inputfile + label * {\n\tpointer-events: none\n}\n\n.wrtie-review-form-photo-upload label svg {\n    margin-left: 3px;\n    margin-bottom: 2px;\n}\n\n.wrtie-review-form-photo-upload label div:last-child{\n   font-size: 0.85rem;\n}\n\n.wrtie-review-form-button {\n    height: 26px;\n    width: 240px;\n    padding: 10px 13px 10px 13px;\n    background-color: #d32323;\n    border-radius: 4px;\n    display: flex;\n    align-items: center;\n}\n\n.wrtie-review-form-button button {\n    color: white;\n    font-weight: bold;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: center;\n}\n\n/* Media Query Required*/\n.wrtie-review-prevs{\n    height: calc(100vh - 64px);\n    width: 20rem;\n    background-color: ivory;\n    right: 0px;\n}\n\n.star-ratings {\n    float:left;\n    cursor: pointer;\n}\n\n.star-ratings span { \n    float:right; \n    position:relative;\n    width: 30px;\n    height: 30px;\n    background-color: #e6e6e6;\n    border-radius: 5px;\n    margin-right: 3px;\n    cursor: pointer;\n}\n\n.star-ratings span input {\n    position:absolute;\n    width: 0.01px;\n    height: 0.01px;\n    opacity:0;\n    cursor: pointer;\n}\n\n.star-ratings span label::before {\n    display: inline-block;\n    /* text-align: center;\n    vertical-align: center; */\n    content: '★';\n    /* letter-spacing: 10px; */\n    font-size: 1.6rem;\n    margin-left: 1px;\n    color: white;\n    /* background-color: #333333; */\n}\n\n.star-ratings span label{\n    margin-left: 1.5px;\n    cursor: pointer;\n}\n\n.star-ratings span:hover ~ span,\n.star-ratings span:hover,\n.star-ratings span.checked,\n.star-ratings span.checked ~ span{\n    color:#FFF;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 30px;\n    height: 30px;\n    background-color: #db2a2a;\n    border-radius: 5px;\n    margin-right: 3px;\n}\n", ""]);
+exports.push([module.i, ".write-review, .write-review-container, .wrtie-review-body, .wrtie-review-body-container, .write-review-left, .write-review-left-container{\n    display: flex;\n    width: 100%;\n}\n\n.write-review-container{\n    flex-direction: column;\n}\n\n.wrtie-review-header{\n    background-color: #d32323;\n    padding: 12px 0;\n    width: 100%;\n}\n\n.wrtie-review-header-container{\n    display: flex;\n    flex-direction: row;\n    max-width: 62rem;\n    justify-content: space-between;\n    align-items: center;\n    margin: 0 auto;\n}\n\n.write-review-left{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.write-review-left-logo{\n    width: 80px;\n    height: 40px;\n    margin-right: 1.5rem;\n}\n\n.write-review-left-title{\n    font-size: 1.25rem;\n    font-weight: bold;\n    color: white;\n}\n\n.write-review-right .profile-greeting{\n    color: white;\n    font-weight: bold;\n}\n\n/* body */\n\n.wrtie-review-body, .wrtie-review-body-container, .wrtie-review-content{\n    display: flex;\n    width: 100%;\n}\n\n.wrtie-review-body-container{\n    flex-direction: row;\n    /* max-width: 60rem; */\n}\n\n.wrtie-review-content-container{\n    display: flex;\n    flex-direction: column;\n    /* width: 100%; */\n    /* align-items: center; */\n    margin: 0 auto;\n    flex-grow: 1;\n    max-width: 40rem;\n}\n\n.wrtie-review-form-title {\n    padding-top: 24px;\n    padding-bottom: 12px;\n    font-size: 2.25rem;\n    color: #0073bb;\n    font-weight: bold;\n    margin: 6px 0;\n}\n\n.wrtie-review-form-text{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 380px;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n}\n\n.wrtie-review-form-text-ratings{\n    margin-bottom: 1rem;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    align-items: center;\n}\n\n.wrtie-review-form-text-ratings > span:last-child{\n    margin-left: 0.5rem;\n    font-size: 0.85rem;\n}\n\n.wrtie-review-form-text textarea{\n    width: 100%;\n    min-height: 380px;\n    line-height: 1.6rem;\n    font-size: 1.125rem;\n    resize: none;\n}\n\n.wrtie-review-form-photo{\n    margin-top: 1rem;\n}\n\n.wrtie-review-form-photo span:first-child{\n    font-size: 1rem;\n    font-weight: bold;\n    color: #333333;\n    margin-right: 0.75rem;\n}   \n\n.wrtie-review-form-photo span:last-child{\n    font-size: 0.75rem;\n    color: #333333;\n}   \n\n.wrtie-review-form-photo-upload{\n    border-radius: 5px;\n    border: 1px solid #e6e6e6;\n    max-width: 630px;\n    min-height: 150px;\n    margin-top: 0.8rem;\n}\n\n.wrtie-review-form-photo-upload input{\n    width: 630px;\n    height: 110px;\n    opacity: 0;\n    overflow: hidden;\n    position: absolute;\n    /* z-index: ; */\n    cursor: pointer;\n}\n.wrtie-review-form-photo-upload{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-bottom: 1.6rem;\n    color: #999999;\n}\n\n.inputfile label {\n    font-weight: bold;\n    color: white;\n    background-color: black;\n    display: inline-block;\n    cursor: pointer;\n}\n\n.inputfile:focus + label {\n    cursor: pointer; /* \"hand\" cursor */\n\toutline: 1px dotted #999999;\n\toutline: -webkit-focus-ring-color auto 5px;\n}\n\n.inputfile + label * {\n\tpointer-events: none\n}\n\n.wrtie-review-form-photo-upload label svg {\n    margin-left: 3px;\n    margin-bottom: 2px;\n}\n\n.wrtie-review-form-photo-upload label div:last-child{\n   font-size: 0.85rem;\n}\n\n.wrtie-review-form-button {\n    height: 26px;\n    width: 240px;\n    padding: 10px 13px 10px 13px;\n    background-color: #d32323;\n    border-radius: 4px;\n    display: flex;\n    align-items: center;\n}\n\n.wrtie-review-form-button button {\n    color: white;\n    font-weight: bold;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: center;\n}\n\n/* Media Query Required*/\n\n.wrtie-review-prevs {\n    border-left: 1px solid #eeeeef;\n    padding-left: 1.5rem;\n    height: calc(100vh - 64px);\n    width: 30rem;\n    /* background-color: ; */\n    right: 0px;\n    display: none;\n    flex-direction: row;\n    overflow: scroll;\n}\n\n.wrtie-review-prevs .biz-review-userinfo{\n    width: 90%;\n    margin-bottom: 1rem;\n    padding-top: 1rem;\n}\n.wrtie-review-prevs .biz-review-content, .wrtie-review-prevs .biz-review-content-container {\n    width: 90%;\n}\n\n.wrtie-review-prevs .biz-review-content-container{\n    padding-bottom: 1rem;\n    border-bottom: 1px solid #eeeeef;\n}\n\n.wrtie-review-prevs .biz-review-delete, .wrtie-review-prevs .biz-review-content-3{\n    display: none;\n}\n\n\n@media screen and (min-width: 980px){\n    .wrtie-review-prevs {\n        display: flex;\n    }\n}\n\n\n.star-ratings {\n    float:left;\n    cursor: pointer;\n}\n\n.star-ratings span { \n    float:right; \n    position:relative;\n    width: 30px;\n    height: 30px;\n    background-color: #e6e6e6;\n    border-radius: 5px;\n    margin-right: 3px;\n    cursor: pointer;\n}\n\n.star-ratings span input {\n    position:absolute;\n    width: 0.01px;\n    height: 0.01px;\n    opacity:0;\n    cursor: pointer;\n}\n\n.star-ratings span label::before {\n    display: inline-block;\n    /* text-align: center;\n    vertical-align: center; */\n    content: '★';\n    /* letter-spacing: 10px; */\n    font-size: 1.6rem;\n    margin-left: 1px;\n    color: white;\n    /* background-color: #333333; */\n}\n\n.star-ratings span label{\n    margin-left: 1.5px;\n    cursor: pointer;\n}\n\n.star-ratings span:hover ~ span,\n.star-ratings span:hover,\n.star-ratings span.checked,\n.star-ratings span.checked ~ span{\n    color:#FFF;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 30px;\n    height: 30px;\n    background-color: #db2a2a;\n    border-radius: 5px;\n    margin-right: 3px;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

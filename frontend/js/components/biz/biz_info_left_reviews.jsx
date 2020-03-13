@@ -41,13 +41,6 @@ class BizReviews extends React.Component {
         })
     }
 
-    // componentDidUpdate(prevProp, prevState){
-    //     if (Object.keys(prevProp.reviews).length != Object.keys(this.props.reviews).length){
-    //         this.props.fetchReviews()
-    //     }        
-    // }
-
-
     render() {        
         if(this.state.filteredReviews === undefined ){
             return null;

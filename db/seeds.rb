@@ -44,10 +44,6 @@ biz_data.each do |biz|
   cur_el.delete("categories")
   cur_el.delete("hours")
 
-  if cur_el["address1"] == nil
-    debugger
-  end
-
   cur_biz = Business.create!(cur_el)
 
   biz["categories"].each do |category|

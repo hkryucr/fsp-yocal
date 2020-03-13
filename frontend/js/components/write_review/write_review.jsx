@@ -4,6 +4,7 @@ import WriteReviewPrevs from 'js/components/write_review/write_review_prevs';
 import Profile from 'js/components/utils/profile';
 import { Link } from 'react-router-dom';
 import 'css/components/write_review/write_review.css';
+import _ from 'lodash'
 
 
 class WriteReview extends React.Component{
@@ -12,7 +13,20 @@ class WriteReview extends React.Component{
         super(props);
     }
 
+    componentDidMount(){
+        let searchSplit = this.props.location.search.split("=");
+        let businessId = searchSplit[1].split("&")[0];
+        this.props.fetchBusiness(businessId);
+    }
+
     render(){
+        if (_.isEmpty(this.props.reviews) || 
+            _.isEmpty(this.props.reviewers ||
+            _.isEmpty(this.props.businesses) ||
+            _.isEmpty(this.props.curBusinessId))) {
+            return null;
+        }
+
         let searchSplit =  this.props.location.search.split("=");
         let businessName = searchSplit[searchSplit.length-1];
         let businessId = searchSplit[1].split("&")[0];
@@ -53,7 +67,7 @@ class WriteReview extends React.Component{
                                     
                                 </div>  
                             </div>
-                            <WriteReviewPrevs/>
+                            <WriteReviewPrevs reviewers={this.props.reviewers} reviews={this.props.reviews}/>
                         </div>
                     </div>
                 </div>

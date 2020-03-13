@@ -1,7 +1,6 @@
 json.extract! business, :id, :business_name, :url, :latitude, :longitude, :phone, :price, :rating, :zipcode, :country, :state, :city, :address1, :address2, :address3, :is_claimed, :is_closed, :review_count
 
 json.hourIds do 
-    # debugger
     json.array! ((business.hours).map(&:id))
 end
 

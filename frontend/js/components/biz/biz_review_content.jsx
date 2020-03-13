@@ -24,6 +24,17 @@ class BizReviewContent extends React.Component {
     render() {
         let rawDate = this.props.review.reviewDate;
         const reviewDate = rawDate.slice(0, 10);
+        
+        let photoUrl = null;
+
+        if (!!this.props.review.photoUrl){
+            photoUrl = (
+                <div className="biz-review-content-2-pic">
+                    <img src={this.props.review.photoUrl} alt="" />
+                </div>
+            )
+        }
+
         return (
             <div className="biz-review-content">
                 <div className="biz-review-content-container">
@@ -39,7 +50,7 @@ class BizReviewContent extends React.Component {
                     <div className="biz-review-content-2">
                         {this.props.review.text}
                     </div>
-                    <div className="biz-review-content-2-pic"></div>
+                    {photoUrl}
                     <div className="biz-review-content-3">
                         <div className="useful">
                             <FontAwesomeIcon icon={faLightbulb } size="2x" />

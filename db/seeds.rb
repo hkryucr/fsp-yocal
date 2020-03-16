@@ -67,7 +67,7 @@ require 'json'
 # end
 
 # # reviews database
-Review.delete_all
+# Review.delete_all
 
 review_data = JSON.parse(File.read(Rails.root.join('lib', 'seeds', 'sf_reviews.json')))
 user_ids = User.all.map(&:id)

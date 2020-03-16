@@ -72,7 +72,7 @@ Review.delete_all
 review_data = JSON.parse(File.read(Rails.root.join('lib', 'seeds', 'sf_reviews.json')))
 user_ids = User.all.map(&:id)
 review_data.each_with_index do |review, idx|   
-  if (idx >= 15)
+  if (idx >= 12)
     next
   end
   ran_author_id = user_ids.sample

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect} from 'react-router-dom';
 
 export default class MarkerManager {
     constructor(map) {
@@ -7,7 +7,7 @@ export default class MarkerManager {
         this.markers = {};
     }
 
-    updateMarkers(businesses) {
+    updateMarkers(businesses, history) {
         let businessObj = {}
         for (let i = 0; i < businesses.length; i++) {
             const curId = businesses[i].id;
@@ -51,6 +51,12 @@ export default class MarkerManager {
                 google.maps.event.addListener(newMarker, 'mouseout', function () {
                     infoWindow.setContent('this is marker');
                     infoWindow.close(this.map, newMarker);
+                })
+
+                google.maps.event.addListener(newMarker, 'click', function (e) {
+                    if(history){
+                        return history.push(`/biz/${id}`)
+                    }
                 })
 
                 this.markers[id] = newMarker;

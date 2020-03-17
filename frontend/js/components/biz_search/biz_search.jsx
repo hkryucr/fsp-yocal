@@ -81,7 +81,7 @@ class BizSearch extends React.Component {
                     <div className="biz-search-body">
                         <div className="biz-search-body-container">
                             { bizSearchResultsDiv }
-                            <BizSearchMap businesses={this.props.businesses}/>
+                            <BizSearchMap businesses={this.props.businesses} history={this.props.history}/>
                         </div>
                     </div>
                 </div>

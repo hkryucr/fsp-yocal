@@ -59,6 +59,12 @@
     object-fit: cover;
 }
 
+.biz-review-content-2-pic img{
+    height: 300px;
+    width: 300px;
+    object-fit: cover;  
+}
+
 .biz-review-content-3{
     font-size: 0.65rem;
     display: flex;

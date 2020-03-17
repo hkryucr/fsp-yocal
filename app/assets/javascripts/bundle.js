@@ -1476,9 +1476,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -1494,12 +1494,22 @@ var Biz = /*#__PURE__*/function (_React$Component) {
   _inherits(Biz, _React$Component);
 
   function Biz(props) {
+    var _this;
+
     _classCallCheck(this, Biz);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Biz).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Biz).call(this, props));
+    _this.goBack = _this.goBack.bind(_assertThisInitialized(_this)); // i think you are missing this
+
+    return _this;
   }
 
   _createClass(Biz, [{
+    key: "goBack",
+    value: function goBack() {
+      this.props.history.goBack();
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchBusiness(this.props.curBusinessId);
@@ -1803,7 +1813,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var css_components_biz_biz_header_down_items_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(css_components_biz_biz_header_down_items_css__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var js_components_main_section_main_section_categories__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! js/components/main_section/main_section_categories */ "./frontend/js/components/main_section/main_section_categories.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1826,8 +1835,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
-
+ // import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+// import MainSectionCategories from 'js/components/main_section/main_section_categories'
 
 var BizHeaderDownItems = /*#__PURE__*/function (_React$Component) {
   _inherits(BizHeaderDownItems, _React$Component);
@@ -1855,47 +1864,43 @@ var BizHeaderDownItems = /*#__PURE__*/function (_React$Component) {
         className: "bh-item-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bh-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "bh-item-link"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " Restaurants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faChevronDown"],
-        size: "sm",
-        color: "#2b273c"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faHamburger"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/search?desc=American"
+      }, "American")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bh-item-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bh-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "bh-item-link"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " Home Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faChevronDown"],
-        size: "sm",
-        color: "#2b273c"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFish"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/search?desc=Seafood"
+      }, "Seafood")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bh-item-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bh-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "bh-item-link"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " Auto Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faChevronDown"],
-        size: "sm",
-        color: "#2b273c"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSeedling"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/search?desc=Vegetarian"
+      }, "Vegetarian")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bh-item-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bh-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "bh-item-link"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " More"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faChevronDown"],
-        size: "sm",
-        color: "#2b273c"
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPizzaSlice"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/search?desc=Italian"
+      }, "Italian"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-header-down-placeholder"
       })));
     }
@@ -3724,7 +3729,8 @@ var BizSearch = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
         className: "biz-search-body-container"
       }, bizSearchResultsDiv, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(js_components_biz_search_biz_search_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        businesses: this.props.businesses
+        businesses: this.props.businesses,
+        history: this.props.history
       })))));
     }
   }]);
@@ -3863,7 +3869,9 @@ var BizSearchContentItem = /*#__PURE__*/function (_React$Component) {
         to: businessLink
       }, curBusiness.businessName.split("_").join(" ")))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "biz-search-content-detail-rating"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, curBusiness.reviewCount)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(js_components_utils_ratings__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        rating: curBusiness.rating
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, curBusiness.reviewCount)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "biz-search-content-detail-category"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, curBusiness.price), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, curBusiness.categories))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "biz-search-content-detail-1"
@@ -3941,7 +3949,7 @@ var BizSearchMap = /*#__PURE__*/function (_React$Component) {
       this.MarkerManager = new util_marker_manager__WEBPACK_IMPORTED_MODULE_2__["default"](this.map);
 
       if (!_.isEmpty(this.props.businesses)) {
-        this.MarkerManager.updateMarkers(Object.values(this.props.businesses));
+        this.MarkerManager.updateMarkers(Object.values(this.props.businesses), this.props.history);
       }
 
       this.map.addListener('idle', function () {
@@ -3964,9 +3972,11 @@ var BizSearchMap = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
+      console.log(this.props);
+
       if (!_.isEmpty(this.props.businesses)) {
         var businessArr = Object.values(this.props.businesses);
-        this.MarkerManager.updateMarkers(businessArr);
+        this.MarkerManager.updateMarkers(businessArr, this.props.history);
       }
     }
   }, {
@@ -4723,59 +4733,59 @@ var ReviewAwait = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "review-await-row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        rating: curBusinesses[curBusinessesKeys[0]].rating,
+        itemId: curBusinesses[curBusinessesKeys[0]].id,
+        imgUrl: curBusinesses[curBusinessesKeys[0]].photoUrls[0].photoUrl,
+        title: curBusinesses[curBusinessesKeys[0]].businessName,
+        content: curBusinesses[curBusinessesKeys[0]].address1
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
         rating: curBusinesses[curBusinessesKeys[1]].rating,
         itemId: curBusinesses[curBusinessesKeys[1]].id,
-        imgUrl: curBusinesses[curBusinessesKeys[1]].photoUrls[1].photoUrl,
+        imgUrl: curBusinesses[curBusinessesKeys[1]].photoUrls[0].photoUrl,
         title: curBusinesses[curBusinessesKeys[1]].businessName,
         content: curBusinesses[curBusinessesKeys[1]].address1
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "review-await-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
         rating: curBusinesses[curBusinessesKeys[2]].rating,
         itemId: curBusinesses[curBusinessesKeys[2]].id,
         imgUrl: curBusinesses[curBusinessesKeys[2]].photoUrls[0].photoUrl,
         title: curBusinesses[curBusinessesKeys[2]].businessName,
         content: curBusinesses[curBusinessesKeys[2]].address1
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "review-await-row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
         rating: curBusinesses[curBusinessesKeys[3]].rating,
         itemId: curBusinesses[curBusinessesKeys[3]].id,
         imgUrl: curBusinesses[curBusinessesKeys[3]].photoUrls[0].photoUrl,
         title: curBusinesses[curBusinessesKeys[3]].businessName,
         content: curBusinesses[curBusinessesKeys[3]].address1
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "review-await-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
         rating: curBusinesses[curBusinessesKeys[4]].rating,
         itemId: curBusinesses[curBusinessesKeys[4]].id,
         imgUrl: curBusinesses[curBusinessesKeys[4]].photoUrls[0].photoUrl,
         title: curBusinesses[curBusinessesKeys[4]].businessName,
         content: curBusinesses[curBusinessesKeys[4]].address1
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "review-await-row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
         rating: curBusinesses[curBusinessesKeys[5]].rating,
         itemId: curBusinesses[curBusinessesKeys[5]].id,
         imgUrl: curBusinesses[curBusinessesKeys[5]].photoUrls[0].photoUrl,
         title: curBusinesses[curBusinessesKeys[5]].businessName,
         content: curBusinesses[curBusinessesKeys[5]].address1
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "review-await-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
         rating: curBusinesses[curBusinessesKeys[6]].rating,
         itemId: curBusinesses[curBusinessesKeys[6]].id,
         imgUrl: curBusinesses[curBusinessesKeys[6]].photoUrls[0].photoUrl,
         title: curBusinesses[curBusinessesKeys[6]].businessName,
         content: curBusinesses[curBusinessesKeys[6]].address1
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "review-await-row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
         rating: curBusinesses[curBusinessesKeys[7]].rating,
         itemId: curBusinesses[curBusinessesKeys[7]].id,
         imgUrl: curBusinesses[curBusinessesKeys[7]].photoUrls[0].photoUrl,
         title: curBusinesses[curBusinessesKeys[7]].businessName,
         content: curBusinesses[curBusinessesKeys[7]].address1
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(js_components_main_section_review_await_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        rating: curBusinesses[curBusinessesKeys[8]].rating,
-        itemId: curBusinesses[curBusinessesKeys[8]].id,
-        imgUrl: curBusinesses[curBusinessesKeys[8]].photoUrls[0].photoUrl,
-        title: curBusinesses[curBusinessesKeys[8]].businessName,
-        content: curBusinesses[curBusinessesKeys[8]].address1
       }))))));
     }
   }]);
@@ -8048,7 +8058,7 @@ var MarkerManager = /*#__PURE__*/function () {
 
   _createClass(MarkerManager, [{
     key: "updateMarkers",
-    value: function updateMarkers(businesses) {
+    value: function updateMarkers(businesses, history) {
       var _this = this;
 
       var businessObj = {};
@@ -8100,6 +8110,11 @@ var MarkerManager = /*#__PURE__*/function () {
           google.maps.event.addListener(newMarker, 'mouseout', function () {
             infoWindow.setContent('this is marker');
             infoWindow.close(this.map, newMarker);
+          });
+          google.maps.event.addListener(newMarker, 'click', function (e) {
+            if (history) {
+              return history.push("/biz/".concat(id));
+            }
           });
           _this.markers[id] = newMarker;
         }
@@ -22368,7 +22383,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-header-down-items{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.biz-header-down-items-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.biz-header-down-items-ph{\n    flex: 1 0 7rem;\n    margin-right: 32px;\n}\n\n.biz-header-down-items-layout{\n    flex: 10 0 24rem;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.biz-header-down-placeholder{\n    flex: 1 0 30rem;\n}\n\n.bh-item-container{\n    display: flex;\n    flex-direction: row;\n}\n.bh-item{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.bh-item-link{\n    padding: 16px;\n    margin-bottom: 6px;\n    display: flex;\n    flex-direction: row;\n}\n\n.bh-item-link span{\n    font-size: 0.875rem;\n    color:#2b273c;\n    /* color:#3b2697; */\n    white-space: nowrap;\n    margin-right: 20px;\n}\n", ""]);
+exports.push([module.i, ".biz-header-down-items{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    width: 100%;\n}\n\n.biz-header-down-items-container{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.biz-header-down-items-ph{\n    flex: 1 0 7rem;\n    margin-right: 32px;\n}\n\n.biz-header-down-items-layout{\n    flex: 10 0 24rem;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.biz-header-down-placeholder{\n    flex: 1 0 30rem;\n}\n\n.bh-item-container{\n    display: flex;\n    flex-direction: row;\n}\n.bh-item{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.bh-item-link{\n    padding: 16px;\n    margin-bottom: 6px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    color: #757280;\n    font-size: 0.875rem;\n}\n\n.bh-item-link svg{\n    color:#2b273c;\n    /* color:#3b2697; */\n    white-space: nowrap;\n    margin-right: 10px;\n}\n\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -22530,7 +22545,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-review-content-container .ratings{\n    vertical-align: baseline;\n}\n\n.biz-review-content-container .ratings .star {\n    padding: 0.2rem 0.2rem;\n    vertical-align: baseline;\n    font-size: 0.75rem;\n}\n.biz-review-content-container .ratings .white-star {\n    padding: 0.2rem 0.2rem;\n    vertical-align: baseline;\n    font-size: 0.75rem;\n}\n\n.biz-review-content-1{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    height: 100%;\n    margin-bottom: 0.5rem;\n}\n\n.biz-review-content-1-container{\n    display: flex;\n}\n\n\n.biz-review-ratings{\n    display: flex;\n    flex-direction: column;\n}\n\n.biz-review-content-1 .biz-review-date {\n    font-size: 0.875rem;\n    color: #757280;   \n    margin-left: 10px;\n    margin-top: 2px;\n}\n\n.biz-review-delete{\n    font-size: 0.875rem;\n    color: #757280;   \n    cursor: pointer;\n}\n\n.biz-review-content-2{\n    font-size: 0.875rem;\n    white-space: pre-line;\n    color: #333333;\n    line-height: 1.125rem;\n}\n\n.biz-review-content-2-pic{\n    margin-top: 1rem;\n    height: 300px;\n    width: 300px;\n    object-fit: cover;\n}\n\n.biz-review-content-3{\n    font-size: 0.65rem;\n    display: flex;\n    color: #333333;\n    flex-direction: row;\n    margin-top: 1.25rem;\n}\n\n.biz-review-content-3 div span{\n    font-size: 0.75rem;\n    padding-left: 0.25rem;\n    margin-right: 1.25rem;\n    margin-bottom: 0.25rem;\n}\n\n    /* line-height: 20px; */\n", ""]);
+exports.push([module.i, ".biz-review-content-container .ratings{\n    vertical-align: baseline;\n}\n\n.biz-review-content-container .ratings .star {\n    padding: 0.2rem 0.2rem;\n    vertical-align: baseline;\n    font-size: 0.75rem;\n}\n.biz-review-content-container .ratings .white-star {\n    padding: 0.2rem 0.2rem;\n    vertical-align: baseline;\n    font-size: 0.75rem;\n}\n\n.biz-review-content-1{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    height: 100%;\n    margin-bottom: 0.5rem;\n}\n\n.biz-review-content-1-container{\n    display: flex;\n}\n\n\n.biz-review-ratings{\n    display: flex;\n    flex-direction: column;\n}\n\n.biz-review-content-1 .biz-review-date {\n    font-size: 0.875rem;\n    color: #757280;   \n    margin-left: 10px;\n    margin-top: 2px;\n}\n\n.biz-review-delete{\n    font-size: 0.875rem;\n    color: #757280;   \n    cursor: pointer;\n}\n\n.biz-review-content-2{\n    font-size: 0.875rem;\n    white-space: pre-line;\n    color: #333333;\n    line-height: 1.125rem;\n}\n\n.biz-review-content-2-pic{\n    margin-top: 1rem;\n    height: 300px;\n    width: 300px;\n    object-fit: cover;\n}\n\n.biz-review-content-2-pic img{\n    height: 300px;\n    width: 300px;\n    object-fit: cover;  \n}\n\n.biz-review-content-3{\n    font-size: 0.65rem;\n    display: flex;\n    color: #333333;\n    flex-direction: row;\n    margin-top: 1.25rem;\n}\n\n.biz-review-content-3 div span{\n    font-size: 0.75rem;\n    padding-left: 0.25rem;\n    margin-right: 1.25rem;\n    margin-bottom: 0.25rem;\n}\n\n    /* line-height: 20px; */\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -22692,7 +22707,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".main-section{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    width: 100%;\n}\n\n.main-section-container{\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n}\n\n.main-section-container-header{\n    display: flex;\n    justify-content: space-between;\n    color: white\n}\n\n.main-section-container-header-left{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    font-weight: bold;\n}\n\n.main-section-container-header-item{\n    margin-right: 2rem;\n}\n\n.main-section-container-content{\n    padding-top: 80px;\n}\n\n.main-section-container-content > .header-search{\n    margin-right: 0;\n}\n\n.logo{\n    display: flex;\n    justify-content: center;\n    height: 80px;\n    margin: 0 auto 48px;\n}\n\n.logo-image{\n    width: auto;\n    height: 100%;\n}\n.search-form{\n    min-width: 100%;\n    margin-bottom: 20px;\n}\n.search-form-container{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    min-width: 100%;\n    align-items: center;\n}\n\n.search-form-arrange-unit{\n    width: 100%;\n}\n\n.pseudo-input-label-search, .pseudo-input-label-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n.pseudo-input-label-search{\n    border-radius: 4px 0 0 4px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n}\n\n.find-span, .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n}\n.pseudo-input-field-holder {\n    width: 100%;\n}\n.pseudo-input-field-holder > input {\n    width: 100%;\n}\n\n.search-form-middle-border{\n    border-left: 1px solid #ccc;;\n    width: 1px;\n    height: 25px;\n}\n\n.search-form-button{\n    background-color: d32323;\n    padding: 11px 22px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n.categories-tags{\n    color: white;\n    display: flex;\n    justify-content: center;\n    margin-top: 1.4rem;\n}\n\n.categories-tag {\n    padding: 0 12px;\n    margin-right: 0.85rem;\n    padding-bottom: 168px;\n    font-weight: bold;\n}\n.categories-tag-span{\n    margin-left: 7px;\n}\n\n.main-photo-info{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n}\n\n.main-photo-info-container{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.main-photo-place, .main-photo-credit{\n    color: white;\n    padding: 2px;\n}\n", ""]);
+exports.push([module.i, ".main-section{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    width: 100%;\n}\n\n.main-section-container{\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n}\n\n.main-section-container-header{\n    display: flex;\n    justify-content: space-between;\n    color: white\n}\n\n.main-section-container-header-left{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    font-weight: bold;\n}\n\n.main-section-container-header-item{\n    margin-right: 2rem;\n}\n\n.main-section-container-content{\n    padding-top: 80px;\n}\n\n.main-section-container-content > .header-search{\n    margin-right: 0;\n}\n\n.logo{\n    display: flex;\n    justify-content: center;\n    height: 80px;\n    margin: 0 auto 48px;\n}\n\n.logo-image{\n    width: auto;\n    height: 100%;\n}\n.search-form{\n    min-width: 100%;\n    margin-bottom: 20px;\n}\n.search-form-container{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    min-width: 100%;\n    align-items: center;\n}\n\n.search-form-arrange-unit{\n    width: 100%;\n}\n\n.pseudo-input-label-search, .pseudo-input-label-near{\n    background-color: white;\n    padding: 11px;\n    min-width: 100%\n}\n.pseudo-input-label-search{\n    border-radius: 4px 0 0 4px;\n    min-width: 100%\n}\n\n.pseudo-input-wrapper{\n    display: flex;\n    justify-content: row;\n}\n\n.find-span, .near-span {\n    margin-right: 12px;\n    color: #666;;\n    font-weight: bold;\n}\n.pseudo-input-field-holder {\n    width: 100%;\n}\n.pseudo-input-field-holder > input {\n    width: 100%;\n}\n\n.search-form-middle-border{\n    border-left: 1px solid #ccc;;\n    width: 1px;\n    height: 25px;\n}\n\n.search-form-button{\n    background-color: d32323;\n    padding: 11px 22px 11px;\n    border-radius: 0 4px 4px 0;\n}\n\n.categories-tags{\n    color: white;\n    display: flex;\n    justify-content: center;\n    margin-top: 1.4rem;\n}\n\n.categories-tag {\n    padding: 0 12px;\n    margin-right: 0.85rem;\n    padding-bottom: 168px;\n    font-weight: bold;\n}\n\n.categories-tag-span{\n    margin-left: 7px;\n}\n\n.main-photo-info{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n}\n\n.main-photo-info-container{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.main-photo-place, .main-photo-credit{\n    color: white;\n    padding: 2px;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

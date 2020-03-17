@@ -42,12 +42,15 @@
     margin-bottom: 6px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    color: #757280;
+    font-size: 0.875rem;
 }
 
-.bh-item-link span{
-    font-size: 0.875rem;
+.bh-item-link svg{
     color:#2b273c;
     /* color:#3b2697; */
     white-space: nowrap;
-    margin-right: 20px;
+    margin-right: 10px;
 }
+

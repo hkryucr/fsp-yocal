@@ -32,7 +32,7 @@ class BizSearchContentItem extends React.Component{
                                     </div>
                                     <div className="biz-search-content-detail-rating">
                                         <span>
-                                            <Ratings/>
+                                            <Ratings rating={curBusiness.rating}/>
                                         </span>
                                         <span>{curBusiness.reviewCount}</span> 
                                     </div>

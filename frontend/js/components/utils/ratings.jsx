@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'css/components/utils/ratings.css';
 import React from 'react';
 
-
 const StarDiv = () => (
     <span className="star">
         <FontAwesomeIcon icon={faStar} size="1x" color="white" />
@@ -17,7 +16,6 @@ const WhiteStarDiv = () => (
 );
 
 const Ratings = (props) => {
-
     const elements = [];
     const roundedRating = Math.round(parseFloat(props.rating));
     
@@ -35,4 +33,5 @@ const Ratings = (props) => {
         </div>        
     )
 }
+
 export default Ratings;

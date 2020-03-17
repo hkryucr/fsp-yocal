@@ -20,9 +20,12 @@ class Api::ReviewsController < ApplicationController
             review_date: Time.at(review_params[:review_date].to_f/1000.0), 
             useful: 0, 
             funny: 0, 
-            cool: 0,
-            review_photo: review_params[:review_photo]
+            cool: 0
         }
+
+        if (review_params[:review_photo] != "null")
+            cur_review["review_photo"] = review_params[:review_photo]
+        end
 
         @review = Review.new(cur_review)
         if @review.save

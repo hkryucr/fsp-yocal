@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import 'css/components/biz/biz_header_down_items.css';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import MainSectionCategories from 'js/components/main_section/main_section_categories'
 
 class BizHeaderDownItems extends React.Component {
     render() {
@@ -13,6 +14,7 @@ class BizHeaderDownItems extends React.Component {
                         <div className="biz-header-down-items-ph-container">
                         </div>
                     </div>
+                    {/* <MainSectionCategories/> */}
                     <div className="biz-header-down-items-layout">
                         <div className="bh-item-container">
                             <div className="bh-item">

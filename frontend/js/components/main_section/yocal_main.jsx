@@ -47,8 +47,6 @@ class YocalMain extends React.Component{
                     />
                     </div>
                 </div>
-                {/* <BusinessSearch/> */}
-                {/* Reviews Await Page */}
                 <CustomMain 
                     businesses={this.props.businesses}
                     categoryList={this.props.categoryList}

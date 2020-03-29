@@ -27,26 +27,21 @@ A logged-in user is able to upload photos with his or her review and delete any 
 A logged-in user can see all reviews that he or she has written.
 
 
-Technology Stack
-Aerbnb is a single-page web application with one backend route responsible for rendering HTML. User interactions in the front-end side trigger AJAX requests to the back-end, which is responsible for rendering database information in JSON format.
+### Technology Stack
+Yocal is a single-page web application with technology stacks as follows: 
 
-Front-end
-React
-The Rails backend API is connected to a React frontend to efficiently render to the virtual DOM.
+#### Back-end
+Ruby on Rails 
+Yocal uses Ruby on Rails - active record - to query the database on the back-end.
+#### Database
+Yocal uses a PostgreSQL database to store its relational data and AWS S3 to store the photos with active record storage.
+ 
+#### Front-end
+#### React & Redux
+Yocal uses React on the frontend to efficiently render to the virtual DOM. Also Redux manages the state connected to the Rails backend. 
 
-Redux
-Redux manages the front-end state of Aerbnb. When database information is retrieved, Redux state is updated first and re-renders the appropriate React components.
-
-Back-end
-Ruby on Rails
-Ruby on Rails is the back-end framework used to query the database.
-
-Database
-Aerbnb uses a PostgreSQL database to store its relational data.
-
-Future Plans
-Implement ability for users to upload profile pictures and edit profile page
-Infinite scrolling or pagination on the index pages
-Implement ability to interact with friends, i.e. messaging
-Additional filters for listings
+### Future Plans
+- Enable users to be friends with each other and interact by messaging or checking their reviews.
+- Make users upload multiple photos at once on the restaurants (currently, users can upload a photo only by uploading a review).
+- Additional filters for searching.
 

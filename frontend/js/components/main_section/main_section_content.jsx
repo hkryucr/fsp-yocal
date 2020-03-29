@@ -25,8 +25,8 @@ class MainSectionContent extends React.Component {
         const value = e.target.value;
         let candidates = [];
         if (value.length > 0) {
-            const regex = new RegExp(`^${value}`, 'i');
-            candidates = this.items.sort().filter(item => regex.test(item));
+            const regex = new RegExp(`${value.toLowerCase()}`, 'i');
+            candidates = this.items.sort().filter(item => regex.test(item.toLowerCase()));
         }
         this.setState({
             candidates,

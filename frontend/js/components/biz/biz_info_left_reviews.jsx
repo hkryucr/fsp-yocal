@@ -26,7 +26,6 @@ class BizReviews extends React.Component {
             const regex = new RegExp(` `, 'i');
             filteredReviews = this.curReviews.filter(review => regex.test(review.text.toLowerCase()));
         }
-
         this.setState({
             filteredReviews,
             text: value

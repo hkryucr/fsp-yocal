@@ -8,13 +8,10 @@ class Api::BusinessesController < ApplicationController
         
         # "name LIKE ? OR postal_code LIKE ?", "%#{search}%", "%#{search}%"
         
-        @businesses += Business.where("lower(business_name) LIKE ?", "%#{params[:bounds][:text].downcase}%")
-        
-
+        underscored_params = params[:bounds][:text].split(" ").join("_")
+        @businesses += Business.where('(lower(business_name) LIKE ?)', "%#{underscored_params.downcase}%")
         @businesses += Business.joins(:categories).where( '(lower(categories.name) LIKE ?)', "%#{params[:bounds][:text].downcase}%")
-        
         @businesses = @businesses[0..31]
-        
         
         render 'api/businesses/index'
     end

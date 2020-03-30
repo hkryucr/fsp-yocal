@@ -23,8 +23,8 @@ class YocalMain extends React.Component{
             _.isEmpty(this.props.businessList)
         ) {
             return (
-                <div style={{ display: "flex", margin: "100px 0", justifyContent: "center", alignItems: "center", height: "60%" }}>
-                    <img src="assets/Preloader_2.gif" style={{ textAlign: "center", height: "100px", width: "100px", objectFit: "cover"}}/>
+              <div style={{ display: "flex", margin: "100px 0", justifyContent: "center", alignItems: "center", height: "60%" }}>
+                    <img src="assets/Preloader_2.gif" style={{ textAlign: "center", height: "100px", width: "100px", objectFit: "cover" }} />
                 </div>
             );
         }

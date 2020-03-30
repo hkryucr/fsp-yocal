@@ -69,7 +69,16 @@ class Business < ApplicationRecord
     end
 
 
-    def self.in_bounds(bounds)    
+    # def self.in_bounds(bounds)    
         # Bench.where('(lat BETWEEN ? AND ?) AND (lng BETWEEN ? AND ?)', bounds[:southWest][:lat].to_f, bounds[:northEast][:lat].to_f, bounds[:southWest][:lng].to_f, bounds[:northEast][:lng].to_f)
+    # end
+
+    def self.in_bounds(bounds)
+        bounds = JSON.parse(bounds)
+
+        self.where('latitude < ?', bounds["northEast"]["lat"].to_f)
+        .where('latitude >?', bounds["southWest"]["lat"].to_f)
+        .where('longitude < ?', bounds["northEast"]["lng"].to_f)
+        .where('longitude > ?', bounds["southWest"]["lng"].to_f)
     end
 end

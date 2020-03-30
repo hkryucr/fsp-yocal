@@ -17,7 +17,7 @@ export const receiveBusiness = (business) => ({
     business
 })
 
-export const fetchBusinesses = (bounds) => (dispatch) => APIUtil.fetchBusinesses(bounds).then((res) => {
+export const fetchBusinesses = (data) => (dispatch) => APIUtil.fetchBusinesses(data).then((res) => {
     return dispatch(receiveBusinesses(res))
 })
 

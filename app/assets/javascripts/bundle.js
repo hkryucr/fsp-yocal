@@ -3652,7 +3652,7 @@ var BizSearch = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, BizSearch);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(BizSearch).call(this, props));
-    _this.searchTerm = _this.props.location.search.split("?desc=")[1];
+    _this.searchTerm = _this.props.location.search.split('?desc=')[1];
 
     if (_this.searchTerm.length > 0 && _this.searchTerm.includes("%20")) {
       _this.searchTerm = _this.searchTerm.split("%20").join(" ");
@@ -3665,9 +3665,38 @@ var BizSearch = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.clearupData();
+      console.log(this.props.bounds);
+      var initialBounds = {
+        northEast: {
+          lat: 37.826324833459424,
+          lng: -122.38473808526992
+        },
+        southWest: {
+          lat: 37.714649307743024,
+          lng: -122.5
+        }
+      };
+
+      if (!lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(this.props.bounds)) {
+        initialBounds = this.props.bounds;
+      }
+
       this.props.fetchBusinesses({
-        text: this.searchTerm
+        text: this.searchTerm,
+        bounds: initialBounds
       });
+    }
+  }, {
+    key: "boundsChanged",
+    value: function boundsChanged(prevProps) {
+      if (lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(this.props.bounds)) return false;
+      if (!lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(this.props.bounds) && lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(prevProps.bounds)) return true;
+
+      if (this.props.bounds.northEast.lat !== prevProps.bounds.northEast.lat || this.props.bounds.northEast.lng !== prevProps.bounds.northEast.lng || this.props.bounds.southWest.lat !== prevProps.bounds.southWest.lat || this.props.bounds.southWest.lng !== prevProps.bounds.southWest.lng) {
+        return true;
+      }
+
+      return false;
     }
   }, {
     key: "componentDidUpdate",
@@ -3681,7 +3710,15 @@ var BizSearch = /*#__PURE__*/function (_React$Component) {
 
         this.props.clearupData();
         this.props.fetchBusinesses({
-          text: this.searchTerm
+          text: this.searchTerm,
+          bounds: this.props.bounds
+        });
+      }
+
+      if (this.boundsChanged(prevProps)) {
+        this.props.fetchBusinesses({
+          text: this.searchTerm,
+          bounds: this.props.bounds
         });
       }
     }
@@ -3746,7 +3783,8 @@ var BizSearch = /*#__PURE__*/function (_React$Component) {
         className: "biz-search-body-container"
       }, bizSearchResultsDiv, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(js_components_biz_search_biz_search_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
         businesses: this.props.businesses,
-        history: this.props.history
+        history: this.props.history,
+        updateBounds: this.props.updateBounds
       })))));
     }
   }]);
@@ -3771,7 +3809,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! actions/business_actions */ "./frontend/redux/actions/business_actions.js");
 /* harmony import */ var actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! actions/session_actions */ "./frontend/redux/actions/session_actions.js");
 /* harmony import */ var actions_clearup_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! actions/clearup_actions */ "./frontend/redux/actions/clearup_actions.js");
-/* harmony import */ var js_components_biz_search_biz_search__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! js/components/biz_search/biz_search */ "./frontend/js/components/biz_search/biz_search.jsx");
+/* harmony import */ var actions_filter_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! actions/filter_actions */ "./frontend/redux/actions/filter_actions.js");
+/* harmony import */ var js_components_biz_search_biz_search__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! js/components/biz_search/biz_search */ "./frontend/js/components/biz_search/biz_search.jsx");
+
 
 
 
@@ -3784,26 +3824,29 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     entities: state.entities,
     businesses: state.entities.businesses.businessItems,
     businessList: state.entities.businesses.businessList,
-    categoryList: state.entities.businesses.categoryList
+    categoryList: state.entities.businesses.categoryList,
+    bounds: state.ui.filters
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    fetchBusinesses: function fetchBusinesses(bounds) {
-      return dispatch(Object(actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["fetchBusinesses"])(bounds));
+    fetchBusinesses: function fetchBusinesses(data) {
+      return dispatch(Object(actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["fetchBusinesses"])(data));
     },
     logout: function logout() {
       return dispatch(Object(actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"])());
     },
     clearupData: function clearupData() {
       return dispatch(Object(actions_clearup_actions__WEBPACK_IMPORTED_MODULE_3__["clearupData"])());
-    } // updateBounds: (filter, value) => dispatch(updateFilter(filter, value))
-
+    },
+    updateBounds: function updateBounds(filter, value) {
+      return dispatch(Object(actions_filter_actions__WEBPACK_IMPORTED_MODULE_4__["updateFilter"])(filter, value));
+    }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(js_components_biz_search_biz_search__WEBPACK_IMPORTED_MODULE_4__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(js_components_biz_search_biz_search__WEBPACK_IMPORTED_MODULE_5__["default"]));
 
 /***/ }),
 
@@ -3984,6 +4027,8 @@ var BizSearchMap = /*#__PURE__*/function (_React$Component) {
             lng: sw.lng()
           }
         };
+
+        _this.props.updateBounds('bounds', boundsObj);
       });
     }
   }, {
@@ -7080,9 +7125,9 @@ var receiveBusiness = function receiveBusiness(business) {
     business: business
   };
 };
-var fetchBusinesses = function fetchBusinesses(bounds) {
+var fetchBusinesses = function fetchBusinesses(data) {
   return function (dispatch) {
-    return util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBusinesses"](bounds).then(function (res) {
+    return util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBusinesses"](data).then(function (res) {
       return dispatch(receiveBusinesses(res));
     });
   };
@@ -7194,8 +7239,7 @@ var changeFilter = function changeFilter(filters, value) {
 };
 function updateFilter(filters, value) {
   return function (dispatch, getState) {
-    dispatch(changeFilter(filters, value));
-    return Object(actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["fetchBusinesses"])(getState().ui.filters)(dispatch);
+    return dispatch(changeFilter(filters, value)); // return fetchBusinesses(getState().ui.filters)(dispatch);
   };
 }
 
@@ -8069,12 +8113,12 @@ var configureStore = function configureStore() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusinesses", function() { return fetchBusinesses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusiness", function() { return fetchBusiness; });
-var fetchBusinesses = function fetchBusinesses(bounds) {
+var fetchBusinesses = function fetchBusinesses(data) {
   return $.ajax({
     method: 'GET',
     url: '/api/businesses',
     data: {
-      bounds: bounds
+      data: data
     },
     error: function error(err) {
       return console.log(err);
@@ -8173,17 +8217,11 @@ var fetchHour = function fetchHour(id) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MarkerManager; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
-
 
 var MarkerManager = /*#__PURE__*/function () {
   function MarkerManager(map) {
@@ -8221,7 +8259,6 @@ var MarkerManager = /*#__PURE__*/function () {
             reviewCount = _businesses$_i.reviewCount,
             rating = _businesses$_i.rating,
             categories = _businesses$_i.categories;
-        var firstImg = photoUrls[0];
 
         if (_this.markers[id] === undefined) {
           var newMarker = new google.maps.Marker({
@@ -8239,7 +8276,9 @@ var MarkerManager = /*#__PURE__*/function () {
             fontWeight: "bold",
             fontSize: "12px"
           });
-          var infoWindow = new google.maps.InfoWindow();
+          var infoWindow = new google.maps.InfoWindow({
+            disableAutoPan: true
+          });
           google.maps.event.addListener(newMarker, 'mouseover', function () {
             infoWindow.setContent('<div class="' + 'g-map-infowindow' + '">' + '<img src="' + photoUrls[0].photoUrl + '" style="' + 'height:200px; width:200px; object-fit:cover; border-radius: 4px' + '"/>' + '<div class="' + 'g-map-infowindow-title' + '">' + businessName.split("_").join(" ") + '</div>' + '<div class="' + 'g-map-infowindow-rating' + '">' + '<span class="' + 'g-map-infowindow-rating-span' + '">' + rating + '</span>' + " rating out of " + '<span class="' + 'g-map-infowindow-rating-span' + '">' + reviewCount + '</span>' + " reviews" + '</div>' + '<div>' + categories + '</div>' + '</div>');
             infoWindow.open(this.map, newMarker);

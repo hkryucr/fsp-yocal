@@ -8,7 +8,7 @@ import _ from 'lodash';
 class BizSearch extends React.Component {
     constructor(props) {
         super(props)
-        this.searchTerm = this.props.location.search.split("?desc=")[1]
+        this.searchTerm = this.props.location.search.split('?desc=')[1]
         if (this.searchTerm.length > 0 && this.searchTerm.includes("%20")) {
             this.searchTerm = this.searchTerm.split("%20").join(" ");
         }
@@ -16,22 +16,64 @@ class BizSearch extends React.Component {
 
     componentDidMount(){   
         this.props.clearupData()     
+        console.log(this.props.bounds);
+
+        let initialBounds = {
+            northEast: {
+                lat: 37.826324833459424,
+                lng: -122.38473808526992
+            }, 
+            southWest: {
+                lat: 37.714649307743024,
+                lng: -122.5
+            }
+        };
+
+        if(!_.isEmpty(this.props.bounds)){
+            initialBounds = this.props.bounds;
+        }
+        
         this.props.fetchBusinesses({
-            text: this.searchTerm
-        })
+            text: this.searchTerm,
+            bounds: initialBounds
+        });
+    }
+
+    boundsChanged(prevProps){
+        if(_.isEmpty(this.props.bounds)) return false;
+        if (!_.isEmpty(this.props.bounds) && _.isEmpty(prevProps.bounds)) return true;
+        
+        if (
+          this.props.bounds.northEast.lat !== prevProps.bounds.northEast.lat ||
+          this.props.bounds.northEast.lng !== prevProps.bounds.northEast.lng ||
+          this.props.bounds.southWest.lat !== prevProps.bounds.southWest.lat ||
+          this.props.bounds.southWest.lng !== prevProps.bounds.southWest.lng
+        ) {
+          return true;
+        }
+        return false;
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.location.search != prevProps.location.search) {
+        if ((this.props.location.search != prevProps.location.search)) {
             this.searchTerm = this.props.location.search.split("?desc=")[1]
             if (this.searchTerm.length > 0 && this.searchTerm.includes("%20")) {
                 this.searchTerm = this.searchTerm.split("%20").join(" ");
             }
             this.props.clearupData()
             this.props.fetchBusinesses({
-                text: this.searchTerm
-            })
+              text: this.searchTerm,
+              bounds: this.props.bounds
+            });
         }
+
+        if (this.boundsChanged(prevProps)){
+            this.props.fetchBusinesses({
+              text: this.searchTerm,
+              bounds: this.props.bounds
+            });
+        }
+
     }
 
     render() {
@@ -68,25 +110,29 @@ class BizSearch extends React.Component {
         }
 
         return (
-            <div className="biz-search">
-                <div className="biz-search-container">
-                    <BizHeader 
-                        businessList={this.props.businessList} 
-                        categoryList={this.props.categoryList}
-                        currentUser={this.props.currentUser} 
-                        logout={this.props.logout} 
-                        fetchBusinesses={this.props.fetchBusinesses}
-                        history={this.props.history}
-                    />
-                    <div className="biz-search-body">
-                        <div className="biz-search-body-container">
-                            { bizSearchResultsDiv }
-                            <BizSearchMap businesses={this.props.businesses} history={this.props.history}/>
-                        </div>
-                    </div>
+          <div className="biz-search">
+            <div className="biz-search-container">
+              <BizHeader
+                businessList={this.props.businessList}
+                categoryList={this.props.categoryList}
+                currentUser={this.props.currentUser}
+                logout={this.props.logout}
+                fetchBusinesses={this.props.fetchBusinesses}
+                history={this.props.history}
+              />
+              <div className="biz-search-body">
+                <div className="biz-search-body-container">
+                  {bizSearchResultsDiv}
+                  <BizSearchMap
+                    businesses={this.props.businesses}
+                    history={this.props.history}
+                    updateBounds={this.props.updateBounds}
+                  />
                 </div>
+              </div>
             </div>
-        )
+          </div>
+        );
     }
 }
 

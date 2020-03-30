@@ -34,6 +34,7 @@ class BizSearchMap extends React.Component {
                     lng: sw.lng()
                 }
             };
+            this.props.updateBounds('bounds', boundsObj);
         });
     }
 

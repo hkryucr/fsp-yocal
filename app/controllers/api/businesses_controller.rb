@@ -6,11 +6,23 @@ class Api::BusinessesController < ApplicationController
         @category_list = @businesses.inject([]){|sum, business| business.categories + sum }.map(&:name).uniq
         @businesses = []
         
-        # "name LIKE ? OR postal_code LIKE ?", "%#{search}%", "%#{search}%"
-        
-        underscored_params = params[:bounds][:text].split(" ").join("_")
-        @businesses += Business.where('(lower(business_name) LIKE ?)', "%#{underscored_params.downcase}%")
-        @businesses += Business.joins(:categories).where( '(lower(categories.name) LIKE ?)', "%#{params[:bounds][:text].downcase}%")
+        bounds = params[:data][:bounds]
+        underscored_params = business_params[:text].split(" ").join("_")
+
+        @businesses += Business
+        .where('latitude < ?', bounds[:northEast][:lat].to_f)
+        .where('latitude >?', bounds[:southWest][:lat].to_f)
+        .where('longitude < ?', bounds[:northEast][:lng].to_f)
+        .where('longitude > ?', bounds[:southWest][:lng].to_f)
+        .where('(lower(business_name) LIKE ?)', "%#{underscored_params.downcase}%")
+
+        @businesses += Business.joins(:categories)
+        .where( '(lower(categories.name) LIKE ?)', "%#{params[:data][:text].downcase}%")
+        .where('latitude < ?', bounds[:northEast][:lat].to_f)
+        .where('latitude >?', bounds[:southWest][:lat].to_f)
+        .where('longitude < ?', bounds[:northEast][:lng].to_f)
+        .where('longitude > ?', bounds[:southWest][:lng].to_f)
+
         @businesses = @businesses[0..31]
         
         render 'api/businesses/index'
@@ -26,7 +38,7 @@ class Api::BusinessesController < ApplicationController
     end
 
     def business_params
-        params.require(:bounds).permit(:text)
+        params.require(:data).permit(:text, :bounds)
     end
 
     

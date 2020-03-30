@@ -1,6 +1,3 @@
-import React from 'react';
-import { Link, Redirect} from 'react-router-dom';
-
 export default class MarkerManager {
     constructor(map) {
         this.map = map;
@@ -22,7 +19,6 @@ export default class MarkerManager {
 
         for (let i = 0; i < businesses.length; i++) {
             const { id, businessName, latitude, longitude, photoUrls, reviewCount, rating, categories } = businesses[i];
-            const firstImg = photoUrls[0]
             if (this.markers[id] === undefined) {
                 const newMarker = new google.maps.Marker({
                     id: id,
@@ -41,7 +37,9 @@ export default class MarkerManager {
                     fontSize: `12px`
                     })               
 
-                const infoWindow = new google.maps.InfoWindow()
+                const infoWindow = new google.maps.InfoWindow({
+                  disableAutoPan: true
+                });
 
                 google.maps.event.addListener(newMarker, 'mouseover', function(){
                     infoWindow.setContent('<div class="' + 'g-map-infowindow' + '">' + '<img src="' + photoUrls[0].photoUrl + '" style="' + 'height:200px; width:200px; object-fit:cover; border-radius: 4px' + '"/>' + '<div class="' + 'g-map-infowindow-title' + '">' + businessName.split("_").join(" ") + '</div>' + '<div class="' + 'g-map-infowindow-rating' + '">' + '<span class="' + 'g-map-infowindow-rating-span' + '">' + rating + '</span>' + " rating out of " + '<span class="' + 'g-map-infowindow-rating-span' + '">' + reviewCount + '</span>'+ " reviews" + '</div>' + '<div>' + categories + '</div>' + '</div>');

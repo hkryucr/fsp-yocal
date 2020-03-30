@@ -15,7 +15,7 @@
     align-items: center;
     margin-right: 32px;
 }
-%
+
 .header-logo-container{
     display: flex;
     align-items: center;
@@ -150,22 +150,6 @@
     padding: 8px 8px;
     cursor: pointer;
 }
-.header-user-button-container{
-    display: flex;
-    flex-direction: row;
-    justify-items: center;
-    align-items: center;
-    padding: 8px 8px 8px 0px;
-}
-
-.header-user-button-container .item-mark {
-    color: #05a882;
-    font-weight: bold;
-    font-size: 0.75rem;
-    display: flex;
-    margin-right: 1.5rem;
-    cursor: pointer;
-}
 
 .header-user-item-container:hover{
     background-color: #eeeeef;
@@ -175,31 +159,4 @@
 .header-user-item{
     font-size: 0.875rem;
     white-space: nowrap;
-}
-
-.header-user-button-1 {
-    white-space: nowrap;
-    padding: 8px 16px;
-    border-radius: 4px;
-    background-color: white;
-    margin-left: 12px;
-    border: 1px solid #2b273c;
-}
-
-.header-user-button-1 span{
-    white-space: nowrap;
-    color: #2b273c;
-}
-.header-user-button-2 {
-    cursor: pointer;
-    white-space: nowrap;
-    padding: 8px 16px;
-    border-radius: 4px;
-    background-color: #d32323;
-    margin-left: 12px;
-}
-
-.header-user-button-2 span{
-    white-space: nowrap;
-    color: white;
 }

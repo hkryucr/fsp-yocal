@@ -61,6 +61,10 @@
     border-radius: 4px;
 }
 
+.header-search-form .header-search-form-button{
+    cursor: pointer;
+}
+
 .header-search-form-container{
     display: flex;
     flex-direction: row;

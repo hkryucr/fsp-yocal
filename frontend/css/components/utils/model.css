@@ -1,0 +1,94 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.modal {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.modal.closed {
+    display: none;
+}
+
+.modal-background.closed {
+    display: none;
+}
+
+.modal-container {
+    height: 25rem;
+    width: 25rem;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem 1.5rem 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    position: relative;
+    overflow-y: scroll;
+}
+
+.modal-x-mark {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    cursor: pointer;
+}
+
+
+.modal-bottom {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
+    justify-content: space-between;
+}
+
+.modal-title {
+    font-size: 1.6rem;
+    font-weight: bolder;
+    text-align: center;
+    margin: 1rem 0 ;
+}
+
+.modal-content {
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    line-height: 1.4rem;
+}
+
+.modal-item {
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem;
+}
+
+.modal-item > span:first-child {
+    margin-right: 1rem;
+    font-size: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+.modal-item a {
+    color: red;
+    font-weight: bold;
+}
+
+.modal-bold {
+    color: #f40d15;
+}

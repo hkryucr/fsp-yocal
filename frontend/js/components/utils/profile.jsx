@@ -57,7 +57,7 @@ class Profile extends React.Component{
         } else {
             return (
                 <div className="profile">
-                    <div className="profile-greeting medium">Hello, {this.titleize(this.props.currentUser.firstname)} {this.titleize(this.props.currentUser.lastname)} !</div>
+                    <div className="profile-greeting medium">Hello, {this.titleize(this.props.currentUser.firstname)} {this.titleize(this.props.currentUser.lastname)}!</div>
                     <div className="profile-img" onClick={this.showDropDown}> 
                         <img src={this.props.currentUser.photoUrl} />
                         <div className="profile-dropdown-white">

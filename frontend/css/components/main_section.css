@@ -26,6 +26,7 @@
 
 .main-section-container-header-item{
     margin-right: 2rem;
+    cursor: pointer;
 }
 
 .main-section-container-content{

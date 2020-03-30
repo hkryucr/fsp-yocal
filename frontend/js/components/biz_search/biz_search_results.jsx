@@ -19,9 +19,7 @@ class BizSearchResults extends React.Component {
                         <div className="biz-search-header-path">
                             <span>San Francisco, CA</span>
                             <FontAwesomeIcon icon={faChevronRight} size="sm" color="#757280" />
-                            <span>Tenderloin</span>
-                            <FontAwesomeIcon icon={faChevronRight} size="sm" color="#757280" />
-                            <span>Restaurants</span>
+                            <span>{this.props.searchTerm.length === 0 ? "Restaurants" : this.props.searchTerm}</span>
                         </div>
                         <div className="biz-search-header-title">
                             Restaurants "{this.props.searchTerm}" near San Francisco, CA

@@ -4,6 +4,7 @@ import YocalMainContainer from 'js/components/main_section/yocal_main_container'
 import BizSearchContainer from 'js/components/biz_search/biz_search_container';
 import BizContainer from 'js/components/biz/biz_container';
 import Footer from 'js/components/footer/footer';
+import Modal from 'js/components/utils/modal';
 import { AuthRoute, ProtectedRoute } from 'util/route_util.jsx';
 import RegisterSignupContainer from 'js/components/user_auth/register_signup_container';
 import RegisterLoginContainer from 'js/components/user_auth/register_login_container';
@@ -21,6 +22,7 @@ const App = () => (
             <ProtectedRoute exact path="/writeareview" component={WriteReviewContainer}></ProtectedRoute>
         </Switch>
         <Footer/>
+        <Modal/>
     </div>
 );
 

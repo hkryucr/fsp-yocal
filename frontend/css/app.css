@@ -3,3 +3,11 @@
     flex-direction: column;
     width: 100%;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+div::-moz-focus-inner {
+  padding: inherit;
+}

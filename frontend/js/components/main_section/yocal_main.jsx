@@ -3,8 +3,6 @@ import CustomMain from 'js/components/main_section/custom_main';
 import MainSection from 'js/components/main_section/main_section';
 import 'css/yocal_main.css';
 import 'css/components/yocal_body.css';
-import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class YocalMain extends React.Component{
     componentDidMount(){

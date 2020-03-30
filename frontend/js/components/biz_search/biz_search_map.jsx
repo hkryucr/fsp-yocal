@@ -38,7 +38,6 @@ class BizSearchMap extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log(this.props)
         if (!(_.isEmpty(this.props.businesses))) {
             const businessArr = Object.values(this.props.businesses);
             this.MarkerManager.updateMarkers(businessArr, this.props.history);

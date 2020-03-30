@@ -83,7 +83,7 @@ class MainSectionContent extends React.Component {
                                     <div className="pseudo-input-label-near">
                                         <span className="pseudo-input-wrapper">
                                             <span className="pseudo-input-field-holder-biz">
-                                                <input type="text" placeholder="San Francisco, CA" />
+                                                <input type="text" placeholder="San Francisco, CA" disabled/>
                                             </span>
                                         </span>
                                     </div>

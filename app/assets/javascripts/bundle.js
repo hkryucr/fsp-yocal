@@ -1959,6 +1959,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var balloon_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! balloon-css */ "./node_modules/balloon-css/balloon.min.css");
+/* harmony import */ var balloon_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(balloon_css__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
@@ -1984,6 +1986,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -2097,7 +2100,9 @@ var BizHeaderSearch = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "header-search-form-middle-border"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pseudo-input-label-near"
+        className: "pseudo-input-label-near",
+        "aria-label": "The search boundary in Yocal is limited to the city of San Francisco. You can still narrow down the search area by zooming in the map",
+        "data-balloon-pos": "down"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "pseudo-input-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -4544,7 +4549,9 @@ var MainSectionContent = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "header-search-form-middle-border"
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-        className: "pseudo-input-label-near"
+        className: "pseudo-input-label-near",
+        "aria-label": "The search boundary in Yocal is limited to the city of San Francisco.",
+        "data-balloon-pos": "up"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
         className: "pseudo-input-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
@@ -22434,6 +22441,37 @@ var convertCurry = convert.bind(null, react__WEBPACK_IMPORTED_MODULE_2___default
 
 /***/ }),
 
+/***/ "./node_modules/balloon-css/balloon.min.css":
+/*!**************************************************!*\
+  !*** ./node_modules/balloon-css/balloon.min.css ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../css-loader/dist/cjs.js!./balloon.min.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/balloon-css/balloon.min.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./frontend/css/app.css":
 /*!********************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./frontend/css/app.css ***!
@@ -23184,6 +23222,24 @@ var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.i, ".yocal-main{\n    width: 100%;\n    height: auto;\n}\n.yocal-main:after{\n    visibility: hidden;\n    display: block;\n    font-size: 0;\n    content: \" \";\n    clear: both;\n    height: 0;\n}\n\n.yocal-main-container{\n    min-width: 63.75rem;\n    display: flex;\n    flex-direction: column;\n    background-image: url('/assets/main_background.jpg');\n    background-size: cover;                      \n    background-repeat: no-repeat;\n    background-position: 50%;\n    padding-top: 30px;\n    align-items: top;\n}\n\n\n\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/balloon-css/balloon.min.css":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/balloon-css/balloon.min.css ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ":root{--balloon-color: rgba(16,16,16,0.95);--balloon-font-size: 12px;--balloon-move: 4px}button[aria-label][data-balloon-pos]{overflow:visible}[aria-label][data-balloon-pos]{position:relative;cursor:pointer}[aria-label][data-balloon-pos]:after{opacity:0;pointer-events:none;transition:all 0.18s ease-out 0.18s;text-indent:0;font-family:-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;font-weight:normal;font-style:normal;text-shadow:none;font-size:var(--balloon-font-size);background:var(--balloon-color);border-radius:2px;color:#fff;content:attr(aria-label);padding:.5em 1em;position:absolute;white-space:nowrap;z-index:10}[aria-label][data-balloon-pos]:before{width:0;height:0;border:5px solid transparent;border-top-color:var(--balloon-color);opacity:0;pointer-events:none;transition:all 0.18s ease-out 0.18s;content:\"\";position:absolute;z-index:10}[aria-label][data-balloon-pos]:hover:before,[aria-label][data-balloon-pos]:hover:after,[aria-label][data-balloon-pos][data-balloon-visible]:before,[aria-label][data-balloon-pos][data-balloon-visible]:after,[aria-label][data-balloon-pos]:not([data-balloon-nofocus]):focus:before,[aria-label][data-balloon-pos]:not([data-balloon-nofocus]):focus:after{opacity:1;pointer-events:none}[aria-label][data-balloon-pos].font-awesome:after{font-family:FontAwesome, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif}[aria-label][data-balloon-pos][data-balloon-break]:after{white-space:pre}[aria-label][data-balloon-pos][data-balloon-break][data-balloon-length]:after{white-space:pre-line;word-break:break-word}[aria-label][data-balloon-pos][data-balloon-blunt]:before,[aria-label][data-balloon-pos][data-balloon-blunt]:after{transition:none}[aria-label][data-balloon-pos][data-balloon-pos=\"up\"]:after{bottom:100%;left:50%;margin-bottom:10px;transform:translate(-50%, var(--balloon-move));transform-origin:top}[aria-label][data-balloon-pos][data-balloon-pos=\"up\"]:before{bottom:100%;left:50%;transform:translate(-50%, var(--balloon-move));transform-origin:top}[aria-label][data-balloon-pos][data-balloon-pos=\"up\"]:hover:after,[aria-label][data-balloon-pos][data-balloon-pos=\"up\"][data-balloon-visible]:after{transform:translate(-50%, 0)}[aria-label][data-balloon-pos][data-balloon-pos=\"up\"]:hover:before,[aria-label][data-balloon-pos][data-balloon-pos=\"up\"][data-balloon-visible]:before{transform:translate(-50%, 0)}[aria-label][data-balloon-pos][data-balloon-pos=\"up-left\"]:after{bottom:100%;left:0;margin-bottom:10px;transform:translate(0, var(--balloon-move));transform-origin:top}[aria-label][data-balloon-pos][data-balloon-pos=\"up-left\"]:before{bottom:100%;left:5px;transform:translate(0, var(--balloon-move));transform-origin:top}[aria-label][data-balloon-pos][data-balloon-pos=\"up-left\"]:hover:after,[aria-label][data-balloon-pos][data-balloon-pos=\"up-left\"][data-balloon-visible]:after{transform:translate(0, 0)}[aria-label][data-balloon-pos][data-balloon-pos=\"up-left\"]:hover:before,[aria-label][data-balloon-pos][data-balloon-pos=\"up-left\"][data-balloon-visible]:before{transform:translate(0, 0)}[aria-label][data-balloon-pos][data-balloon-pos=\"up-right\"]:after{bottom:100%;right:0;margin-bottom:10px;transform:translate(0, var(--balloon-move));transform-origin:top}[aria-label][data-balloon-pos][data-balloon-pos=\"up-right\"]:before{bottom:100%;right:5px;transform:translate(0, var(--balloon-move));transform-origin:top}[aria-label][data-balloon-pos][data-balloon-pos=\"up-right\"]:hover:after,[aria-label][data-balloon-pos][data-balloon-pos=\"up-right\"][data-balloon-visible]:after{transform:translate(0, 0)}[aria-label][data-balloon-pos][data-balloon-pos=\"up-right\"]:hover:before,[aria-label][data-balloon-pos][data-balloon-pos=\"up-right\"][data-balloon-visible]:before{transform:translate(0, 0)}[aria-label][data-balloon-pos][data-balloon-pos=\"down\"]:after{left:50%;margin-top:10px;top:100%;transform:translate(-50%, calc(var(--balloon-move) * -1))}[aria-label][data-balloon-pos][data-balloon-pos=\"down\"]:before{width:0;height:0;border:5px solid transparent;border-bottom-color:var(--balloon-color);left:50%;top:100%;transform:translate(-50%, calc(var(--balloon-move) * -1))}[aria-label][data-balloon-pos][data-balloon-pos=\"down\"]:hover:after,[aria-label][data-balloon-pos][data-balloon-pos=\"down\"][data-balloon-visible]:after{transform:translate(-50%, 0)}[aria-label][data-balloon-pos][data-balloon-pos=\"down\"]:hover:before,[aria-label][data-balloon-pos][data-balloon-pos=\"down\"][data-balloon-visible]:before{transform:translate(-50%, 0)}[aria-label][data-balloon-pos][data-balloon-pos=\"down-left\"]:after{left:0;margin-top:10px;top:100%;transform:translate(0, calc(var(--balloon-move) * -1))}[aria-label][data-balloon-pos][data-balloon-pos=\"down-left\"]:before{width:0;height:0;border:5px solid transparent;border-bottom-color:var(--balloon-color);left:5px;top:100%;transform:translate(0, calc(var(--balloon-move) * -1))}[aria-label][data-balloon-pos][data-balloon-pos=\"down-left\"]:hover:after,[aria-label][data-balloon-pos][data-balloon-pos=\"down-left\"][data-balloon-visible]:after{transform:translate(0, 0)}[aria-label][data-balloon-pos][data-balloon-pos=\"down-left\"]:hover:before,[aria-label][data-balloon-pos][data-balloon-pos=\"down-left\"][data-balloon-visible]:before{transform:translate(0, 0)}[aria-label][data-balloon-pos][data-balloon-pos=\"down-right\"]:after{right:0;margin-top:10px;top:100%;transform:translate(0, calc(var(--balloon-move) * -1))}[aria-label][data-balloon-pos][data-balloon-pos=\"down-right\"]:before{width:0;height:0;border:5px solid transparent;border-bottom-color:var(--balloon-color);right:5px;top:100%;transform:translate(0, calc(var(--balloon-move) * -1))}[aria-label][data-balloon-pos][data-balloon-pos=\"down-right\"]:hover:after,[aria-label][data-balloon-pos][data-balloon-pos=\"down-right\"][data-balloon-visible]:after{transform:translate(0, 0)}[aria-label][data-balloon-pos][data-balloon-pos=\"down-right\"]:hover:before,[aria-label][data-balloon-pos][data-balloon-pos=\"down-right\"][data-balloon-visible]:before{transform:translate(0, 0)}[aria-label][data-balloon-pos][data-balloon-pos=\"left\"]:after{margin-right:10px;right:100%;top:50%;transform:translate(var(--balloon-move), -50%)}[aria-label][data-balloon-pos][data-balloon-pos=\"left\"]:before{width:0;height:0;border:5px solid transparent;border-left-color:var(--balloon-color);right:100%;top:50%;transform:translate(var(--balloon-move), -50%)}[aria-label][data-balloon-pos][data-balloon-pos=\"left\"]:hover:after,[aria-label][data-balloon-pos][data-balloon-pos=\"left\"][data-balloon-visible]:after{transform:translate(0, -50%)}[aria-label][data-balloon-pos][data-balloon-pos=\"left\"]:hover:before,[aria-label][data-balloon-pos][data-balloon-pos=\"left\"][data-balloon-visible]:before{transform:translate(0, -50%)}[aria-label][data-balloon-pos][data-balloon-pos=\"right\"]:after{left:100%;margin-left:10px;top:50%;transform:translate(calc(var(--balloon-move) * -1), -50%)}[aria-label][data-balloon-pos][data-balloon-pos=\"right\"]:before{width:0;height:0;border:5px solid transparent;border-right-color:var(--balloon-color);left:100%;top:50%;transform:translate(calc(var(--balloon-move) * -1), -50%)}[aria-label][data-balloon-pos][data-balloon-pos=\"right\"]:hover:after,[aria-label][data-balloon-pos][data-balloon-pos=\"right\"][data-balloon-visible]:after{transform:translate(0, -50%)}[aria-label][data-balloon-pos][data-balloon-pos=\"right\"]:hover:before,[aria-label][data-balloon-pos][data-balloon-pos=\"right\"][data-balloon-visible]:before{transform:translate(0, -50%)}[aria-label][data-balloon-pos][data-balloon-length=\"small\"]:after{white-space:normal;width:80px}[aria-label][data-balloon-pos][data-balloon-length=\"medium\"]:after{white-space:normal;width:150px}[aria-label][data-balloon-pos][data-balloon-length=\"large\"]:after{white-space:normal;width:260px}[aria-label][data-balloon-pos][data-balloon-length=\"xlarge\"]:after{white-space:normal;width:380px}@media screen and (max-width: 768px){[aria-label][data-balloon-pos][data-balloon-length=\"xlarge\"]:after{white-space:normal;width:90vw}}[aria-label][data-balloon-pos][data-balloon-length=\"fit\"]:after{white-space:normal;width:100%}\n", ""]);
 // Exports
 module.exports = exports;
 

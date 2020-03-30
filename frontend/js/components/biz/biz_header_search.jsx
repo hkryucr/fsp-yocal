@@ -1,6 +1,7 @@
 import React from 'react';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import "balloon-css";
 
 class BizHeaderSearch extends React.Component{
     constructor(props) {
@@ -81,7 +82,7 @@ class BizHeaderSearch extends React.Component{
                             </div>
                             <div className="header-search-form-arrange-unit arrange-unit-right">
                                 <div className="header-search-form-middle-border"></div>
-                                <div className="pseudo-input-label-near">
+                                <div className="pseudo-input-label-near" aria-label="The search boundary in Yocal is limited to the city of San Francisco. You can still narrow down the search area by zooming in the map" data-balloon-pos="down">
                                     <span className="pseudo-input-wrapper">
                                         <span className="pseudo-input-field-holder-biz">
                                             <input type="text" placeholder="San Francisco, CA" disabled/>

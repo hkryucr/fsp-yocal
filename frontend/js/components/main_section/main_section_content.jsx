@@ -80,7 +80,7 @@ class MainSectionContent extends React.Component {
                                 </div>
                                 <div className="header-search-form-arrange-unit arrange-unit-right">
                                     <div className="header-search-form-middle-border"></div>
-                                    <div className="pseudo-input-label-near">
+                                    <div className="pseudo-input-label-near" aria-label="The search boundary in Yocal is limited to the city of San Francisco." data-balloon-pos="up">
                                         <span className="pseudo-input-wrapper">
                                             <span className="pseudo-input-field-holder-biz">
                                                 <input type="text" placeholder="San Francisco, CA" disabled/>

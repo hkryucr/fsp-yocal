@@ -3665,25 +3665,9 @@ var BizSearch = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.clearupData();
-      console.log(this.props.bounds);
-      var initialBounds = {
-        northEast: {
-          lat: 37.826324833459424,
-          lng: -122.38473808526992
-        },
-        southWest: {
-          lat: 37.714649307743024,
-          lng: -122.5
-        }
-      };
-
-      if (!lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(this.props.bounds)) {
-        initialBounds = this.props.bounds;
-      }
-
       this.props.fetchBusinesses({
         text: this.searchTerm,
-        bounds: initialBounds
+        bounds: this.props.bounds
       });
     }
   }, {

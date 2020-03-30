@@ -6,9 +6,23 @@ class Api::BusinessesController < ApplicationController
         @category_list = @businesses.inject([]){|sum, business| business.categories + sum }.map(&:name).uniq
         @businesses = []
         
-        bounds = params[:data][:bounds]
-        underscored_params = business_params[:text].split(" ").join("_")
+        if params[:data][:bounds] == nil
+            bounds = {
+                northEast: {
+                    lat: 37.826324833459424,
+                    lng: -122.38473808526992
+                }, 
+                southWest: {
+                    lat: 37.714649307743024,
+                    lng: -122.5
+                }
+            };
+        else
+            bounds = params[:data][:bounds]
+        end
 
+        underscored_params = business_params[:text].split(" ").join("_")
+        
         @businesses += Business
         .where('latitude < ?', bounds[:northEast][:lat].to_f)
         .where('latitude >?', bounds[:southWest][:lat].to_f)

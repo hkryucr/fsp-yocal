@@ -49,6 +49,7 @@ class MainSectionContent extends React.Component {
             text: e.nativeEvent.target.innerText,
             candidates: []
         })
+        // this.handleSubmit(e)
     }
 
     render (){

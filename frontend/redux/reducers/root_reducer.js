@@ -4,8 +4,8 @@ import sessionReducer from "reducers/session_reducer";
 import errorsReducer from "reducers/errors_reducer";
 import uiReducer from "reducers/ui_reducer";
 
-import appReducer from 'reducers/app_reducer';
 import CLEAR_UP_DATA from 'actions/clearup_actions';
+import appReducer from 'reducers/app_reducer';
 
 const rootReducer = (state, action) => {
     if (state.entities === undefined){

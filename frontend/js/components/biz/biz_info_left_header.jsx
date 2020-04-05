@@ -9,7 +9,12 @@ import 'css/components/biz/biz_info_left.css'
 class BizInfoLeftHeader extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            shared: false,
+            saved: false
+        }
         this.writeReview = this.writeReview.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     writeReview(e){
@@ -17,6 +22,25 @@ class BizInfoLeftHeader extends React.Component {
         const curBizName = this.props.businesses[this.props.curBusinessId].businessName;
         const curBizId = this.props.curBusinessId;
         this.props.history.push(`/writeareview?bizId=${curBizId}&bizName=${curBizName}`);
+    }
+
+    handleClick(type){
+        return (e)=>{
+            e.preventDefault();
+            if(type === "save"){
+                if (this.state.saved === false) {
+                    this.setState({saved: true})
+                } else {
+                    this.setState({ saved: false })
+                }
+            } else if(type === "share"){
+                if (this.state.shared === false) {
+                    this.setState({ shared: true })
+                } else {
+                    this.setState({ shared: false })
+                }
+            }
+        }
     }
 
     render() {
@@ -71,13 +95,13 @@ class BizInfoLeftHeader extends React.Component {
                                 Add Photo
                             </span>
                         </div>
-                        <div className="biz-info-button" onClick={this.writeReview}>
+                        <div className={`biz-info-button ${this.state.shared ? "biz-info-saved" : null}`} onClick={this.handleClick("share")}>
                             <FontAwesomeIcon icon={faShare} size="1x" color="#2b273c" />
                             <span>
                                 Share
                             </span>
                         </div>
-                        <div className="biz-info-button" onClick={this.writeReview}>
+                        <div className={`biz-info-button ${this.state.saved ? "biz-info-saved" : null}`} onClick={this.handleClick("save")}>
                             <FontAwesomeIcon icon={faBookmark} size="1x" color="#2b273c" />
                             <span>
                                 Save

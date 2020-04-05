@@ -93,3 +93,12 @@
     font-size: 1rem;
     margin-left: 0.5rem;
 }
+
+.biz-info-saved {
+    color: #d32323;
+    font-weight: bold;
+}
+.biz-info-saved svg, .biz-info-saved span{
+    color: #d32323;
+    font-weight: bold;
+}

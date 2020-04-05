@@ -17,7 +17,7 @@ class BizInfoRight extends React.Component {
                         <div className="biz-info-right-section-item">
                             <div className="biz-info-right-section-item-container">
                                 <FontAwesomeIcon color="#2b273c" icon={faExternalLinkAlt} size="2x"/>
-                                <a href={curBusiness.url}>Visit {curBusiness.businessName.split("_").join(" ")} through Yelp</a>
+                                <a target="_blank" href={curBusiness.url}>Visit {curBusiness.businessName.split("_").join(" ")} through Yelp</a>
                             </div>
                         </div>
                         <div className="biz-info-right-section-item">
@@ -29,13 +29,13 @@ class BizInfoRight extends React.Component {
                         <div className="biz-info-right-section-item">
                             <div className="biz-info-right-section-item-container">
                                 <FontAwesomeIcon color="#2b273c" icon={faDirections} size="2x" />
-                                <a href={mapLocation}>Get Directions</a>
+                                <a target="_blank" href={mapLocation}>Get Directions</a>
                             </div>
                         </div>
                         <div className="biz-info-right-section-item">
                             <div className="biz-info-right-section-item-container">
                                 <FontAwesomeIcon color="#2b273c" icon={faCommentDots} size="2x" />
-                                <a href="google.map.com">Message the Business</a>
+                                <a target="_blank" href={curBusiness.url}>Message the Business</a>
                             </div>
                         </div>
                     </section>

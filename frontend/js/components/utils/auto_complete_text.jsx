@@ -48,7 +48,7 @@ class AutoCompleteText extends React.Component{
             candidates: []
         })
     }
-    
+        
     render(){
         const { text } = this.state;
 

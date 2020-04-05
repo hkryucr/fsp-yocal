@@ -2548,7 +2548,12 @@ var BizInfoLeftHeader = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, BizInfoLeftHeader);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(BizInfoLeftHeader).call(this, props));
+    _this.state = {
+      shared: false,
+      saved: false
+    };
     _this.writeReview = _this.writeReview.bind(_assertThisInitialized(_this));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2561,9 +2566,40 @@ var BizInfoLeftHeader = /*#__PURE__*/function (_React$Component) {
       this.props.history.push("/writeareview?bizId=".concat(curBizId, "&bizName=").concat(curBizName));
     }
   }, {
+    key: "handleClick",
+    value: function handleClick(type) {
+      var _this2 = this;
+
+      return function (e) {
+        e.preventDefault();
+
+        if (type === "save") {
+          if (_this2.state.saved === false) {
+            _this2.setState({
+              saved: true
+            });
+          } else {
+            _this2.setState({
+              saved: false
+            });
+          }
+        } else if (type === "share") {
+          if (_this2.state.shared === false) {
+            _this2.setState({
+              shared: true
+            });
+          } else {
+            _this2.setState({
+              shared: false
+            });
+          }
+        }
+      };
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       if (lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.businesses) || lodash__WEBPACK_IMPORTED_MODULE_4___default.a.isEmpty(this.props.categories)) {
         return null;
@@ -2571,7 +2607,7 @@ var BizInfoLeftHeader = /*#__PURE__*/function (_React$Component) {
 
       var curBusiness = this.props.businesses[this.props.curBusinessId];
       var curCategories = curBusiness.categoryIds.map(function (id, idx) {
-        return _this2.props.categories[id].name;
+        return _this3.props.categories[id].name;
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-info-left-header"
@@ -2620,15 +2656,15 @@ var BizInfoLeftHeader = /*#__PURE__*/function (_React$Component) {
         size: "1x",
         color: "#2b273c"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Photo")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "biz-info-button",
-        onClick: this.writeReview
+        className: "biz-info-button ".concat(this.state.shared ? "biz-info-saved" : null),
+        onClick: this.handleClick("share")
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faShare"],
         size: "1x",
         color: "#2b273c"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Share")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "biz-info-button",
-        onClick: this.writeReview
+        className: "biz-info-button ".concat(this.state.saved ? "biz-info-saved" : null),
+        onClick: this.handleClick("save")
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faBookmark"],
         size: "1x",
@@ -2980,6 +3016,7 @@ var BizInfoRight = /*#__PURE__*/function (_React$Component) {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faExternalLinkAlt"],
         size: "2x"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        target: "_blank",
         href: curBusiness.url
       }, "Visit ", curBusiness.businessName.split("_").join(" "), " through Yelp"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-info-right-section-item"
@@ -2998,6 +3035,7 @@ var BizInfoRight = /*#__PURE__*/function (_React$Component) {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDirections"],
         size: "2x"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        target: "_blank",
         href: mapLocation
       }, "Get Directions"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-info-right-section-item"
@@ -3008,7 +3046,8 @@ var BizInfoRight = /*#__PURE__*/function (_React$Component) {
         icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faCommentDots"],
         size: "2x"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "google.map.com"
+        target: "_blank",
+        href: curBusiness.url
       }, "Message the Business")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "biz-info-right-section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4536,7 +4575,7 @@ var MainSectionContent = /*#__PURE__*/function (_React$Component) {
       this.setState({
         text: e.nativeEvent.target.innerText,
         candidates: []
-      });
+      }); // this.handleSubmit(e)
     }
   }, {
     key: "render",
@@ -7887,8 +7926,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var reducers_session_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reducers/session_reducer */ "./frontend/redux/reducers/session_reducer.js");
 /* harmony import */ var reducers_errors_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reducers/errors_reducer */ "./frontend/redux/reducers/errors_reducer.js");
 /* harmony import */ var reducers_ui_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! reducers/ui_reducer */ "./frontend/redux/reducers/ui_reducer.js");
-/* harmony import */ var reducers_app_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reducers/app_reducer */ "./frontend/redux/reducers/app_reducer.js");
-/* harmony import */ var actions_clearup_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! actions/clearup_actions */ "./frontend/redux/actions/clearup_actions.js");
+/* harmony import */ var actions_clearup_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! actions/clearup_actions */ "./frontend/redux/actions/clearup_actions.js");
+/* harmony import */ var reducers_app_reducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reducers/app_reducer */ "./frontend/redux/reducers/app_reducer.js");
 
 
 
@@ -7899,7 +7938,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var rootReducer = function rootReducer(state, action) {
   if (state.entities === undefined) {
-    return Object(reducers_app_reducer__WEBPACK_IMPORTED_MODULE_5__["default"])(state, action);
+    return Object(reducers_app_reducer__WEBPACK_IMPORTED_MODULE_6__["default"])(state, action);
   }
 
   var curUsers = state.entities.users;
@@ -7909,7 +7948,7 @@ var rootReducer = function rootReducer(state, action) {
     state.entities.users = curUsers;
   }
 
-  return Object(reducers_app_reducer__WEBPACK_IMPORTED_MODULE_5__["default"])(state, action);
+  return Object(reducers_app_reducer__WEBPACK_IMPORTED_MODULE_6__["default"])(state, action);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
@@ -22650,7 +22689,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".biz-info-left{\n    width: 66.66667%;\n    margin-right: 3rem;\n}\n\n.biz-info-left-container, .biz-info-left-header{\n    width: 100%;\n}\n.biz-info-left-header-title{\n    margin-bottom: 12px;\n}\n.biz-info-left-header-title span{\n    margin-right: 0.5rem;\n    font-size: 1rem;\n}\n\n.biz-info-left-header-title span:first-child{\n    font-size: 3rem;\n    font-weight: bolder;\n}\n\n.biz-info-left-header-rating, .review-price-categories{\n    width: 100%;\n    display: flex;\n    flex-direction: row;\n    margin-bottom: 12px;\n}\n\n.review-count{\n    font-size: 1rem;\n    color: #757280;\n    margin-left: 6px;\n    margin-right: 6px;\n}\n\n.review-price-categories{\n    display: flex;\n    align-items: center;\n    margin-bottom: 1.5rem;\n}\n\n.review-price{\n    font-size: 1rem;\n    color: #2b273c;\n    margin-right: 8px;\n}\n\n.review-categories{\n    font-size: 1rem;\n    color: #757280;\n    margin: 0 8px;\n}\n\n.biz-info-left-buttons{\n    display: flex;\n    flex-direction: row;\n}\n\n\n.biz-info-button-container{\n    display: flex;\n    flex-direction: row;\n    justify-items: center;\n    padding: 8px 8px 8px 0px;\n}\n\n\n.biz-info-button {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    border: 1px solid #757280;\n    background-color: white;\n    margin-left: 12px;\n    cursor: pointer;\n}\n\n.biz-info-button:first-child {\n    margin-left: 0px;\n    color: #757280;\n    border: 1px solid #d32323;\n    background-color: #d32323;\n}\n\n.biz-info-button span {\n    color: #2b273c;\n    font-size: 1rem;\n    margin-left: 0.5rem;\n}\n\n.biz-info-button:first-child span {\n    color: white;\n    font-size: 1rem;\n    margin-left: 0.5rem;\n}", ""]);
+exports.push([module.i, ".biz-info-left{\n    width: 66.66667%;\n    margin-right: 3rem;\n}\n\n.biz-info-left-container, .biz-info-left-header{\n    width: 100%;\n}\n.biz-info-left-header-title{\n    margin-bottom: 12px;\n}\n.biz-info-left-header-title span{\n    margin-right: 0.5rem;\n    font-size: 1rem;\n}\n\n.biz-info-left-header-title span:first-child{\n    font-size: 3rem;\n    font-weight: bolder;\n}\n\n.biz-info-left-header-rating, .review-price-categories{\n    width: 100%;\n    display: flex;\n    flex-direction: row;\n    margin-bottom: 12px;\n}\n\n.review-count{\n    font-size: 1rem;\n    color: #757280;\n    margin-left: 6px;\n    margin-right: 6px;\n}\n\n.review-price-categories{\n    display: flex;\n    align-items: center;\n    margin-bottom: 1.5rem;\n}\n\n.review-price{\n    font-size: 1rem;\n    color: #2b273c;\n    margin-right: 8px;\n}\n\n.review-categories{\n    font-size: 1rem;\n    color: #757280;\n    margin: 0 8px;\n}\n\n.biz-info-left-buttons{\n    display: flex;\n    flex-direction: row;\n}\n\n\n.biz-info-button-container{\n    display: flex;\n    flex-direction: row;\n    justify-items: center;\n    padding: 8px 8px 8px 0px;\n}\n\n\n.biz-info-button {\n    white-space: nowrap;\n    padding: 8px 16px;\n    border-radius: 4px;\n    border: 1px solid #757280;\n    background-color: white;\n    margin-left: 12px;\n    cursor: pointer;\n}\n\n.biz-info-button:first-child {\n    margin-left: 0px;\n    color: #757280;\n    border: 1px solid #d32323;\n    background-color: #d32323;\n}\n\n.biz-info-button span {\n    color: #2b273c;\n    font-size: 1rem;\n    margin-left: 0.5rem;\n}\n\n.biz-info-button:first-child span {\n    color: white;\n    font-size: 1rem;\n    margin-left: 0.5rem;\n}\n\n.biz-info-saved {\n    color: #d32323;\n    font-weight: bold;\n}\n.biz-info-saved svg, .biz-info-saved span{\n    color: #d32323;\n    font-weight: bold;\n}", ""]);
 // Exports
 module.exports = exports;
 

@@ -49,7 +49,7 @@ class BizHeaderSearch extends React.Component{
         )
     }
 
-    candidateSelected(e) {        
+    candidateSelected(e) {
         this.setState({
             text: e.nativeEvent.target.innerText,
             candidates: []

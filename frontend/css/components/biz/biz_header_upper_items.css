@@ -146,6 +146,29 @@
     margin-left: 2rem;
 }
 
+.header-user-items-container .profile-item:last-child{
+    margin-right: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 4px;
+    border: 2px solid black;
+    padding: 7px 24px 8px;
+}
+
+.header-user-items-container .profile-item:last-child:hover{
+    margin-right: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    background: lightgray;
+    color: black;
+    box-shadow: none;
+    border-radius: 4px;
+    border: 2px solid lightgray;
+    padding: 7px 24px 8px;
+}
+
 .header-user-item-container{
     padding: 8px 8px;
     cursor: pointer;

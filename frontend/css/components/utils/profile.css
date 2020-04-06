@@ -35,32 +35,6 @@
     padding: 7px 24px 8px;
 }
 
-
-.header-user-item-container .profile-item:last-child{
-    margin-right: 30px;
-    font-weight: 500;
-    cursor: pointer;
-    background: transparent;
-    box-shadow: none;
-    border-radius: 4px;
-    border: 2px solid black;
-    padding: 7px 24px 8px;
-}
-
-.header-user-item-container .profile-item:last-child:hover{
-    margin-right: 30px;
-    font-weight: 500;
-    cursor: pointer;
-    background: white;
-    color: lightgray;
-    box-shadow: none;
-    border-radius: 4px;
-    border: 2px solid black;
-    padding: 7px 24px 8px;
-}
-
-
-
 .profile-greeting{
     padding: 10px;
     margin-right: 30px;

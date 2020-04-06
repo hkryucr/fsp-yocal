@@ -9,17 +9,12 @@ const mapStateToProps = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.id],
     curBusinessId: ownProps.match.params.id,
     businesses: state.entities.businesses,
-    // hours: state.entities.hours,
-    // entities: state.entities,
-    // categories: state.entities.categories,
-    // users: state.entities.users,
     reviews: state.entities.reviews,
     reviewers: state.entities.reviewers
 })
 
 const mapDispatchToProps = (dispatch) => ({
     fetchBusiness: (id) => dispatch(fetchBusiness(id)),
-    // clearupData: () => dispatch(clearupData()),
     logout: () => dispatch(logout()),
     createReview: (review) => dispatch(createReview(review)),
     clearupData: ()=> dispatch(clearupData())

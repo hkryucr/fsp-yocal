@@ -8,8 +8,7 @@ const categoryReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_CATEGORIES:
             newState = _.merge(newState, action.categories);
-            return newState
-            // return action.categories;
+            return newState;
 
         case RECEIVE_CATEGORY:
             newState[action.category.id] = action.category;

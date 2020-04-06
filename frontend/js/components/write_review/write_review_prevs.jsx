@@ -21,10 +21,8 @@ class WriteReviewPrevs extends React.Component {
             <>
                 <BizReviewUserinfo reviewer={props.reviewers[props.review.authorId]} />
                 <BizReviewContent
-                    // clearupData={this.props.clearupData}
                     currentUser={props.currentUser}
                     review={props.review}
-                    // deleteReview={this.props.deleteReview}
                 />
             </>
         )

@@ -7,7 +7,7 @@ import _ from 'lodash';
 class Biz extends React.Component{
     constructor(props){
         super(props);
-        this.goBack = this.goBack.bind(this); // i think you are missing this
+        this.goBack = this.goBack.bind(this); 
     }
 
     goBack() {

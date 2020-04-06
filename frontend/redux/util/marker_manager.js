@@ -1,7 +1,7 @@
 export default class MarkerManager {
     constructor(map) {
         this.map = map;
-        this.markers = {};
+        this.markers = [];
     }
 
     updateMarkers(businesses, history) {
@@ -12,10 +12,10 @@ export default class MarkerManager {
         }
 
         for (let i = 0; i < this.markers.length; i++) {
-            if (businessObj[this.markers[i]] === undefined) {
-                this.removeMarker(this.markers[i]);
-            }
+          this.markers[i].setMap(null);
         }
+
+        this.markers = []
 
         for (let i = 0; i < businesses.length; i++) {
             const { id, businessName, latitude, longitude, photoUrls, reviewCount, rating, categories } = businesses[i];
@@ -60,14 +60,8 @@ export default class MarkerManager {
                     }
                 })
 
-                this.markers[id] = newMarker;
+                this.markers.push(newMarker);
             }
         }
     }
-
-    // removeMarker(marker) {
-    //     this.markers[marker.id].setMap(null);
-    //     delete this.markers[marker.id];
-    // }
-
 }

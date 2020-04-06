@@ -2,6 +2,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import 'css/components/biz/biz_header_upper_items.css';
+import "babel-polyfill";
 
 class MainSectionContent extends React.Component {
     constructor(props) {
@@ -44,12 +45,12 @@ class MainSectionContent extends React.Component {
         )
     }
 
-    candidateSelected(e) {
-        this.setState({
+    async candidateSelected(e) {
+        await this.setState({
             text: e.nativeEvent.target.innerText,
             candidates: []
         })
-        // this.handleSubmit(e)
+        this.handleSubmit(e);
     }
 
     render (){

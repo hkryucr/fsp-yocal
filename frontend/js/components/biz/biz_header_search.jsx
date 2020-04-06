@@ -2,6 +2,7 @@ import React from 'react';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "balloon-css";
+import 'babel-polyfill';
 
 class BizHeaderSearch extends React.Component{
     constructor(props) {
@@ -49,11 +50,12 @@ class BizHeaderSearch extends React.Component{
         )
     }
 
-    candidateSelected(e) {
-        this.setState({
+    async candidateSelected(e) {
+        await this.setState({
             text: e.nativeEvent.target.innerText,
             candidates: []
         })
+        this.handleSubmit(e);
     }
 
     render(){

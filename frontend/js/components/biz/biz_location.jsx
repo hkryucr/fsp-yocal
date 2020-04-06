@@ -8,13 +8,11 @@ class BizLocation extends React.Component {
     }
     
     componentDidMount() {
-        // set the map to show SF
         const mapOptions = {
-            center: { lat: parseFloat(this.props.curBusiness.latitude), lng: parseFloat(this.props.curBusiness.longitude) }, // this is SF
+            center: { lat: parseFloat(this.props.curBusiness.latitude), lng: parseFloat(this.props.curBusiness.longitude) },
             zoom: 13
         };
         
-        // wrap this.mapNode in a Google Map
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         const newMarker = new google.maps.Marker({
             id: 0,

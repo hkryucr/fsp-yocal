@@ -1,5 +1,4 @@
 import React from 'react';
-// import RegisterSignupHeader from 'js/components/user_auth/register_signup_header'
 import 'css/components/register_signup_header.css';
 import 'css/core/ui_font.css';
 

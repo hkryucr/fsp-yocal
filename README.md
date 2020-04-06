@@ -10,6 +10,8 @@ Yocal is a single-page web clone application inspired by Yelp to help you find r
 <img src="https://portfolio-henry.s3-us-west-1.amazonaws.com/Yocal_Searching.gif" width="40" height="40" />
 
 <img src="https://portfolio-henry.s3-us-west-1.amazonaws.com/Yocal_Searching.gif" >
+![Alt Text](https://portfolio-henry.s3-us-west-1.amazonaws.com/Yocal_Searching.gif)
+
 
 ### Key Features
 User Authentication

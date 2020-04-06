@@ -7,8 +7,8 @@ Check out the live app.
 Yocal is a single-page web clone application inspired by Yelp to help you find restaurants near you. Yocal is built using Ruby on Rails with a PostgreSQL on the back-end, and React.js, Redux on the front-end. 
 
 ### Screenshot
-![](https://portfolio-henry.s3-us-west-1.amazonaws.com/Yocal_Overall_App.gif)
-<img src="https://portfolio-henry.s3-us-west-1.amazonaws.com/Yocal_Overall_App.gif" alt="My cool logo"/>
+![](https://portfolio-henry.s3-us-west-1.amazonaws.com/Yocal.gif)
+<img src="https://portfolio-henry.s3-us-west-1.amazonaws.com/Yocal.gif" alt="My cool logo"/>
 
 ### Key Features
 User Authentication

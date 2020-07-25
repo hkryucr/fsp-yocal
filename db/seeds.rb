@@ -77,6 +77,10 @@ user_ids = User.all.map(&:id)
 review_data.each_with_index do |review, idx|   
 
   ran_author_id = user_ids.sample
+  if(!Business.find_by(business_name: review["business_name"]))
+    p review["business_name"]
+    p "-------------------------"
+  end
   business_id = Business.find_by(business_name: review["business_name"]).id
 
   cur_review = {
@@ -99,7 +103,6 @@ end
   # ran_selected_photos.each_with_index do |photo_idx, idx|
   #   review_made.review_photo.attach(io: File.open(Rails.root.join('lib', 'seeds', 'additional_photos', "photo_#{photo_idx}.jpg")), filename: ("review_photo_#{review_made.id}_#{idx}.jpg"))
   # end
-
 
 # saved_business database
 all_users = User.all

@@ -8,6 +8,7 @@ import _ from 'lodash';
 class BizSearch extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {"loaded": false}
         this.searchTerm = this.props.location.search.split('?desc=')[1]
         if (this.searchTerm.length > 0 && this.searchTerm.includes("%20")) {
             this.searchTerm = this.searchTerm.split("%20").join(" ");
@@ -19,7 +20,7 @@ class BizSearch extends React.Component {
         this.props.fetchBusinesses({
             text: this.searchTerm,
             bounds: this.props.bounds
-        });
+        }).then(() => { this.setState({"loaded": true})});
     }
 
     boundsChanged(prevProps){
@@ -60,62 +61,74 @@ class BizSearch extends React.Component {
     }
 
     render() {
-        if (_.isEmpty(this.props.businessList) || _.isEmpty(this.props.categoryList)) {
-            return (
+      if (_.isEmpty(this.props.businessList) || _.isEmpty(this.props.categoryList)) {
+          return (
+              <div style={{ display: "flex", margin: "100px 0", justifyContent: "center", alignItems: "center", height: "60%" }}>
+                  <img src="assets/Preloader_2.gif" style={{ textAlign: "center", height: "100px", width: "100px", objectFit: "cover" }} />
+              </div>
+          );
+      }
+
+      let bizSearchResultsDiv;
+      if (!this.props.businesses && this.state.loaded === false){
+        bizSearchResultsDiv= (
+          <div className="biz-search-results">
+            <div className="biz-search-results-conatiner">
+              <div className="biz-search-header">
                 <div style={{ display: "flex", margin: "100px 0", justifyContent: "center", alignItems: "center", height: "60%" }}>
-                    <img src="assets/Preloader_2.gif" style={{ textAlign: "center", height: "100px", width: "100px", objectFit: "cover" }} />
-                </div>
-            );
-        }
-
-        let bizSearchResultsDiv;
-        if (_.isEmpty(this.props.businesses)){
-            bizSearchResultsDiv = (
-                <div className="biz-search-results">
-                    <div className="biz-search-results-conatiner">
-                        <div className="biz-search-header">
-                            <br/>
-                            <div className="biz-search-header-title">
-                                No Results for "{this.searchTerm}" San Francisco, CA
-                            </div>
-                            <div className="biz-search-header-wrong-search">
-                                <div>Suggestions for improving the results:</div>
-                                <div>Check the spelling or try alternate spellings.</div>
-                                <div>Try a more general search. e.g. "pizza" instead of "pepperoni"</div>
-                                <div>The basic searching algorithm for this app is based on business name and category names. Please search again with an appropriate word</div>                  
-                            </div>                        
-                        </div>
-                    </div>
-                </div>
-            )
-        } else {
-            bizSearchResultsDiv = (<BizSearchResults searchTerm={this.searchTerm} businesses={this.props.businesses} />);
-        }
-
-        return (
-          <div className="biz-search">
-            <div className="biz-search-container">
-              <BizHeader
-                businessList={this.props.businessList}
-                categoryList={this.props.categoryList}
-                currentUser={this.props.currentUser}
-                logout={this.props.logout}
-                fetchBusinesses={this.props.fetchBusinesses}
-                history={this.props.history}
-              />
-              <div className="biz-search-body">
-                <div className="biz-search-body-container">
-                  {bizSearchResultsDiv}
-                  <BizSearchMap
-                    businesses={this.props.businesses}
-                    history={this.props.history}
-                    updateBounds={this.props.updateBounds}
-                  />
+                  <img src="assets/Preloader_3.gif" style={{ textAlign: "center", height: "100px", width: "100px", objectFit: "cover" }} />
                 </div>
               </div>
             </div>
           </div>
-        );
+        )
+      } else if (_.isEmpty(this.props.businesses)){
+        bizSearchResultsDiv = (
+            <div className="biz-search-results">
+                <div className="biz-search-results-conatiner">
+                    <div className="biz-search-header">
+                        <br/>
+                        <div className="biz-search-header-title">
+                            No Results for "{this.searchTerm}" San Francisco, CA
+                        </div>
+                        <div className="biz-search-header-wrong-search">
+                            <div>Suggestions for improving the results:</div>
+                            <div>Check the spelling or try alternate spellings.</div>
+                            <div>Try a more general search. e.g. "pizza" instead of "pepperoni"</div>
+                            <div>The basic searching algorithm for this app is based on business name and category names. Please search again with an appropriate word</div>                  
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+          )
+      } else {
+          bizSearchResultsDiv = (<BizSearchResults searchTerm={this.searchTerm} businesses={this.props.businesses} />);
+      }
+
+      return (
+        <div className="biz-search">
+          <div className="biz-search-container">
+            <BizHeader
+              businessList={this.props.businessList}
+              categoryList={this.props.categoryList}
+              currentUser={this.props.currentUser}
+              logout={this.props.logout}
+              fetchBusinesses={this.props.fetchBusinesses}
+              history={this.props.history}
+            />
+            <div className="biz-search-body">
+              <div className="biz-search-body-container">
+                {bizSearchResultsDiv}
+                <BizSearchMap
+                  businesses={this.props.businesses}
+                  history={this.props.history}
+                  updateBounds={this.props.updateBounds}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
     }
 }
 

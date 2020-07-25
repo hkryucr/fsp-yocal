@@ -14,7 +14,7 @@ class MainSectionHeader extends React.Component{
         return (
             <div className="main-section-container-header">
                 <div className="main-section-container-header-left">
-                    <div className="main-section-container-header-item medium">Write a Review</div>
+                    <div className="main-section-container-header-item medium" onClick={this.modalClick}>Write a Review</div>
                     <div className="main-section-container-header-item medium" onClick={this.modalClick}>Events</div>
                     <div className="main-section-container-header-item medium" onClick={this.modalClick}>Talk</div>
                 </div>

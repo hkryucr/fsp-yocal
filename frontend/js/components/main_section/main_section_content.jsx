@@ -1,5 +1,6 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import 'css/components/biz/biz_header_upper_items.css';
 import "babel-polyfill";
@@ -57,9 +58,9 @@ class MainSectionContent extends React.Component {
         const { text } = this.state;
         return (
             <div className="main-section-container-content">
-                <div className="logo">
+                <Link to="/" className="logo">
                     <img src="/assets/yelp_logo.png" className="logo-image" />
-                </div>
+                </Link>
                 <div className="header-search">
                     <div className="biz-header-container-content">
                         <form onSubmit={this.handleSubmit} className="header-search-form">

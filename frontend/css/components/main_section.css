@@ -27,6 +27,11 @@
 .main-section-container-header-item{
     margin-right: 2rem;
     cursor: pointer;
+    box-sizing: border-box;
+    border-bottom: 1px solid transparent;
+}
+.main-section-container-header-item:hover{
+    border-bottom: 1px solid white;
 }
 
 .main-section-container-content{
@@ -119,6 +124,9 @@
 
 .categories-tag-span{
     margin-left: 7px;
+}
+.categories-tag-span:hover{
+    text-decoration: underline;
 }
 
 .main-photo-info{

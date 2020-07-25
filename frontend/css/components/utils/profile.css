@@ -11,7 +11,13 @@
     cursor: pointer;
     font-weight: 500;
 }
-
+.profile-item:first-child{
+    box-sizing: border-box;
+    border-bottom: 1px solid transparent;
+}
+.profile-item:first-child:hover{
+    border-bottom: 1px solid white;
+}
 .profile-item:last-child{
     margin-right: 30px;
     font-weight: 500;

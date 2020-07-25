@@ -80,6 +80,20 @@ class ReviewAwait extends React.Component{
                                 imgUrl={curBusinesses[curBusinessesKeys[7]].photoUrls[0].photoUrl} 
                                 title={curBusinesses[curBusinessesKeys[7]].businessName} 
                                 content={curBusinesses[curBusinessesKeys[7]].address1} />
+                            </ul>
+                            <ul className="review-await-row">
+                                <ReviewAwaitItem
+                                    rating={curBusinesses[curBusinessesKeys[8]].rating}
+                                    itemId={curBusinesses[curBusinessesKeys[8]].id}
+                                    imgUrl={curBusinesses[curBusinessesKeys[8]].photoUrls[0].photoUrl}
+                                    title={curBusinesses[curBusinessesKeys[8]].businessName}
+                                    content={curBusinesses[curBusinessesKeys[8]].address1} />
+                                <ReviewAwaitItem
+                                    rating={curBusinesses[curBusinessesKeys[9]].rating}
+                                    itemId={curBusinesses[curBusinessesKeys[9]].id}
+                                    imgUrl={curBusinesses[curBusinessesKeys[9]].photoUrls[0].photoUrl}
+                                    title={curBusinesses[curBusinessesKeys[9]].businessName}
+                                    content={curBusinesses[curBusinessesKeys[9]].address1} />
                             </ul>                            
                         </div>
                     </div>

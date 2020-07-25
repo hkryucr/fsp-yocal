@@ -17,3 +17,10 @@ export const fetchBusiness = (id) => {
     })
 }
 
+export const fetchMainLoading = () => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/main_loading`,
+        error: (err) => console.log(err)
+    })
+}

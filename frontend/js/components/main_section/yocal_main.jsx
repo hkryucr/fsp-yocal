@@ -7,7 +7,7 @@ import 'css/components/yocal_body.css';
 class YocalMain extends React.Component{
     componentDidMount(){
         this.props.clearupData();
-        this.props.fetchBusinesses({ text: "" });
+        this.props.fetchMainLoading();
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {

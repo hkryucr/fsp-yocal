@@ -183,3 +183,14 @@
     font-size: 0.875rem;
     white-space: nowrap;
 }
+
+.header-user-items-container > .profile > .profile-item:first-child {
+    border-radius: 4px;
+    padding: 6px 10px;
+}
+
+.header-user-items-container > .profile > .profile-item:first-child:hover{
+    background-color: #eeeeef;
+    border-radius: 4px;
+    padding: 6px 10px;
+}

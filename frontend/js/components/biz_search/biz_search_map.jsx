@@ -48,9 +48,7 @@ class BizSearchMap extends React.Component {
     render(){
         return (
             <div className="biz-search-map">
-                <div className="biz-search-map-container" id="map-container" ref={map => this.mapNode = map}>
-                    
-                </div>
+                <div className="biz-search-map-container" id="map-container" ref={map => this.mapNode = map}></div>
             </div>
         )
     }

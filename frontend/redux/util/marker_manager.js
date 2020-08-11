@@ -54,9 +54,7 @@ export default class MarkerManager {
                 })
 
                 google.maps.event.addListener(newMarker, 'click', function (e) {
-                    if(history){
-                        return history.push(`/biz/${id}`)
-                    }
+                    if(history) return history.push(`/biz/${id}`)
                 })
 
                 this.markers.push(newMarker);
